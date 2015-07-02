@@ -1,0 +1,173 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class GrappleHook : BaseBullet {
+
+    private SpringJoint2D dummySpring;
+    private DistanceJoint2D hook;
+
+    private SpringJoint2D attachedSpring;
+    private DistanceJoint2D attachedRope;
+
+    public float attachTime = 5.0f;
+    public float attachDistance = 0.0f;
+    public bool isAttached = false;
+
+    public float attachFrequency = 0.0f;
+
+	// Use this for initialization
+	public override void Start () {
+        base.Start();
+        dummySpring = GetComponent<SpringJoint2D>();
+        hook = GetComponent<DistanceJoint2D>();
+	}
+	
+	// Update is called once per frame
+	public override void Update () {
+        base.Update();
+
+        if (isAttached)
+        {
+            UpdateDistance();
+        }
+	}
+
+    public override void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (!isAttached)
+        {
+            //add distance script to hit object, connecting it to player
+
+            //add spring script to hit object, connecting it to player
+
+            isAttached = true;
+
+            if (attachTime > 0)
+            {
+                die = Time.time + attachTime;
+            }
+            else
+            {
+                die = -1;
+            }
+
+            gameObject.transform.parent = coll.gameObject.transform;
+                //attachedSpring = coll.gameObject.AddComponent<SpringJoint2D>();
+
+                //attachedSpring.anchor = gameObject.transform.localPosition;
+
+                //attachedSpring.connectedBody = shooter;
+
+            bool makeKinematic = false;
+            if (coll.gameObject.GetComponent<Rigidbody2D>() == null)
+            {
+                makeKinematic = true;
+            }
+
+            attachedRope = coll.gameObject.AddComponent<DistanceJoint2D>();
+
+            if (makeKinematic)
+            {
+                coll.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            }
+
+            attachedRope.anchor = gameObject.transform.localPosition;
+
+            attachedRope.connectedBody = shooter;
+            attachedRope.maxDistanceOnly = true;
+            attachedRope.enableCollision = true;
+
+            //hook.connectedBody = coll.gameObject.GetComponent<Rigidbody2D>();
+            //hook.connectedAnchor = gameObject.transform.localPosition;
+
+            //Destroy(GetComponent<Rigidbody2D>());
+            
+            //GetComponent<Rigidbody2D>().isKinematic = true; //lock this rigidbody in place
+
+                //attachFrequency = dummySpring.frequency;
+                //attachedSpring.enableCollision = true;
+
+                //attachDistance = UpdateDistance();
+
+                //attachedSpring.enabled = true;
+            //hook.enabled = true;
+            float distance = Vector3.Distance(shooter.transform.position, gameObject.transform.position);
+            attachedRope.distance = distance;
+
+            attachedRope.enabled = true;
+
+            Destroy(dummySpring);
+            Destroy(hook);
+            Destroy(GetComponent<Rigidbody2D>());
+
+            //below code is obsolete - used to parent this object to the target
+            //gameObject.transform.parent = coll.gameObject.transform;
+            //isAttached = true;
+
+            //if (attachTime > 0)
+            //{
+            //    die = Time.time + attachTime;
+            //}
+            //else
+            //{
+            //    die = -1;
+            //}
+
+            //spring.connectedBody = shooter;
+
+            //hook.connectedBody = coll.gameObject.GetComponent<Rigidbody2D>();
+            //hook.connectedAnchor = gameObject.transform.localPosition;
+            
+
+            ////GetComponent<Rigidbody2D>().isKinematic = true; //lock the rigidbody in place
+            
+            //attachFrequency = spring.frequency;
+
+            //attachDistance = UpdateDistance();
+
+            //spring.enabled = true;
+            //hook.enabled = true;
+
+        }
+        //SpringJoint2D otherSpring = coll.gameObject.AddComponent<SpringJoint2D>();
+
+        //otherSpring
+
+
+    }
+
+    public void FixedUpdate()
+    {
+        if (isAttached)
+        {
+            //GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+    }
+
+    void OnDestroy()
+    {
+        Destroy(attachedSpring);
+        Destroy(attachedRope);
+
+    }
+
+    public float UpdateDistance()
+    {
+        return 0.0f;
+
+        float distance = Vector3.Distance(shooter.transform.position, gameObject.transform.position);
+
+        if (distance > attachDistance)
+        {
+            attachedSpring.distance = attachDistance;
+            attachedSpring.frequency = attachFrequency;
+        }
+        else
+        {
+            attachedSpring.distance = distance;
+            attachedSpring.frequency = 0.0001f;
+        }
+
+        return distance;
+    }
+}

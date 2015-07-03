@@ -40,7 +40,7 @@ public class MachineGun : BaseWeapon {
             FireBullet();
             //}
 
-            shooter.AddRelativeForce(shooterForce);     
+            shooter.AddRelativeForce(shooterForce);
             lastShot = Time.fixedTime;
             firing = false;
         }
@@ -49,6 +49,8 @@ public class MachineGun : BaseWeapon {
     private void FireBullet()
     {
         GameObject bullet = (GameObject) Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+        bullet.transform.parent = Globals.Instance.DynamicObjects.transform;
 
         Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
 

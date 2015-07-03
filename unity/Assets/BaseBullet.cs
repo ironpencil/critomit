@@ -28,6 +28,13 @@ public class BaseBullet : MonoBehaviour {
 
     public virtual void OnCollisionEnter2D(Collision2D coll)
     {
+        TakesDamage enemy = coll.gameObject.GetComponent<TakesDamage>();
+
+        if (enemy != null)
+        {
+            Destroy(enemy.gameObject);
+        }
+
         Destroy(this.gameObject);
     }
 

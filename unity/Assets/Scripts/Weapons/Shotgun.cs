@@ -56,6 +56,8 @@ public class Shotgun : BaseWeapon
     {
         GameObject bullet = (GameObject)Instantiate(bulletPrefab, transform.position, transform.rotation);
 
+        bullet.transform.parent = Globals.Instance.DynamicObjects.transform;
+
         Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
 
         //bulletRB.velocity = transform.forward * bulletSpeed;

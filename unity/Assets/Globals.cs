@@ -6,6 +6,8 @@ public class Globals : Singleton<Globals> {
     public GameObject Player;
     public GameObject DynamicObjects;
 
+    public bool SpawnEnemies = true;
+
 	// Use this for initialization
 	void Start () {
         base.Start();
@@ -14,6 +16,10 @@ public class Globals : Singleton<Globals> {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SpawnEnemies = !SpawnEnemies;
+        }
 	}
 }

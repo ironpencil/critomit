@@ -13,6 +13,8 @@ public class PlayerInput : MonoBehaviour {
 
     private Rigidbody2D rb;
 
+    public GravityWell shield;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -41,6 +43,14 @@ public class PlayerInput : MonoBehaviour {
                 {
                     weapon.Shoot();
                 }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (shield != null)
+            {
+                shield.GravityActive = !shield.GravityActive;
             }
         }
 

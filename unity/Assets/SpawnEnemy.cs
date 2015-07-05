@@ -16,7 +16,7 @@ public class SpawnEnemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (enemyPrefab != null)
+        if (enemyPrefab != null && Globals.Instance.SpawnEnemies)
         {
             if (Time.time >= lastSpawn + spawnTimer)
             {

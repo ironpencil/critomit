@@ -7,8 +7,21 @@ public class GravityWell : MonoBehaviour {
 
     public float slowFactor = 0.95f;
 
+    [SerializeField]
+    private bool gravityActive = true;
+    public bool GravityActive
+    {
+        get { return gravityActive; }
+        set
+        {
+            gravityActive = value;
+            gameObject.SetActive(gravityActive);
+        }
+    }
+
 	// Use this for initialization
 	void Start () {
+        GravityActive = gravityActive;
 	
 	}
 	
@@ -19,6 +32,8 @@ public class GravityWell : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
+        if (!GravityActive) { return; }
+
         Rigidbody2D otherRB = other.attachedRigidbody;
 
         if (otherRB != null)

@@ -8,6 +8,8 @@ public class Globals : Singleton<Globals> {
 
     public bool SpawnEnemies = true;
 
+    public const int THE_VOID_LAYER = 31;
+
 	// Use this for initialization
 	void Start () {
         base.Start();

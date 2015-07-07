@@ -7,6 +7,9 @@ public class PlayerInput : MonoBehaviour {
     public List<BaseWeapon> primaryWeapons;
     public List<BaseWeapon> secondaryWeapons;
 
+    public int primaryWeaponIndex = 0;
+    public int secondaryWeaponIndex = 0;
+
     public Vector2 currentVelocity = Vector2.zero;
 
     public Vector2 softMaxVelocity = new Vector2(15, 15);
@@ -25,25 +28,34 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetButton("Fire1"))
         {
-            foreach (BaseWeapon weapon in primaryWeapons)
-            {
-                if (weapon != null)
-                {
-                    weapon.Shoot();
-                }
-            }            
+            primaryWeapons[primaryWeaponIndex].Shoot();         
         }
 
         if (Input.GetButton("Fire2"))
         {
-            //Debug.Log("Fire2");
-            foreach (BaseWeapon weapon in secondaryWeapons)
+            secondaryWeapons[secondaryWeaponIndex].Shoot();
+        }
+
+        if (Input.GetKeyDown("1"))
+        {
+            primaryWeaponIndex++;
+            if (primaryWeaponIndex >= primaryWeapons.Count)
             {
-                if (weapon != null)
-                {
-                    weapon.Shoot();
-                }
+                primaryWeaponIndex = 0;
             }
+            primaryWeapons[primaryWeaponIndex].SelectWeapon();
+
+        }
+
+        if (Input.GetKeyDown("2"))
+        {
+            secondaryWeaponIndex++;
+            if (secondaryWeaponIndex >= secondaryWeapons.Count)
+            {
+                secondaryWeaponIndex = 0;
+            }
+            secondaryWeapons[secondaryWeaponIndex].SelectWeapon();
+
         }
 
         if (Input.GetKeyDown(KeyCode.S))

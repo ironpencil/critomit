@@ -15,6 +15,8 @@ public class GrappleHook : BaseBullet {
 
     public float attachFrequency = 0.0f;
 
+    public bool useSpringJoint = false;
+
 	// Use this for initialization
 	public override void Start () {
         base.Start();
@@ -28,7 +30,7 @@ public class GrappleHook : BaseBullet {
 
         if (isAttached)
         {
-            UpdateDistance();
+            //UpdateDistance();
         }
 	}
 
@@ -36,6 +38,7 @@ public class GrappleHook : BaseBullet {
     {
         if (!isAttached)
         {
+            keepVelocityUpdated = false;
             //add distance script to hit object, connecting it to player
 
             //add spring script to hit object, connecting it to player
@@ -64,18 +67,44 @@ public class GrappleHook : BaseBullet {
                 makeKinematic = true;
             }
 
-            attachedRope = coll.gameObject.AddComponent<DistanceJoint2D>();
+            if (useSpringJoint)
+            {
+                attachedSpring = coll.gameObject.AddComponent<SpringJoint2D>();
+                attachedSpring.enabled = false;
+            }
+            else
+            {
+                attachedRope = coll.gameObject.AddComponent<DistanceJoint2D>();
+            }
+            
+            
 
             if (makeKinematic)
             {
                 coll.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             }
 
-            attachedRope.anchor = gameObject.transform.localPosition;
+            if (useSpringJoint)
+            {
+                attachedSpring.anchor = gameObject.transform.localPosition;
+                attachedSpring.connectedBody = shooter;
+                attachedSpring.frequency = dummySpring.frequency;
+                attachedSpring.dampingRatio = dummySpring.dampingRatio;
+                //attachedSpring.connectedAnchor = dummySpring.connectedAnchor;
 
-            attachedRope.connectedBody = shooter;
-            attachedRope.maxDistanceOnly = true;
-            attachedRope.enableCollision = true;
+                attachedSpring.enableCollision = true;
+            }
+            else
+            {
+                attachedRope.anchor = gameObject.transform.localPosition;
+                attachedRope.connectedBody = shooter;
+                attachedRope.maxDistanceOnly = true;
+                attachedRope.enableCollision = true;
+            }
+
+            
+
+            
 
             //hook.connectedBody = coll.gameObject.GetComponent<Rigidbody2D>();
             //hook.connectedAnchor = gameObject.transform.localPosition;
@@ -91,14 +120,26 @@ public class GrappleHook : BaseBullet {
 
                 //attachedSpring.enabled = true;
             //hook.enabled = true;
-            float distance = Vector3.Distance(shooter.transform.position, gameObject.transform.position);
-            attachedRope.distance = distance;
+            
+            float distance = Vector2.Distance(shooter.transform.position, gameObject.transform.position);
 
-            attachedRope.enabled = true;
+            if (useSpringJoint)
+            {
+                attachedSpring.distance = distance;
+                attachDistance = distance;
+                //UpdateDistance();
+            }
+            else
+            {
+
+                attachedRope.distance = distance;
+
+                attachedRope.enabled = true;
+            }
 
             Destroy(dummySpring);
             Destroy(hook);
-            Destroy(GetComponent<Rigidbody2D>());
+            Destroy(GetComponent<Rigidbody2D>(), 0.001f);
 
             //below code is obsolete - used to parent this object to the target
             //gameObject.transform.parent = coll.gameObject.transform;
@@ -136,11 +177,13 @@ public class GrappleHook : BaseBullet {
 
     }
 
-    public void FixedUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
+
         if (isAttached)
         {
-            //GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            UpdateDistance();
         }
     }
 
@@ -153,21 +196,25 @@ public class GrappleHook : BaseBullet {
 
     public float UpdateDistance()
     {
-        return 0.0f;
+        if (!useSpringJoint) { return 0.0f; }
 
-        float distance = Vector3.Distance(shooter.transform.position, gameObject.transform.position);
+        float currentDistance = Vector3.Distance(shooter.transform.position, gameObject.transform.position);
 
-        if (distance > attachDistance)
-        {
-            attachedSpring.distance = attachDistance;
-            attachedSpring.frequency = attachFrequency;
+        if (currentDistance > attachDistance)
+        {            
+            //attachedSpring.distance = attachDistance;
+            attachedSpring.enabled = true;
+            //attachedSpring.frequency = attachFrequency;
         }
         else
         {
-            attachedSpring.distance = distance;
-            attachedSpring.frequency = 0.0001f;
+            attachedSpring.enabled = false; 
+            //attachedSpring.distance = currentDistance;
+            
+            //attachedSpring.dampingRatio
+            //attachedSpring.frequency = 0.0001f;
         }
 
-        return distance;
+        return currentDistance;
     }
 }

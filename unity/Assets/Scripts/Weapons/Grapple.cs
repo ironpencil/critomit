@@ -24,7 +24,7 @@ public class Grapple : Gun
 
                         for (int i = 0; i < bulletsPerShot; i++)
                         {
-                            hook = (GrappleHook) Fire();
+                            hook = (GrappleHook) Fire();                            
                         }
 
                         shooter.AddRelativeForce(shooterForce);

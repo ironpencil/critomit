@@ -18,6 +18,7 @@ public class BaseBullet : MonoBehaviour {
     protected Vector2 currentVelocity = Vector2.zero;
 
     protected bool initialized = false;
+    protected bool keepVelocityUpdated = true;
 
     //private StringBuilder lifeStory = new StringBuilder();
 
@@ -73,8 +74,11 @@ public class BaseBullet : MonoBehaviour {
         }
         else
         {
-            previousVelocity = currentVelocity;
-            currentVelocity = thisRB.velocity;
+            if (keepVelocityUpdated)
+            {
+                previousVelocity = currentVelocity;
+                currentVelocity = thisRB.velocity;
+            }
         }
     }
 

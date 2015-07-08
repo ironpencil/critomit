@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GrappleHook : BaseBullet {
+public class GrappleHook : RemoteProjectile {
 
     private SpringJoint2D dummySpring;
     private DistanceJoint2D hook;
@@ -9,9 +9,13 @@ public class GrappleHook : BaseBullet {
     private SpringJoint2D attachedSpring;
     private DistanceJoint2D attachedRope;
 
+    public LineRenderer cable;
+
     public float attachTime = 5.0f;
     public float attachDistance = 0.0f;
     public bool isAttached = false;
+
+    public float maxRangeSlack = 0.1f;
 
     public float attachFrequency = 0.0f;
 
@@ -32,9 +36,10 @@ public class GrappleHook : BaseBullet {
         {
             //UpdateDistance();
         }
+        UpdateCable();
 	}
 
-    public override void OnCollisionEnter2D(Collision2D coll)
+    protected override void CollideWithObject(Collision2D coll)
     {
         if (!isAttached)
         {
@@ -137,6 +142,8 @@ public class GrappleHook : BaseBullet {
                 attachedRope.enabled = true;
             }
 
+            UpdateCable();
+
             Destroy(dummySpring);
             Destroy(hook);
             Destroy(GetComponent<Rigidbody2D>(), 0.001f);
@@ -184,7 +191,15 @@ public class GrappleHook : BaseBullet {
         if (isAttached)
         {
             UpdateDistance();
+            
         }
+        UpdateCable();
+    }
+
+    public override void RemoteActivate()
+    {
+        base.RemoteActivate();
+        Destroy(gameObject);
     }
 
     void OnDestroy()
@@ -194,13 +209,13 @@ public class GrappleHook : BaseBullet {
 
     }
 
-    public float UpdateDistance()
+    protected float UpdateDistance()
     {
         if (!useSpringJoint) { return 0.0f; }
 
         float currentDistance = Vector3.Distance(shooter.transform.position, gameObject.transform.position);
 
-        if (currentDistance > attachDistance)
+        if (currentDistance > (attachDistance + maxRangeSlack))
         {            
             //attachedSpring.distance = attachDistance;
             attachedSpring.enabled = true;
@@ -216,5 +231,11 @@ public class GrappleHook : BaseBullet {
         }
 
         return currentDistance;
+    }
+
+    protected void UpdateCable()
+    {        
+        cable.SetPosition(0, gameObject.transform.position);
+        cable.SetPosition(1, shooter.transform.position);
     }
 }

@@ -95,8 +95,7 @@ public class Gun : BaseWeapon
 
         Vector2 bulletVelocity = bulletDirection * bulletSpeed;
         //bulletScript.Initialize(bulletVelocity);
-
-        Vector2 previousVelocity = bulletRB.velocity;
+        
         bulletRB.AddRelativeForce(bulletVelocity);
 
         return bulletScript;

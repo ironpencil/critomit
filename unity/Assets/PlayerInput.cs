@@ -78,10 +78,10 @@ public class PlayerInput : MonoBehaviour {
 
         if (currMagnitude > targetMagnitude)
         {
-            Vector2 slowDown = (targetMagnitude / currMagnitude) * rb.velocity;
+            //Vector2 slowDown = (targetMagnitude / currMagnitude) * rb.velocity;
 
             //rb.AddForce(slowDown);
-            rb.AddForce(rb.velocity * -1, ForceMode2D.Impulse);
+            rb.AddForce(rb.velocity * -0.5f * rb.mass);
             //targetMagnitude = Mathf.Lerp(currMagnitude, targetMagnitude, Time.fixedDeltaTime);
             //rb.velocity = rb.velocity.normalized * targetMagnitude;
         }

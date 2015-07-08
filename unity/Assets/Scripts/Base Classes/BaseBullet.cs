@@ -4,6 +4,8 @@ using System.Text;
 
 public class BaseBullet : MonoBehaviour {
 
+    public float damage = 1.0f;
+
     public float lifespan;
 
     public float die = 0.0f;
@@ -57,7 +59,7 @@ public class BaseBullet : MonoBehaviour {
 
         if (die > 0 && Time.time > die)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 	}
 
@@ -91,26 +93,13 @@ public class BaseBullet : MonoBehaviour {
 
         if (!thisCollider.isTrigger)
         {
-            CollideWithObject(coll.collider);
+            CollideWithObject(coll);
         }
     }
 
-    //use trigger collision if this collider is a trigger collider
-    public virtual void OnTriggerEnter2D(Collider2D other)
-    {        
-        if (thisCollider.isTrigger)
-        {
-            //don't collide with other trigger colliders
-            if (!other.isTrigger)
-            {
-                CollideWithObject(other);
-            }
-        }
-    }
-
-    protected virtual void CollideWithObject(Collider2D other)
+    protected virtual void CollideWithObject(Collision2D coll)
     {
-        TakesDamage enemy = other.gameObject.GetComponent<TakesDamage>();
+        TakesDamage enemy = coll.gameObject.GetComponent<TakesDamage>();
 
         bool doDestroy = true;
 
@@ -123,8 +112,9 @@ public class BaseBullet : MonoBehaviour {
             }
             else
             {
+                enemy.ApplyDamage(damage);
 
-                enemy.markedForDeath = true;
+                //enemy.markedForDeath = true;
                 //other.attachedRigidbody.Sleep();
                 //other.enabled = false;
                 //other.gameObject.layer = Globals.THE_VOID_LAYER; //THE VOID CONSUMES

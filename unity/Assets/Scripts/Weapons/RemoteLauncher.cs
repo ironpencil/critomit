@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Grapple : Gun
+public class RemoteLauncher : Gun
 {    
 
-    public float detachDelay = 0.2f;
-    private float lastDetach = 0.0f;
+    //public float detachDelay = 0.2f;
+    //private float lastDetach = 0.0f;
 
-    public GrappleHook hook;
+    public RemoteProjectile remoteProjectile;
 
     public override void FixedUpdate()
     {
         if (doShoot)
         {
-            if (hook == null)
+            if (remoteProjectile == null)
             {
 
                 if (Time.fixedTime > lastShot + fireDelay + actualFireDelayVariant)
@@ -24,7 +24,7 @@ public class Grapple : Gun
 
                         for (int i = 0; i < bulletsPerShot; i++)
                         {
-                            hook = (GrappleHook) Fire();                            
+                            remoteProjectile = (RemoteProjectile) Fire();                            
                         }
 
                         shooter.AddRelativeForce(shooterForce);
@@ -40,8 +40,10 @@ public class Grapple : Gun
             else
             {
                 if (stoppedShooting) {
-                    GameObject.Destroy(hook.gameObject);
-                    hook = null;
+                    remoteProjectile.RemoteActivate();
+                    remoteProjectile = null;
+                    //GameObject.Destroy(remoteProjectile.gameObject);
+                    //remoteProjectile = null;
                 }
             }
 

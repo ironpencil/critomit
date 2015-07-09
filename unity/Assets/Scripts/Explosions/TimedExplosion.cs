@@ -9,14 +9,16 @@ public class TimedExplosion : BaseExplosion
 
     public override void Start()
     {
-        nextDamage = initialDamage;
-
         detonate = Time.time + delay;
+
+        base.Start();
+
+        
 
         //try to estimate when this will be destroyed
         if (duration > 0f)
         {
-            die = detonate + duration;
+            die += detonate;
         }
     }
 
@@ -33,10 +35,7 @@ public class TimedExplosion : BaseExplosion
             }
         }
 
-        if (die > 0 && Time.time > die)
-        {
-            Destroy(gameObject);
-        }
+        base.Update();
     }
 
     public virtual void FixedUpdate()

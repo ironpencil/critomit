@@ -6,9 +6,11 @@ public class PlayerInput : MonoBehaviour {
 
     public List<BaseWeapon> primaryWeapons;
     public List<BaseWeapon> secondaryWeapons;
+    public List<BaseWeapon> utilityWeapons;
 
     public int primaryWeaponIndex = 0;
     public int secondaryWeaponIndex = 0;
+    public int utilityWeaponIndex = 0;
 
     public Vector2 currentVelocity = Vector2.zero;
 
@@ -36,6 +38,11 @@ public class PlayerInput : MonoBehaviour {
             secondaryWeapons[secondaryWeaponIndex].Shoot();
         }
 
+        if (Input.GetButton("Fire3"))
+        {
+            utilityWeapons[utilityWeaponIndex].Shoot();
+        }
+
         if (Input.GetKeyDown("1"))
         {
             primaryWeaponIndex++;
@@ -55,6 +62,17 @@ public class PlayerInput : MonoBehaviour {
                 secondaryWeaponIndex = 0;
             }
             secondaryWeapons[secondaryWeaponIndex].SelectWeapon();
+
+        }
+
+        if (Input.GetKeyDown("3"))
+        {
+            utilityWeaponIndex++;
+            if (utilityWeaponIndex >= utilityWeapons.Count)
+            {
+                utilityWeaponIndex = 0;
+            }
+            utilityWeapons[utilityWeaponIndex].SelectWeapon();
 
         }
 

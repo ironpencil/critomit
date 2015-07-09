@@ -40,15 +40,15 @@ public class SyncedExplosions : TimedExplosion
         //bool preDamageDone = initialDamageDone;
         if (detonated)
         {
-            if (!initialDamageDone)
+            if (!initialized)
             {
                 nextDamage = initialDamage;
-                initialDamageDone = true;
+                initialized = true;
             }
             else
             {
                 //figure out damage over time tick
-                nextDamage = damagePerSecond * Time.fixedDeltaTime;
+                nextDamage = damageOverTime * Time.fixedDeltaTime;
 
             }
         }

@@ -237,5 +237,6 @@ public class GrappleHook : RemoteProjectile {
     {        
         cable.SetPosition(0, gameObject.transform.position);
         cable.SetPosition(1, shooter.transform.position);
+        cable.sortingOrder = -1;
     }
 }

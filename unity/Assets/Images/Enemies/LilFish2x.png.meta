@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 69ab49dc42afb7f43bf3596952765939
-timeCreated: 1436398428
+guid: 535e53c25ab505241bb6b14bf799bfc6
+timeCreated: 1436424347
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: LilFish_0
-    21300002: LilFish_1
-    21300004: LilFish_2
-    21300006: LilFish_3
-    21300008: LilFish_4
-    21300010: LilFish_5
+    21300000: LilFish2x_0
+    21300002: LilFish2x_1
+    21300004: LilFish2x_2
+    21300006: LilFish2x_3
+    21300008: LilFish2x_4
+    21300010: LilFish2x_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -32,7 +32,7 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -2
   maxTextureSize: 2048
   textureSettings:
     filterMode: 1
@@ -55,63 +55,63 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: LilFish_0
+    - name: LilFish2x_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: LilFish_1
+    - name: LilFish2x_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 34
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: LilFish_2
+    - name: LilFish2x_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 68
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: LilFish_3
+    - name: LilFish2x_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 102
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: LilFish_4
+    - name: LilFish2x_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 136
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: LilFish_5
+    - name: LilFish2x_5
       rect:
         serializedVersion: 2
-        x: 80
+        x: 170
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

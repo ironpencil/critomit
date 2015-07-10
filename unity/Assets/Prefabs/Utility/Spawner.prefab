@@ -11,7 +11,8 @@ GameObject:
   - 212: {fileID: 21268904}
   - 61: {fileID: 6105192}
   - 50: {fileID: 5047790}
-  m_Layer: 0
+  - 114: {fileID: 11450534}
+  m_Layer: 10
   m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.19999981, y: -14.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,6 +60,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.23269653, y: 1.23209572}
+--- !u!114 &11450534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0323d8fece81744c8282ba814f75b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTimer: 5
+  lastSpawn: 0
+  enemyPrefab: {fileID: 191920, guid: c20abde36e95b1d4eb5d4f0a712963da, type: 2}
 --- !u!212 &21268904
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -84,7 +99,7 @@ SpriteRenderer:
   m_SortingLayerID: 1859086223
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .227941155, g: 0, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -112,6 +127,10 @@ Prefab:
       propertyPath: m_AngularDrag
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 191920, guid: c20abde36e95b1d4eb5d4f0a712963da, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 127704}

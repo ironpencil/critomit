@@ -38,10 +38,15 @@ public class Gun : BaseWeapon
 
         doShoot = didShoot;
         didShoot = false;
+
+        if (weaponAnimator != null)
+        {
+            weaponAnimator.SetBool(AnimationParams.IS_FIRING, false);
+        }
     }
 
     public virtual void FixedUpdate()
-    {
+    {      
         if (doShoot)
         {            
             if (Time.fixedTime > lastShot + fireDelay + actualFireDelayVariant)
@@ -97,6 +102,11 @@ public class Gun : BaseWeapon
         //bulletScript.Initialize(bulletVelocity);
         
         bulletRB.AddRelativeForce(bulletVelocity);
+
+        if (weaponAnimator != null)
+        {
+            weaponAnimator.SetBool(AnimationParams.IS_FIRING, true);
+        }
 
         return bulletScript;
 

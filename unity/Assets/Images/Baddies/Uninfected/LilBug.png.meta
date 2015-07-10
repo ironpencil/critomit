@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 535a04d080d9cd0459a834a2516dadd3
-timeCreated: 1436473397
+timeCreated: 1436493515
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -60,7 +60,7 @@ TextureImporter:
     - name: LilBug_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
         width: 32
         height: 32
@@ -70,7 +70,7 @@ TextureImporter:
     - name: LilBug_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 38
         y: 0
         width: 32
         height: 32
@@ -80,7 +80,7 @@ TextureImporter:
     - name: LilBug_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 74
         y: 0
         width: 32
         height: 32
@@ -90,7 +90,7 @@ TextureImporter:
     - name: LilBug_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 110
         y: 0
         width: 32
         height: 32
@@ -100,7 +100,7 @@ TextureImporter:
     - name: LilBug_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 146
         y: 0
         width: 32
         height: 32
@@ -110,7 +110,7 @@ TextureImporter:
     - name: LilBug_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 182
         y: 0
         width: 32
         height: 32
@@ -120,7 +120,7 @@ TextureImporter:
     - name: LilBug_6
       rect:
         serializedVersion: 2
-        x: 192
+        x: 218
         y: 0
         width: 32
         height: 32
@@ -130,7 +130,7 @@ TextureImporter:
     - name: LilBug_7
       rect:
         serializedVersion: 2
-        x: 224
+        x: 254
         y: 0
         width: 32
         height: 32

@@ -5,6 +5,7 @@ public class Globals : Singleton<Globals> {
 
     public GameObject Player;
     public GameObject DynamicObjects;
+    public WeaponController WeaponController;
 
     public bool SpawnEnemies = true;
 

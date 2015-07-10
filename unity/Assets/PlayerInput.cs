@@ -6,7 +6,7 @@ public class PlayerInput : MonoBehaviour {
 
     public List<BaseWeapon> primaryWeapons;
     public List<BaseWeapon> secondaryWeapons;
-    public List<BaseWeapon> utilityWeapons;
+    public List<BaseWeapon> utilityWeapons;    
 
     public int primaryWeaponIndex = 0;
     public int secondaryWeaponIndex = 0;
@@ -30,17 +30,17 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetButton("Fire1"))
         {
-            primaryWeapons[primaryWeaponIndex].Shoot();         
+            Globals.Instance.WeaponController.ShootWeapon(WeaponLocation.Primary);
         }
 
         if (Input.GetButton("Fire2"))
         {
-            secondaryWeapons[secondaryWeaponIndex].Shoot();
+            Globals.Instance.WeaponController.ShootWeapon(WeaponLocation.Secondary);
         }
 
         if (Input.GetButton("Fire3"))
         {
-            utilityWeapons[utilityWeaponIndex].Shoot();
+            Globals.Instance.WeaponController.ShootWeapon(WeaponLocation.Utility);
         }
 
         if (Input.GetKeyDown("1"))

@@ -420,6 +420,27 @@ Transform:
   - {fileID: 1482950576}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!1 &756976630 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146134, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
+  m_PrefabInternal: {fileID: 1627004012}
+--- !u!95 &756976633
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 756976630}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb670a96a90493d4cb9d34faff95dd05, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &784458505
 Prefab:
   m_ObjectHideFlags: 0
@@ -1025,6 +1046,26 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 106274, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
   m_PrefabInternal: {fileID: 1627004012}
+--- !u!114 &1511513583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1511513582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c47349673528ff4193e8c31d0e7dba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryWeaponAnimator: {fileID: 0}
+  secondaryWeaponAnimator: {fileID: 0}
+  primaryWeapons: []
+  secondaryWeapons: []
+  utilityWeapons: []
+  primaryWeaponIndex: 0
+  secondaryWeaponIndex: 0
+  utilityWeaponIndex: 0
+  weaponSelectionDelay: .5
 --- !u!1 &1530548669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1511513582}
   DynamicObjects: {fileID: 1089299917}
+  WeaponController: {fileID: 1511513583}
   SpawnEnemies: 1
 --- !u!1001 &1555038913
 Prefab:
@@ -1130,7 +1172,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466556, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 466556, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1282,6 +1324,18 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 2cdd3dbe58df4004a818ca1812a69f3a,
         type: 3}
+    - target: {fileID: 11412594, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
+      propertyPath: weaponAnimator
+      value: 
+      objectReference: {fileID: 756976633}
+    - target: {fileID: 11417572, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
+      propertyPath: primaryWeaponIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412594, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
+      propertyPath: animationController
+      value: 
+      objectReference: {fileID: 9100000, guid: bb670a96a90493d4cb9d34faff95dd05, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
   m_IsPrefabParent: 0

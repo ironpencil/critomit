@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PrimaryBoltController
+  m_Name: PrimaryShotgunController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsFiring
@@ -193,7 +193,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7cb5f53bd7d8a5d40b9029a25e4f9d01, type: 2}
+  m_Motion: {fileID: 7400000, guid: cb2a1083eb928844494e9076ff83746f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: IsFiring
@@ -218,7 +218,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7cb5f53bd7d8a5d40b9029a25e4f9d01, type: 2}
+  m_Motion: {fileID: 7400000, guid: cb2a1083eb928844494e9076ff83746f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -266,7 +266,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 598bb12737ce29f49ab34e646c6a93e6, type: 2}
+  m_Motion: {fileID: 7400000, guid: ef642483937ccc74dae945c8f6cd0347, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -290,7 +290,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: df14e8722c4ccad44bf63ef5fbbdef39, type: 2}
+  m_Motion: {fileID: 7400000, guid: 77cf658ca699af2489664267bd0ec386, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

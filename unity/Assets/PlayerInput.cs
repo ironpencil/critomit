@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 public class PlayerInput : MonoBehaviour {
 
-    public List<BaseWeapon> primaryWeapons;
-    public List<BaseWeapon> secondaryWeapons;
-    public List<BaseWeapon> utilityWeapons;    
+    //public List<BaseWeapon> primaryWeapons;
+    //public List<BaseWeapon> secondaryWeapons;
+    //public List<BaseWeapon> utilityWeapons;    
 
-    public int primaryWeaponIndex = 0;
-    public int secondaryWeaponIndex = 0;
-    public int utilityWeaponIndex = 0;
+    //public int primaryWeaponIndex = 0;
+    //public int secondaryWeaponIndex = 0;
+    //public int utilityWeaponIndex = 0;
 
     public Vector2 currentVelocity = Vector2.zero;
 
@@ -45,34 +45,41 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetKeyDown("1"))
         {
-            primaryWeaponIndex++;
+            Globals.Instance.WeaponController.CycleWeapon(WeaponLocation.Primary);
+            
+            /*primaryWeaponIndex++;
             if (primaryWeaponIndex >= primaryWeapons.Count)
             {
                 primaryWeaponIndex = 0;
             }
             primaryWeapons[primaryWeaponIndex].SelectWeapon();
+             * */
 
         }
 
         if (Input.GetKeyDown("2"))
         {
-            secondaryWeaponIndex++;
-            if (secondaryWeaponIndex >= secondaryWeapons.Count)
-            {
-                secondaryWeaponIndex = 0;
-            }
-            secondaryWeapons[secondaryWeaponIndex].SelectWeapon();
+            Globals.Instance.WeaponController.CycleWeapon(WeaponLocation.Secondary);
+
+            //secondaryWeaponIndex++;
+            //if (secondaryWeaponIndex >= secondaryWeapons.Count)
+            //{
+            //    secondaryWeaponIndex = 0;
+            //}
+            //secondaryWeapons[secondaryWeaponIndex].SelectWeapon();
 
         }
 
         if (Input.GetKeyDown("3"))
         {
-            utilityWeaponIndex++;
-            if (utilityWeaponIndex >= utilityWeapons.Count)
-            {
-                utilityWeaponIndex = 0;
-            }
-            utilityWeapons[utilityWeaponIndex].SelectWeapon();
+            Globals.Instance.WeaponController.CycleWeapon(WeaponLocation.Utility);
+            
+            //utilityWeaponIndex++;
+            //if (utilityWeaponIndex >= utilityWeapons.Count)
+            //{
+            //    utilityWeaponIndex = 0;
+            //}
+            //utilityWeapons[utilityWeaponIndex].SelectWeapon();
 
         }
 

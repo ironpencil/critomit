@@ -5,6 +5,14 @@ public class SwitchWeaponHandler : StateMachineBehaviour {
 
     public WeaponLocation weaponLocation;
 
+    public enum SwitchType
+    {
+        Equip,
+        Unequip
+    }
+
+    public SwitchType switchType;
+
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	//override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	//
@@ -18,7 +26,18 @@ public class SwitchWeaponHandler : StateMachineBehaviour {
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Globals.Instance.WeaponController.DoEquipNextWeapon(weaponLocation);
+        switch (switchType)
+        {
+            case SwitchType.Equip:
+                Globals.Instance.WeaponController.WeaponEquipped(weaponLocation);
+                break;
+            case SwitchType.Unequip:
+                Globals.Instance.WeaponController.WeaponUnequipped(weaponLocation);
+                break;
+            default:
+                break;
+        }
+        
     }
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

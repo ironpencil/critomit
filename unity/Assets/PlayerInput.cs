@@ -83,6 +83,11 @@ public class PlayerInput : MonoBehaviour {
 
         }
 
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            rb.isKinematic = !rb.isKinematic;
+        }
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (shield != null)

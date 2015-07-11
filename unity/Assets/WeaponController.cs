@@ -57,7 +57,7 @@ public class WeaponController : MonoBehaviour {
         slot.weaponSelectionDelay = weaponSelectionDelay;
         slot.weaponList = utilityWeapons;
 
-        weaponSlots.Add(WeaponLocation.Utility, new WeaponSlot());
+        weaponSlots.Add(WeaponLocation.Utility, slot);
 
         EquipCurrentWeapon(WeaponLocation.Primary);
         EquipCurrentWeapon(WeaponLocation.Secondary);

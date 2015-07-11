@@ -1343,7 +1343,7 @@ MonoBehaviour:
   - {fileID: 1858962241}
   utilityWeapons:
   - {fileID: 110789110}
-  primaryWeaponIndex: 1
+  primaryWeaponIndex: 0
   secondaryWeaponIndex: 0
   utilityWeaponIndex: 0
   weaponSelectionDelay: .75
@@ -1599,12 +1599,12 @@ Prefab:
     - target: {fileID: 21246134, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f57f1cbef5ecee74ebe8c29dea31ee3b,
+      objectReference: {fileID: 21300010, guid: 0a9f8e8a8813d434f8e5af36515dd63f,
         type: 3}
     - target: {fileID: 21246132, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 57c87eab160dfe842b678bb8c3ae16d1,
+      objectReference: {fileID: 21300010, guid: 57c87eab160dfe842b678bb8c3ae16d1,
         type: 3}
     - target: {fileID: 11412594, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
       propertyPath: weaponAnimator
@@ -1668,7 +1668,27 @@ Prefab:
       objectReference: {fileID: 9100000, guid: e00a5f66a9dfb8241851f14cab36b2e3, type: 2}
     - target: {fileID: 433722, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
       propertyPath: m_LocalPosition.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 492256, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 485946, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
+      propertyPath: m_LocalPosition.y
       value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 419650, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 415056, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .75
+      objectReference: {fileID: 0}
+    - target: {fileID: 475664, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}

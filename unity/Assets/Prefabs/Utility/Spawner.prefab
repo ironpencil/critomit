@@ -71,9 +71,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0323d8fece81744c8282ba814f75b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 5
+  spawnTimer: 7.5
   lastSpawn: 0
-  enemyPrefab: {fileID: 191920, guid: c20abde36e95b1d4eb5d4f0a712963da, type: 2}
+  enemyPrefab: {fileID: 153252, guid: 0900eaa1ca449a043aa8920016cf8696, type: 2}
 --- !u!212 &21268904
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -130,7 +130,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 191920, guid: c20abde36e95b1d4eb5d4f0a712963da, type: 2}
+      objectReference: {fileID: 153252, guid: 0900eaa1ca449a043aa8920016cf8696, type: 2}
+    - target: {fileID: 0}
+      propertyPath: spawnTimer
+      value: 7.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 127704}

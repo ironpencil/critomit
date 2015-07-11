@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f97b27f1b2188eb468bc4d51488e34d0
-timeCreated: 1436473127
+timeCreated: 1436589384
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,7 @@ TextureImporter:
     21300006: Jelly_3
     21300008: Jelly_4
     21300010: Jelly_5
+    21300012: Jelly_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -109,6 +110,16 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_6
+      rect:
+        serializedVersion: 2
+        x: 384
         y: 0
         width: 64
         height: 64

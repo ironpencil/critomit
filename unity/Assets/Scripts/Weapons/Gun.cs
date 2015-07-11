@@ -12,7 +12,9 @@ public class Gun : BaseWeapon
 
     public Vector2 bulletMinMaxForce = new Vector2(5000.0f, 6000.0f);
 
-    public Vector2 shooterForce = new Vector2(-40000, 0);    
+    public Vector2 shooterForce = new Vector2(-40000, 0);
+
+    public CameraShaker cameraShaker;
 
     public bool autoFire = true;
 
@@ -28,6 +30,14 @@ public class Gun : BaseWeapon
     protected bool didShoot = false;
 
     protected bool stoppedShooting = false;
+
+    public virtual void Start()
+    {
+        if (cameraShaker == null)
+        {
+            cameraShaker = gameObject.GetComponent<CameraShaker>();
+        }
+    }
 
     public virtual void Update()
     {
@@ -61,6 +71,11 @@ public class Gun : BaseWeapon
                     }
 
                     shooter.AddRelativeForce(shooterForce);
+                    
+                    if (cameraShaker != null)
+                    {
+                        cameraShaker.Shake();
+                    }
 
                     lastShot = Time.fixedTime;
                     if (varyFireDelay && fireDelayVariantRange > 0.0f)
@@ -106,9 +121,11 @@ public class Gun : BaseWeapon
         if (weaponAnimator != null)
         {
             weaponAnimator.SetBool(AnimationParams.IS_FIRING, true);
-        }
+        }        
 
         return bulletScript;
+
+        
 
         //Debug.Log("Fire() pv=" + previousVelocity + " v=" + bulletRB.velocity);
     }

@@ -90,10 +90,12 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (shield != null)
-            {
-                shield.GravityActive = !shield.GravityActive;
-            }
+            //if (shield != null)
+            //{
+            //    shield.GravityActive = !shield.GravityActive;
+            //}
+            CameraShake shaker = Camera.main.GetComponent<CameraShake>();
+            //shaker.AddShake(0.25f, 10.0f, 0.1f);
         }
 
         currentVelocity = rb.velocity;

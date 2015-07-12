@@ -5,6 +5,14 @@ public class WeaponArray : BaseWeapon
 {
     public List<BaseWeapon> weapons = new List<BaseWeapon>();
 
+    public virtual void Awake()
+    {
+        if (weaponDisplayer == null)
+        {
+            weaponDisplayer = gameObject.GetComponent<WeaponDisplayer>();
+        }
+    }
+
     public override void Shoot()
     {
         foreach (BaseWeapon weapon in weapons)

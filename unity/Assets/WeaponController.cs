@@ -20,6 +20,8 @@ public class WeaponController : MonoBehaviour {
 
     public float noAnimationEquipDelay = 0.25f;
 
+    public WeaponDisplayManager displayManager;
+
     private Dictionary<WeaponLocation, WeaponSlot> weaponSlots;
     
 	// Use this for initialization
@@ -29,6 +31,7 @@ public class WeaponController : MonoBehaviour {
         WeaponSlot slot = new WeaponSlot();
 
         slot.weaponLocation = WeaponLocation.Primary;
+        slot.displayManager = displayManager;
         slot.weaponAnimator = primaryWeaponAnimator;
         slot.currentWeaponIndex = primaryWeaponIndex;
         slot.cycledWeaponIndex = primaryWeaponIndex;
@@ -40,6 +43,7 @@ public class WeaponController : MonoBehaviour {
         slot = new WeaponSlot();
 
         slot.weaponLocation = WeaponLocation.Secondary;
+        slot.displayManager = displayManager;
         slot.weaponAnimator = secondaryWeaponAnimator;
         slot.currentWeaponIndex = secondaryWeaponIndex;
         slot.cycledWeaponIndex = secondaryWeaponIndex;
@@ -51,6 +55,7 @@ public class WeaponController : MonoBehaviour {
         slot = new WeaponSlot();
 
         slot.weaponLocation = WeaponLocation.Utility;
+        slot.displayManager = displayManager;
         slot.weaponAnimator = null;
         slot.currentWeaponIndex = utilityWeaponIndex;
         slot.cycledWeaponIndex = utilityWeaponIndex;
@@ -197,11 +202,14 @@ public class WeaponController : MonoBehaviour {
     {
         public WeaponLocation weaponLocation;
 
+        public WeaponDisplayManager displayManager;
+
         public Animator weaponAnimator;
 
         public List<BaseWeapon> weaponList;
 
         public BaseWeapon currentlyEquippedWeapon;
+        public BaseWeapon currentlyCycledWeapon;
 
         public int currentWeaponIndex = 0;
         public int cycledWeaponIndex = 0;
@@ -240,8 +248,29 @@ public class WeaponController : MonoBehaviour {
                 cycledWeaponIndex = 0;
             }
 
-            cyclingWeapon = true;
-            weaponSelectTime = Time.time + weaponSelectionDelay;
+            currentlyCycledWeapon = weaponList[cycledWeaponIndex];
+
+            if (cycledWeaponIndex == currentWeaponIndex)
+            {
+                //we cycled back to our current weapon
+                cyclingWeapon = false;
+
+                //if (CanShoot)
+                //{
+                DisplayEnabledImage(currentlyCycledWeapon);
+                //}
+                //else
+                //{
+                //    displayManager.SetImage(weaponLocation, currentlyEquippedWeapon.weaponDisplayer.disabledImage);
+                //}
+            }
+            else
+            {
+                DisplayDisabledImage(currentlyCycledWeapon);
+
+                cyclingWeapon = true;
+                weaponSelectTime = Time.time + weaponSelectionDelay;
+            }
         }
 
         public bool CheckChangingWeapons()
@@ -272,6 +301,9 @@ public class WeaponController : MonoBehaviour {
             bool hasAnimator = false;
 
             currentWeaponIndex = cycledWeaponIndex;
+
+            DisplayEnabledImage(currentlyCycledWeapon);
+
             if (weaponAnimator != null)
             {
                 if (currentlyEquippedWeapon.animationController != null)
@@ -293,6 +325,8 @@ public class WeaponController : MonoBehaviour {
             bool hasAnimator = false;
 
             currentlyEquippedWeapon = weaponList[currentWeaponIndex];
+
+            DisplayEnabledImage(currentlyEquippedWeapon);
 
             //switch animation controllers
             if (weaponAnimator != null)
@@ -321,6 +355,33 @@ public class WeaponController : MonoBehaviour {
             weaponReady = true;
         }
 
+        private void DisplayDisabledImage(BaseWeapon weapon)
+        {
+            WeaponDisplayer displayer = weapon.weaponDisplayer;
+
+            if (displayer == null)
+            {
+                displayManager.DisplayImage(weaponLocation, null);
+            }
+            else
+            {
+                displayManager.DisplayImage(weaponLocation, displayer.disabledImage);
+            }
+        }
+
+        private void DisplayEnabledImage(BaseWeapon weapon)
+        {
+            WeaponDisplayer displayer = weapon.weaponDisplayer;
+
+            if (displayer == null)
+            {
+                displayManager.DisplayImage(weaponLocation, null);
+            }
+            else
+            {
+                displayManager.DisplayImage(weaponLocation, displayer.enabledImage);
+            }
+        }
 
     }
 }

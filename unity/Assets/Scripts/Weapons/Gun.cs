@@ -31,11 +31,16 @@ public class Gun : BaseWeapon
 
     protected bool stoppedShooting = false;
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         if (cameraShaker == null)
         {
             cameraShaker = gameObject.GetComponent<CameraShaker>();
+        }
+
+        if (weaponDisplayer == null)
+        {
+            weaponDisplayer = gameObject.GetComponent<WeaponDisplayer>();
         }
     }
 

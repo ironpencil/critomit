@@ -12,6 +12,8 @@ public class PlayerInput : MonoBehaviour {
     //public int secondaryWeaponIndex = 0;
     //public int utilityWeaponIndex = 0;
 
+    public HealthBarManager healthBar;
+
     public Vector2 currentVelocity = Vector2.zero;
 
     public Vector2 softMaxVelocity = new Vector2(15, 15);
@@ -96,6 +98,11 @@ public class PlayerInput : MonoBehaviour {
             //}
             CameraShake shaker = Camera.main.GetComponent<CameraShake>();
             //shaker.AddShake(0.25f, 10.0f, 0.1f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            healthBar.TestHealthBar();
         }
 
         currentVelocity = rb.velocity;

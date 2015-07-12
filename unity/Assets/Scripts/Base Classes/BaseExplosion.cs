@@ -8,6 +8,8 @@ public class BaseExplosion : MonoBehaviour
 
     protected bool initialized = false;
 
+    public EffectSource damageType = EffectSource.Universal;
+
     //damage effects
     public bool doApplyDamage = true;
     public float initialDamage = 10.0f;
@@ -181,7 +183,7 @@ public class BaseExplosion : MonoBehaviour
 
             if (enemy != null)
             {
-                bool destroyed = enemy.ApplyDamage(nextDamage);
+                enemy.ApplyDamage(nextDamage, damageType, null);
                 //Debug.Log("Applying " + nextDamage + " to " + enemy.name + ":" + enemy.GetInstanceID());
                 //if (destroyed)
                 //{

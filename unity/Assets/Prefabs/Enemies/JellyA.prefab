@@ -14,6 +14,8 @@ GameObject:
   - 114: {fileID: 11400454}
   - 114: {fileID: 11463516}
   - 61: {fileID: 6118960}
+  - 114: {fileID: 11409222}
+  - 114: {fileID: 11455370}
   m_Layer: 10
   m_Name: JellyA
   m_TagString: Untagged
@@ -123,6 +125,25 @@ MonoBehaviour:
   markedForDeath: 0
   maxHitPoints: 100
   currentHP: 0
+  damagedBy: 0
+  invulnerable: 0
+  damagedEffects:
+  - {fileID: 11455370}
+--- !u!114 &11409222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 903799579d313c04f81fd8b449d69be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  damageType: 2
+  bounceWhenDealingDamage: 1
+  bounceMagnitude: -1500
 --- !u!114 &11444858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +170,20 @@ MonoBehaviour:
   accelerationForce: 4000
   maxVelocity: 1000
   isMoving: 0
+--- !u!114 &11455370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50ef7e6eb01651418f5533ca6536b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToFlash: {fileID: 21227622}
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  duration: .0500000007
 --- !u!114 &11463516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,7 +228,47 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: damagedEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bounceMagnitude
+      value: -1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spriteToFlash
+      value: 
+      objectReference: {fileID: 21227622}
+    - target: {fileID: 0}
+      propertyPath: targetColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: targetColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: targetColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: targetColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: duration
+      value: .0500000007
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 153252}

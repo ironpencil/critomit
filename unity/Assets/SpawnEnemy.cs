@@ -5,18 +5,24 @@ public class SpawnEnemy : MonoBehaviour {
 
     public float spawnTimer = 5.0f;
     public float lastSpawn = 0.0f;
+    public bool spawnOnStart = true;
 
     public GameObject enemyPrefab;
 
 	// Use this for initialization
 	void Start () {
-	
+        if (spawnOnStart && CanSpawn())
+        {
+            DoSpawnEnemy();
+        }
+
+        lastSpawn = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (enemyPrefab != null && Globals.Instance.SpawnEnemies)
+        if (CanSpawn())
         {
             if (Time.time >= lastSpawn + spawnTimer)
             {
@@ -26,6 +32,11 @@ public class SpawnEnemy : MonoBehaviour {
             }
         }
 	}
+
+    private bool CanSpawn()
+    {
+        return enemyPrefab != null && Globals.Instance.SpawnEnemies;
+    }
 
     public void DoSpawnEnemy()
     {

@@ -105,6 +105,11 @@ public class PlayerInput : MonoBehaviour {
             healthBar.TestHealthBar();
         }
 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            healthBar.FlashWhite();
+        }
+
         currentVelocity = rb.velocity;
 	}
 

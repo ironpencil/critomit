@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 3
+  damageType: 0
   doApplyDamage: 0
   initialDamage: 0
   damageOverTime: 0
@@ -203,8 +204,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1
+  damageType: 0
   doApplyDamage: 0
-  initialDamage: 10
+  initialDamage: 0
   damageOverTime: 5
   doApplyGravity: 1
   constantGravity: 20
@@ -223,9 +225,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: .200000003
+  damageType: 0
   doApplyDamage: 1
-  initialDamage: 50
-  damageOverTime: 25
+  initialDamage: 30
+  damageOverTime: 5
   doApplyGravity: 1
   constantGravity: -30
   addlGravityOverTime: 0
@@ -256,7 +259,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: c4fca4d2be37abc429d763ec1c25e633, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: .640999973}
+  m_Color: {r: 0, g: 0, b: 0, a: .352999985}
 --- !u!212 &21283650
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -282,7 +285,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c4fca4d2be37abc429d763ec1c25e633, type: 3}
-  m_Color: {r: .441176474, g: .0129757915, b: .0129757915, a: .503000021}
+  m_Color: {r: .441176474, g: .0129757915, b: .0129757915, a: .397000015}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -292,11 +295,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: initialDamage
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damageOverTime
-      value: 25
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: constantGravity

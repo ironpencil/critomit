@@ -33,10 +33,12 @@ public class WeaponController : MonoBehaviour {
         slot.weaponLocation = WeaponLocation.Primary;
         slot.displayManager = displayManager;
         slot.weaponAnimator = primaryWeaponAnimator;
-        slot.currentWeaponIndex = primaryWeaponIndex;
+        slot.equippedWeaponIndex = primaryWeaponIndex;
         slot.cycledWeaponIndex = primaryWeaponIndex;
         slot.weaponSelectionDelay = weaponSelectionDelay;
         slot.weaponList = primaryWeapons;
+
+        slot.Initialize();
 
         weaponSlots.Add(WeaponLocation.Primary, slot);
 
@@ -45,10 +47,12 @@ public class WeaponController : MonoBehaviour {
         slot.weaponLocation = WeaponLocation.Secondary;
         slot.displayManager = displayManager;
         slot.weaponAnimator = secondaryWeaponAnimator;
-        slot.currentWeaponIndex = secondaryWeaponIndex;
+        slot.equippedWeaponIndex = secondaryWeaponIndex;
         slot.cycledWeaponIndex = secondaryWeaponIndex;
         slot.weaponSelectionDelay = weaponSelectionDelay;
         slot.weaponList = secondaryWeapons;
+
+        slot.Initialize();
 
         weaponSlots.Add(WeaponLocation.Secondary, slot);
 
@@ -57,16 +61,18 @@ public class WeaponController : MonoBehaviour {
         slot.weaponLocation = WeaponLocation.Utility;
         slot.displayManager = displayManager;
         slot.weaponAnimator = null;
-        slot.currentWeaponIndex = utilityWeaponIndex;
+        slot.equippedWeaponIndex = utilityWeaponIndex;
         slot.cycledWeaponIndex = utilityWeaponIndex;
         slot.weaponSelectionDelay = weaponSelectionDelay;
         slot.weaponList = utilityWeapons;
 
+        slot.Initialize();
+
         weaponSlots.Add(WeaponLocation.Utility, slot);
 
-        EquipCurrentWeapon(WeaponLocation.Primary);
-        EquipCurrentWeapon(WeaponLocation.Secondary);
-        EquipCurrentWeapon(WeaponLocation.Utility);
+        //EquipCurrentWeapon(WeaponLocation.Primary);
+        //EquipCurrentWeapon(WeaponLocation.Secondary);
+        //EquipCurrentWeapon(WeaponLocation.Utility);
 	}
 	
 	// Update is called once per frame
@@ -211,7 +217,7 @@ public class WeaponController : MonoBehaviour {
         public BaseWeapon currentlyEquippedWeapon;
         public BaseWeapon currentlyCycledWeapon;
 
-        public int currentWeaponIndex = 0;
+        public int equippedWeaponIndex = 0;
         public int cycledWeaponIndex = 0;
 
         float weaponSelectTime = 0.0f;
@@ -220,6 +226,21 @@ public class WeaponController : MonoBehaviour {
         //public bool enabled = true;
         public bool cyclingWeapon = false;
         public bool weaponReady = false;
+
+        public void Initialize()
+        {
+            ForceEquipWeapon(equippedWeaponIndex);
+        }
+
+        private void ForceEquipWeapon(int weaponIndex)
+        {
+            equippedWeaponIndex = weaponIndex;
+            cycledWeaponIndex = equippedWeaponIndex;
+
+            StartEquipWeapon();
+            FinishEquipWeapon();
+            DisplayEnabledImage(currentlyEquippedWeapon);
+        }
 
         public bool CanShoot
         {
@@ -236,10 +257,10 @@ public class WeaponController : MonoBehaviour {
 
         public void CycleWeapon()
         {
-            CycleToWeapon(cycledWeaponIndex + 1);
+            CycleToWeapon(cycledWeaponIndex + 1, false);
         }
 
-        public void CycleToWeapon(int index)
+        public void CycleToWeapon(int index, bool forceReload)
         {
             cycledWeaponIndex = index;
 
@@ -250,7 +271,7 @@ public class WeaponController : MonoBehaviour {
 
             currentlyCycledWeapon = weaponList[cycledWeaponIndex];
 
-            if (cycledWeaponIndex == currentWeaponIndex)
+            if (cycledWeaponIndex == equippedWeaponIndex && !forceReload)
             {
                 //we cycled back to our current weapon
                 cyclingWeapon = false;
@@ -284,7 +305,7 @@ public class WeaponController : MonoBehaviour {
                     cyclingWeapon = false;
 
                     //if we're actually switching to a new weapon and not just re-selecting the equipped one
-                    if (currentWeaponIndex != cycledWeaponIndex)
+                    if (equippedWeaponIndex != cycledWeaponIndex)
                     {
                         weaponReady = false;
                         return true; //return true that we are changing weapons
@@ -300,7 +321,7 @@ public class WeaponController : MonoBehaviour {
         {
             bool hasAnimator = false;
 
-            currentWeaponIndex = cycledWeaponIndex;
+            equippedWeaponIndex = cycledWeaponIndex;
 
             DisplayEnabledImage(currentlyCycledWeapon);
 
@@ -324,9 +345,9 @@ public class WeaponController : MonoBehaviour {
         {
             bool hasAnimator = false;
 
-            currentlyEquippedWeapon = weaponList[currentWeaponIndex];
+            currentlyEquippedWeapon = weaponList[equippedWeaponIndex];
 
-            DisplayEnabledImage(currentlyEquippedWeapon);
+            //DisplayEnabledImage(currentlyEquippedWeapon);
 
             //switch animation controllers
             if (weaponAnimator != null)

@@ -13,7 +13,12 @@ namespace UnityStandardAssets._2D
         public Vector2 maxXAndY; // The maximum x and y coordinates the camera can have.
         public Vector2 minXAndY; // The minimum x and y coordinates the camera can have.
 
+        public bool followCenterOfMass = false;
+        private Rigidbody2D rb2d;
+
         private Transform m_Player; // Reference to the player's transform.
+
+        Vector3 playerPosition;
 
 
         private void Awake()
@@ -26,14 +31,14 @@ namespace UnityStandardAssets._2D
         private bool CheckXMargin()
         {
             // Returns true if the distance between the camera and the player in the x axis is greater than the x margin.
-            return Mathf.Abs(transform.position.x - m_Player.position.x) > xMargin;
+            return Mathf.Abs(transform.position.x - playerPosition.x) > xMargin;
         }
 
 
         private bool CheckYMargin()
         {
             // Returns true if the distance between the camera and the player in the y axis is greater than the y margin.
-            return Mathf.Abs(transform.position.y - m_Player.position.y) > yMargin;
+            return Mathf.Abs(transform.position.y - playerPosition.y) > yMargin;
         }
 
 
@@ -49,18 +54,33 @@ namespace UnityStandardAssets._2D
             float targetX = transform.position.x;
             float targetY = transform.position.y;
 
+            playerPosition = m_Player.position;
+
+            if (followCenterOfMass)
+            {
+                if (rb2d == null)
+                {
+                    rb2d = m_Player.GetComponent<Rigidbody2D>();
+                }
+
+                if (rb2d != null)
+                {
+                    playerPosition = rb2d.worldCenterOfMass;
+                }
+            }
+
             // If the player has moved beyond the x margin...
             if (CheckXMargin())
             {
                 // ... the target x coordinate should be a Lerp between the camera's current x position and the player's current x position.
-                targetX = Mathf.Lerp(transform.position.x, m_Player.position.x, xSmooth*Time.deltaTime);
+                targetX = Mathf.Lerp(transform.position.x, playerPosition.x, xSmooth*Time.deltaTime);
             }
 
             // If the player has moved beyond the y margin...
             if (CheckYMargin())
             {
                 // ... the target y coordinate should be a Lerp between the camera's current y position and the player's current y position.
-                targetY = Mathf.Lerp(transform.position.y, m_Player.position.y, ySmooth*Time.deltaTime);
+                targetY = Mathf.Lerp(transform.position.y, playerPosition.y, ySmooth * Time.deltaTime);
             }
 
             // The target x and y coordinates should not be larger than the maximum or smaller than the minimum.

@@ -6,6 +6,8 @@ public class BaseBullet : MonoBehaviour {
 
     public float damage = 1.0f;
 
+    public EffectSource damageType = EffectSource.Universal;
+
     public float lifespan;
 
     public float die = 0.0f;
@@ -105,14 +107,14 @@ public class BaseBullet : MonoBehaviour {
 
         if (enemy != null)
         {
-            if (enemy.markedForDeath)
+            if (enemy.MarkedForDeath)
             {
                 this.thisRB.velocity = previousVelocity;
                 doDestroy = false;
             }
             else
             {
-                enemy.ApplyDamage(damage);
+                enemy.ApplyDamage(damage, damageType, coll);
 
                 //enemy.markedForDeath = true;
                 //other.attachedRigidbody.Sleep();

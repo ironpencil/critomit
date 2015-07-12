@@ -7,15 +7,26 @@ public class HealthBarManager : MonoBehaviour {
 
     public List<Image> dots = new List<Image>();
 
+    public Sprite green;
+    public Sprite yellow;
+    public Sprite red;
+    public Sprite white;
+
     public int maxHealth = 100;
 
+    public int greenThreshold = 8;
+    public int yellowThreshold = 4;
+    public int redThreshold = 0;
+
+    private int numDots = 0;
+
     [SerializeField]
-    private int currentHealth;
+    private int currentHealth;    
 
     public int CurrentHealth
     {
         get { return currentHealth; }
-        set
+        private set
         {
             currentHealth = value;
             RefreshDisplay();
@@ -53,7 +64,56 @@ public class HealthBarManager : MonoBehaviour {
 
             dot.gameObject.SetActive(i < dotsToDisplay);
         }
-    } 
+
+        numDots = dotsToDisplay;
+
+        RefreshDotColors();
+    }
+
+    public void RefreshDotColors()
+    {
+        if (numDots > greenThreshold)
+        {
+            SetAllDotSprites(green);
+        }
+        else if (numDots > yellowThreshold)
+        {
+            SetAllDotSprites(yellow);
+        }
+        else
+        {
+            SetAllDotSprites(red);
+        }
+    }
+
+    public void SetAllDotSprites(Sprite sprite)
+    {
+        foreach (Image dot in dots)
+        {
+            dot.sprite = sprite;
+            //dot.SetAllDirty();
+        }
+    }
+
+    [ContextMenu("Flash White")]
+    public void FlashWhite()
+    {
+        FlashDots(white, 0.1f);
+    }
+
+    public void FlashDots(Sprite sprite, float duration)
+    {
+        StartCoroutine(DoFlashDots(sprite, duration));
+    }
+
+    private IEnumerator DoFlashDots(Sprite sprite, float duration)
+    {
+        SetAllDotSprites(sprite);
+
+        yield return new WaitForSeconds(duration);
+
+        RefreshDotColors();
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -100,5 +160,17 @@ public class HealthBarManager : MonoBehaviour {
         }
 
         CurrentHealth = actualHealth;
+    }
+
+    public void SetHP(float currentHP)
+    {
+        if (currentHP > 0.0f)
+        {
+            CurrentHealth = Mathf.Clamp((int)currentHP, 1, maxHealth);
+        }
+        else
+        {
+            CurrentHealth = 0;
+        }
     }
 }

@@ -108,7 +108,7 @@ public class Gun : BaseWeapon
 
         bulletScript.shooter = shooter;
 
-        bullet.transform.parent = Globals.Instance.DynamicObjects.transform;
+        bullet.transform.parent = LevelManager.Instance.DynamicObjects.transform;
 
         Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
 

@@ -29,10 +29,10 @@ public class SwitchWeaponHandler : StateMachineBehaviour {
         switch (switchType)
         {
             case SwitchType.Equip:
-                Globals.Instance.WeaponController.WeaponEquipped(weaponLocation);
+                LevelManager.Instance.WeaponController.WeaponEquipped(weaponLocation);
                 break;
             case SwitchType.Unequip:
-                Globals.Instance.WeaponController.WeaponUnequipped(weaponLocation);
+                LevelManager.Instance.WeaponController.WeaponUnequipped(weaponLocation);
                 break;
             default:
                 break;

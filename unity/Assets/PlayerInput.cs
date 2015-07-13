@@ -22,6 +22,8 @@ public class PlayerInput : MonoBehaviour {
 
     public GravityWell shield;
 
+    public List<string> guiBlockedButtons = new List<string>();
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -30,24 +32,40 @@ public class PlayerInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
-            Globals.Instance.WeaponController.ShootWeapon(WeaponLocation.Primary);
+            if (GUIManager.IsMouseInputBlocked())
+            {
+                guiBlockedButtons.Add("Fire1");
+            }
+        }
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            if (guiBlockedButtons.Contains("Fire1"))
+            {
+                guiBlockedButtons.Remove("Fire1");
+            }
+        }
+
+        if (Input.GetButton("Fire1") && !guiBlockedButtons.Contains("Fire1"))
+        {
+            LevelManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Primary);
         }
 
         if (Input.GetButton("Fire2"))
         {
-            Globals.Instance.WeaponController.ShootWeapon(WeaponLocation.Secondary);
+            LevelManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Secondary);
         }
 
         if (Input.GetButton("Fire3"))
         {
-            Globals.Instance.WeaponController.ShootWeapon(WeaponLocation.Utility);
+            LevelManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Utility);
         }
 
         if (Input.GetKeyDown("1"))
         {
-            Globals.Instance.WeaponController.CycleWeapon(WeaponLocation.Primary);
+            LevelManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Primary);
             
             /*primaryWeaponIndex++;
             if (primaryWeaponIndex >= primaryWeapons.Count)
@@ -61,7 +79,7 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetKeyDown("2"))
         {
-            Globals.Instance.WeaponController.CycleWeapon(WeaponLocation.Secondary);
+            LevelManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Secondary);
 
             //secondaryWeaponIndex++;
             //if (secondaryWeaponIndex >= secondaryWeapons.Count)
@@ -74,7 +92,7 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetKeyDown("3"))
         {
-            Globals.Instance.WeaponController.CycleWeapon(WeaponLocation.Utility);
+            LevelManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Utility);
             
             //utilityWeaponIndex++;
             //if (utilityWeaponIndex >= utilityWeapons.Count)

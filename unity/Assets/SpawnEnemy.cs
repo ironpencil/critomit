@@ -35,20 +35,20 @@ public class SpawnEnemy : MonoBehaviour {
 
     private bool CanSpawn()
     {
-        return enemyPrefab != null && Globals.Instance.SpawnEnemies;
+        return enemyPrefab != null && LevelManager.Instance.SpawnEnemies;
     }
 
     public void DoSpawnEnemy()
     {
         GameObject enemy = (GameObject) Instantiate(enemyPrefab, gameObject.transform.position, enemyPrefab.transform.rotation);
 
-        enemy.transform.parent = Globals.Instance.DynamicObjects.transform;
+        enemy.transform.parent = LevelManager.Instance.DynamicObjects.transform;
 
         LookAtTarget enemyScript = enemy.GetComponent<LookAtTarget>();
 
         if (enemyScript != null)
         {
-            enemyScript.target = Globals.Instance.Player.transform;
+            enemyScript.target = LevelManager.Instance.Player.transform;
         }
     }
 }

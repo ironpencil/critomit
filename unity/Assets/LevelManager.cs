@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Globals : Singleton<Globals> {
+public class LevelManager : Singleton<LevelManager> {
 
     public GameObject Player;
     public GameObject DynamicObjects;

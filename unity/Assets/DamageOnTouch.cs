@@ -7,13 +7,14 @@ public class DamageOnTouch : MonoBehaviour {
 
     public EffectSource damageType = EffectSource.Enemy;
 
+    public int targetLayer = -1;
+
     public bool bounceWhenDealingDamage = true;
 
     public float bounceMagnitude = 100.0f;
 
     protected Collider2D thisCollider;
     protected Rigidbody2D thisRigidbody;
-
 
     public void Start()
     {
@@ -39,19 +40,22 @@ public class DamageOnTouch : MonoBehaviour {
 
     private void CollideWithObject(Collision2D coll)
     {
-        TakesDamage touched = coll.gameObject.GetComponent<TakesDamage>();
-
-        if (touched != null)
+        if (targetLayer == -1 || coll.gameObject.layer == targetLayer)
         {
-            touched.ApplyDamage(damage, damageType, coll);
+            TakesDamage touched = coll.gameObject.GetComponent<TakesDamage>();
 
-            if (bounceWhenDealingDamage)
+            if (touched != null)
             {
-                Vector2 contactPoint = coll.contacts[0].point;
+                bool damageDone = touched.ApplyDamage(damage, damageType, coll);
 
-                Vector2 direction = (contactPoint - (Vector2)transform.position).normalized;
+                if (bounceWhenDealingDamage)
+                {
+                    Vector2 contactPoint = coll.contacts[0].point;
 
-                thisRigidbody.AddForce(direction * bounceMagnitude, ForceMode2D.Impulse);
+                    Vector2 direction = (contactPoint - (Vector2)transform.position).normalized;
+
+                    thisRigidbody.AddForce(direction * bounceMagnitude, ForceMode2D.Impulse);
+                }
             }
         }
     }

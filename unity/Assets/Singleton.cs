@@ -27,6 +27,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
+    protected bool destroyOnLoad = false;
+
     //destroy this object if an instance already exists
     public void Start()
     {
@@ -38,6 +40,10 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
+        if (!destroyOnLoad)
+        {
+            Debug.Log("Setting singleton to not destroy on load.");
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

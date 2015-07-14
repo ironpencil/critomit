@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpawnEnemy : MonoBehaviour {
+public class SimpleSpawner : MonoBehaviour {
 
     public float spawnTimer = 5.0f;
     public float lastSpawn = 0.0f;
@@ -35,20 +35,11 @@ public class SpawnEnemy : MonoBehaviour {
 
     private bool CanSpawn()
     {
-        return enemyPrefab != null && LevelManager.Instance.SpawnEnemies;
+        return enemyPrefab != null && SpawnManager.Instance.spawnEnemies;
     }
 
     public void DoSpawnEnemy()
     {
-        GameObject enemy = (GameObject) Instantiate(enemyPrefab, gameObject.transform.position, enemyPrefab.transform.rotation);
-
-        enemy.transform.parent = LevelManager.Instance.DynamicObjects.transform;
-
-        LookAtTarget enemyScript = enemy.GetComponent<LookAtTarget>();
-
-        if (enemyScript != null)
-        {
-            enemyScript.target = LevelManager.Instance.Player.transform;
-        }
+        SpawnManager.Instance.SpawnEnemy(enemyPrefab, gameObject.transform);
     }
 }

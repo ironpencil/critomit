@@ -31,6 +31,8 @@ GameObject:
   - 114: {fileID: 11460880}
   - 114: {fileID: 11415650}
   - 114: {fileID: 11496912}
+  - 114: {fileID: 11478164}
+  - 114: {fileID: 11470798}
   m_Layer: 10
   m_Name: MantaA
   m_TagString: Untagged
@@ -70,7 +72,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187572}
-  m_Mass: 100
+  m_Mass: 10
   m_LinearDrag: 5
   m_AngularDrag: .0500000007
   m_GravityScale: 1
@@ -121,8 +123,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markedForDeath: 0
-  maxHitPoints: 100
+  maxHitPoints: 50
   currentHP: 0
+  damagedBy: 0
+  invulnerable: 0
+  damagedEffects: []
 --- !u!114 &11460880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,9 +139,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e86808e948280e4dbfc3b9d80c6b645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerationForce: 4000
+  accelerationForce: 600
   maxVelocity: 1000
   isMoving: 0
+--- !u!114 &11470798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50ef7e6eb01651418f5533ca6536b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToFlash: {fileID: 21276062}
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  duration: .0500000007
+--- !u!114 &11478164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 903799579d313c04f81fd8b449d69be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  damageType: 2
+  targetLayer: 8
+  bounceWhenDealingDamage: 1
+  bounceMagnitude: -150
 --- !u!114 &11479948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,7 +228,23 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: accelerationForce
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spriteToFlash
+      value: 
+      objectReference: {fileID: 21276062}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxHitPoints
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187572}

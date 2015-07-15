@@ -73,7 +73,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153252}
   m_Mass: 10
-  m_LinearDrag: 5
+  m_LinearDrag: 2.5
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_IsKinematic: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   damageType: 2
   targetLayer: 8
   bounceWhenDealingDamage: 1
-  bounceMagnitude: -150
+  bounceMagnitude: -75
 --- !u!114 &11444858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e86808e948280e4dbfc3b9d80c6b645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerationForce: 600
-  maxVelocity: 1000
+  accelerationForce: 400
+  maxVelocity: 800
   isMoving: 0
 --- !u!114 &11455370
 MonoBehaviour:
@@ -232,7 +232,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: damagedEffects.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -244,7 +244,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: bounceMagnitude
-      value: -150
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: spriteToFlash
@@ -276,11 +276,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: accelerationForce
-      value: 600
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxVelocity
-      value: 1000
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxHitPoints
@@ -293,6 +293,15 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: targetLayer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damagedEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 11477148, guid: 763811075b9445049a8bf2adee0c4dea,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -50,22 +50,22 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetButton("Fire1") && !guiBlockedButtons.Contains("Fire1"))
         {
-            LevelManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Primary);
+            ObjectManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Primary);
         }
 
         if (Input.GetButton("Fire2"))
         {
-            LevelManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Secondary);
+            ObjectManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Secondary);
         }
 
         if (Input.GetButton("Fire3"))
         {
-            LevelManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Utility);
+            ObjectManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Utility);
         }
 
         if (Input.GetKeyDown("1"))
         {
-            LevelManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Primary);
+            ObjectManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Primary);
             
             /*primaryWeaponIndex++;
             if (primaryWeaponIndex >= primaryWeapons.Count)
@@ -79,7 +79,7 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetKeyDown("2"))
         {
-            LevelManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Secondary);
+            ObjectManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Secondary);
 
             //secondaryWeaponIndex++;
             //if (secondaryWeaponIndex >= secondaryWeapons.Count)
@@ -92,7 +92,7 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetKeyDown("3"))
         {
-            LevelManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Utility);
+            ObjectManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Utility);
             
             //utilityWeaponIndex++;
             //if (utilityWeaponIndex >= utilityWeapons.Count)

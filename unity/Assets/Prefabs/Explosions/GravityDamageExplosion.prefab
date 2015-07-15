@@ -209,7 +209,7 @@ MonoBehaviour:
   initialDamage: 0
   damageOverTime: 5
   doApplyGravity: 1
-  constantGravity: 20
+  constantGravity: 40
   addlGravityOverTime: 0
   gravityDeadZoneRadius: 0
   delay: 0
@@ -303,7 +303,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: constantGravity
-      value: -30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: gravityDeadZoneRadius

@@ -3,13 +3,7 @@ using System.Collections;
 
 public class LevelManager : Singleton<LevelManager> {
 
-    public GameObject Player;
-    public GameObject DynamicObjects;
-    public WeaponController WeaponController;
-
     public int levelsCompleted = 0;
-
-    public const int THE_VOID_LAYER = 31;
 
     public int waveLength = 10;
     public int waveLengthInc = 10;
@@ -29,7 +23,8 @@ public class LevelManager : Singleton<LevelManager> {
     }
 
     void Update()
-    {
+    {        
+
         if (loadingNewLevel)
         {
             Debug.LogError("!!!!!! Update called while Loading new level!!!!!!!");

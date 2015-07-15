@@ -92,7 +92,7 @@ public class SpawnManager : Singleton<SpawnManager> {
 
         if (enemyScript != null)
         {
-            enemyScript.target = LevelManager.Instance.Player.transform;
+            enemyScript.target = ObjectManager.Instance.Player.transform;
         }
 
         return enemy;

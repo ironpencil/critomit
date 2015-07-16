@@ -12,3 +12,9 @@ public enum EffectSource
     Player,
     Enemy
 }
+
+public enum GameState
+{
+    Title,
+    Arena
+}

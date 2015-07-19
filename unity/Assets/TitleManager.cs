@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class TitleManager : MonoBehaviour {
-
+    
     public void PlayGame()
     {
-        Globals.Instance.LoadGameState(GameState.Arena);
+        Globals.Instance.LoadGameState(GameState.Lobby);
     }
 }

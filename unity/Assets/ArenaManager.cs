@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LevelManager : Singleton<LevelManager> {
+public class ArenaManager : Singleton<ArenaManager> {
 
-    public int levelsCompleted = 0;
+    public int wavesCompleted = 0;
 
     public int waveLength = 10;
     public int waveLengthInc = 10;
@@ -16,6 +16,14 @@ public class LevelManager : Singleton<LevelManager> {
 
     private float minimumSpawnTimer = 1.0f;
 
+    void OnEnable()
+    {
+        if (Globals.Instance.currentState != GameState.Arena)
+        {
+            this.enabled = false;
+        }
+    }
+
     void Start()
     {
         base.Start();        
@@ -23,7 +31,7 @@ public class LevelManager : Singleton<LevelManager> {
     }
 
     void Update()
-    {        
+    {
 
         if (loadingNewLevel)
         {
@@ -43,17 +51,17 @@ public class LevelManager : Singleton<LevelManager> {
     {
         if (waveComplete && SpawnManager.Instance.EnemiesRemaining == 0)
         {
-            Debug.Log("Level complete!");                       
+            Debug.Log("Level complete!");
 
-            levelsCompleted++;
+            wavesCompleted++;
 
-            spawnTimeAdjustment = levelsCompleted * -1;
+            spawnTimeAdjustment = wavesCompleted * -1;
 
             waveComplete = false;
             waveLength += waveLengthInc;
 
             loadingNewLevel = true;
-            Application.LoadLevel("waveArena");            
+            Application.LoadLevel("waveArena");
         }
     }
 

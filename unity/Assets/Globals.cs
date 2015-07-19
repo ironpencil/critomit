@@ -9,13 +9,18 @@ public class Globals : Singleton<Globals> {
     {
         switch (state)
         {
-            case GameState.Title:
-                Application.LoadLevel("title");
+            case GameState.Title:                
                 currentState = GameState.Title;
+                Application.LoadLevel("title");
                 break;
-            case GameState.Arena:
-                Application.LoadLevel("waveArena");
+            case GameState.Lobby:                
+                currentState = GameState.Lobby;
+                Application.LoadLevel("lobby");
+                break;
+            case GameState.Arena:                
                 currentState = GameState.Arena;
+                ArenaManager.Instance.enabled = true;
+                Application.LoadLevel("waveArena");
                 break;
             default:
                 break;

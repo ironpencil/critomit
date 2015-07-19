@@ -26,6 +26,9 @@ public class WeaponController : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
+
+        Debug.Log("WeaponController::Start()");
+
         weaponSlots = new Dictionary<WeaponLocation, WeaponSlot>();
 
         WeaponSlot slot = new WeaponSlot();

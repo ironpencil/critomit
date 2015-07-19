@@ -16,5 +16,14 @@ public enum EffectSource
 public enum GameState
 {
     Title,
+    Lobby,
+    Arena,
+    Campaign
+}
+
+public enum GameLevel
+{
+    Title,
+    Lobby,
     Arena
 }

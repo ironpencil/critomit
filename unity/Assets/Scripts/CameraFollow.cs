@@ -43,7 +43,10 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        TrackPlayer();
+        if (followTarget != null)
+        {
+            TrackPlayer();
+        }
     }
 
 

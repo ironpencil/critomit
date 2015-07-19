@@ -6,6 +6,7 @@ public class ObjectManager : Singleton<ObjectManager> {
     public GameObject Player;
     public GameObject DynamicObjects;
     public WeaponController WeaponController;
+    public CameraFollow FollowCam;
 
 	// Use this for initialization
 	void Start () {

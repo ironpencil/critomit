@@ -19,7 +19,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
                 if (_instance == null)
                 {
-                    _instance = Instantiate(Resources.Load(typeof(T).Name) as GameObject).GetComponent<T>();
+                    //_instance = Instantiate(Resources.Load(typeof(T).Name) as GameObject).GetComponent<T>();
+                    
+                    GameObject singleton = new GameObject();
+                    _instance = singleton.AddComponent<T>();
+                    singleton.name = "(singleton) " + typeof(T).ToString();
                 }
             }
 

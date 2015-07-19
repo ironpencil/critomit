@@ -9,21 +9,44 @@ public class Globals : Singleton<Globals> {
     {
         switch (state)
         {
-            case GameState.Title:                
+            case GameState.Title:
                 currentState = GameState.Title;
-                Application.LoadLevel("title");
+                LoadLevel("title");
                 break;
-            case GameState.Lobby:                
+            case GameState.Lobby:
                 currentState = GameState.Lobby;
-                Application.LoadLevel("lobby");
+                LoadLevel("lobby");
                 break;
-            case GameState.Arena:                
+            case GameState.Arena:
                 currentState = GameState.Arena;
                 ArenaManager.Instance.enabled = true;
-                Application.LoadLevel("waveArena");
+                LoadLevel("waveArena");
                 break;
             default:
                 break;
         }
+    }
+
+    public void LoadLevel(string levelName)
+    {
+        StartCoroutine(DoLoadLevel(levelName));
+    }
+
+    private IEnumerator DoLoadLevel(string levelName)
+    {
+        if (ObjectManager.Instance.FollowCam != null)
+        {
+            ObjectManager.Instance.FollowCam.followTarget = null;
+        }
+
+        GUIManager.Instance.FadeScreen(0.0f, 1.0f, 0.5f);
+
+        while (GUIManager.Instance.isFading)
+        {
+            yield return null;
+        }
+
+        Application.LoadLevel(levelName);
+
     }
 }

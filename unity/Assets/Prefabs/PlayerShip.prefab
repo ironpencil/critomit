@@ -937,8 +937,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
-  bulletMinDirection: {x: 1, y: -.0299999993}
-  bulletMaxDirection: {x: 1, y: .0299999993}
+  bulletMinDirection: {x: 1, y: 0}
+  bulletMaxDirection: {x: 1, y: 0}
+  bulletRotationRange: {x: -3, y: 3}
   bulletMinMaxForce: {x: 1300, y: 1400}
   shooterForce: {x: -40000, y: 0}
   cameraShaker: {fileID: 11488284}
@@ -957,7 +958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2664bcf6b1547524fb10d9f169b0d42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
   currentVelocity: {x: 0, y: 0}
   softMaxVelocity: {x: 12, y: 12}
   shield: {fileID: 11475108}
@@ -1005,8 +1005,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 20
-  bulletMinDirection: {x: 1, y: -.5}
-  bulletMaxDirection: {x: 1, y: .5}
+  bulletMinDirection: {x: 1, y: 0}
+  bulletMaxDirection: {x: 1, y: 0}
+  bulletRotationRange: {x: -30, y: 30}
   bulletMinMaxForce: {x: 1200, y: 1300}
   shooterForce: {x: -250000, y: 0}
   cameraShaker: {fileID: 0}
@@ -1033,6 +1034,7 @@ MonoBehaviour:
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
+  bulletRotationRange: {x: 0, y: 0}
   bulletMinMaxForce: {x: 6000, y: 8000}
   shooterForce: {x: -250000, y: 0}
   cameraShaker: {fileID: 0}
@@ -1057,9 +1059,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 30
-  bulletMinDirection: {x: 1, y: -.75}
-  bulletMaxDirection: {x: 1, y: .75}
-  bulletMinMaxForce: {x: 1300, y: 1400}
+  bulletMinDirection: {x: 1, y: 0}
+  bulletMaxDirection: {x: 1, y: 0}
+  bulletRotationRange: {x: -30, y: 30}
+  bulletMinMaxForce: {x: 1200, y: 1500}
   shooterForce: {x: -500000, y: 0}
   cameraShaker: {fileID: 0}
   autoFire: 1
@@ -1130,8 +1133,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
-  bulletMinDirection: {x: 1, y: -.0500000007}
-  bulletMaxDirection: {x: 1, y: .0500000007}
+  bulletMinDirection: {x: 1, y: 0}
+  bulletMaxDirection: {x: 1, y: 0}
+  bulletRotationRange: {x: -2, y: 2}
   bulletMinMaxForce: {x: 1200, y: 1400}
   shooterForce: {x: -40000, y: 0}
   cameraShaker: {fileID: 11493750}
@@ -1172,7 +1176,8 @@ MonoBehaviour:
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
-  bulletMinMaxForce: {x: 16000, y: 16000}
+  bulletRotationRange: {x: 0, y: 0}
+  bulletMinMaxForce: {x: 8000, y: 8000}
   shooterForce: {x: 0, y: 0}
   cameraShaker: {fileID: 0}
   autoFire: 0
@@ -1199,6 +1204,7 @@ MonoBehaviour:
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
+  bulletRotationRange: {x: 0, y: 0}
   bulletMinMaxForce: {x: 0, y: 0}
   shooterForce: {x: 0, y: 0}
   cameraShaker: {fileID: 0}
@@ -1234,7 +1240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markedForDeath: 0
   maxHitPoints: 100
-  currentHP: 0
+  currentHP: 100
   damagedBy: 0
   invulnerable: 0
   damagedEffects: []
@@ -1364,8 +1370,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
-  bulletMinDirection: {x: 1, y: -.0500000007}
-  bulletMaxDirection: {x: 1, y: .0500000007}
+  bulletMinDirection: {x: 1, y: 0}
+  bulletMaxDirection: {x: 1, y: 0}
+  bulletRotationRange: {x: -2, y: 2}
   bulletMinMaxForce: {x: 1200, y: 1400}
   shooterForce: {x: -40000, y: 0}
   cameraShaker: {fileID: 0}
@@ -1404,8 +1411,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 20
-  bulletMinDirection: {x: 1, y: -.5}
-  bulletMaxDirection: {x: 1, y: .5}
+  bulletMinDirection: {x: 1, y: 0}
+  bulletMaxDirection: {x: 1, y: 0}
+  bulletRotationRange: {x: -30, y: 30}
   bulletMinMaxForce: {x: 1200, y: 1300}
   shooterForce: {x: -250000, y: 0}
   cameraShaker: {fileID: 0}

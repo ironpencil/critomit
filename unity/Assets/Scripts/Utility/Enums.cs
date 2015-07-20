@@ -25,5 +25,8 @@ public enum GameLevel
 {
     Title,
     Lobby,
-    Arena
+    Arena,
+    Level1,
+    Level2,
+    Level3
 }

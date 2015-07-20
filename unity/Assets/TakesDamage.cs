@@ -60,7 +60,7 @@ public class TakesDamage : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	public virtual void FixedUpdate () {
+	public virtual void Update () {
 
         if (markedForDeath)
         {

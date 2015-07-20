@@ -5,8 +5,10 @@ public class ArenaManager : Singleton<ArenaManager> {
 
     public int wavesCompleted = 0;
 
-    public int waveLength = 10;
-    public int waveLengthInc = 10;
+    public float startingWaveLength = 10.0f;
+    public float currentWaveLength = 10.0f;
+    public float waveLengthInc = 5.0f;
+
     public float timeRemaining = 0.0f;
 
     public bool waveComplete = false;
@@ -22,12 +24,14 @@ public class ArenaManager : Singleton<ArenaManager> {
         {
             this.enabled = false;
         }
+
+        Reset();
     }
 
     void Start()
     {
         base.Start();        
-        timeRemaining = waveLength;
+        timeRemaining = currentWaveLength;
     }
 
     void Update()
@@ -58,7 +62,7 @@ public class ArenaManager : Singleton<ArenaManager> {
             spawnTimeAdjustment = wavesCompleted * -1;
 
             waveComplete = false;
-            waveLength += waveLengthInc;
+            currentWaveLength += waveLengthInc;
 
             loadingNewLevel = true;
             Application.LoadLevel("waveArena");
@@ -70,12 +74,21 @@ public class ArenaManager : Singleton<ArenaManager> {
         float newSpawnTimer = Mathf.Max(minimumSpawnTimer, SpawnManager.Instance.spawnTimer + spawnTimeAdjustment);
         SpawnManager.Instance.spawnTimer = newSpawnTimer;
         
-        timeRemaining = waveLength;
+        timeRemaining = currentWaveLength;
     }
 
     public void OnLevelWasLoaded(int level)
     {
         loadingNewLevel = false;
         DoNewLevelSetup();
+    }
+
+    public void Reset()
+    {
+        Debug.Log("Resetting Arena");
+        wavesCompleted = 0;
+        spawnTimeAdjustment = 0.0f;
+        waveComplete = false;
+        currentWaveLength = startingWaveLength;
     }
 }

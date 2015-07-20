@@ -3,10 +3,13 @@ using System.Collections;
 
 public class ObjectManager : Singleton<ObjectManager> {
 
-    public GameObject Player;
-    public GameObject DynamicObjects;
-    public WeaponController WeaponController;
-    public CameraFollow FollowCam;
+    public GameObject player;
+    public WeaponController weaponController; 
+    public GameObject dynamicObjects;
+    public HealthBarManager healthBar;
+    public WeaponDisplayManager weaponDisplayManager;
+    public PlayerSpawner playerSpawner;
+    public CameraFollow followCam;    
 
 	// Use this for initialization
 	void Start () {
@@ -18,4 +21,28 @@ public class ObjectManager : Singleton<ObjectManager> {
 	void Update () {
 	
 	}
+
+    public void DestroyPlayer()
+    {
+        Destroy(player);
+    }
+
+    public void DestroyAndRespawnPlayer()
+    {
+        StartCoroutine(DoDestroyAndRespawnPlayer(2.0f));
+    }
+
+    private IEnumerator DoDestroyAndRespawnPlayer(float respawnDelay)
+    {
+        float respawnTime = Time.time + respawnDelay;
+
+        Destroy(player);
+
+        while (player != null || Time.time < respawnTime)
+        {
+            yield return null;
+        }
+
+        playerSpawner.DoSpawnPlayer();
+    }
 }

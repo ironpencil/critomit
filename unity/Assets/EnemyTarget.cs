@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LookAtTarget : MonoBehaviour {
+public class EnemyTarget : MonoBehaviour {
 
     public Transform target;
 
@@ -14,7 +14,14 @@ public class LookAtTarget : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
+        if (target == null)
+        {
+            if (ObjectManager.Instance.player != null)
+            {
+                target = ObjectManager.Instance.player.transform;
+            }
+        }
+        else
         {
             Vector3 targetPos = target.transform.position;
 

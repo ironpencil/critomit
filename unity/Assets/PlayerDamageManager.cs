@@ -8,6 +8,23 @@ public class PlayerDamageManager : TakesDamage {
 
     public HealthBarManager healthBar;
 
+    public void Start()
+    {
+        if (healthBar == null)
+        {
+            healthBar = ObjectManager.Instance.healthBar;
+        }
+
+        RefreshHealthbar();
+    }
+
+    private void RefreshHealthbar()
+    {
+        MaxHitPoints = MaxHitPoints;
+        CurrentHP = CurrentHP;
+    }
+
+
     public override int MaxHitPoints
     {
         get { return maxHitPoints; }
@@ -32,12 +49,15 @@ public class PlayerDamageManager : TakesDamage {
     public float damageInvDuration = 0.25f;
 
 	// Update is called once per frame
-	public override void FixedUpdate () {
+	public override void Update () {
 
         if (markedForDeath)
         {
             //player died
             Debug.Log("Player is dead!");
+
+            Globals.Instance.PlayerDied();
+
         }
 	
 	}
@@ -78,7 +98,7 @@ public class PlayerDamageManager : TakesDamage {
         {
             //kill player
             //for now, just restore to max health
-            CurrentHP = MaxHitPoints;
+            //CurrentHP = MaxHitPoints;
         }
     }
 

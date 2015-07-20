@@ -10,6 +10,8 @@ public class Gun : BaseWeapon
     public Vector2 bulletMinDirection = new Vector2(1.0f, 0.0f);
     public Vector2 bulletMaxDirection = new Vector2(1.0f, 0.0f);
 
+    public Vector2 bulletRotationRange = new Vector2(0.0f, 0.0f);
+
     public Vector2 bulletMinMaxForce = new Vector2(5000.0f, 6000.0f);
 
     public Vector2 shooterForce = new Vector2(-40000, 0);
@@ -102,15 +104,20 @@ public class Gun : BaseWeapon
     }
 
     protected virtual BaseBullet Fire()
-    {
+    {        
+
         GameObject bullet = (GameObject)Instantiate(bulletPrefab, transform.position, transform.rotation);
         BaseBullet bulletScript = bullet.GetComponent<BaseBullet>();
 
         bulletScript.shooter = shooter;
 
-        bullet.transform.parent = ObjectManager.Instance.DynamicObjects.transform;
+        bullet.transform.parent = ObjectManager.Instance.dynamicObjects.transform;
 
         Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
+
+        float rotationAdjust = Random.Range(bulletRotationRange.x, bulletRotationRange.y);
+
+        bulletRB.rotation += rotationAdjust;
 
         //bulletRB.velocity = transform.forward * bulletSpeed;
 

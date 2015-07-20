@@ -40,7 +40,7 @@ public class TakesDamageChild : TakesDamage {
 	
 	}
 
-    public override void FixedUpdate()
+    public override void Update()
     {
         
     }

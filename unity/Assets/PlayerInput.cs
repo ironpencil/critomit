@@ -12,8 +12,6 @@ public class PlayerInput : MonoBehaviour {
     //public int secondaryWeaponIndex = 0;
     //public int utilityWeaponIndex = 0;
 
-    public HealthBarManager healthBar;
-
     public Vector2 currentVelocity = Vector2.zero;
 
     public Vector2 softMaxVelocity = new Vector2(15, 15);
@@ -50,22 +48,22 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetButton("Fire1") && !guiBlockedButtons.Contains("Fire1"))
         {
-            ObjectManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Primary);
+            ObjectManager.Instance.weaponController.ShootWeapon(WeaponLocation.Primary);
         }
 
         if (Input.GetButton("Fire2"))
         {
-            ObjectManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Secondary);
+            ObjectManager.Instance.weaponController.ShootWeapon(WeaponLocation.Secondary);
         }
 
         if (Input.GetButton("Fire3"))
         {
-            ObjectManager.Instance.WeaponController.ShootWeapon(WeaponLocation.Utility);
+            ObjectManager.Instance.weaponController.ShootWeapon(WeaponLocation.Utility);
         }
 
         if (Input.GetKeyDown("1"))
         {
-            ObjectManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Primary);
+            ObjectManager.Instance.weaponController.CycleWeapon(WeaponLocation.Primary);
             
             /*primaryWeaponIndex++;
             if (primaryWeaponIndex >= primaryWeapons.Count)
@@ -79,7 +77,7 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetKeyDown("2"))
         {
-            ObjectManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Secondary);
+            ObjectManager.Instance.weaponController.CycleWeapon(WeaponLocation.Secondary);
 
             //secondaryWeaponIndex++;
             //if (secondaryWeaponIndex >= secondaryWeapons.Count)
@@ -92,7 +90,7 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetKeyDown("3"))
         {
-            ObjectManager.Instance.WeaponController.CycleWeapon(WeaponLocation.Utility);
+            ObjectManager.Instance.weaponController.CycleWeapon(WeaponLocation.Utility);
             
             //utilityWeaponIndex++;
             //if (utilityWeaponIndex >= utilityWeapons.Count)
@@ -120,12 +118,12 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            healthBar.TestHealthBar();
+            gameObject.GetComponent<PlayerDamageManager>().healthBar.TestHealthBar();
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            healthBar.FlashWhite();
+            gameObject.GetComponent<PlayerDamageManager>().healthBar.FlashWhite();
         }
 
         currentVelocity = rb.velocity;

@@ -27,6 +27,11 @@ public class WeaponController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+        if (displayManager == null)
+        {
+            displayManager = ObjectManager.Instance.weaponDisplayManager;
+        }
+
         Debug.Log("WeaponController::Start()");
 
         weaponSlots = new Dictionary<WeaponLocation, WeaponSlot>();
@@ -80,6 +85,7 @@ public class WeaponController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
         
         foreach (WeaponSlot slot in weaponSlots.Values)
         {

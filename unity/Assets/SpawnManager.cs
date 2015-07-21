@@ -88,12 +88,12 @@ public class SpawnManager : Singleton<SpawnManager> {
 
         enemy.transform.parent = EnemyObjects.transform;
 
-        EnemyTarget enemyScript = enemy.GetComponent<EnemyTarget>();
+        //EnemyMovement enemyScript = enemy.GetComponent<EnemyMovement>();
 
-        if (enemyScript != null)
-        {
-            enemyScript.target = ObjectManager.Instance.player.transform;
-        }
+        //if (enemyScript != null)
+        //{
+        //    enemyScript.targetRB = ObjectManager.Instance.player.GetComponent<Rigidbody2D>();
+        //}
 
         return enemy;
     }

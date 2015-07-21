@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 431846}
   - 212: {fileID: 21276062}
   - 95: {fileID: 9527190}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,13 +27,13 @@ GameObject:
   - 4: {fileID: 464268}
   - 58: {fileID: 5802138}
   - 50: {fileID: 5035860}
-  - 114: {fileID: 11479948}
-  - 114: {fileID: 11460880}
   - 114: {fileID: 11415650}
   - 114: {fileID: 11496912}
   - 114: {fileID: 11478164}
   - 114: {fileID: 11470798}
-  m_Layer: 10
+  - 114: {fileID: 11479948}
+  - 114: {fileID: 11416368}
+  m_Layer: 14
   m_Name: MantaA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -12.0500002, y: -3.08999991, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 431846}
@@ -73,7 +73,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187572}
   m_Mass: 10
-  m_LinearDrag: 2.5
+  m_LinearDrag: 10
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_IsKinematic: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   invulnerable: 0
   damagedEffects:
   - {fileID: 11470798}
---- !u!114 &11460880
+--- !u!114 &11416368
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -137,12 +137,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 187572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e86808e948280e4dbfc3b9d80c6b645, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b2cbc35f0ece444aa299088276b5cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerationForce: 400
-  maxVelocity: 800
-  isMoving: 0
+  accelerationForce: 1500
+  maxVelocity: 3000
+  movementDelay: 0
+  magnitude: .75
+  frequency: 4
+  randomSeed: 1
 --- !u!114 &11470798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,7 +175,7 @@ MonoBehaviour:
   damageType: 2
   targetLayer: 8
   bounceWhenDealingDamage: 1
-  bounceMagnitude: -75
+  bounceMagnitude: -300
 --- !u!114 &11479948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,7 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb60ceb646eddb4c8049030b54c0159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  targetRB: {fileID: 0}
+  targetedMovement: {fileID: 11416368}
+  untargetedMovement: {fileID: 0}
 --- !u!114 &11496912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: accelerationForce
-      value: 400
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: spriteToFlash
@@ -260,11 +265,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxVelocity
-      value: 800
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: bounceMagnitude
-      value: -75
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: targetedMovement
+      value: 
+      objectReference: {fileID: 11416368}
+    - target: {fileID: 0}
+      propertyPath: invulnerable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: magnitude
+      value: .75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

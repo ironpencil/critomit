@@ -10,13 +10,13 @@ GameObject:
   - 4: {fileID: 412206}
   - 58: {fileID: 5812208}
   - 50: {fileID: 5012208}
-  - 114: {fileID: 11412202}
-  - 114: {fileID: 11412204}
   - 114: {fileID: 11412206}
   - 114: {fileID: 11412208}
   - 114: {fileID: 11474816}
   - 114: {fileID: 11410886}
-  m_Layer: 10
+  - 114: {fileID: 11412202}
+  - 114: {fileID: 11493364}
+  m_Layer: 14
   m_Name: LilBugA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ GameObject:
   - 4: {fileID: 412208}
   - 212: {fileID: 21212208}
   - 95: {fileID: 9512208}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.9292469, y: -1.53606224, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 412208}
@@ -73,7 +73,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112206}
   m_Mass: 10
-  m_LinearDrag: 2.5
+  m_LinearDrag: 5
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_IsKinematic: 0
@@ -88,7 +88,7 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112206}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 8be6341e1ce3f4cec9902bc34f72d20a, type: 2}
+  m_Material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: .100000001, y: 0}
@@ -136,21 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb60ceb646eddb4c8049030b54c0159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
---- !u!114 &11412204
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e86808e948280e4dbfc3b9d80c6b645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accelerationForce: 400
-  maxVelocity: 800
-  isMoving: 0
+  targetRB: {fileID: 0}
+  targetedMovement: {fileID: 11493364}
+  untargetedMovement: {fileID: 0}
 --- !u!114 &11412206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,7 +184,23 @@ MonoBehaviour:
   damageType: 2
   targetLayer: 8
   bounceWhenDealingDamage: 1
-  bounceMagnitude: -75
+  bounceMagnitude: -150
+--- !u!114 &11493364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7846f9655cf15d142a6b605d64250a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelerationForce: 800
+  maxVelocity: 1600
+  movementDelay: .5
+  varianceRange: 45
+  changeDirection: 1
 --- !u!212 &21212208
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -265,6 +269,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: bounceMagnitude
       value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: targetedMovement
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: invulnerable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

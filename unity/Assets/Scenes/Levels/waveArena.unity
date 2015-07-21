@@ -1384,7 +1384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnEnemies: 1
-  spawnTimer: 1
+  spawnTimer: 10
   spawnOnStart: 1
   smallEnemies:
   - {fileID: 104968, guid: 763811075b9445049a8bf2adee0c4dea, type: 2}
@@ -1395,6 +1395,7 @@ MonoBehaviour:
   - {fileID: 187572, guid: 4edb71a3ae229ca4fbe46f4cbde152b1, type: 2}
   - {fileID: 191920, guid: c20abde36e95b1d4eb5d4f0a712963da, type: 2}
   EnemyObjects: {fileID: 1855218117}
+  SpawnerObjects: {fileID: 544434531}
 --- !u!4 &1104225500
 Transform:
   m_ObjectHideFlags: 0
@@ -2090,6 +2091,7 @@ MonoBehaviour:
   startingWaveLength: 10
   currentWaveLength: 10
   waveLengthInc: 1
+  spawnTimeInc: -1
   timeRemaining: 0
   waveComplete: 0
 --- !u!114 &1530548672
@@ -2158,14 +2160,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11473810, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
-      propertyPath: invulnerable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5810616, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ffc28b45c1b40f47a6ff4867054fa40, type: 2}
   m_IsPrefabParent: 0

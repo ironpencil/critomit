@@ -39,26 +39,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cbb992db14f054fb7c5e233a7af8ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponAnimator: {fileID: 0}
+  animationController: {fileID: 0}
+  weaponDisplayer: {fileID: 0}
   bulletPrefab: {fileID: 130010, guid: d9a008bcb7213284d96be0daa77feb39, type: 2}
   shooter: {fileID: 0}
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
-  bulletMinMaxForce: {x: 8000, y: 8000}
+  bulletRotationRange: {x: 0, y: 0}
+  bulletMinMaxForce: {x: 10000, y: 10000}
   shooterForce: {x: 0, y: 0}
+  cameraShaker: {fileID: 0}
   autoFire: 0
   fireDelay: 1
   varyFireDelay: 0
   fireDelayVariantRange: .00999999978
-  detachDelay: .200000003
-  hook: {fileID: 0}
+  remoteProjectile: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: bulletMinMaxForce.x
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bulletMinMaxForce.y
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149822}

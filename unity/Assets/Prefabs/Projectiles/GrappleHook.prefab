@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   damageType: 0
-  lifespan: .5
+  lifespan: .75
   die: 0
   shooter: {fileID: 0}
   remoteActivated: 0
@@ -259,7 +259,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lifespan
-      value: .5
+      value: .75
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: die

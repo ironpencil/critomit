@@ -777,7 +777,7 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106274}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 8be6341e1ce3f4cec9902bc34f72d20a, type: 2}
+  m_Material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -.200000003, y: 0}
@@ -1035,7 +1035,7 @@ MonoBehaviour:
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: 0, y: 0}
-  bulletMinMaxForce: {x: 6000, y: 8000}
+  bulletMinMaxForce: {x: 12000, y: 12000}
   shooterForce: {x: -250000, y: 0}
   cameraShaker: {fileID: 0}
   autoFire: 1
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: 0, y: 0}
-  bulletMinMaxForce: {x: 8000, y: 8000}
+  bulletMinMaxForce: {x: 10000, y: 10000}
   shooterForce: {x: 0, y: 0}
   cameraShaker: {fileID: 0}
   autoFire: 0
@@ -1241,7 +1241,7 @@ MonoBehaviour:
   markedForDeath: 0
   maxHitPoints: 100
   currentHP: 100
-  damagedBy: 0
+  damagedBy: 2
   invulnerable: 0
   damagedEffects: []
   playerSprites:
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   - {fileID: 21271746}
   - {fileID: 21262136}
   healthBar: {fileID: 0}
-  damageInvDuration: 1
+  damageInvDuration: 2
 --- !u!114 &11474504
 MonoBehaviour:
   m_ObjectHideFlags: 1

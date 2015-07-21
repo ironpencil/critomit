@@ -20,7 +20,17 @@ public class SpawnManager : Singleton<SpawnManager> {
         }
     }
 
+    [SerializeField]
+    public int SpawnersRemaining
+    {
+        get
+        {
+            return SpawnerObjects.transform.childCount;
+        }
+    }
+
     public GameObject EnemyObjects;
+    public GameObject SpawnerObjects;
 
     public enum EnemyType
     {
@@ -44,6 +54,11 @@ public class SpawnManager : Singleton<SpawnManager> {
         if (EnemyObjects == null)
         {
             EnemyObjects = GameObject.Find("Enemies");
+        }
+
+        if (SpawnerObjects == null)
+        {
+            SpawnerObjects = GameObject.Find("Spawners");
         }
 
         if (Input.GetKeyDown(KeyCode.E))

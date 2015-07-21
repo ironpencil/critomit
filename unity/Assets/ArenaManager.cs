@@ -8,6 +8,7 @@ public class ArenaManager : Singleton<ArenaManager> {
     public float startingWaveLength = 10.0f;
     public float currentWaveLength = 10.0f;
     public float waveLengthInc = 5.0f;
+    public float spawnTimeInc = -0.5f;
 
     public float timeRemaining = 0.0f;
 
@@ -47,19 +48,21 @@ public class ArenaManager : Singleton<ArenaManager> {
         if (timeRemaining < 0.0f)
         {
             waveComplete = true;
-            SpawnManager.Instance.spawnEnemies = false;
+            //SpawnManager.Instance.spawnEnemies = false;
         }
     }
 
     void LateUpdate()
     {
-        if (waveComplete && SpawnManager.Instance.EnemiesRemaining == 0)
+        //if (waveComplete && SpawnManager.Instance.EnemiesRemaining == 0)
+        if (SpawnManager.Instance.EnemiesRemaining == 0 &&
+            SpawnManager.Instance.SpawnersRemaining == 0)
         {
             Debug.Log("Level complete!");
 
             wavesCompleted++;
 
-            spawnTimeAdjustment = wavesCompleted * -1;
+            spawnTimeAdjustment = wavesCompleted * spawnTimeInc;
 
             waveComplete = false;
             currentWaveLength += waveLengthInc;

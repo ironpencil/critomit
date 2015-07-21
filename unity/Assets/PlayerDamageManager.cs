@@ -51,6 +51,11 @@ public class PlayerDamageManager : TakesDamage {
 	// Update is called once per frame
 	public override void Update () {
 
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            invulnerable = !invulnerable;
+        }
+
         if (markedForDeath)
         {
             //player died

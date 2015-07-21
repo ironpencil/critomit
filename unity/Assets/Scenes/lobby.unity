@@ -2129,6 +2129,7 @@ MonoBehaviour:
   - {fileID: 187572, guid: 4edb71a3ae229ca4fbe46f4cbde152b1, type: 2}
   - {fileID: 191920, guid: c20abde36e95b1d4eb5d4f0a712963da, type: 2}
   EnemyObjects: {fileID: 1855218117}
+  SpawnerObjects: {fileID: 0}
 --- !u!4 &1104225500
 Transform:
   m_ObjectHideFlags: 0
@@ -2943,6 +2944,7 @@ MonoBehaviour:
   startingWaveLength: 10
   currentWaveLength: 10
   waveLengthInc: 1
+  spawnTimeInc: -.5
   timeRemaining: 0
   waveComplete: 0
 --- !u!114 &1530548672

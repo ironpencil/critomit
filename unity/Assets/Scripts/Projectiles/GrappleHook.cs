@@ -43,6 +43,13 @@ public class GrappleHook : RemoteProjectile {
     {
         if (!isAttached)
         {
+            try
+            {
+                RemoteLauncher launcher = (RemoteLauncher)shooterScript;
+                launcher.refireOnManualActivation = false;
+            }
+            catch { }
+
             keepVelocityUpdated = false;
             //add distance script to hit object, connecting it to player
 
@@ -199,13 +206,20 @@ public class GrappleHook : RemoteProjectile {
     public override void RemoteActivate()
     {
         base.RemoteActivate();
-        Destroy(gameObject);
+        Destroy(gameObject);              
     }
 
     void OnDestroy()
     {
         Destroy(attachedSpring);
         Destroy(attachedRope);
+
+        try
+        {
+            RemoteLauncher launcher = (RemoteLauncher)shooterScript;
+            launcher.refireOnManualActivation = true;
+        }
+        catch { }  
 
     }
 

@@ -5,9 +5,11 @@ public class RemoteLauncher : Gun
 {    
 
     //public float detachDelay = 0.2f;
-    //private float lastDetach = 0.0f;
+    //private float lastDetach = 0.0f;    
 
     public RemoteProjectile remoteProjectile;
+
+    public bool refireOnManualActivation = false;
 
     public override void FixedUpdate()
     {
@@ -15,33 +17,18 @@ public class RemoteLauncher : Gun
         {
             if (remoteProjectile == null)
             {
-
-                if (Time.fixedTime > lastShot + fireDelay + actualFireDelayVariant)
-                {
-                    //if the weapon has auto mode or if they had previously stopped shooting
-                    if (autoFire || stoppedShooting)
-                    {
-
-                        for (int i = 0; i < bulletsPerShot; i++)
-                        {
-                            remoteProjectile = (RemoteProjectile) Fire();                            
-                        }
-
-                        shooter.AddRelativeForce(shooterForce);
-
-                        lastShot = Time.fixedTime;
-                        if (varyFireDelay && fireDelayVariantRange > 0.0f)
-                        {
-                            actualFireDelayVariant = Random.Range(0.0f, fireDelayVariantRange);
-                        }
-                    }
-                }
+                DoFireWeapon();
             }
             else
             {
                 if (stoppedShooting) {
                     remoteProjectile.RemoteActivate();
                     remoteProjectile = null;
+
+                    if (refireOnManualActivation)
+                    {
+                        DoFireWeapon();
+                    }
                     //GameObject.Destroy(remoteProjectile.gameObject);
                     //remoteProjectile = null;
                 }
@@ -92,6 +79,35 @@ public class RemoteLauncher : Gun
         //        }
         //    }
         //}
+    }
+
+    private void DoFireWeapon()
+    {
+        if (Time.fixedTime > lastShot + fireDelay + actualFireDelayVariant)
+        {
+            //if the weapon has auto mode or if they had previously stopped shooting
+            if (autoFire || stoppedShooting)
+            {
+
+                for (int i = 0; i < bulletsPerShot; i++)
+                {
+                    remoteProjectile = (RemoteProjectile)Fire();
+                }
+
+                shooter.AddRelativeForce(shooterForce);
+
+                if (cameraShaker != null)
+                {
+                    cameraShaker.Shake();
+                }
+
+                lastShot = Time.fixedTime;
+                if (varyFireDelay && fireDelayVariantRange > 0.0f)
+                {
+                    actualFireDelayVariant = Random.Range(0.0f, fireDelayVariantRange);
+                }
+            }
+        }
     }
 
     //private void FireBullet()

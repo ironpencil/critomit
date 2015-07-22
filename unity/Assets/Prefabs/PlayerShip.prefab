@@ -270,6 +270,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 466108}
   - 114: {fileID: 11457366}
+  - 114: {fileID: 11444048}
+  - 114: {fileID: 11458682}
   m_Layer: 8
   m_Name: Grapple
   m_TagString: Untagged
@@ -1086,6 +1088,20 @@ MonoBehaviour:
   weapons:
   - {fileID: 11490358}
   - {fileID: 11431874}
+--- !u!114 &11444048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125bd5097497738468f74a9554c62ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: .5
+  sustainTime: 0
+  decayTime: .100000001
 --- !u!114 &11445516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1170,21 +1186,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponAnimator: {fileID: 0}
   animationController: {fileID: 0}
-  weaponDisplayer: {fileID: 0}
+  weaponDisplayer: {fileID: 11458682}
   bulletPrefab: {fileID: 130010, guid: d9a008bcb7213284d96be0daa77feb39, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: 0, y: 0}
-  bulletMinMaxForce: {x: 10000, y: 10000}
+  bulletMinMaxForce: {x: 12000, y: 12000}
   shooterForce: {x: 0, y: 0}
   cameraShaker: {fileID: 0}
   autoFire: 0
-  fireDelay: 1
+  fireDelay: 0
   varyFireDelay: 0
-  fireDelayVariantRange: .00999999978
+  fireDelayVariantRange: 0
   remoteProjectile: {fileID: 0}
+  refireOnManualActivation: 0
+--- !u!114 &11458682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc78447dd6c80d4b9e03b4ece017584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledImage: {fileID: 21300000, guid: 56a3fd7fa5094b64cab00961583ac959, type: 3}
+  disabledImage: {fileID: 21300000, guid: 34d58fd861f1f174b94f0fc119ee23d1, type: 3}
 --- !u!114 &11466998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1213,6 +1243,7 @@ MonoBehaviour:
   varyFireDelay: 0
   fireDelayVariantRange: 0
   remoteProjectile: {fileID: 0}
+  refireOnManualActivation: 0
 --- !u!114 &11472512
 MonoBehaviour:
   m_ObjectHideFlags: 1

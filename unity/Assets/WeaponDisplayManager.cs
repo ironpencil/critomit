@@ -6,6 +6,7 @@ public class WeaponDisplayManager : MonoBehaviour {
 
     public Image primaryWeaponImage;
     public Image secondaryWeaponImage;
+    public Image utilityWeaponImage;
 
     public void DisplayImage(WeaponLocation weaponLocation, Sprite sprite)
     {
@@ -18,6 +19,7 @@ public class WeaponDisplayManager : MonoBehaviour {
                 SetImage(secondaryWeaponImage, sprite);
                 break;
             case WeaponLocation.Utility:
+                SetImage(utilityWeaponImage, sprite);
                 break;
             default:
                 break;

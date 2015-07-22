@@ -46,12 +46,28 @@ public class PlayerInput : MonoBehaviour {
             }
         }
 
+        if (Input.GetButtonDown("Fire2"))
+        {
+            if (GUIManager.IsMouseInputBlocked())
+            {
+                guiBlockedButtons.Add("Fire2");
+            }
+        }
+
+        if (Input.GetButtonUp("Fire2"))
+        {
+            if (guiBlockedButtons.Contains("Fire2"))
+            {
+                guiBlockedButtons.Remove("Fire2");
+            }
+        }
+
         if (Input.GetButton("Fire1") && !guiBlockedButtons.Contains("Fire1"))
         {
             ObjectManager.Instance.weaponController.ShootWeapon(WeaponLocation.Primary);
         }
 
-        if (Input.GetButton("Fire2"))
+        if (Input.GetButton("Fire2") && !guiBlockedButtons.Contains("Fire2"))
         {
             ObjectManager.Instance.weaponController.ShootWeapon(WeaponLocation.Secondary);
         }

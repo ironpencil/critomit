@@ -12,6 +12,13 @@ public class Globals : Singleton<Globals> {
 
     public HashSet<GameLevel> levelsBeaten = new HashSet<GameLevel>();
 
+    public void Start()
+    {
+        base.Start();
+
+        DoFadeScreenIn();
+    }
+
     public void LoadGameState(GameState state)
     {
         switch (state)
@@ -102,10 +109,16 @@ public class Globals : Singleton<Globals> {
 
     }
 
+    private void DoFadeScreenIn()
+    {
+        GUIManager.Instance.FadeScreen(1.0f, 0.0f, 0.5f);
+    }
+
     private void OnLevelWasLoaded()
     {
         loadingLevel = false;
         currentLevel = targetLevel;
+        DoFadeScreenIn();
     }
 
     public bool HasBeatenLevel(GameLevel level)

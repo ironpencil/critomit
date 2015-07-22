@@ -13,6 +13,7 @@ public class BaseBullet : MonoBehaviour {
     public float die = 0.0f;
 
     public Rigidbody2D shooter;
+    public BaseWeapon shooterScript;
 
     protected Collider2D thisCollider;
 

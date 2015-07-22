@@ -110,6 +110,7 @@ public class Gun : BaseWeapon
         BaseBullet bulletScript = bullet.GetComponent<BaseBullet>();
 
         bulletScript.shooter = shooter;
+        bulletScript.shooterScript = this;
 
         bullet.transform.parent = ObjectManager.Instance.dynamicObjects.transform;
 

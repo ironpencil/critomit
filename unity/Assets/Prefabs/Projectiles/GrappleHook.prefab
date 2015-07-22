@@ -132,9 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   damageType: 0
-  lifespan: .75
+  lifespan: .600000024
   die: 0
   shooter: {fileID: 0}
+  shooterScript: {fileID: 0}
   remoteActivated: 0
   activateOnDestroy: 1
   cable: {fileID: 12017250}
@@ -259,7 +260,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lifespan
-      value: .75
+      value: .600000024
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: die

@@ -7,6 +7,7 @@ public class PauseGame : MonoBehaviour {
     public bool slowMo = false;
 
     public float unpausedTimescale = 1.0f;
+    public float slowMoSpeed = 0.25f;
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +39,7 @@ public class PauseGame : MonoBehaviour {
 
         if (slowMo)
         {
-            unpausedTimescale = 0.5f;
+            unpausedTimescale = slowMoSpeed;
         }
         else
         {

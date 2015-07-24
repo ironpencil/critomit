@@ -3,6 +3,9 @@
 public class TimedExplosion : BaseExplosion
 {
     public float delay = 0.5f;
+
+    public GameObject detonationObject;
+
     protected float detonate = 0.0f;
 
     protected bool detonated = false;
@@ -10,6 +13,11 @@ public class TimedExplosion : BaseExplosion
     public override void Start()
     {
         detonate = Time.time + delay;
+
+        if (detonationObject != null)
+        {
+            detonationObject.SetActive(false);
+        }
 
         base.Start();
 
@@ -59,6 +67,11 @@ public class TimedExplosion : BaseExplosion
     public virtual void Detonate()
     {
         detonated = true;
+
+        if (detonationObject != null)
+        {
+            detonationObject.SetActive(true);
+        }
     }
 
 

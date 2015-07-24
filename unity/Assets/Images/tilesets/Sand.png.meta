@@ -1,13 +1,28 @@
 fileFormatVersion: 2
 guid: 18f4c5feffdc1e146bb1463219bb321d
-timeCreated: 1437334009
+timeCreated: 1437707802
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Sand_0
+    21300002: Sand_1
+    21300004: Sand_2
+    21300006: Sand_3
+    21300008: Sand_4
+    21300010: Sand_5
+    21300012: Sand_6
+    21300014: Sand_7
+    21300016: Sand_8
+    21300018: Sand_9
+    21300020: Sand_10
+    21300022: Sand_11
+    21300024: Sand_12
+    21300026: Sand_13
+    21300028: Sand_14
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -26,29 +41,179 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Sand_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_1
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 768
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_2
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 768
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_4
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 576
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_5
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 576
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_7
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 384
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_8
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 384
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_10
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 192
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_11
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 192
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sand_14
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 416
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

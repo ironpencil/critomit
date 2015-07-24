@@ -30,3 +30,8 @@ public enum GameLevel
     Level2,
     Level3
 }
+
+public enum MutatorName
+{
+    Spin
+}

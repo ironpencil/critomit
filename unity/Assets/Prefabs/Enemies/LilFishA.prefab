@@ -33,6 +33,7 @@ GameObject:
   - 114: {fileID: 11413010}
   - 114: {fileID: 11483952}
   - 114: {fileID: 11469530}
+  - 114: {fileID: 11431032}
   m_Layer: 10
   m_Name: LilFishA
   m_TagString: Untagged
@@ -123,8 +124,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteToFlash: {fileID: 21265360}
+  spritesToFlash:
+  - {fileID: 21265360}
   targetColor: {r: 1, g: 0, b: 0, a: 1}
-  duration: .0500000007
+  duration: .100000001
+  flickerRate: .100000001
 --- !u!114 &11418296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,6 +147,8 @@ MonoBehaviour:
   invulnerable: 0
   damagedEffects:
   - {fileID: 11413010}
+  deathEffects:
+  - {fileID: 11431032}
 --- !u!114 &11425966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,6 +161,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityFactor: 1
+--- !u!114 &11431032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9007cb97249c5458be500684f241e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionObject: {fileID: 11422114, guid: e0f3a1d68ade28a41b5b418afa07b317, type: 2}
 --- !u!114 &11469530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,7 +254,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: deathEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: damagedEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spritesToFlash.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
@@ -319,6 +345,23 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: invulnerable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damagedEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 11413010}
+    - target: {fileID: 0}
+      propertyPath: explosionObject
+      value: 
+      objectReference: {fileID: 11422114, guid: e0f3a1d68ade28a41b5b418afa07b317,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: duration
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: flickerRate
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

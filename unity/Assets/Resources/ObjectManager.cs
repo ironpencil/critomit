@@ -9,7 +9,7 @@ public class ObjectManager : Singleton<ObjectManager> {
     public HealthBarManager healthBar;
     public WeaponDisplayManager weaponDisplayManager;
     public PlayerSpawner playerSpawner;
-    public CameraFollow followCam;    
+    public CameraFollow followCam;
 
 	// Use this for initialization
 	void Start () {

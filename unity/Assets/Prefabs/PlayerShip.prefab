@@ -52,6 +52,8 @@ GameObject:
   - 61: {fileID: 6146132}
   - 114: {fileID: 11474654}
   - 114: {fileID: 11473810}
+  - 114: {fileID: 11431372}
+  - 114: {fileID: 11444180}
   m_Layer: 8
   m_Name: PlayerShip
   m_TagString: Player
@@ -936,7 +938,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9586682}
   animationController: {fileID: 9100000, guid: bb670a96a90493d4cb9d34faff95dd05, type: 2}
   weaponDisplayer: {fileID: 0}
-  bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
+  bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
@@ -990,6 +992,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabledImage: {fileID: 21300000, guid: 20692654a55013347989f616553d5d78, type: 3}
   disabledImage: {fileID: 21300000, guid: dc8a703ddd6a03b4f89a8f405e7d7523, type: 3}
+--- !u!114 &11431372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50ef7e6eb01651418f5533ca6536b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToFlash: {fileID: 0}
+  spritesToFlash:
+  - {fileID: 21246134}
+  - {fileID: 21292884}
+  - {fileID: 21271746}
+  - {fileID: 21262136}
+  targetColor: {r: 1, g: 0, b: 0, a: .202999994}
+  duration: 1.79999995
+  flickerRate: .0500000007
 --- !u!114 &11431874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1004,7 +1026,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9540836}
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
-  bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
+  bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 20
   bulletMinDirection: {x: 1, y: 0}
@@ -1058,7 +1080,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9586682}
   animationController: {fileID: 9100000, guid: 222b3dc8729c145459a8cafcf2912cf8, type: 2}
   weaponDisplayer: {fileID: 0}
-  bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
+  bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 30
   bulletMinDirection: {x: 1, y: 0}
@@ -1102,6 +1124,18 @@ MonoBehaviour:
   magnitude: .5
   sustainTime: 0
   decayTime: .100000001
+--- !u!114 &11444180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9007cb97249c5458be500684f241e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionObject: {fileID: 11467236, guid: 7aab540cf0f3d054bb93d1cc45c6c59e, type: 2}
 --- !u!114 &11445516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1146,7 +1180,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9540836}
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
-  bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
+  bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
@@ -1274,7 +1308,10 @@ MonoBehaviour:
   currentHP: 100
   damagedBy: 2
   invulnerable: 0
-  damagedEffects: []
+  damagedEffects:
+  - {fileID: 11431372}
+  deathEffects:
+  - {fileID: 11444180}
   playerSprites:
   - {fileID: 21246134}
   - {fileID: 21292884}
@@ -1356,6 +1393,7 @@ MonoBehaviour:
   damagedBy: 0
   invulnerable: 0
   damagedEffects: []
+  deathEffects: []
   parentToDamage: {fileID: 11473810}
 --- !u!114 &11485832
 MonoBehaviour:
@@ -1398,7 +1436,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9540836}
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
-  bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
+  bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
@@ -1439,7 +1477,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9540836}
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
-  bulletPrefab: {fileID: 139346, guid: e889b258421e1f4419979017e4340a88, type: 2}
+  bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 20
   bulletMinDirection: {x: 1, y: 0}
@@ -1469,6 +1507,7 @@ MonoBehaviour:
   damagedBy: 0
   invulnerable: 0
   damagedEffects: []
+  deathEffects: []
   parentToDamage: {fileID: 11473810}
 --- !u!114 &11491454
 MonoBehaviour:
@@ -1582,7 +1621,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1383667177
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300010, guid: 0a9f8e8a8813d434f8e5af36515dd63f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1634,8 +1673,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: -1383667177
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: c7c263260f10d0e40bc616e51a292f02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21267882
@@ -1686,8 +1725,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: -1383667177
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 1485f3d6c333486469b99a66be01f8ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21292884
@@ -1712,7 +1751,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1383667177
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 2cdd3dbe58df4004a818ca1812a69f3a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

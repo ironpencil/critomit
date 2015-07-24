@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11455370}
   - 114: {fileID: 11444858}
   - 114: {fileID: 11450118}
+  - 114: {fileID: 11401384}
   m_Layer: 14
   m_Name: JellyA
   m_TagString: Untagged
@@ -129,6 +130,20 @@ MonoBehaviour:
   invulnerable: 0
   damagedEffects:
   - {fileID: 11455370}
+  deathEffects:
+  - {fileID: 11401384}
+--- !u!114 &11401384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9007cb97249c5458be500684f241e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionObject: {fileID: 11422114, guid: 47b4e8bb896d2e240a76edbcfb0713c0, type: 2}
 --- !u!114 &11409222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,8 +203,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteToFlash: {fileID: 21227622}
+  spritesToFlash:
+  - {fileID: 21227622}
   targetColor: {r: 1, g: 0, b: 0, a: 1}
-  duration: .0500000007
+  duration: .100000001
+  flickerRate: .100000001
 --- !u!114 &11463516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,8 +254,16 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: deathEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: damagedEffects.Array.size
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spritesToFlash.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -273,7 +299,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: duration
-      value: .0500000007
+      value: .100000001
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Mass
@@ -302,8 +328,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: damagedEffects.Array.data[0]
       value: 
-      objectReference: {fileID: 11477148, guid: 763811075b9445049a8bf2adee0c4dea,
-        type: 2}
+      objectReference: {fileID: 11455370}
     - target: {fileID: 0}
       propertyPath: m_LinearDrag
       value: 2.5
@@ -319,6 +344,15 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: invulnerable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: explosionObject
+      value: 
+      objectReference: {fileID: 11422114, guid: 47b4e8bb896d2e240a76edbcfb0713c0,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: flickerRate
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

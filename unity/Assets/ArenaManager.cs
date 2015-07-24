@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ArenaManager : Singleton<ArenaManager> {
 
@@ -17,7 +18,7 @@ public class ArenaManager : Singleton<ArenaManager> {
     private float spawnTimeAdjustment = 0.0f;
     private bool loadingNewLevel = false;
 
-    private float minimumSpawnTimer = 1.0f;
+    private float minimumSpawnTimer = 1.0f;    
 
     void OnEnable()
     {

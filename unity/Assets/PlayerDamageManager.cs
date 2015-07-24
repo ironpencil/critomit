@@ -93,14 +93,24 @@ public class PlayerDamageManager : TakesDamage {
 
     private void DoDamage(float damage)
     {
-        CurrentHP = currentHP - damage;        
+        CurrentHP = currentHP - damage;
 
+        foreach (GameEffect effect in damagedEffects)
+        {
+            effect.ActivateEffect(gameObject, damage);
+        }
+        
         if (!markedForDeath)
         {
             StartCoroutine(DoDamageEffects());
         }
         else
         {
+            foreach (GameEffect effect in deathEffects)
+            {
+                effect.ActivateEffect(gameObject, damage);
+            }
+
             //kill player
             //for now, just restore to max health
             //CurrentHP = MaxHitPoints;
@@ -111,30 +121,32 @@ public class PlayerDamageManager : TakesDamage {
     {
         invulnerable = true;
 
-        float endTime = Time.time + damageInvDuration;
+        yield return new WaitForSeconds(damageInvDuration);                
 
-        while (Time.time < endTime)
-        {
-            foreach (SpriteRenderer sprite in playerSprites)
-            {
-                if (sprite != null)
-                {
-                    sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a * 0.5f);
-                }
-            }
+        //float endTime = Time.time + damageInvDuration;
 
-            yield return null;
+        //while (Time.time < endTime)
+        //{
+        //    foreach (SpriteRenderer sprite in playerSprites)
+        //    {
+        //        if (sprite != null)
+        //        {
+        //            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a * 0.5f);
+        //        }
+        //    }
 
-            foreach (SpriteRenderer sprite in playerSprites)
-            {
-                if (sprite != null)
-                {
-                    sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a * 2.0f);
-                }
-            }
+        //    yield return null;
 
-            yield return null;
-        }
+        //    foreach (SpriteRenderer sprite in playerSprites)
+        //    {
+        //        if (sprite != null)
+        //        {
+        //            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a * 2.0f);
+        //        }
+        //    }
+
+        //    yield return null;
+        //}
 
         invulnerable = false;
     }

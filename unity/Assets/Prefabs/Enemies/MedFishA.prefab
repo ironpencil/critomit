@@ -35,6 +35,7 @@ GameObject:
   - 114: {fileID: 11487144}
   - 114: {fileID: 11461538}
   - 114: {fileID: 11460210}
+  - 114: {fileID: 11424582}
   m_Layer: 14
   m_Name: MedFishA
   m_TagString: Untagged
@@ -139,6 +140,18 @@ MonoBehaviour:
   targetRB: {fileID: 0}
   targetedMovement: {fileID: 11487144}
   untargetedMovement: {fileID: 0}
+--- !u!114 &11424582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9007cb97249c5458be500684f241e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionObject: {fileID: 11422114, guid: 47b4e8bb896d2e240a76edbcfb0713c0, type: 2}
 --- !u!114 &11447126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,6 +170,8 @@ MonoBehaviour:
   invulnerable: 0
   damagedEffects:
   - {fileID: 11457336}
+  deathEffects:
+  - {fileID: 11424582}
 --- !u!114 &11452750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,8 +200,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteToFlash: {fileID: 21275706}
+  spritesToFlash:
+  - {fileID: 21275706}
   targetColor: {r: 1, g: 0, b: 0, a: 1}
-  duration: .0500000007
+  duration: .100000001
+  flickerRate: .100000001
 --- !u!114 &11460210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,7 +290,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: deathEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: damagedEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spritesToFlash.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
@@ -334,6 +360,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: invulnerable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damagedEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 11457336}
+    - target: {fileID: 0}
+      propertyPath: duration
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: flickerRate
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

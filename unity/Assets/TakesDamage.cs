@@ -49,7 +49,8 @@ public class TakesDamage : MonoBehaviour {
         set { invulnerable = value; }
     }
 
-    public List<DamagedEffect> damagedEffects = new List<DamagedEffect>();
+    public List<GameEffect> damagedEffects = new List<GameEffect>();
+    public List<GameEffect> deathEffects = new List<GameEffect>();
 
 	// Use this for initialization
 	public virtual void Start () {
@@ -63,7 +64,7 @@ public class TakesDamage : MonoBehaviour {
 	public virtual void Update () {
 
         if (markedForDeath)
-        {
+        {           
             DestroyImmediate(gameObject);
         }
 	
@@ -85,9 +86,18 @@ public class TakesDamage : MonoBehaviour {
 
             markedForDeath = !(currentHP > 0.0f);
 
-            foreach (DamagedEffect effect in damagedEffects)
+            foreach (GameEffect effect in damagedEffects)
             {
-                effect.Damaged(damage);
+                effect.ActivateEffect(gameObject, damage);
+            }
+
+            if (markedForDeath)
+            {
+                foreach (GameEffect effect in deathEffects)
+                {
+                    effect.ActivateEffect(gameObject, damage);
+                }
+
             }
         }
 

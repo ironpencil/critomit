@@ -188,6 +188,7 @@ MonoBehaviour:
   accelerationForce: 300
   maxVelocity: 600
   movementDelay: 1
+  forceMultiplier: 1
   varianceRange: 150
   isDashing: 0
   canDash: 1

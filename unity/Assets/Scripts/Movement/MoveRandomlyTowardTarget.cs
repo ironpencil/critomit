@@ -27,9 +27,9 @@ public class MoveRandomlyTowardTarget : BaseMovement {
         }
 
         //if we're not at max speed, add force
-        if (movingRB.velocity.sqrMagnitude < (maxVelocity * maxVelocity))
+        if (movingRB.velocity.sqrMagnitude < (maxVelocity * maxVelocity * forceMultiplier))
         {
-            movingRB.AddRelativeForce(Vector2.right * accelerationForce);
+            movingRB.AddRelativeForce(Vector2.right * accelerationForce * forceMultiplier);
         }
     }
 

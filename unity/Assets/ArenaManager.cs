@@ -6,19 +6,9 @@ public class ArenaManager : Singleton<ArenaManager> {
 
     public int wavesCompleted = 0;
 
-    public float startingWaveLength = 10.0f;
-    public float currentWaveLength = 10.0f;
-    public float waveLengthInc = 5.0f;
-    public float spawnTimeInc = -0.5f;
-
-    public float timeRemaining = 0.0f;
-
     public bool waveComplete = false;
 
-    private float spawnTimeAdjustment = 0.0f;
-    private bool loadingNewLevel = false;
-
-    private float minimumSpawnTimer = 1.0f;    
+    private bool loadingNewLevel = false;    
 
     void OnEnable()
     {
@@ -32,25 +22,24 @@ public class ArenaManager : Singleton<ArenaManager> {
 
     void Start()
     {
-        base.Start();        
-        timeRemaining = currentWaveLength;
+        base.Start();
+
+        StartWave();
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            CompleteWave();
+            StartWave();
+        }
 
         if (loadingNewLevel)
         {
             Debug.LogError("!!!!!! Update called while Loading new level!!!!!!!");
         }
 
-        timeRemaining -= Time.deltaTime;
-
-        if (timeRemaining < 0.0f)
-        {
-            waveComplete = true;
-            //SpawnManager.Instance.spawnEnemies = false;
-        }
     }
 
     void LateUpdate()
@@ -61,38 +50,45 @@ public class ArenaManager : Singleton<ArenaManager> {
         {
             Debug.Log("Level complete!");
 
-            wavesCompleted++;
-
-            spawnTimeAdjustment = wavesCompleted * spawnTimeInc;
-
-            waveComplete = false;
-            currentWaveLength += waveLengthInc;
-
-            loadingNewLevel = true;
-            Application.LoadLevel("waveArena");
+            CompleteWave();
+            LoadNextLevel();            
         }
     }
 
     private void DoNewLevelSetup()
     {
-        float newSpawnTimer = Mathf.Max(minimumSpawnTimer, SpawnManager.Instance.spawnTimer + spawnTimeAdjustment);
-        SpawnManager.Instance.spawnTimer = newSpawnTimer;
-        
-        timeRemaining = currentWaveLength;
+        MutatorManager.Instance.GenerateNewLevelMutators();
     }
 
     public void OnLevelWasLoaded(int level)
     {
         loadingNewLevel = false;
-        DoNewLevelSetup();
+        StartWave();
     }
 
     public void Reset()
     {
         Debug.Log("Resetting Arena");
         wavesCompleted = 0;
-        spawnTimeAdjustment = 0.0f;
-        waveComplete = false;
-        currentWaveLength = startingWaveLength;
+        //also clear all mutators
+    }
+
+    public void StartWave()
+    {
+        DoNewLevelSetup();        
+    }
+
+    public void CompleteWave()
+    {
+        wavesCompleted++;
+
+        SpawnManager.Instance.ClearEnemies();
+        ObjectManager.Instance.player.GetComponent<PlayerDamageManager>().FullHeal();
+    }
+
+    public void LoadNextLevel()
+    {
+        loadingNewLevel = true;
+        Application.LoadLevel("waveArena");
     }
 }

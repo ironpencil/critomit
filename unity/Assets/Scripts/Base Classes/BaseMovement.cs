@@ -12,5 +12,7 @@ public abstract class BaseMovement : MonoBehaviour
     public float movementDelay = 0.0f;
     protected float nextMovementTime = 0.0f;
 
+    public float forceMultiplier = 1.0f;
+
     public abstract void Move(Rigidbody2D movingRB, Rigidbody2D targetRB);
 }

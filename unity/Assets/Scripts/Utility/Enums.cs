@@ -31,7 +31,9 @@ public enum GameLevel
     Level3
 }
 
-public enum MutatorName
+public enum MutatorType
 {
-    Spin
+    None,
+    Spin,
+    EnemySpeed
 }

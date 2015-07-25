@@ -24,9 +24,9 @@ public class MoveDashTowardTarget : BaseMovement {
             RotateTowardTarget(movingRB, targetRB);
 
             //if we're not at max speed, add force
-            if (movingRB.velocity.sqrMagnitude < (maxVelocity * maxVelocity))
+            if (movingRB.velocity.sqrMagnitude < (maxVelocity * maxVelocity * forceMultiplier))
             {
-                movingRB.AddRelativeForce(Vector2.right * accelerationForce, ForceMode2D.Impulse);
+                movingRB.AddRelativeForce(Vector2.right * accelerationForce * forceMultiplier, ForceMode2D.Impulse);
                 nextMovementTime = Time.fixedTime + movementDelay;
                 isDashing = true;
                 canDash = false;

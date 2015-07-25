@@ -150,4 +150,9 @@ public class PlayerDamageManager : TakesDamage {
 
         invulnerable = false;
     }
+
+    public void FullHeal()
+    {
+        CurrentHP = MaxHitPoints;
+    }
 }

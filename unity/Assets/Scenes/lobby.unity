@@ -2710,6 +2710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnEnemies: 1
+  initialSpawnTimer: 10
   spawnTimer: 1
   spawnOnStart: 1
   smallEnemies:
@@ -3144,6 +3145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1233842397}
+  doRotate: 1
+  startingRotation: 0
   rotationPerSecond: 45
 --- !u!1 &1235413047
 GameObject:
@@ -3550,11 +3553,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wavesCompleted: 0
-  startingWaveLength: 10
-  currentWaveLength: 10
-  waveLengthInc: 1
-  spawnTimeInc: -.5
-  timeRemaining: 0
   waveComplete: 0
 --- !u!114 &1530548672
 MonoBehaviour:
@@ -3594,7 +3592,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07a9622a9246b64db051136c47b2081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeMutators: []
+  allAvailableMutators: []
   cameraSpinner: {fileID: 0}
+  chanceToAddNewMutator: .5
+  mutatorChanceIncrementPerWave: .100000001
+  allowMultipleMutatorsPerWave: 0
 --- !u!114 &1530548675
 MonoBehaviour:
   m_ObjectHideFlags: 0

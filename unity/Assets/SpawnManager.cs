@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class SpawnManager : Singleton<SpawnManager> {
 
     public bool spawnEnemies = true;
-    public float spawnTimer = 5.0f;
+    public float initialSpawnTimer = 10.0f;
+    public float spawnTimer = 10.0f;
     public bool spawnOnStart = true;
 
     public List<GameObject> smallEnemies = new List<GameObject>();
@@ -45,6 +46,7 @@ public class SpawnManager : Singleton<SpawnManager> {
         destroyOnLoad = true;
 
         base.Start();
+        spawnTimer = initialSpawnTimer;
 
     }
 
@@ -110,6 +112,11 @@ public class SpawnManager : Singleton<SpawnManager> {
         //    enemyScript.targetRB = ObjectManager.Instance.player.GetComponent<Rigidbody2D>();
         //}
 
+        if (MutatorManager.Instance.activeMutators.Count > 0)
+        {
+            MutatorManager.Instance.MutateEnemy(enemy);
+        }
+
         return enemy;
     }
 
@@ -118,6 +125,14 @@ public class SpawnManager : Singleton<SpawnManager> {
         GameObject prefab = SpawnManager.Instance.GetRandomEnemy(enemyType);
 
         return SpawnEnemy(prefab, spawner);
+    }
+
+    public void ClearEnemies()
+    {
+        foreach (Transform child in EnemyObjects.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 
 }

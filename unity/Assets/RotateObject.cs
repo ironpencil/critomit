@@ -5,20 +5,34 @@ public class RotateObject : MonoBehaviour {
 
     public Transform target;
 
-    public float rotationPerSecond = 10;
+    public bool doRotate = true;
+
+    public float startingRotation = 0.0f;
+
+    public float rotationPerSecond = 10.0f;
 
 	// Use this for initialization
 	void Start () {
-	
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
         
-        if (target != null)
+        if (doRotate && target != null)
         {
             target.Rotate(new Vector3(0.0f, 0.0f, rotationPerSecond * Time.deltaTime));
         }
 	
 	}
+
+    public void ResetRotation()
+    {
+        if (target != null)
+        {
+            target.Rotate(new Vector3(0.0f, 0.0f, startingRotation));
+        }
+    }
+
+    
 }

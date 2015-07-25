@@ -362,6 +362,10 @@ Prefab:
       propertyPath: damagedEffects.Array.data[0]
       value: 
       objectReference: {fileID: 661920170}
+    - target: {fileID: 11431040, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
+      propertyPath: enemyType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
   m_IsPrefabParent: 0
@@ -1411,6 +1415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnEnemies: 1
+  initialSpawnTimer: 10
   spawnTimer: 10
   spawnOnStart: 1
   smallEnemies:
@@ -1640,12 +1645,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1233842392}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 187ce5d8d9bca4e488ada798bf1dbd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1233842397}
+  doRotate: 0
+  startingRotation: 0
   rotationPerSecond: 45
 --- !u!1 &1235413047
 GameObject:
@@ -1794,6 +1801,10 @@ Prefab:
       propertyPath: damagedEffects.Array.data[0]
       value: 
       objectReference: {fileID: 158537953}
+    - target: {fileID: 11431040, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
+      propertyPath: enemyType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
   m_IsPrefabParent: 0
@@ -1902,6 +1913,10 @@ Prefab:
       propertyPath: damagedEffects.Array.data[0]
       value: 
       objectReference: {fileID: 1964884559}
+    - target: {fileID: 11431040, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
+      propertyPath: enemyType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
   m_IsPrefabParent: 0
@@ -2027,6 +2042,8 @@ GameObject:
   - 114: {fileID: 1530548672}
   - 114: {fileID: 1530548673}
   - 114: {fileID: 1530548674}
+  - 114: {fileID: 1530548675}
+  - 114: {fileID: 1530548676}
   m_Layer: 0
   m_Name: Global Managers
   m_TagString: Untagged
@@ -2059,11 +2076,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wavesCompleted: 0
-  startingWaveLength: 10
-  currentWaveLength: 10
-  waveLengthInc: 1
-  spawnTimeInc: -1
-  timeRemaining: 0
   waveComplete: 0
 --- !u!114 &1530548672
 MonoBehaviour:
@@ -2103,7 +2115,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07a9622a9246b64db051136c47b2081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeMutators: []
+  allAvailableMutators:
+  - {fileID: 1530548675}
+  - {fileID: 1530548676}
   cameraSpinner: {fileID: 1233842400}
+  chanceToAddNewMutator: 1
+  mutatorChanceIncrementPerWave: .100000001
+  allowMultipleMutatorsPerWave: 0
+--- !u!114 &1530548675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1530548669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea28ffa7951ec246b99ae63ba5fb97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutatorType: 1
+  currentValue: 0
+  isCurrentlyActive: 0
+  limitedApplication: 1
+  allowedToApply: 1
+  initialValue: 10
+  maxValue: 45
+  incrementValue: 5
+  initialWeight: 5
+  decrementedWeight: 1
+  currentWeight: 0
+  cumulativeWeight: 0
+--- !u!114 &1530548676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1530548669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea28ffa7951ec246b99ae63ba5fb97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutatorType: 2
+  currentValue: 0
+  isCurrentlyActive: 0
+  limitedApplication: 1
+  allowedToApply: 1
+  initialValue: 1.10000002
+  maxValue: 2
+  incrementValue: .100000001
+  initialWeight: 10
+  decrementedWeight: 5
+  currentWeight: 0
+  cumulativeWeight: 0
 --- !u!1001 &1627004012
 Prefab:
   m_ObjectHideFlags: 0
@@ -2577,6 +2642,10 @@ Prefab:
       propertyPath: damagedEffects.Array.data[0]
       value: 
       objectReference: {fileID: 527085604}
+    - target: {fileID: 11431040, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
+      propertyPath: enemyType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
   m_IsPrefabParent: 0

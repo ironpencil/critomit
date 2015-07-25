@@ -8,12 +8,14 @@ public class PlayerDamageManager : TakesDamage {
 
     public HealthBarManager healthBar;
 
-    public void Start()
+    public override void Start()
     {
         if (healthBar == null)
         {
             healthBar = ObjectManager.Instance.healthBar;
         }
+
+        base.Start();
 
         RefreshHealthbar();
     }
@@ -37,12 +39,12 @@ public class PlayerDamageManager : TakesDamage {
 
     public override float CurrentHP
     {
-        get { return currentHP; }
+        get { return privCurrentHP; }
         set
         {
-            currentHP = value;
-            healthBar.SetHP(currentHP);
-            markedForDeath = !(currentHP > 0.0f);
+            privCurrentHP = value;
+            healthBar.SetHP(privCurrentHP);
+            markedForDeath = !(privCurrentHP > 0.0f);
         }
     }
 
@@ -93,7 +95,7 @@ public class PlayerDamageManager : TakesDamage {
 
     private void DoDamage(float damage)
     {
-        CurrentHP = currentHP - damage;
+        CurrentHP = privCurrentHP - damage;
 
         foreach (GameEffect effect in damagedEffects)
         {

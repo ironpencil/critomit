@@ -23,12 +23,12 @@ public class TakesDamage : MonoBehaviour {
     }
 
     [SerializeField]
-    protected float currentHP = 0.0f;
+    protected float privCurrentHP = 0.0f;
 
     public virtual float CurrentHP
     {
-        get { return currentHP; }
-        set { currentHP = value; }
+        get { return privCurrentHP; }
+        set { privCurrentHP = value; }
     }
 
     [SerializeField]
@@ -82,9 +82,9 @@ public class TakesDamage : MonoBehaviour {
             damagedBy == damageType)
         {
             damageDealt = true;
-            currentHP = currentHP - damage;
+            privCurrentHP = privCurrentHP - damage;
 
-            markedForDeath = !(currentHP > 0.0f);
+            markedForDeath = !(privCurrentHP > 0.0f);
 
             foreach (GameEffect effect in damagedEffects)
             {
@@ -102,5 +102,15 @@ public class TakesDamage : MonoBehaviour {
         }
 
         return damageDealt;        
+    }
+
+    public virtual void Kill(bool forceVulnerable)
+    {
+        if (forceVulnerable)
+        {
+            invulnerable = false;
+        }
+
+        ApplyDamage(CurrentHP, EffectSource.Universal, null);
     }
 }

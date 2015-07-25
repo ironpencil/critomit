@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ObjectManager : Singleton<ObjectManager> {
 
@@ -10,11 +11,15 @@ public class ObjectManager : Singleton<ObjectManager> {
     public WeaponDisplayManager weaponDisplayManager;
     public PlayerSpawner playerSpawner;
     public CameraFollow followCam;
+    public List<MessageBox> autoMessageBoxes;
 
 	// Use this for initialization
-	void Start () {
+    public override void Start()
+    {
         destroyOnLoad = true;
         base.Start();
+
+        
 	}
 	
 	// Update is called once per frame

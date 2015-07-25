@@ -7,17 +7,21 @@ public class LevelSpawner : MonoBehaviour {
 
     public SpawnManager.EnemyType enemyType;
 
+    public bool spawnerActive = false;
+
+    public bool forceOff = false;
+
 	// Use this for initialization
-	void Start () {
-        bool spawnOnStart = SpawnManager.Instance.spawnOnStart;
+    //void Start () {
+    //    bool spawnOnStart = SpawnManager.Instance.spawnOnStart;
 
-        if (spawnOnStart && CanSpawn())
-        {
-            DoSpawnEnemy();
-        }
+    //    if (spawnOnStart && CanSpawn())
+    //    {
+    //        DoSpawnEnemy();
+    //    }
 
-        lastSpawn = Time.time;
-	}
+    //    lastSpawn = Time.time;
+    //}
 	
 	// Update is called once per frame
 	void Update () {
@@ -37,7 +41,27 @@ public class LevelSpawner : MonoBehaviour {
 
     private bool CanSpawn()
     {
-        return SpawnManager.Instance.spawnEnemies;
+        bool canSpawn = SpawnManager.Instance.spawnEnemies && !forceOff;
+
+        if (canSpawn)
+        {
+            if (!spawnerActive)
+            {
+                //spawner wasn't on, so turn it on
+                spawnerActive = true;
+                if (SpawnManager.Instance.spawnOnStart)
+                {
+                    lastSpawn = -1000.0f; //spawn immediately
+                }
+                else
+                {
+                    lastSpawn = Time.time; //start spawn timer now
+                }
+            }
+        }
+        
+        
+        return canSpawn;
     }
 
     public void DoSpawnEnemy()

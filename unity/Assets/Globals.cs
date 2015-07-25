@@ -12,11 +12,11 @@ public class Globals : Singleton<Globals> {
 
     public HashSet<GameLevel> levelsBeaten = new HashSet<GameLevel>();
 
-    public void Start()
+    public override void Start()
     {
         base.Start();
 
-        DoFadeScreenIn();
+        StartCoroutine(DoNewLevelSetup(0));
     }
 
     public void LoadGameState(GameState state)
@@ -85,7 +85,7 @@ public class Globals : Singleton<Globals> {
                 return;
         }
         
-        ArenaManager.Instance.enabled = (currentState == GameState.Arena);
+        //ArenaManager.Instance.enabled = (currentState == GameState.Arena);
 
         targetLevel = level;
         StartCoroutine(DoLoadLevel(levelName));
@@ -98,12 +98,21 @@ public class Globals : Singleton<Globals> {
             ObjectManager.Instance.followCam.followTarget = null;
         }
 
+        yield return StartCoroutine(GUIManager.Instance.DoAutoMessageBoxes(false));
+
+        //yield return new WaitForSeconds(2.0f);
+
         GUIManager.Instance.FadeScreen(0.0f, 1.0f, 0.5f);
 
         while (GUIManager.Instance.isFading)
         {
             yield return null;
         }
+
+        //FOR SOME REASON WE NEED TO WAIT HERE OR THE LOADLEVEL WILL CAUSE UNITY TO CRASH
+        //SO DON'T FUCKIN TOUCH THIS vvvvvvvvvv
+        yield return new WaitForSeconds(0.5f);
+        //SERIOUSLY DON'T ^^^^^^^^^^
 
         Application.LoadLevel(levelName);
 
@@ -114,11 +123,28 @@ public class Globals : Singleton<Globals> {
         GUIManager.Instance.FadeScreen(1.0f, 0.0f, 0.5f);
     }
 
-    private void OnLevelWasLoaded()
+    private void OnLevelWasLoaded(int level)
+    {
+        StartCoroutine(DoNewLevelSetup(level));
+    }
+
+    private IEnumerator DoNewLevelSetup(int level)
     {
         loadingLevel = false;
         currentLevel = targetLevel;
+
+        //yield return new WaitForSeconds(0.1f);
+
         DoFadeScreenIn();
+
+        while (GUIManager.Instance.isFading)
+        {
+            yield return null;
+        }        
+
+        //yield return new WaitForSeconds(0.1f);
+                
+        yield return StartCoroutine(GUIManager.Instance.DoAutoMessageBoxes(true));
     }
 
     public bool HasBeatenLevel(GameLevel level)
@@ -146,6 +172,7 @@ public class Globals : Singleton<Globals> {
                 break;
             case GameLevel.Arena:                
                 ObjectManager.Instance.DestroyPlayer();
+                ArenaManager.Instance.EndWave();
                 StartCoroutine(WaitAndLoadLevel(2.0f, GameLevel.Lobby));
                 break;
             case GameLevel.Level1:

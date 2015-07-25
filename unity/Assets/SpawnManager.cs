@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SpawnManager : Singleton<SpawnManager> {
 
-    public bool spawnEnemies = true;
+    public bool spawnEnemies = false;
     public float initialSpawnTimer = 10.0f;
     public float spawnTimer = 10.0f;
     public bool spawnOnStart = true;
@@ -40,7 +40,7 @@ public class SpawnManager : Singleton<SpawnManager> {
     }
 
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
         Debug.Log("SpawnManager::Start()");
         destroyOnLoad = true;
@@ -67,6 +67,11 @@ public class SpawnManager : Singleton<SpawnManager> {
         {
             spawnEnemies = !spawnEnemies;
         }
+    }
+
+    public void StartSpawners()
+    {
+        spawnEnemies = true;
     }
 
     public GameObject GetRandomEnemy(EnemyType enemyType)

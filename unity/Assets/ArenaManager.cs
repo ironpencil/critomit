@@ -8,50 +8,62 @@ public class ArenaManager : Singleton<ArenaManager> {
 
     public bool waveComplete = false;
 
-    private bool loadingNewLevel = false;    
+    private bool waveActive = false;
 
     void OnEnable()
     {
-        if (Globals.Instance.currentState != GameState.Arena)
-        {
-            this.enabled = false;
-        }
+        //if (Globals.Instance.currentState != GameState.Arena)
+        //{
+        //    this.enabled = false;
+        //}
 
+        //Reset();
+    }
+
+    void Awake()
+    {
         Reset();
     }
 
-    void Start()
+    public override void Start()
     {
         base.Start();
 
-        StartWave();
+        if (this == null) { return; }
+
+        //if (Globals.Instance.currentState == GameState.Arena)
+        //{
+        //    StartWave();
+        //}
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (waveActive && Globals.Instance.currentState == GameState.Arena)
         {
-            CompleteWave();
-            StartWave();
-        }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                CompleteWave();
+                StartWave();
+            }
 
-        if (loadingNewLevel)
-        {
-            Debug.LogError("!!!!!! Update called while Loading new level!!!!!!!");
         }
 
     }
 
     void LateUpdate()
-    {
-        //if (waveComplete && SpawnManager.Instance.EnemiesRemaining == 0)
-        if (SpawnManager.Instance.EnemiesRemaining == 0 &&
-            SpawnManager.Instance.SpawnersRemaining == 0)
+    {        
+        if (waveActive && Globals.Instance.currentState == GameState.Arena)
         {
-            Debug.Log("Level complete!");
+            //if (waveComplete && SpawnManager.Instance.EnemiesRemaining == 0)
+            if (SpawnManager.Instance.EnemiesRemaining == 0 &&
+                SpawnManager.Instance.SpawnersRemaining == 0)
+            {
+                Debug.Log("Level complete!");
 
-            CompleteWave();
-            LoadNextLevel();            
+                CompleteWave();
+                LoadNextLevel();
+            }
         }
     }
 
@@ -60,35 +72,54 @@ public class ArenaManager : Singleton<ArenaManager> {
         MutatorManager.Instance.GenerateNewLevelMutators();
     }
 
-    public void OnLevelWasLoaded(int level)
-    {
-        loadingNewLevel = false;
-        StartWave();
-    }
+    //public override void OnLevelWasLoaded(int level)
+    //{
+    //    base.OnLevelWasLoaded(level);
+
+    //    //if (this == null) { return; }
+
+    //    //Debug.Log("ArenaManager[" + gameObject.GetInstanceID() + "]::OnLevelWasLoaded(" + level + ")"); 
+
+    //    //if (Globals.Instance.currentState == GameState.Arena)
+    //    //{
+    //    //    StartWave();
+    //    //}
+    //}
 
     public void Reset()
     {
         Debug.Log("Resetting Arena");
         wavesCompleted = 0;
+        MutatorManager.Instance.Reset();
         //also clear all mutators
     }
 
     public void StartWave()
     {
-        DoNewLevelSetup();        
+        DoNewLevelSetup();
+        Debug.Log("StartWave()");
+        waveActive = true;
+        SpawnManager.Instance.StartSpawners();
     }
 
     public void CompleteWave()
     {
-        wavesCompleted++;
+        EndWave();
 
+        wavesCompleted++;
+        
         SpawnManager.Instance.ClearEnemies();
         ObjectManager.Instance.player.GetComponent<PlayerDamageManager>().FullHeal();
     }
 
+    public void EndWave()
+    {
+        waveActive = false;
+    }
+
     public void LoadNextLevel()
     {
-        loadingNewLevel = true;
-        Application.LoadLevel("waveArena");
+        //Application.LoadLevel("waveArena");
+        Globals.Instance.LoadLevel(GameLevel.Arena);
     }
 }

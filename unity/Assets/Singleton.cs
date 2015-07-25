@@ -34,13 +34,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     protected bool destroyOnLoad = false;
 
     //destroy this object if an instance already exists
-    public void Start()
+    public virtual void Start()
     {
-        Debug.Log("Singleton<" + typeof(T).Name + ">::Start()");
-        if (this != Instance)
+        Debug.Log("Singleton<" + typeof(T).Name + ">[" + gameObject.GetInstanceID() + "]::Start()");
+        if (RemoveThisInstance())
         {
-            gameObject.SetActive(false);
-            DestroyImmediate(gameObject);
             return;
         }
 
@@ -49,5 +47,27 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             Debug.Log("Setting singleton to not destroy on load.");
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    //destroy this object if an instance already exists
+    //public virtual void OnLevelWasLoaded(int level)
+    //{
+    //    Debug.Log("Singleton<" + typeof(T).Name + ">[" + gameObject.GetInstanceID() + "]::OnLevelWasLoaded()");
+    //    if (RemoveThisInstance())
+    //    {
+    //        return;
+    //    }
+    //}
+
+    private bool RemoveThisInstance()
+    {
+        if (this != Instance)
+        {
+            gameObject.SetActive(false);
+            DestroyImmediate(gameObject);
+            return true;
+        }
+
+        return false;
     }
 }

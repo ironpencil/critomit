@@ -19,6 +19,7 @@ public class MutatorManager : Singleton<MutatorManager> {
 
     public void GenerateNewLevelMutators()
     {
+        Debug.Log("MutatorManager::GenerateNewLevelMutators()");
         // roll random chance to see if any new mutators need applied
         // if they do, apply them
 
@@ -96,6 +97,13 @@ public class MutatorManager : Singleton<MutatorManager> {
 
     void Awake()
     {
+        if (allAvailableMutators.Count == 0)
+        {
+            List<Mutator> childMutators = gameObject.GetComponentsInChildren<Mutator>(false).ToList();
+
+            allAvailableMutators.AddRange(childMutators);
+        }
+
         Reset();
     }
 
@@ -134,7 +142,7 @@ public class MutatorManager : Singleton<MutatorManager> {
 
     }
 
-    void OnLevelWasLoaded()
+    void OnLevelWasLoaded(int level)
     {
         initializeInUpdate = true;
     }

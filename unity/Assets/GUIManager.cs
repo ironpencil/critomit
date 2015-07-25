@@ -1,24 +1,26 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GUIManager : Singleton<GUIManager> {
 
     private const int IGNORE_RAYCAST_LAYER = 2;
 
-    public Canvas canvas;
+    //public Canvas canvas;
     public ScreenFader screenFader;
 
     public bool isFading = false;
 
 	// Use this for initialization
-	void Start () {
+    public override void Start()
+    {
         base.Start();
 
-        if (canvas != null)
-        {
-            canvas.gameObject.SetActive(true);
-        }        
+        //if (canvas != null)
+        //{
+        //    canvas.gameObject.SetActive(true);
+        //}        
 	}
 	
 	// Update is called once per frame
@@ -46,6 +48,42 @@ public class GUIManager : Singleton<GUIManager> {
         }
 
         return blockMouseInput;
+    }
+
+    public IEnumerator DoAutoMessageBoxes(bool open)
+    {
+        //start to open/close all the auto messageboxes
+        //then wait for all of them to finish before completing
+        if (ObjectManager.Instance.autoMessageBoxes.Count != 0)
+        {
+            foreach (MessageBox messageBox in ObjectManager.Instance.autoMessageBoxes)
+            {
+                if (open)
+                {
+                    messageBox.StartOpen();
+                }
+                else
+                {
+                    messageBox.StartClose();
+                }
+            }
+
+            bool finished = false;
+
+            while (!finished)
+            {
+                finished = true;
+                foreach (MessageBox messageBox in ObjectManager.Instance.autoMessageBoxes)
+                {
+                    if (messageBox.isResizing)
+                    {
+                        finished = false;
+                    }
+                }
+
+                yield return 0.1f;
+            }
+        }
     }
 
     public void FadeScreen(float startOpacity, float endOpacity, float duration)

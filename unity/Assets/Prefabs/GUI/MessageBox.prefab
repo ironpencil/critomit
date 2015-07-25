@@ -25,6 +25,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22426740}
+  - 225: {fileID: 22514688}
+  - 114: {fileID: 11404982}
   m_Layer: 5
   m_Name: MessageBox
   m_TagString: Untagged
@@ -49,6 +51,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11404982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c262ada2d6a2145488f7ed0b264011e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rect: {fileID: 22426740}
+  canvasGroup: {fileID: 22514688}
+  closedSize: {x: 80, y: 80}
+  openSize: {x: 500, y: 375}
+  openTime: .25
+  closeTime: .25
+  isOpen: 0
+  isResizing: 0
+  visibleWhileClosed: 0
+  visibleAlpha: 1
+  invisibleAlpha: 0
+  disableWhileClosed: []
+  openStyle: 1
+  closeStyle: 2
 --- !u!114 &11411300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,7 +146,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.20000005, y: 0}
   m_SizeDelta: {x: 500, y: 375}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22426742
@@ -156,6 +183,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
+--- !u!225 &22514688
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126740}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -78,6 +78,9 @@ GameObject:
   - 114: {fileID: 11459832}
   - 114: {fileID: 11499922}
   - 114: {fileID: 11480600}
+  - 114: {fileID: 11409662}
+  - 114: {fileID: 11424564}
+  - 114: {fileID: 11467788}
   m_Layer: 0
   m_Name: Global Managers
   m_TagString: Untagged
@@ -157,6 +160,21 @@ Transform:
   - {fileID: 400754}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11409662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a32fe6c3085f2d43a88ceeea84189c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addMultiplierKills: 10
+  currentWavePoints: 0
+  currentWaveMultiplier: 1
+  currentKills: 0
 --- !u!114 &11409778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,13 +212,31 @@ MonoBehaviour:
   isCurrentlyActive: 0
   limitedApplication: 1
   allowedToApply: 1
-  initialValue: 10
+  initialValue: 5
   maxValue: 45
   incrementValue: 5
   initialWeight: 5
   decrementedWeight: 1
   currentWeight: 0
   cumulativeWeight: 0
+  mutatorName: Dizzy
+  mutatorDescription: Camera spins [intvalue] degrees per second
+--- !u!114 &11424564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c6927da8e6bd644af506f0274ade31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashOnTime: .25
+  flashOffTime: .25
+  flashCount: 2
+  onColor: {r: .282352954, g: .929411829, b: .737254918, a: 1}
+  offColor: {r: .0509803966, g: .549019635, b: .403921604, a: 0}
 --- !u!114 &11428230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,13 +281,15 @@ MonoBehaviour:
   isCurrentlyActive: 0
   limitedApplication: 1
   allowedToApply: 1
-  initialValue: 1.10000002
+  initialValue: 1
   maxValue: 2
   incrementValue: .100000001
   initialWeight: 10
   decrementedWeight: 5
   currentWeight: 0
   cumulativeWeight: 0
+  mutatorName: Speedy
+  mutatorDescription: Enemy speed x[value]
 --- !u!114 &11440766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -263,8 +301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee72d4ac4b4e6dc4eb9181b92078ec1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 1
-  currentLevel: 1
+  currentState: 2
+  currentLevel: 2
+  paused: 0
 --- !u!114 &11443020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -290,6 +329,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavesCompleted: 0
   waveComplete: 0
+  waveActive: 0
+--- !u!114 &11467788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd2bd958820a244cb23d4c93bf4d846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToMaterial: {fileID: 2100000, guid: 5cd1db395772ba64aa067c7e34f16afb, type: 2}
+  newMaterial: {fileID: 0}
+  textureID: _MainText
+  textureToApply: {fileID: 2800000, guid: 820265ed2a2002a47a2d024017094fe2, type: 3}
+  meshRenderer: {fileID: 0}
 --- !u!114 &11470698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,12 +369,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07a9622a9246b64db051136c47b2081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pendingMutators: []
   activeMutators: []
   allAvailableMutators: []
   cameraSpinner: {fileID: 0}
-  chanceToAddNewMutator: 1
-  mutatorChanceIncrementPerWave: .100000001
-  allowMultipleMutatorsPerWave: 0
+  chanceToAddNewMutator: 0
+  mutatorChanceIncrementPerWave: 1
+  allowMultipleMutatorsPerWave: 1
 --- !u!114 &11496678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -333,7 +390,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 960, y: 640}
+  m_ReferenceResolution: {x: 960, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: .5
   m_PhysicalUnit: 3

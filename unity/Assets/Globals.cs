@@ -146,6 +146,13 @@ public class Globals : Singleton<Globals> {
 
         DoFadeScreenIn();
 
+        yield return null;
+
+        if (level == GameLevel.Arena)
+        {
+            ArenaManager.Instance.PrepareNextWave();
+        }
+
         while (GUIManager.Instance.isFading)
         {
             yield return null;
@@ -188,6 +195,7 @@ public class Globals : Singleton<Globals> {
             case GameLevel.Arena:                
                 ObjectManager.Instance.DestroyPlayer();
                 ArenaManager.Instance.EndWave();
+                ArenaManager.Instance.Reset();
                 StartCoroutine(WaitAndLoadLevel(5.0f, GameLevel.Lobby));
                 break;
             case GameLevel.Level1:

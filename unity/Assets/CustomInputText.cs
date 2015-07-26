@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class CustomInputText : MonoBehaviour {
 
-    public string buttonName = "Fire1";
+    public string buttonName = "Fire Front Weapon";
     public string customText = "~!~ TO SHOOT";
 
     public Text textToSet;

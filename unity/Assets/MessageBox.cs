@@ -20,6 +20,10 @@ public class MessageBox : MonoBehaviour {
     public float visibleAlpha = 1.0f;
     public float invisibleAlpha = 0.0f;
 
+    private IEnumerator currentResize = null;
+    private IEnumerator currentHorizontalResize = null;
+    private IEnumerator currentVerticalResize = null;
+
     public List<Transform> disableWhileClosed = new List<Transform>();
 
     public enum ResizeStyle
@@ -65,11 +69,11 @@ public class MessageBox : MonoBehaviour {
 
         if (isOpen)
         {
-            yield return StartCoroutine(CloseAndWait());
+            yield return StartCoroutine(CloseAndWait(closeTime));
         }
         else
         {
-            yield return StartCoroutine(OpenAndWait());
+            yield return StartCoroutine(OpenAndWait(openTime));
         }
     }
 
@@ -78,22 +82,40 @@ public class MessageBox : MonoBehaviour {
         StartCoroutine(ToggleAndWait());
     }
     
-    public IEnumerator OpenAndWait()
+    public IEnumerator OpenAndWait(float duration)
     {
         SetVisible(true);
-        Debug.Log("Opening");
-        yield return StartCoroutine(Resize(closedSize, openSize, openTime, openStyle));
+        //Debug.Log("Opening");
+        if (isResizing)
+        {
+            Debug.Log("OpenAndWait::StopCoroutine:" + gameObject.name);
+            StopCoroutine(currentResize);
+            StopCoroutine(currentHorizontalResize);
+            StopCoroutine(currentVerticalResize);
+        }
+
+        currentResize = Resize(closedSize, openSize, openTime, openStyle);
+        yield return StartCoroutine(currentResize);
         isOpen = true;
         EnableChildren(true);
     }
     
-    public IEnumerator CloseAndWait()
+    public IEnumerator CloseAndWait(float duration)
     {
-        Debug.Log("Closing");
+        //Debug.Log("Closing");
         isOpen = false; 
         EnableChildren(false);
 
-        yield return StartCoroutine(Resize(openSize, closedSize, closeTime, closeStyle));
+        if (isResizing)
+        {
+            Debug.Log("CloseAndWait::StopCoroutine:" + gameObject.name);
+            StopCoroutine(currentResize);
+            StopCoroutine(currentHorizontalResize);
+            StopCoroutine(currentVerticalResize);
+        }
+
+        currentResize = Resize(openSize, closedSize, duration, closeStyle);
+        yield return StartCoroutine(currentResize);
         
         if (!visibleWhileClosed)
         {
@@ -123,53 +145,55 @@ public class MessageBox : MonoBehaviour {
 
     public void SetOpen()
     {
-        float originalOpenTime = openTime;
-        openTime = 0.0f;
-        StartOpen();
-        openTime = originalOpenTime;
+        StartCoroutine(OpenAndWait(0.0f));
     }
 
     public void SetClosed()
     {
-        float originalCloseTime = closeTime;
-        closeTime = 0.0f;
-        StartClose();
-        closeTime = originalCloseTime;
+        StartCoroutine(CloseAndWait(0.0f));
     }
 
     [ContextMenu("Open")]
     public void StartOpen()
     {
-        StartCoroutine(OpenAndWait());
+        StartCoroutine(OpenAndWait(openTime));
     }
 
     [ContextMenu("Close")]
     public void StartClose()
     {
-        StartCoroutine(CloseAndWait());        
+        StartCoroutine(CloseAndWait(closeTime));        
     }          
 
     private IEnumerator Resize(Vector2 startSize, Vector2 targetSize, float duration, ResizeStyle resizeStyle)
     {
         isResizing = true;
 
+        //Debug.Log("Resize " + gameObject.name + " start: t=" + Time.realtimeSinceStartup);
         switch (resizeStyle)
         {
             case ResizeStyle.Simultaneous:
-                StartCoroutine(ResizeAxis(RectTransform.Axis.Horizontal, startSize.x, targetSize.x, duration));
-                yield return StartCoroutine(ResizeAxis(RectTransform.Axis.Vertical, startSize.y, targetSize.y, duration));
+                currentHorizontalResize = ResizeAxis(RectTransform.Axis.Horizontal, startSize.x, targetSize.x, duration);
+                currentVerticalResize = ResizeAxis(RectTransform.Axis.Vertical, startSize.y, targetSize.y, duration);
+                StartCoroutine(currentHorizontalResize);
+                yield return StartCoroutine(currentVerticalResize);
                 break;
             case ResizeStyle.WidthFirst:
-                yield return StartCoroutine(ResizeAxis(RectTransform.Axis.Horizontal, startSize.x, targetSize.x, duration * 0.5f));
-                yield return StartCoroutine(ResizeAxis(RectTransform.Axis.Vertical, startSize.y, targetSize.y, duration * 0.5f));
+                currentHorizontalResize = ResizeAxis(RectTransform.Axis.Horizontal, startSize.x, targetSize.x, duration * 0.5f);
+                currentVerticalResize = ResizeAxis(RectTransform.Axis.Vertical, startSize.y, targetSize.y, duration * 0.5f);
+                yield return StartCoroutine(currentHorizontalResize);
+                yield return StartCoroutine(currentVerticalResize);
                 break;
             case ResizeStyle.HeightFirst:
-                yield return StartCoroutine(ResizeAxis(RectTransform.Axis.Vertical, startSize.y, targetSize.y, duration * 0.5f));
-                yield return StartCoroutine(ResizeAxis(RectTransform.Axis.Horizontal, startSize.x, targetSize.x, duration * 0.5f));
+                currentHorizontalResize = ResizeAxis(RectTransform.Axis.Horizontal, startSize.x, targetSize.x, duration * 0.5f);
+                currentVerticalResize = ResizeAxis(RectTransform.Axis.Vertical, startSize.y, targetSize.y, duration * 0.5f);
+                yield return StartCoroutine(currentVerticalResize);
+                yield return StartCoroutine(currentHorizontalResize);                                
                 break;
             default:
                 break;
         }
+        //Debug.Log("Resize " + gameObject.name + " complete: t=" + Time.realtimeSinceStartup);
 
         isResizing = false;
         //float elapsedTime = 0.0f;
@@ -197,12 +221,7 @@ public class MessageBox : MonoBehaviour {
         float elapsedTime = 0.0f;
 
         while (elapsedTime < duration)
-        {
-            float percentComplete = elapsedTime / duration;
-            float newSize = Mathf.Lerp(startSize, targetSize, percentComplete);            
-
-            rect.SetSizeWithCurrentAnchors(axis, newSize);
-
+        {            
             float currentTime = Time.realtimeSinceStartup;
 
             yield return null;
@@ -210,6 +229,11 @@ public class MessageBox : MonoBehaviour {
             float realDeltaTime = Time.realtimeSinceStartup - currentTime;
 
             elapsedTime += realDeltaTime;
+
+            float percentComplete = elapsedTime / duration;
+            float newSize = Mathf.Lerp(startSize, targetSize, percentComplete);
+
+            rect.SetSizeWithCurrentAnchors(axis, newSize);
         }
 
         rect.SetSizeWithCurrentAnchors(axis, targetSize);

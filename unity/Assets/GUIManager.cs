@@ -83,7 +83,11 @@ public class GUIManager : Singleton<GUIManager> {
 
                 yield return null;
             }
+
+            Debug.Log("All message boxes open.");
         }
+
+        
     }
 
     public void FadeScreen(float startOpacity, float endOpacity, float duration)

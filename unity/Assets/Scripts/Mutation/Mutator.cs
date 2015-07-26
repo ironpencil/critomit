@@ -21,4 +21,18 @@ public class Mutator : MonoBehaviour
     public float currentWeight;
     public float cumulativeWeight;
 
+    public string mutatorName = "Mutator";
+    
+    [SerializeField]
+    private string mutatorDescription = "Description";
+
+    public string GetDescription()
+    {
+        string description = mutatorDescription.Replace("[intvalue]", ((int)currentValue).ToString());
+
+        description = mutatorDescription.Replace("[value]", currentValue.ToString());
+
+        return description;
+    }
+
 }

@@ -5,6 +5,7 @@ using System.Linq;
 
 public class MutatorManager : Singleton<MutatorManager> {
 
+    public List<Mutator> pendingMutators = new List<Mutator>();
     public List<Mutator> activeMutators = new List<Mutator>();
     public List<Mutator> allAvailableMutators = new List<Mutator>();
 
@@ -24,8 +25,7 @@ public class MutatorManager : Singleton<MutatorManager> {
         // if they do, apply them
 
         //TODO: Need to adjust random check so that we apply the weight modification immediately
-        //Also need to check to see
-        List<Mutator> mutatorsToAdd = new List<Mutator>();
+        //Also need to check to see        
 
         float mutatorChance = chanceToAddNewMutator + (mutatorChanceIncrementPerWave * ArenaManager.Instance.wavesCompleted);
 
@@ -33,11 +33,17 @@ public class MutatorManager : Singleton<MutatorManager> {
         {
             if (!(mutatorChance < Random.Range(0.0f, 1.0f)))
             {
-                //select mutator
+                //select mutator and adjust its value/weight to indicate it has been selected
                 Mutator randomMutator = SelectRandomAvailableMutator();
                 if (randomMutator != null)
                 {
-                    mutatorsToAdd.Add(randomMutator);
+                    IncrementMutatorValues(randomMutator);
+                    
+                    //we only add the mutator once, so only its final incremented value will be applied
+                    if (!pendingMutators.Any(m => m.mutatorType == randomMutator.mutatorType))
+                    {
+                        pendingMutators.Add(randomMutator);
+                    }
                 }
             }
 
@@ -47,24 +53,34 @@ public class MutatorManager : Singleton<MutatorManager> {
             }
             else
             {
-                mutatorChance = 0.0f;
+                mutatorChance = 0.0f; // could just break;
             }
         }
 
         //now that we have all of our selected mutators, reset the weights on all mutators
 
         //reset mutator weights
-        foreach (Mutator mutator in allAvailableMutators)
-        {
-            mutator.currentWeight = mutator.initialWeight;
-        }
+        //foreach (Mutator mutator in allAvailableMutators)
+        //{
+        //    mutator.currentWeight = mutator.initialWeight;
+        //}
 
         //now add the mutators we selected randomly, which will also adjust their weights for next generation
-        foreach (Mutator mutator in mutatorsToAdd)
+        //foreach (Mutator mutator in pendingMutators)
+        //{
+        //    AddActiveMutator(mutator);
+        //    IncrementMutatorValues(mutator);
+        //}
+    }
+
+    public void ApplyPendingMutators()
+    {
+        foreach (Mutator mutator in pendingMutators)
         {
-            AddActiveMutator(mutator);
-            IncrementMutatorValues(mutator);
+            AddActiveMutator(mutator);            
         }
+
+        pendingMutators.Clear();
     }
 
     //private void AddRandomMutator()
@@ -163,7 +179,7 @@ public class MutatorManager : Singleton<MutatorManager> {
             }
         }
 
-        //reduce this mutator's weight by its weight decrement to decrease chance it is picked again right away
+        //set mutator weight to decremented weight to decrease chance it is selected again this wave
         mutator.currentWeight = mutator.decrementedWeight;
     }
     
@@ -279,7 +295,7 @@ public class MutatorManager : Singleton<MutatorManager> {
     {
         if (cameraSpinner != null)
         {
-            cameraSpinner.doRotate= false;
+            cameraSpinner.doRotate = false;
             cameraSpinner.ResetRotation();
         }
     }

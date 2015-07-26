@@ -86,12 +86,23 @@ public class ScoreManager : Singleton<ScoreManager> {
 
     public void ResetMultiplier()
     {
-        if (CurrentWaveMultiplier > 1)
+        int minimumMultiplier = ArenaManager.Instance.wavesCompleted + 1;
+
+        if (CurrentWaveMultiplier > minimumMultiplier)
         {
             EventTextManager.Instance.AddEvent("!! MULTIPLIER LOST !!", 1.0f, true);
         }
 
-        CurrentWaveMultiplier = 1;        
+        CurrentWaveMultiplier = minimumMultiplier;        
+    }
+
+    public void VerifyMinimumMultiplier()
+    {
+        int minimumMultiplier = ArenaManager.Instance.wavesCompleted + 1;
+
+        CurrentWaveMultiplier = minimumMultiplier;
+
+        //or do we want to let them keep their multiplier between waves?
     }
 
     public void RefreshPointsDisplay()
@@ -101,10 +112,16 @@ public class ScoreManager : Singleton<ScoreManager> {
     }
 
     private void UpdatePointsDisplay() {
-        ObjectManager.Instance.pointsText.text = currentWavePoints.ToString();
+        if (ObjectManager.Instance.pointsText != null)
+        {
+            ObjectManager.Instance.pointsText.text = currentWavePoints.ToString();
+        }
     }
 
     private void UpdateMultiplierDisplay() {
-        ObjectManager.Instance.multiplierText.text = "X" + currentWaveMultiplier;
+        if (ObjectManager.Instance.multiplierText != null)
+        {
+            ObjectManager.Instance.multiplierText.text = "X" + currentWaveMultiplier;
+        }
     }
 }

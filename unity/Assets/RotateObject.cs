@@ -30,7 +30,11 @@ public class RotateObject : MonoBehaviour {
     {
         if (target != null)
         {
-            target.Rotate(new Vector3(0.0f, 0.0f, startingRotation));
+            target.rotation = Quaternion.identity;
+            if (startingRotation != 0.0f)
+            {
+                target.Rotate(new Vector3(0.0f, 0.0f, startingRotation));
+            }
         }
     }
 

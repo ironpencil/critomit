@@ -227,41 +227,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 88676248}
---- !u!1 &95189560 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 184814, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
-  m_PrefabInternal: {fileID: 1905008811}
---- !u!114 &95189566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 95189560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a32fe6c3085f2d43a88ceeea84189c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addMultiplierKills: 10
-  currentWavePoints: 0
-  currentWaveMultiplier: 1
-  currentKills: 0
---- !u!114 &95189567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 95189560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6c6927da8e6bd644af506f0274ade31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashOnTime: .25
-  flashOffTime: .25
-  flashCount: 2
-  onColor: {r: .282352954, g: .929411829, b: .737254918, a: 1}
-  offColor: {r: .0509803966, g: .549019635, b: .403921604, a: 0}
 --- !u!1001 &132623958
 Prefab:
   m_ObjectHideFlags: 0
@@ -949,18 +914,6 @@ Prefab:
     - target: {fileID: 22439452, guid: c38f544177361fa409dcecc206f38966, type: 2}
       propertyPath: m_Pivot.y
       value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406458, guid: c38f544177361fa409dcecc206f38966, type: 2}
-      propertyPath: closedSize.y
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406458, guid: c38f544177361fa409dcecc206f38966, type: 2}
-      propertyPath: openStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406458, guid: c38f544177361fa409dcecc206f38966, type: 2}
-      propertyPath: closeStyle
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c38f544177361fa409dcecc206f38966, type: 2}
@@ -2581,10 +2534,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rect: {fileID: 0}
   canvasGroup: {fileID: 0}
-  closedSize: {x: 80, y: 78}
+  closedSize: {x: 20, y: 20}
   openSize: {x: 300, y: 78}
-  openTime: .25
-  closeTime: .25
+  openTime: .100000001
+  closeTime: .100000001
   isOpen: 0
   isResizing: 0
   visibleWhileClosed: 0
@@ -2592,8 +2545,8 @@ MonoBehaviour:
   invisibleAlpha: 0
   disableWhileClosed:
   - {fileID: 1730195509}
-  openStyle: 0
-  closeStyle: 0
+  openStyle: 1
+  closeStyle: 2
 --- !u!225 &1279639891
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3711,22 +3664,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 11499922, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 585529122}
     - target: {fileID: 11480600, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
       propertyPath: cameraSpinner
       value: 
       objectReference: {fileID: 1233842400}
-    - target: {fileID: 11440766, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
-      propertyPath: currentState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440766, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
-      propertyPath: currentLevel
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
   m_IsPrefabParent: 0

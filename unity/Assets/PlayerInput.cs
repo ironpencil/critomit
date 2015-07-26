@@ -30,54 +30,54 @@ public class PlayerInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire Front Weapon"))
         {
             if (GUIManager.IsMouseInputBlocked())
             {
-                guiBlockedButtons.Add("Fire1");
+                guiBlockedButtons.Add("Fire Front Weapon");
             }
         }
 
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire Front Weapon"))
         {
-            if (guiBlockedButtons.Contains("Fire1"))
+            if (guiBlockedButtons.Contains("Fire Front Weapon"))
             {
-                guiBlockedButtons.Remove("Fire1");
+                guiBlockedButtons.Remove("Fire Front Weapon");
             }
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire Rear Weapon"))
         {
             if (GUIManager.IsMouseInputBlocked())
             {
-                guiBlockedButtons.Add("Fire2");
+                guiBlockedButtons.Add("Fire Rear Weapon");
             }
         }
 
-        if (Input.GetButtonUp("Fire2"))
+        if (Input.GetButtonUp("Fire Rear Weapon"))
         {
-            if (guiBlockedButtons.Contains("Fire2"))
+            if (guiBlockedButtons.Contains("Fire Rear Weapon"))
             {
-                guiBlockedButtons.Remove("Fire2");
+                guiBlockedButtons.Remove("Fire Rear Weapon");
             }
         }
 
-        if (Input.GetButton("Fire1") && !guiBlockedButtons.Contains("Fire1"))
+        if (Input.GetButton("Fire Front Weapon") && !guiBlockedButtons.Contains("Fire Front Weapon"))
         {
             ObjectManager.Instance.weaponController.ShootWeapon(WeaponLocation.Primary);
         }
 
-        if (Input.GetButton("Fire2") && !guiBlockedButtons.Contains("Fire2"))
+        if (Input.GetButton("Fire Rear Weapon") && !guiBlockedButtons.Contains("Fire Rear Weapon"))
         {
             ObjectManager.Instance.weaponController.ShootWeapon(WeaponLocation.Secondary);
         }
 
-        if (Input.GetButton("Fire3"))
+        if (Input.GetButton("Fire Special"))
         {
             ObjectManager.Instance.weaponController.ShootWeapon(WeaponLocation.Utility);
         }
 
-        if (Input.GetKeyDown("1"))
+        if (Input.GetButtonDown("Switch Front Weapon"))
         {
             ObjectManager.Instance.weaponController.CycleWeapon(WeaponLocation.Primary);
             
@@ -91,7 +91,7 @@ public class PlayerInput : MonoBehaviour {
 
         }
 
-        if (Input.GetKeyDown("2"))
+        if (Input.GetButtonDown("Switch Rear Weapon"))
         {
             ObjectManager.Instance.weaponController.CycleWeapon(WeaponLocation.Secondary);
 
@@ -104,7 +104,7 @@ public class PlayerInput : MonoBehaviour {
 
         }
 
-        if (Input.GetKeyDown("3"))
+        if (Input.GetButtonDown("Switch Special"))
         {
             ObjectManager.Instance.weaponController.CycleWeapon(WeaponLocation.Utility);
             

@@ -48,6 +48,12 @@ public class ArenaManager : Singleton<ArenaManager> {
                 StartWave();
             }
 
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                CompleteWave();
+                LoadNextLevel();
+            }
+
         }
 
     }
@@ -66,11 +72,6 @@ public class ArenaManager : Singleton<ArenaManager> {
                 LoadNextLevel();
             }
         }
-    }
-
-    private void DoNewLevelSetup()
-    {
-        MutatorManager.Instance.GenerateNewLevelMutators();
     }
 
     //public override void OnLevelWasLoaded(int level)
@@ -95,13 +96,21 @@ public class ArenaManager : Singleton<ArenaManager> {
         //also clear all mutators
     }
 
-    public void StartWave()
+    public void PrepareNextWave()
     {
-        DoNewLevelSetup();
+        ScoreManager.Instance.VerifyMinimumMultiplier();
+        ScoreManager.Instance.RefreshPointsDisplay();        
+        ObjectManager.Instance.waveText.text = (wavesCompleted + 1).ToString();
+        MutatorManager.Instance.GenerateNewLevelMutators();
+    }
+
+    public void StartWave()
+    {        
         Debug.Log("StartWave()");
         waveActive = true;
-        ScoreManager.Instance.RefreshPointsDisplay();
-        ObjectManager.Instance.waveText.text = (wavesCompleted + 1).ToString();
+        MutatorManager.Instance.ApplyPendingMutators();
+        //ScoreManager.Instance.RefreshPointsDisplay();
+        //ObjectManager.Instance.waveText.text = (wavesCompleted + 1).ToString();
         SpawnManager.Instance.StartSpawners();
     }
 

@@ -8,6 +8,7 @@ public class ArenaManager : Singleton<ArenaManager> {
 
     public bool waveComplete = false;
 
+    [SerializeField]
     private bool waveActive = false;
 
     void OnEnable()
@@ -99,6 +100,8 @@ public class ArenaManager : Singleton<ArenaManager> {
         DoNewLevelSetup();
         Debug.Log("StartWave()");
         waveActive = true;
+        ScoreManager.Instance.RefreshPointsDisplay();
+        ObjectManager.Instance.waveText.text = (wavesCompleted + 1).ToString();
         SpawnManager.Instance.StartSpawners();
     }
 
@@ -107,6 +110,8 @@ public class ArenaManager : Singleton<ArenaManager> {
         EndWave();
 
         wavesCompleted++;
+
+        EventTextManager.Instance.AddEvent(@"!! (GOT EM!> \(^.^')/ !!", 5.0f, true);
         
         SpawnManager.Instance.ClearEnemies();
         ObjectManager.Instance.player.GetComponent<PlayerDamageManager>().FullHeal();
@@ -114,6 +119,7 @@ public class ArenaManager : Singleton<ArenaManager> {
 
     public void EndWave()
     {
+        Debug.Log("EndWave()");
         waveActive = false;
     }
 

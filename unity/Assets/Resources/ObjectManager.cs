@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -12,6 +13,10 @@ public class ObjectManager : Singleton<ObjectManager> {
     public PlayerSpawner playerSpawner;
     public CameraFollow followCam;
     public List<MessageBox> autoMessageBoxes;
+    public Text pointsText;
+    public Text multiplierText;
+    public Text waveText;
+    public Text eventText;
 
 	// Use this for initialization
     public override void Start()

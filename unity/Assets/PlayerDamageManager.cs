@@ -62,6 +62,7 @@ public class PlayerDamageManager : TakesDamage {
         {
             //player died
             Debug.Log("Player is dead!");
+            EventTextManager.Instance.AddEvent(@"!! (OH NO!> \(*.*')/ !!", 1000.0f, true);
 
             Globals.Instance.PlayerDied();
 
@@ -96,6 +97,8 @@ public class PlayerDamageManager : TakesDamage {
     private void DoDamage(float damage)
     {
         CurrentHP = privCurrentHP - damage;
+
+        ScoreManager.Instance.ResetMultiplier();        
 
         foreach (GameEffect effect in damagedEffects)
         {

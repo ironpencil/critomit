@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -12,11 +13,14 @@ public class Globals : Singleton<Globals> {
 
     public HashSet<GameLevel> levelsBeaten = new HashSet<GameLevel>();
 
+    public bool paused = false;
+
     public override void Start()
     {
         base.Start();
 
-        StartCoroutine(DoNewLevelSetup(0));
+        targetLevel = currentLevel;
+        StartCoroutine(DoNewLevelSetup(currentLevel));
     }
 
     public void LoadGameState(GameState state)
@@ -125,15 +129,20 @@ public class Globals : Singleton<Globals> {
 
     private void OnLevelWasLoaded(int level)
     {
-        StartCoroutine(DoNewLevelSetup(level));
+        currentLevel = targetLevel;
+        StartCoroutine(DoNewLevelSetup(currentLevel));
     }
 
-    private IEnumerator DoNewLevelSetup(int level)
+    private IEnumerator DoNewLevelSetup(GameLevel level)
     {
-        loadingLevel = false;
-        currentLevel = targetLevel;
+        loadingLevel = false;        
 
         //yield return new WaitForSeconds(0.1f);
+
+        if (level == GameLevel.Arena)
+        {
+            Pause(true);
+        }
 
         DoFadeScreenIn();
 
@@ -145,6 +154,11 @@ public class Globals : Singleton<Globals> {
         //yield return new WaitForSeconds(0.1f);
                 
         yield return StartCoroutine(GUIManager.Instance.DoAutoMessageBoxes(true));
+
+        //if (level == GameLevel.Arena)
+        //{
+        //    Pause(true);
+        //}
     }
 
     public bool HasBeatenLevel(GameLevel level)
@@ -160,20 +174,21 @@ public class Globals : Singleton<Globals> {
 
     public void PlayerDied()
     {
+        Debug.Log("Player Died. CurrentLevel = " + Enum.GetName(typeof(GameLevel), currentLevel));
         switch (currentLevel)
         {
             case GameLevel.Title:
                 ObjectManager.Instance.DestroyPlayer();
-                StartCoroutine(WaitAndLoadLevel(2.0f, GameLevel.Lobby));
+                StartCoroutine(WaitAndLoadLevel(5.0f, GameLevel.Lobby));
                 break;
             case GameLevel.Lobby:
                 ObjectManager.Instance.DestroyPlayer();
-                StartCoroutine(WaitAndLoadLevel(2.0f, GameLevel.Lobby));
+                StartCoroutine(WaitAndLoadLevel(5.0f, GameLevel.Lobby));
                 break;
             case GameLevel.Arena:                
                 ObjectManager.Instance.DestroyPlayer();
                 ArenaManager.Instance.EndWave();
-                StartCoroutine(WaitAndLoadLevel(2.0f, GameLevel.Lobby));
+                StartCoroutine(WaitAndLoadLevel(5.0f, GameLevel.Lobby));
                 break;
             case GameLevel.Level1:
                 ObjectManager.Instance.DestroyAndRespawnPlayer();
@@ -194,5 +209,19 @@ public class Globals : Singleton<Globals> {
         yield return new WaitForSeconds(waitTime);
 
         LoadLevel(level);
+    }
+
+    public void Pause(bool pause)
+    {
+        paused = pause;
+
+        if (paused)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
     }
 }

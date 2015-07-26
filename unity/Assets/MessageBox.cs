@@ -201,11 +201,15 @@ public class MessageBox : MonoBehaviour {
             float percentComplete = elapsedTime / duration;
             float newSize = Mathf.Lerp(startSize, targetSize, percentComplete);            
 
-            rect.SetSizeWithCurrentAnchors(axis, newSize);            
+            rect.SetSizeWithCurrentAnchors(axis, newSize);
+
+            float currentTime = Time.realtimeSinceStartup;
 
             yield return null;
 
-            elapsedTime += Time.deltaTime;
+            float realDeltaTime = Time.realtimeSinceStartup - currentTime;
+
+            elapsedTime += realDeltaTime;
         }
 
         rect.SetSizeWithCurrentAnchors(axis, targetSize);

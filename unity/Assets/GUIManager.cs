@@ -81,7 +81,7 @@ public class GUIManager : Singleton<GUIManager> {
                     }
                 }
 
-                yield return 0.1f;
+                yield return null;
             }
         }
     }
@@ -104,12 +104,16 @@ public class GUIManager : Singleton<GUIManager> {
         screenFader.mask.color = maskColor;
 
         float currentDuration = 0.0f;
-
+        
         while (currentDuration < duration)
         {
+            float currentTime = Time.realtimeSinceStartup;
+
             yield return null;
-            
-            currentDuration += Time.deltaTime;
+
+            float realDeltaTime = Time.realtimeSinceStartup - currentTime;
+
+            currentDuration += realDeltaTime;
 
             float newOpacity = Mathf.Lerp(startOpacity, endOpacity, currentDuration / duration);
 

@@ -1058,7 +1058,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '1/2/3: SWITCH FRONT/REAR/UTILITY'
+  m_Text: '1/2/3: SWITCH FRONT/REAR/SPECIAL'
 --- !u!222 &491925682
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2810,6 +2810,7 @@ MonoBehaviour:
   followCam: {fileID: 543160068}
   autoMessageBoxes:
   - {fileID: 97013272}
+  startWaveDialog: {fileID: 0}
   pointsText: {fileID: 0}
   multiplierText: {fileID: 0}
   waveText: {fileID: 0}

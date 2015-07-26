@@ -30,7 +30,7 @@ public class Mutator : MonoBehaviour
     {
         string description = mutatorDescription.Replace("[intvalue]", ((int)currentValue).ToString());
 
-        description = mutatorDescription.Replace("[value]", currentValue.ToString());
+        description = description.Replace("[value]", currentValue.ToString());
 
         return description;
     }

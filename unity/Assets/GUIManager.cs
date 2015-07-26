@@ -86,7 +86,6 @@ public class GUIManager : Singleton<GUIManager> {
 
             Debug.Log("All message boxes open.");
         }
-
         
     }
 

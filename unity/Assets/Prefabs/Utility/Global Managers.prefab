@@ -220,7 +220,7 @@ MonoBehaviour:
   currentWeight: 0
   cumulativeWeight: 0
   mutatorName: Dizzy
-  mutatorDescription: Camera spins [intvalue] degrees per second
+  mutatorDescription: Camera spins [intvalue] deg/sec
 --- !u!114 &11424564
 MonoBehaviour:
   m_ObjectHideFlags: 1

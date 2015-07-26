@@ -102,7 +102,11 @@ public class ArenaManager : Singleton<ArenaManager> {
         ScoreManager.Instance.RefreshPointsDisplay();        
         ObjectManager.Instance.waveText.text = (wavesCompleted + 1).ToString();
         MutatorManager.Instance.GenerateNewLevelMutators();
+
+        ObjectManager.Instance.startWaveDialog.PrepareDialog();
     }
+
+    
 
     public void StartWave()
     {        

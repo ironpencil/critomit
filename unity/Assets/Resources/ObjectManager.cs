@@ -13,6 +13,7 @@ public class ObjectManager : Singleton<ObjectManager> {
     public PlayerSpawner playerSpawner;
     public CameraFollow followCam;
     public List<MessageBox> autoMessageBoxes;
+    public StartWaveDialog startWaveDialog;
     public Text pointsText;
     public Text multiplierText;
     public Text waveText;

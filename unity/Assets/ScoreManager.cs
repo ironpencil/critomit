@@ -43,14 +43,23 @@ public class ScoreManager : Singleton<ScoreManager> {
         private set
         {
             currentKills = value;
+            bool playSound = true;
             while (currentKills >= addMultiplierKills)
             {
                 currentKills -= addMultiplierKills;
                 CurrentWaveMultiplier += 1;
                 EventTextManager.Instance.AddEvent("!! MULTIPLIER GAINED !!", 1.0f, true);
+                if (playSound && multiplierGainedSound != null)
+                {
+                    multiplierGainedSound.PlayEffect();
+                    playSound = false;
+                }
             }
         }
     }
+
+    public SoundEffectHandler multiplierGainedSound;
+    public SoundEffectHandler multiplierLostSound;
     
 	// Use this for initialization
 	public override void Start () {
@@ -91,6 +100,10 @@ public class ScoreManager : Singleton<ScoreManager> {
         if (CurrentWaveMultiplier > minimumMultiplier)
         {
             EventTextManager.Instance.AddEvent("!! MULTIPLIER LOST !!", 1.0f, true);
+            if (multiplierLostSound != null)
+            {
+                multiplierLostSound.PlayEffect();
+            }
         }
 
         CurrentWaveMultiplier = minimumMultiplier;        

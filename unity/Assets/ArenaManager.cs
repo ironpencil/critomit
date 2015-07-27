@@ -11,6 +11,8 @@ public class ArenaManager : Singleton<ArenaManager> {
     [SerializeField]
     private bool waveActive = false;
 
+    public SoundEffectHandler waveCompleteSound;
+
     void OnEnable()
     {
         //if (Globals.Instance.currentState != GameState.Arena)
@@ -125,6 +127,11 @@ public class ArenaManager : Singleton<ArenaManager> {
         wavesCompleted++;
 
         EventTextManager.Instance.AddEvent(@"!! (GOT EM!> \(^.^')/ !!", 5.0f, true);
+
+        if (waveCompleteSound != null)
+        {
+            waveCompleteSound.PlayEffect();
+        }
         
         SpawnManager.Instance.ClearEnemies();
         ObjectManager.Instance.player.GetComponent<PlayerDamageManager>().FullHeal();
@@ -139,6 +146,7 @@ public class ArenaManager : Singleton<ArenaManager> {
     public void LoadNextLevel()
     {
         //Application.LoadLevel("waveArena");
-        Globals.Instance.LoadLevel(GameLevel.Arena);
+        //TODO: REMOVE THIS WHEN WE PUT IN WAVE CLEAR DIALOG?
+        StartCoroutine(Globals.Instance.WaitAndLoadLevel(3.0f, GameLevel.Arena));
     }
 }

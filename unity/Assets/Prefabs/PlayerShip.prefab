@@ -1357,8 +1357,8 @@ MonoBehaviour:
   underwater: 1
   volume: 1
   variableVolume: 0
-  volumeMin: .300000012
-  volumeMax: .400000006
+  volumeMin: 1
+  volumeMax: 1
   playDelay: 0
   variableDelay: 0
   playDelayMin: 0

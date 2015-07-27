@@ -20,6 +20,11 @@ public class MessageBox : MonoBehaviour {
     public float visibleAlpha = 1.0f;
     public float invisibleAlpha = 0.0f;
 
+    public SoundEffectHandler openSound;
+    public SoundEffectHandler closeSound;
+
+    private bool playSound = false;
+
     private IEnumerator currentResize = null;
     private IEnumerator currentHorizontalResize = null;
     private IEnumerator currentVerticalResize = null;
@@ -48,6 +53,7 @@ public class MessageBox : MonoBehaviour {
             canvasGroup = gameObject.GetComponent<CanvasGroup>();
         }
 
+        playSound = false;
         if (isOpen)
         {
             SetOpen();
@@ -56,6 +62,7 @@ public class MessageBox : MonoBehaviour {
         {
             SetClosed();
         }
+        playSound = true;
 	}
 	
 	// Update is called once per frame
@@ -94,6 +101,11 @@ public class MessageBox : MonoBehaviour {
             StopCoroutine(currentVerticalResize);
         }
 
+        if (openSound != null && playSound)
+        {
+            openSound.PlayEffect();
+        }
+
         currentResize = Resize(closedSize, openSize, openTime, openStyle);
         yield return StartCoroutine(currentResize);
         isOpen = true;
@@ -112,6 +124,11 @@ public class MessageBox : MonoBehaviour {
             StopCoroutine(currentResize);
             StopCoroutine(currentHorizontalResize);
             StopCoroutine(currentVerticalResize);
+        }
+
+        if (closeSound != null && playSound)
+        {
+            closeSound.PlayEffect();
         }
 
         currentResize = Resize(openSize, closedSize, duration, closeStyle);

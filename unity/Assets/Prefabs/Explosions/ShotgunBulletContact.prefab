@@ -117,8 +117,8 @@ MonoBehaviour:
   underwater: 1
   volume: .5
   variableVolume: 1
-  volumeMin: .400000006
-  volumeMax: .600000024
+  volumeMin: .200000003
+  volumeMax: .300000012
   playDelay: 0
   variableDelay: 1
   playDelayMin: 0
@@ -228,11 +228,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: volumeMin
-      value: .400000006
+      value: .200000003
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: volumeMax
-      value: .600000024
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: playDelayMax

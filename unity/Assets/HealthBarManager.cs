@@ -20,6 +20,19 @@ public class HealthBarManager : MonoBehaviour {
 
     private int numDots = 0;
 
+    public SoundEffectHandler lowSound;
+    public SoundEffectHandler criticalSound;
+
+    public HealthStatus healthStatus;
+
+    public enum HealthStatus
+    {
+        Normal,
+        Low,
+        Critical,
+        Dead
+    }
+
     [SerializeField]
     private int currentHealth;    
 
@@ -28,8 +41,8 @@ public class HealthBarManager : MonoBehaviour {
         get { return currentHealth; }
         private set
         {
-            currentHealth = value;
-            RefreshDisplay();
+            currentHealth = value;            
+            RefreshDisplay();            
         }
             
     }
@@ -72,17 +85,26 @@ public class HealthBarManager : MonoBehaviour {
 
     public void RefreshDotColors()
     {
+        if (numDots == 0)
+        {
+            healthStatus = HealthStatus.Dead;
+            return;
+        }
+
         if (numDots > greenThreshold)
         {
             SetAllDotSprites(green);
+            healthStatus = HealthStatus.Normal;
         }
         else if (numDots > yellowThreshold)
         {
             SetAllDotSprites(yellow);
+            healthStatus = HealthStatus.Low;
         }
         else
         {
             SetAllDotSprites(red);
+            healthStatus = HealthStatus.Critical;
         }
     }
 
@@ -139,7 +161,8 @@ public class HealthBarManager : MonoBehaviour {
 
         while (testHealth <= maxHealth)
         {
-            CurrentHealth = testHealth;
+            //CurrentHealth = testHealth;
+            SetHP(testHealth);
 
             testHealth++;
 
@@ -152,18 +175,22 @@ public class HealthBarManager : MonoBehaviour {
 
         while (testHealth >= 0)
         {
-            CurrentHealth = testHealth;
+            //CurrentHealth = testHealth;
+            SetHP(testHealth);
 
             testHealth--;
 
             yield return new WaitForSeconds(0.02f);
         }
 
-        CurrentHealth = actualHealth;
+        SetHP(actualHealth); 
+        //CurrentHealth = actualHealth;
     }
 
     public void SetHP(float currentHP)
     {
+        int prevNumDots = numDots;        
+        
         if (currentHP > 0.0f)
         {
             CurrentHealth = Mathf.Clamp((int)currentHP, 1, maxHealth);
@@ -171,6 +198,24 @@ public class HealthBarManager : MonoBehaviour {
         else
         {
             CurrentHealth = 0;
+        }
+
+        if (numDots < prevNumDots)
+        {
+            if (healthStatus == HealthStatus.Low)
+            {
+                if (lowSound != null)
+                {
+                    lowSound.PlayEffect();
+                }
+            }
+            else if (healthStatus == HealthStatus.Critical)
+            {
+                if (criticalSound != null)
+                {
+                    criticalSound.PlayEffect();
+                }
+            }
         }
     }
 }

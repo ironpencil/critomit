@@ -11,6 +11,8 @@ public class StartWaveDialog : MonoBehaviour {
     public int mutatorSingleLineThreshold = 8;
     public int maxDisplayedMutators = 15;
 
+    public MutatorDisplayHandler mutatorDisplay;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -33,6 +35,7 @@ public class StartWaveDialog : MonoBehaviour {
         else
         {
             // show mutator dialog    
+            mutatorDisplay.playAlarm = true;
             LoadMutatorDescriptions();
             introGroup.alpha = 0.0f;
             mutatorGroup.alpha = 1.0f;

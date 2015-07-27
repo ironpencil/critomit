@@ -37,7 +37,10 @@ public class AudioManager : Singleton<AudioManager> {
 	public override void Start () {
         base.Start();
 
-        TransitionToLobby();
+        if (this != null)
+        {
+            TransitionToLobby();
+        }
 	}
 	
 	// Update is called once per frame

@@ -27,6 +27,8 @@ GameObject:
   - 224: {fileID: 22426740}
   - 225: {fileID: 22514688}
   - 114: {fileID: 11404982}
+  - 114: {fileID: 11475014}
+  - 114: {fileID: 11496070}
   m_Layer: 5
   m_Name: MessageBox
   m_TagString: Untagged
@@ -73,6 +75,8 @@ MonoBehaviour:
   visibleWhileClosed: 0
   visibleAlpha: 1
   invisibleAlpha: 0
+  openSound: {fileID: 0}
+  closeSound: {fileID: 0}
   disableWhileClosed: []
   openStyle: 1
   closeStyle: 2
@@ -118,6 +122,62 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11475014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: b5c3dd1abc37978439425a0678872806, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: .75
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &11496070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 8b53813dbf6bbec4b99c387b045b99b5, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: .75
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!222 &22203748
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -200,7 +260,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b53813dbf6bbec4b99c387b045b99b5, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 126740}

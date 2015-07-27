@@ -1148,6 +1148,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11416402, guid: c38f544177361fa409dcecc206f38966, type: 2}
+      propertyPath: lowSound
+      value: 
+      objectReference: {fileID: 638790059}
+    - target: {fileID: 11416402, guid: c38f544177361fa409dcecc206f38966, type: 2}
+      propertyPath: criticalSound
+      value: 
+      objectReference: {fileID: 638790057}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c38f544177361fa409dcecc206f38966, type: 2}
   m_IsPrefabParent: 0
@@ -1482,6 +1490,8 @@ GameObject:
   - 114: {fileID: 620374363}
   - 225: {fileID: 620374365}
   - 114: {fileID: 620374366}
+  - 114: {fileID: 620374367}
+  - 114: {fileID: 620374368}
   m_Layer: 5
   m_Name: ArenaMutatorPanel
   m_TagString: Untagged
@@ -1564,6 +1574,109 @@ MonoBehaviour:
   flashOffDuration: .300000012
   ignoreTimescale: 1
   doFlash: 1
+--- !u!114 &620374367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 620374361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a53027d67644148934b7aa1f9c6e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anomaliesDetectedSound: {fileID: 620374368}
+  startWaveDialog: {fileID: 1599491413}
+  playAlarm: 0
+--- !u!114 &620374368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 620374361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 80c58c21aa679084aa4d9a1903d33d4e, type: 3}
+  - {fileID: 8300000, guid: a6aad17c6c683bd41ae7dc8c485fc928, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: 1
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!1 &638790055 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 175696, guid: c38f544177361fa409dcecc206f38966, type: 2}
+  m_PrefabInternal: {fileID: 467742052}
+--- !u!114 &638790057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 638790055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 5d32305f3f9fa204eb8764ce9245a3aa, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: 1
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &638790059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 638790055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: b72aade20cd23d44fbfbd81bc4ab02d7, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: .5
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!1 &651142998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,6 +1837,8 @@ MonoBehaviour:
   visibleWhileClosed: 0
   visibleAlpha: 1
   invisibleAlpha: 0
+  openSound: {fileID: 1599491414}
+  closeSound: {fileID: 1599491415}
   disableWhileClosed:
   - {fileID: 1061153447}
   - {fileID: 371446241}
@@ -2889,6 +3004,8 @@ GameObject:
   - 224: {fileID: 1279639889}
   - 225: {fileID: 1279639891}
   - 114: {fileID: 1279639890}
+  - 114: {fileID: 1279639892}
+  - 114: {fileID: 1279639893}
   m_Layer: 5
   m_Name: PointsDisplay
   m_TagString: Untagged
@@ -2939,6 +3056,8 @@ MonoBehaviour:
   visibleWhileClosed: 0
   visibleAlpha: 1
   invisibleAlpha: 0
+  openSound: {fileID: 1279639892}
+  closeSound: {fileID: 1279639893}
   disableWhileClosed:
   - {fileID: 1730195509}
   openStyle: 1
@@ -2954,6 +3073,62 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1279639892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279639888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: b5c3dd1abc37978439425a0678872806, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: .5
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1.20000005
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &1279639893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279639888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 8b53813dbf6bbec4b99c387b045b99b5, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: .5
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1.20000005
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!1 &1292072879
 GameObject:
   m_ObjectHideFlags: 0
@@ -3478,6 +3653,8 @@ GameObject:
   - 225: {fileID: 1599491412}
   - 114: {fileID: 700424480}
   - 114: {fileID: 1599491413}
+  - 114: {fileID: 1599491414}
+  - 114: {fileID: 1599491415}
   m_Layer: 5
   m_Name: StartWaveDialog
   m_TagString: Untagged
@@ -3513,6 +3690,63 @@ MonoBehaviour:
   mutatorDescriptionText: {fileID: 1641800769}
   mutatorSingleLineThreshold: 8
   maxDisplayedMutators: 15
+  mutatorDisplay: {fileID: 620374367}
+--- !u!114 &1599491414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1599491411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: b5c3dd1abc37978439425a0678872806, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: .75
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &1599491415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1599491411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 8b53813dbf6bbec4b99c387b045b99b5, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: .75
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!1001 &1627004012
 Prefab:
   m_ObjectHideFlags: 0
@@ -4179,14 +4413,6 @@ Prefab:
       propertyPath: cameraSpinner
       value: 
       objectReference: {fileID: 1233842400}
-    - target: {fileID: 11440766, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
-      propertyPath: currentLevel
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440766, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
-      propertyPath: currentState
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
   m_IsPrefabParent: 0

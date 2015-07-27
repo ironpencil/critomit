@@ -34,6 +34,11 @@ public class BaseExplosion : MonoBehaviour
     protected float currentTotalGravity = 0.0f;
 
 
+    //audio
+    public SoundEffectHandler soundEffectHandler;
+    public bool playSoundOnStart = true;
+
+
     protected bool doneGrowingGravity = false;
 
     protected void CalculateDamageOverTime()
@@ -81,6 +86,16 @@ public class BaseExplosion : MonoBehaviour
         if (duration > 0.0f)
         {
             die = Time.time + duration;
+        }
+
+        if (soundEffectHandler == null)
+        {
+            soundEffectHandler = gameObject.GetComponent<SoundEffectHandler>();
+        }
+
+        if (playSoundOnStart && soundEffectHandler != null)
+        {
+            soundEffectHandler.PlayEffect();
         }
     }
 

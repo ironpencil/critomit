@@ -9,6 +9,8 @@ public class GrappleHook : RemoteProjectile {
     private SpringJoint2D attachedSpring;
     private DistanceJoint2D attachedRope;
 
+    public SoundEffectHandler soundEffectHandler;
+
     public LineRenderer cable;
 
     public float attachTime = 5.0f;
@@ -26,6 +28,10 @@ public class GrappleHook : RemoteProjectile {
         base.Start();
         dummySpring = GetComponent<SpringJoint2D>();
         hook = GetComponent<DistanceJoint2D>();
+        if (soundEffectHandler == null)
+        {
+            soundEffectHandler = gameObject.GetComponent<SoundEffectHandler>();
+        }
 	}
 	
 	// Update is called once per frame
@@ -150,6 +156,11 @@ public class GrappleHook : RemoteProjectile {
             }
 
             UpdateCable();
+
+            if (soundEffectHandler != null)
+            {
+                soundEffectHandler.PlayEffect();
+            }
 
             Destroy(dummySpring);
             Destroy(hook);

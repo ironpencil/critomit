@@ -94,6 +94,11 @@ public class RemoteLauncher : Gun
                     remoteProjectile = (RemoteProjectile)Fire();
                 }
 
+                if (soundEffectHandler != null)
+                {
+                    soundEffectHandler.PlayEffect();
+                }
+
                 shooter.AddRelativeForce(shooterForce);
 
                 if (cameraShaker != null)

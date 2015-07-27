@@ -22,7 +22,13 @@ public class WeaponController : MonoBehaviour {
 
     public WeaponDisplayManager displayManager;
 
+    public SoundEffectHandler equipSound;
+    public SoundEffectHandler unequipSound;
+    public SoundEffectHandler weaponCycleSound;
+    public SoundEffectHandler weaponSelectSound;
+
     private Dictionary<WeaponLocation, WeaponSlot> weaponSlots;
+
     
 	// Use this for initialization
 	void Start () {
@@ -45,6 +51,10 @@ public class WeaponController : MonoBehaviour {
         slot.cycledWeaponIndex = primaryWeaponIndex;
         slot.weaponSelectionDelay = weaponSelectionDelay;
         slot.weaponList = primaryWeapons;
+        slot.equipSound = equipSound;
+        slot.unequipSound = unequipSound;
+        slot.weaponCycleSound = weaponCycleSound;
+        slot.weaponSelectSound = weaponSelectSound;
 
         slot.Initialize();
 
@@ -59,6 +69,10 @@ public class WeaponController : MonoBehaviour {
         slot.cycledWeaponIndex = secondaryWeaponIndex;
         slot.weaponSelectionDelay = weaponSelectionDelay;
         slot.weaponList = secondaryWeapons;
+        slot.equipSound = equipSound;
+        slot.unequipSound = unequipSound;
+        slot.weaponCycleSound = weaponCycleSound;
+        slot.weaponSelectSound = weaponSelectSound;
 
         slot.Initialize();
 
@@ -73,6 +87,10 @@ public class WeaponController : MonoBehaviour {
         slot.cycledWeaponIndex = utilityWeaponIndex;
         slot.weaponSelectionDelay = weaponSelectionDelay;
         slot.weaponList = utilityWeapons;
+        slot.equipSound = equipSound;
+        slot.unequipSound = unequipSound;
+        slot.weaponCycleSound = weaponCycleSound;
+        slot.weaponSelectSound = weaponSelectSound;
 
         slot.Initialize();
 
@@ -221,6 +239,11 @@ public class WeaponController : MonoBehaviour {
 
         public Animator weaponAnimator;
 
+        public SoundEffectHandler equipSound;
+        public SoundEffectHandler unequipSound;
+        public SoundEffectHandler weaponCycleSound;
+        public SoundEffectHandler weaponSelectSound;
+
         public List<BaseWeapon> weaponList;
 
         public BaseWeapon currentlyEquippedWeapon;
@@ -287,6 +310,11 @@ public class WeaponController : MonoBehaviour {
 
                 //if (CanShoot)
                 //{
+                if (weaponSelectSound != null)
+                {
+                    weaponSelectSound.PlayEffect();
+                }
+
                 DisplayEnabledImage(currentlyCycledWeapon);
                 //}
                 //else
@@ -296,6 +324,11 @@ public class WeaponController : MonoBehaviour {
             }
             else
             {
+                if (weaponCycleSound != null)
+                {
+                    weaponCycleSound.PlayEffect();
+                }
+
                 DisplayDisabledImage(currentlyCycledWeapon);
 
                 cyclingWeapon = true;
@@ -332,7 +365,17 @@ public class WeaponController : MonoBehaviour {
 
             equippedWeaponIndex = cycledWeaponIndex;
 
+            if (weaponSelectSound != null)
+            {
+                weaponSelectSound.PlayEffect();
+            }
+
             DisplayEnabledImage(currentlyCycledWeapon);
+
+            if (unequipSound != null)
+            {
+                unequipSound.PlayEffect();
+            }
 
             if (weaponAnimator != null)
             {
@@ -356,6 +399,10 @@ public class WeaponController : MonoBehaviour {
 
             currentlyEquippedWeapon = weaponList[equippedWeaponIndex];
 
+            if (equipSound != null)
+            {
+                equipSound.PlayEffect();
+            }
             //DisplayEnabledImage(currentlyEquippedWeapon);
 
             //switch animation controllers

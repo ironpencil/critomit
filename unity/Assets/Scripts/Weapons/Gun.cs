@@ -16,7 +16,7 @@ public class Gun : BaseWeapon
 
     public Vector2 shooterForce = new Vector2(-40000, 0);
 
-    public CameraShaker cameraShaker;
+    public CameraShaker cameraShaker;    
 
     public bool autoFire = true;
 
@@ -33,6 +33,9 @@ public class Gun : BaseWeapon
 
     protected bool stoppedShooting = false;
 
+    [SerializeField]
+    private bool continuousFire = false;
+
     public virtual void Awake()
     {
         if (cameraShaker == null)
@@ -43,6 +46,11 @@ public class Gun : BaseWeapon
         if (weaponDisplayer == null)
         {
             weaponDisplayer = gameObject.GetComponent<WeaponDisplayer>();
+        }
+
+        if (soundEffectHandler == null)
+        {
+            soundEffectHandler = gameObject.GetComponent<SoundEffectHandler>();
         }
     }
 
@@ -63,7 +71,13 @@ public class Gun : BaseWeapon
     }
 
     public virtual void FixedUpdate()
-    {      
+    {
+        if (continuousFire)
+        {
+            doShoot = true;
+            stoppedShooting = true;
+        }
+
         if (doShoot)
         {            
             if (Time.fixedTime > lastShot + fireDelay + actualFireDelayVariant)
@@ -75,6 +89,11 @@ public class Gun : BaseWeapon
                     for (int i = 0; i < bulletsPerShot; i++)
                     {
                         Fire();
+                    }
+
+                    if (soundEffectHandler != null)
+                    {
+                        soundEffectHandler.PlayEffect();
                     }
 
                     shooter.AddRelativeForce(shooterForce);

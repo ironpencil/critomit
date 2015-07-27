@@ -30,6 +30,7 @@ GameObject:
   - 233: {fileID: 23335376}
   - 61: {fileID: 6143006}
   - 114: {fileID: 11491374}
+  - 114: {fileID: 11490534}
   m_Layer: 8
   m_Name: WingL
   m_TagString: Player
@@ -54,6 +55,8 @@ GameObject:
   - 114: {fileID: 11473810}
   - 114: {fileID: 11431372}
   - 114: {fileID: 11444180}
+  - 114: {fileID: 11424806}
+  - 114: {fileID: 11462534}
   m_Layer: 8
   m_Name: PlayerShip
   m_TagString: Player
@@ -76,6 +79,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &111450
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 403178}
+  - 114: {fileID: 11486716}
+  m_Layer: 8
+  m_Name: Cycle Weapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &119046
 GameObject:
   m_ObjectHideFlags: 1
@@ -85,6 +104,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 401620}
   - 114: {fileID: 11466998}
+  - 114: {fileID: 11412204}
   m_Layer: 8
   m_Name: GravityMine
   m_TagString: Untagged
@@ -103,6 +123,7 @@ GameObject:
   - 114: {fileID: 11435342}
   - 114: {fileID: 11486340}
   - 114: {fileID: 11422102}
+  - 114: {fileID: 11455792}
   m_Layer: 8
   m_Name: Shotgun
   m_TagString: Untagged
@@ -122,6 +143,22 @@ GameObject:
   - 114: {fileID: 11445516}
   m_Layer: 8
   m_Name: DoubleShotguns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &134480
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 415918}
+  - 114: {fileID: 11435202}
+  m_Layer: 8
+  m_Name: Unequip Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,8 +223,25 @@ GameObject:
   - 4: {fileID: 419650}
   - 114: {fileID: 11451250}
   - 114: {fileID: 11493750}
+  - 114: {fileID: 11412210}
   m_Layer: 8
   m_Name: MachineGun (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &147758
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 486688}
+  - 114: {fileID: 11484010}
+  m_Layer: 8
+  m_Name: Equip Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,6 +257,7 @@ GameObject:
   - 4: {fileID: 485946}
   - 114: {fileID: 11488158}
   - 114: {fileID: 11472512}
+  - 114: {fileID: 11460402}
   m_Layer: 8
   m_Name: MachineGun (1)
   m_TagString: Untagged
@@ -223,6 +278,7 @@ GameObject:
   - 233: {fileID: 23306210}
   - 61: {fileID: 6117218}
   - 114: {fileID: 11477388}
+  - 114: {fileID: 11432006}
   m_Layer: 8
   m_Name: WingR
   m_TagString: Player
@@ -256,6 +312,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 466106}
   - 114: {fileID: 11434296}
+  - 114: {fileID: 11405908}
   m_Layer: 8
   m_Name: Rocket
   m_TagString: Untagged
@@ -274,6 +331,7 @@ GameObject:
   - 114: {fileID: 11457366}
   - 114: {fileID: 11444048}
   - 114: {fileID: 11458682}
+  - 114: {fileID: 11412206}
   m_Layer: 8
   m_Name: Grapple
   m_TagString: Untagged
@@ -291,6 +349,7 @@ GameObject:
   - 4: {fileID: 415056}
   - 114: {fileID: 11490358}
   - 114: {fileID: 11474504}
+  - 114: {fileID: 11412208}
   m_Layer: 8
   m_Name: Shotgun (1)
   m_TagString: Untagged
@@ -348,6 +407,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &181720
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 485954}
+  - 114: {fileID: 11440176}
+  m_Layer: 8
+  m_Name: Select Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &182858
 GameObject:
   m_ObjectHideFlags: 1
@@ -359,8 +434,41 @@ GameObject:
   - 114: {fileID: 11412594}
   - 114: {fileID: 11488284}
   - 114: {fileID: 11420652}
+  - 114: {fileID: 11474430}
   m_Layer: 8
   m_Name: MachineGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &186910
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 435830}
+  - 114: {fileID: 11420962}
+  m_Layer: 8
+  m_Name: PlayerDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &188436
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 468076}
+  - 114: {fileID: 11484394}
+  m_Layer: 8
+  m_Name: Bump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,6 +506,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &197712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 403438}
+  m_Layer: 8
+  m_Name: SoundEffects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &199768
 GameObject:
   m_ObjectHideFlags: 1
@@ -439,6 +562,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433722}
   m_RootOrder: 0
+--- !u!4 &403178
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403438}
+  m_RootOrder: 2
+--- !u!4 &403438
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 486688}
+  - {fileID: 415918}
+  - {fileID: 403178}
+  - {fileID: 485954}
+  - {fileID: 468076}
+  - {fileID: 435830}
+  m_Father: {fileID: 466556}
+  m_RootOrder: 5
 --- !u!4 &411518
 Transform:
   m_ObjectHideFlags: 1
@@ -463,6 +616,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 481124}
   m_RootOrder: 0
+--- !u!4 &415918
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403438}
+  m_RootOrder: 1
 --- !u!4 &419650
 Transform:
   m_ObjectHideFlags: 1
@@ -514,6 +679,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 446132}
   m_RootOrder: 1
+--- !u!4 &435830
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403438}
+  m_RootOrder: 5
 --- !u!4 &442646
 Transform:
   m_ObjectHideFlags: 1
@@ -608,8 +785,21 @@ Transform:
   - {fileID: 492256}
   - {fileID: 498634}
   - {fileID: 446132}
+  - {fileID: 403438}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &468076
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403438}
+  m_RootOrder: 4
 --- !u!4 &468078
 Transform:
   m_ObjectHideFlags: 1
@@ -697,6 +887,30 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 460092}
+  m_RootOrder: 0
+--- !u!4 &485954
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403438}
+  m_RootOrder: 3
+--- !u!4 &486688
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403438}
   m_RootOrder: 0
 --- !u!4 &492256
 Transform:
@@ -924,6 +1138,149 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11405908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 00fd73371844e1940b70681569a04c14, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &11412204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 7d826b3e3f3a5dc4f9af92c5043b1d12, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &11412206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: bc59b6b88a4af394498c4967df9b1a84, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &11412208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 15cb409910e3695458bf09b0d421a09c, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &11412210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 36f65841120b00443844876e4f2401b1, type: 3}
+  - {fileID: 8300000, guid: 2c4db9c9918a9284b97044dacd46665f, type: 3}
+  - {fileID: 8300000, guid: bdd4f5f956acfed46894cbbbcffb03d0, type: 3}
+  - {fileID: 8300000, guid: df1e45cd10068eb44be5583f1010dd28, type: 3}
+  playRandom: 1
+  underwater: 1
+  volume: .75
+  variableVolume: 1
+  volumeMin: .600000024
+  volumeMax: .800000012
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11412594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -938,6 +1295,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9586682}
   animationController: {fileID: 9100000, guid: bb670a96a90493d4cb9d34faff95dd05, type: 2}
   weaponDisplayer: {fileID: 0}
+  soundEffectHandler: {fileID: 0}
   bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
@@ -945,12 +1303,13 @@ MonoBehaviour:
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: -3, y: 3}
   bulletMinMaxForce: {x: 1300, y: 1400}
-  shooterForce: {x: -40000, y: 0}
+  shooterForce: {x: -80000, y: 0}
   cameraShaker: {fileID: 11488284}
   autoFire: 1
-  fireDelay: .0500000007
+  fireDelay: .100000001
   varyFireDelay: 1
   fireDelayVariantRange: .0399999991
+  continuousFire: 0
 --- !u!114 &11417572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -981,6 +1340,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabledImage: {fileID: 21300000, guid: 722f7a06239ff6945a249778878bc5da, type: 3}
   disabledImage: {fileID: 21300000, guid: 72398b4aa940725479c4d285b9c7201e, type: 3}
+--- !u!114 &11420962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 087faaefae39efe4297bb7f29e718b5f, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 0
+  volumeMin: .300000012
+  volumeMax: .400000006
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11422102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -994,6 +1381,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabledImage: {fileID: 21300000, guid: 20692654a55013347989f616553d5d78, type: 3}
   disabledImage: {fileID: 21300000, guid: dc8a703ddd6a03b4f89a8f405e7d7523, type: 3}
+--- !u!114 &11424806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d523c9c32610542a57434da06db748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectHandler: {fileID: 11420962}
 --- !u!114 &11431372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1028,12 +1427,13 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9540836}
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
+  soundEffectHandler: {fileID: 0}
   bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
-  bulletsPerShot: 20
+  bulletsPerShot: 15
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
-  bulletRotationRange: {x: -30, y: 30}
+  bulletRotationRange: {x: -20, y: 20}
   bulletMinMaxForce: {x: 1200, y: 1300}
   shooterForce: {x: -250000, y: 0}
   cameraShaker: {fileID: 0}
@@ -1041,6 +1441,19 @@ MonoBehaviour:
   fireDelay: .75
   varyFireDelay: 0
   fireDelayVariantRange: .00999999978
+  continuousFire: 0
+--- !u!114 &11432006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38f946446b0bbb4294c9c6af9f35aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectHandler: {fileID: 11484394}
 --- !u!114 &11434296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1055,6 +1468,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 0}
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
+  soundEffectHandler: {fileID: 0}
   bulletPrefab: {fileID: 139346, guid: dea711738a24dce4e91673c9a01f15ba, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
@@ -1068,6 +1482,35 @@ MonoBehaviour:
   fireDelay: .5
   varyFireDelay: 0
   fireDelayVariantRange: 0
+  continuousFire: 0
+--- !u!114 &11435202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 3ac0d75f69d1a4a49a6d4465b5494c7d, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: .200000003
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11435342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1082,9 +1525,10 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9586682}
   animationController: {fileID: 9100000, guid: 222b3dc8729c145459a8cafcf2912cf8, type: 2}
   weaponDisplayer: {fileID: 0}
+  soundEffectHandler: {fileID: 0}
   bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
-  bulletsPerShot: 30
+  bulletsPerShot: 20
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: -30, y: 30}
@@ -1095,6 +1539,35 @@ MonoBehaviour:
   fireDelay: .75
   varyFireDelay: 0
   fireDelayVariantRange: .00999999978
+  continuousFire: 0
+--- !u!114 &11440176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: dd54e75f90fd9c648863673fa1e695ce, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: 1
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11442214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1109,6 +1582,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9540836}
   animationController: {fileID: 9100000, guid: e00a5f66a9dfb8241851f14cab36b2e3, type: 2}
   weaponDisplayer: {fileID: 0}
+  soundEffectHandler: {fileID: 0}
   weapons:
   - {fileID: 11490358}
   - {fileID: 11431874}
@@ -1165,6 +1639,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9540836}
   animationController: {fileID: 9100000, guid: 6ba269ef917b9ff488f691dbf11bc637, type: 2}
   weaponDisplayer: {fileID: 0}
+  soundEffectHandler: {fileID: 0}
   weapons:
   - {fileID: 11488158}
   - {fileID: 11451250}
@@ -1182,6 +1657,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9540836}
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
+  soundEffectHandler: {fileID: 0}
   bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
@@ -1194,7 +1670,8 @@ MonoBehaviour:
   autoFire: 1
   fireDelay: .100000001
   varyFireDelay: 1
-  fireDelayVariantRange: .0799999982
+  fireDelayVariantRange: .0399999991
+  continuousFire: 0
 --- !u!114 &11451836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1209,6 +1686,34 @@ MonoBehaviour:
   magnitude: .600000024
   sustainTime: 0
   decayTime: .400000006
+--- !u!114 &11455792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 6e4a11a5292228d478d39bce477c7db5, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11457366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1223,6 +1728,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 0}
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 11458682}
+  soundEffectHandler: {fileID: 0}
   bulletPrefab: {fileID: 130010, guid: d9a008bcb7213284d96be0daa77feb39, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
@@ -1236,6 +1742,7 @@ MonoBehaviour:
   fireDelay: 0
   varyFireDelay: 0
   fireDelayVariantRange: 0
+  continuousFire: 0
   remoteProjectile: {fileID: 0}
   refireOnManualActivation: 0
 --- !u!114 &11458682
@@ -1251,6 +1758,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabledImage: {fileID: 21300000, guid: 56a3fd7fa5094b64cab00961583ac959, type: 3}
   disabledImage: {fileID: 21300000, guid: 34d58fd861f1f174b94f0fc119ee23d1, type: 3}
+--- !u!114 &11460402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 36f65841120b00443844876e4f2401b1, type: 3}
+  - {fileID: 8300000, guid: 2c4db9c9918a9284b97044dacd46665f, type: 3}
+  - {fileID: 8300000, guid: bdd4f5f956acfed46894cbbbcffb03d0, type: 3}
+  - {fileID: 8300000, guid: df1e45cd10068eb44be5583f1010dd28, type: 3}
+  playRandom: 1
+  underwater: 1
+  volume: .75
+  variableVolume: 1
+  volumeMin: .600000024
+  volumeMax: .800000012
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &11462534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38f946446b0bbb4294c9c6af9f35aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectHandler: {fileID: 11484394}
 --- !u!114 &11466998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1265,19 +1815,21 @@ MonoBehaviour:
   weaponAnimator: {fileID: 0}
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
+  soundEffectHandler: {fileID: 0}
   bulletPrefab: {fileID: 135024, guid: 8aee40a591a55004f807ab97eb24189e, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: 0, y: 0}
-  bulletMinMaxForce: {x: 0, y: 0}
-  shooterForce: {x: 0, y: 0}
+  bulletMinMaxForce: {x: 12000, y: 12000}
+  shooterForce: {x: -100000, y: 0}
   cameraShaker: {fileID: 0}
   autoFire: 0
-  fireDelay: .800000012
+  fireDelay: 1
   varyFireDelay: 0
   fireDelayVariantRange: 0
+  continuousFire: 0
   remoteProjectile: {fileID: 0}
   refireOnManualActivation: 0
 --- !u!114 &11472512
@@ -1312,6 +1864,7 @@ MonoBehaviour:
   invulnerable: 0
   damagedEffects:
   - {fileID: 11431372}
+  - {fileID: 11424806}
   deathEffects:
   - {fileID: 11444180}
   pointValue: 100
@@ -1322,6 +1875,37 @@ MonoBehaviour:
   - {fileID: 21262136}
   healthBar: {fileID: 0}
   damageInvDuration: 2
+--- !u!114 &11474430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 36f65841120b00443844876e4f2401b1, type: 3}
+  - {fileID: 8300000, guid: 2c4db9c9918a9284b97044dacd46665f, type: 3}
+  - {fileID: 8300000, guid: bdd4f5f956acfed46894cbbbcffb03d0, type: 3}
+  - {fileID: 8300000, guid: df1e45cd10068eb44be5583f1010dd28, type: 3}
+  playRandom: 1
+  underwater: 1
+  volume: .75
+  variableVolume: 1
+  volumeMin: .600000024
+  volumeMax: .800000012
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11474504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1365,6 +1949,10 @@ MonoBehaviour:
   weaponSelectionDelay: .5
   noAnimationEquipDelay: .25
   displayManager: {fileID: 0}
+  equipSound: {fileID: 11484010}
+  unequipSound: {fileID: 11435202}
+  weaponCycleSound: {fileID: 11486716}
+  weaponSelectSound: {fileID: 11440176}
 --- !u!114 &11475108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1399,6 +1987,62 @@ MonoBehaviour:
   deathEffects: []
   pointValue: 100
   parentToDamage: {fileID: 11473810}
+--- !u!114 &11484010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 549f7f3ec89ccb2448db3ef531b75aa8, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: .200000003
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &11484394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: a0d853fb6815e444da48dfe9aa0df510, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .100000001
+  volumeMax: .200000003
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .100000001
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11485832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1426,6 +2070,34 @@ MonoBehaviour:
   magnitude: 1
   sustainTime: 0
   decayTime: .400000006
+--- !u!114 &11486716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 0d785edf845604d45a1b71af1bc3e828, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: 1
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11488158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1440,6 +2112,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9540836}
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
+  soundEffectHandler: {fileID: 0}
   bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
@@ -1452,7 +2125,8 @@ MonoBehaviour:
   autoFire: 1
   fireDelay: .100000001
   varyFireDelay: 1
-  fireDelayVariantRange: .0799999982
+  fireDelayVariantRange: .0399999991
+  continuousFire: 0
 --- !u!114 &11488284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1481,12 +2155,13 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9540836}
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
+  soundEffectHandler: {fileID: 0}
   bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
   shooter: {fileID: 5008222}
-  bulletsPerShot: 20
+  bulletsPerShot: 15
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
-  bulletRotationRange: {x: -30, y: 30}
+  bulletRotationRange: {x: -20, y: 20}
   bulletMinMaxForce: {x: 1200, y: 1300}
   shooterForce: {x: -250000, y: 0}
   cameraShaker: {fileID: 0}
@@ -1494,6 +2169,19 @@ MonoBehaviour:
   fireDelay: .75
   varyFireDelay: 0
   fireDelayVariantRange: .00999999978
+  continuousFire: 0
+--- !u!114 &11490534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38f946446b0bbb4294c9c6af9f35aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectHandler: {fileID: 11484394}
 --- !u!114 &11491374
 MonoBehaviour:
   m_ObjectHideFlags: 1

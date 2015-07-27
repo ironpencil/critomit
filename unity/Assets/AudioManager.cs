@@ -8,6 +8,8 @@ public class AudioManager : Singleton<AudioManager> {
     public AudioSource arenaSource1;
     public AudioSource arenaSource2;
     public AudioSource lobbySource;
+    public AudioSource sfxUnderwaterSource;
+    public AudioSource sfxUnfilteredSource;
 
     private AudioSource currentArenaSource;
     private AudioSource nextArenaSource;
@@ -29,6 +31,8 @@ public class AudioManager : Singleton<AudioManager> {
     public AudioMixerSnapshot arenaSnapshot;
     public AudioMixerSnapshot lobbySnapshot;
 
+    public bool ignoreUnderwater = false;
+
 	// Use this for initialization
 	public override void Start () {
         base.Start();
@@ -43,8 +47,27 @@ public class AudioManager : Singleton<AudioManager> {
             CheckSwitchArenaSources();
         }
 
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ignoreUnderwater = !ignoreUnderwater;
+        }
+
+        
+
         //Debug.Log("Audio dspTime=" + AudioSettings.dspTime);
 	}
+
+    public void PlaySFXClip(AudioClip clip, float volume, bool underWater)
+    {
+        if (underWater)
+        {
+            sfxUnderwaterSource.PlayOneShot(clip, volume);
+        }
+        else
+        {
+            sfxUnfilteredSource.PlayOneShot(clip, volume);
+        }
+    }
 
     [ContextMenu("Move to Arena")]
     public void TransitionToArena()

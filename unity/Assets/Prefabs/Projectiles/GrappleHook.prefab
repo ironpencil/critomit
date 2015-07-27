@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11412106}
   - 231: {fileID: 23116668}
   - 232: {fileID: 23292692}
+  - 114: {fileID: 11477380}
   m_Layer: 9
   m_Name: GrappleHook
   m_TagString: Untagged
@@ -131,13 +132,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  damageType: 0
+  damageType: 1
   lifespan: .600000024
   die: 0
   shooter: {fileID: 0}
   shooterScript: {fileID: 0}
   remoteActivated: 0
   activateOnDestroy: 1
+  soundEffectHandler: {fileID: 0}
   cable: {fileID: 12017250}
   attachTime: 0
   attachDistance: 0
@@ -145,6 +147,34 @@ MonoBehaviour:
   maxRangeSlack: .00999999978
   attachFrequency: 0
   useSpringJoint: 1
+--- !u!114 &11477380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 166055b0e88a2404686b4a446155c9c0, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 0
+  volumeMin: .800000012
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!120 &12017250
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -242,6 +272,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
@@ -345,6 +379,26 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damageType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: underwater
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: volumeMin
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: variableDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: variableVolume
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

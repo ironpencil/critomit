@@ -19,6 +19,8 @@ public class TimedExplosion : BaseExplosion
             detonationObject.SetActive(false);
         }
 
+        playSoundOnStart = false;
+
         base.Start();
 
         
@@ -67,6 +69,11 @@ public class TimedExplosion : BaseExplosion
     public virtual void Detonate()
     {
         detonated = true;
+
+        if (soundEffectHandler != null)
+        {
+            soundEffectHandler.PlayEffect();
+        }
 
         if (detonationObject != null)
         {

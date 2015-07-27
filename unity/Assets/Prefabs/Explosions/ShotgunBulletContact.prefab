@@ -26,6 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 472558}
   - 114: {fileID: 11422114}
+  - 114: {fileID: 11434470}
   m_Layer: 0
   m_Name: ShotgunBulletContact
   m_TagString: Untagged
@@ -95,6 +96,38 @@ MonoBehaviour:
   constantGravity: 0
   addlGravityOverTime: 0
   gravityDeadZoneRadius: 0
+  soundEffectHandler: {fileID: 0}
+  playSoundOnStart: 1
+--- !u!114 &11434470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: dc929c3f684269d4da93328b5ee274bf, type: 3}
+  - {fileID: 8300000, guid: f0d933fd9643e3641b9a0b6a4fb90f03, type: 3}
+  - {fileID: 8300000, guid: 57ad67c1b33fe134096b369820a69501, type: 3}
+  playRandom: 1
+  underwater: 1
+  volume: .5
+  variableVolume: 1
+  volumeMin: .400000006
+  volumeMax: .600000024
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .100000001
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!212 &21256336
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -128,6 +161,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: clips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -176,6 +213,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: underwater
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: volume
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playRandom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: volumeMin
+      value: .400000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: volumeMax
+      value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playDelayMax
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

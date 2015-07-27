@@ -67,7 +67,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135024}
   m_Mass: 10
-  m_LinearDrag: 0
+  m_LinearDrag: 4
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_IsKinematic: 0
@@ -100,9 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  lifespan: 1
+  damageType: 1
+  lifespan: 2
   die: 0
   shooter: {fileID: 0}
+  shooterScript: {fileID: 0}
   remoteActivated: 0
   activateOnDestroy: 1
   explosionObject: {fileID: 11422812, guid: a1568d35ba61a7a4cb868f126d7ba255, type: 2}
@@ -141,7 +143,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: lifespan
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: explosionObject
@@ -179,6 +181,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damageType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

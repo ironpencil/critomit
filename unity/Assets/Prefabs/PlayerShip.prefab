@@ -781,7 +781,7 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106274}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -.200000003, y: 0}
@@ -966,6 +966,8 @@ MonoBehaviour:
   softMaxVelocity: {x: 12, y: 12}
   shield: {fileID: 11475108}
   guiBlockedButtons: []
+  doLimitVelocity: 1
+  lookAtMouse: {fileID: 11491454}
 --- !u!114 &11420652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1305,13 +1307,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markedForDeath: 0
   maxHitPoints: 100
-  currentHP: 100
+  privCurrentHP: 0
   damagedBy: 2
   invulnerable: 0
   damagedEffects:
   - {fileID: 11431372}
   deathEffects:
   - {fileID: 11444180}
+  pointValue: 100
   playerSprites:
   - {fileID: 21246134}
   - {fileID: 21292884}
@@ -1389,11 +1392,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markedForDeath: 0
   maxHitPoints: 1
-  currentHP: 0
+  privCurrentHP: 0
   damagedBy: 0
   invulnerable: 0
   damagedEffects: []
   deathEffects: []
+  pointValue: 100
   parentToDamage: {fileID: 11473810}
 --- !u!114 &11485832
 MonoBehaviour:
@@ -1503,11 +1507,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markedForDeath: 0
   maxHitPoints: 1
-  currentHP: 0
+  privCurrentHP: 0
   damagedBy: 0
   invulnerable: 0
   damagedEffects: []
   deathEffects: []
+  pointValue: 100
   parentToDamage: {fileID: 11473810}
 --- !u!114 &11491454
 MonoBehaviour:
@@ -1523,6 +1528,7 @@ MonoBehaviour:
   TargetPos: {x: 0, y: 0}
   rb: {fileID: 0}
   usePhysics: 1
+  alwaysRotate: 0
   offset: {x: 0, y: 0}
   angle: 0
   deltaAngle: 0

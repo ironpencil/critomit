@@ -281,15 +281,15 @@ MonoBehaviour:
   isCurrentlyActive: 0
   limitedApplication: 1
   allowedToApply: 1
-  initialValue: 1
-  maxValue: 2
-  incrementValue: .100000001
+  initialValue: 0
+  maxValue: 100
+  incrementValue: 10
   initialWeight: 10
   decrementedWeight: 5
   currentWeight: 0
   cumulativeWeight: 0
   mutatorName: Speedy
-  mutatorDescription: Enemy speed x[value]
+  mutatorDescription: Enemy speed +[value]%
 --- !u!114 &11440766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,8 +301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee72d4ac4b4e6dc4eb9181b92078ec1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 2
-  currentLevel: 2
+  currentState: 1
+  currentLevel: 1
   paused: 0
 --- !u!114 &11443020
 MonoBehaviour:

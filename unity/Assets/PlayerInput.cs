@@ -22,14 +22,28 @@ public class PlayerInput : MonoBehaviour {
 
     public List<string> guiBlockedButtons = new List<string>();
 
+    public bool doLimitVelocity = false;
+
+    public LookAtMouse lookAtMouse;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+        lookAtMouse = GetComponent<LookAtMouse>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+        HandleGUIButtonBlocking();
+
+        HandlePlayerInput();
+
+        currentVelocity = rb.velocity;
+	}
+
+    private void HandleGUIButtonBlocking()
+    {
         if (Input.GetButtonDown("Fire Front Weapon"))
         {
             if (GUIManager.IsMouseInputBlocked())
@@ -61,6 +75,11 @@ public class PlayerInput : MonoBehaviour {
                 guiBlockedButtons.Remove("Fire Rear Weapon");
             }
         }
+    }
+
+    private void HandlePlayerInput()
+    {
+        if (!Globals.Instance.acceptPlayerGameInput) { return; }
 
         if (Input.GetButton("Fire Front Weapon") && !guiBlockedButtons.Contains("Fire Front Weapon"))
         {
@@ -80,7 +99,7 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetButtonDown("Switch Front Weapon"))
         {
             ObjectManager.Instance.weaponController.CycleWeapon(WeaponLocation.Primary);
-            
+
             /*primaryWeaponIndex++;
             if (primaryWeaponIndex >= primaryWeapons.Count)
             {
@@ -107,7 +126,7 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetButtonDown("Switch Special"))
         {
             ObjectManager.Instance.weaponController.CycleWeapon(WeaponLocation.Utility);
-            
+
             //utilityWeaponIndex++;
             //if (utilityWeaponIndex >= utilityWeapons.Count)
             //{
@@ -141,25 +160,34 @@ public class PlayerInput : MonoBehaviour {
         {
             gameObject.GetComponent<PlayerDamageManager>().healthBar.FlashWhite();
         }
-
-        currentVelocity = rb.velocity;
-	}
+    }
 
     void FixedUpdate()
     {
-        Vector2 currVelocity = rb.velocity;
-        float currMagnitude = currentVelocity.sqrMagnitude;
 
-        float targetMagnitude = softMaxVelocity.sqrMagnitude;
-
-        if (currMagnitude > targetMagnitude)
+        if (Globals.Instance.acceptPlayerGameInput)
         {
-            //Vector2 slowDown = (targetMagnitude / currMagnitude) * rb.velocity;
+            lookAtMouse.RotateWithPhysics();
+        }
 
-            //rb.AddForce(slowDown);
-            rb.AddForce(rb.velocity * -0.5f * rb.mass);
-            //targetMagnitude = Mathf.Lerp(currMagnitude, targetMagnitude, Time.fixedDeltaTime);
-            //rb.velocity = rb.velocity.normalized * targetMagnitude;
+        //do we need to slow the player down?
+
+        if (doLimitVelocity)
+        {
+            Vector2 currVelocity = rb.velocity;
+            float currMagnitude = currentVelocity.sqrMagnitude;
+
+            float targetMagnitude = softMaxVelocity.sqrMagnitude;
+
+            if (currMagnitude > targetMagnitude)
+            {
+                //Vector2 slowDown = (targetMagnitude / currMagnitude) * rb.velocity;
+
+                //rb.AddForce(slowDown);
+                rb.AddForce(rb.velocity * -0.5f * rb.mass);
+                //targetMagnitude = Mathf.Lerp(currMagnitude, targetMagnitude, Time.fixedDeltaTime);
+                //rb.velocity = rb.velocity.normalized * targetMagnitude;
+            }
         }
 
         

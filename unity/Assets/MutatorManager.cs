@@ -311,7 +311,8 @@ public class MutatorManager : Singleton<MutatorManager> {
                 case MutatorType.EnemySpeed:
                     foreach (BaseMovement movement in enemy.GetComponents<BaseMovement>())
                     {
-                        movement.forceMultiplier = mutator.currentValue;
+
+                        movement.forceMultiplier = 1 + (mutator.currentValue * .01f);
                     }
                     break;
                 default:

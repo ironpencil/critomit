@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class Globals : Singleton<Globals> {
 
     public GameState currentState;
+
     public GameLevel currentLevel;
 
     private bool loadingLevel = false;
@@ -14,6 +15,7 @@ public class Globals : Singleton<Globals> {
     public HashSet<GameLevel> levelsBeaten = new HashSet<GameLevel>();
 
     public bool paused = false;
+    public bool acceptPlayerGameInput = true;
 
     public override void Start()
     {
@@ -23,32 +25,34 @@ public class Globals : Singleton<Globals> {
         StartCoroutine(DoNewLevelSetup(currentLevel));
     }
 
-    public void LoadGameState(GameState state)
-    {
-        switch (state)
-        {
-            case GameState.Title:
-                currentState = GameState.Title;
-                LoadLevel(GameLevel.Title);
-                break;
-            case GameState.Lobby:
-                currentState = GameState.Lobby;
-                LoadLevel(GameLevel.Lobby);
-                break;
-            case GameState.Arena:
-                currentState = GameState.Arena;
-                ArenaManager.Instance.enabled = true;
-                LoadLevel(GameLevel.Arena);
-                break;
-            case GameState.Campaign:
-                currentState = GameState.Campaign;
-                ArenaManager.Instance.enabled = false;
-                LoadLevel(GameLevel.Level1);
-                break;
-            default:
-                break;
-        }
-    }
+
+
+    //private void LoadGameState(GameState state)
+    //{
+    //    switch (state)
+    //    {
+    //        case GameState.Title:
+    //            currentState = GameState.Title;
+    //            LoadLevel(GameLevel.Title);
+    //            break;
+    //        case GameState.Lobby:
+    //            currentState = GameState.Lobby;
+    //            LoadLevel(GameLevel.Lobby);
+    //            break;
+    //        case GameState.Arena:
+    //            currentState = GameState.Arena;
+    //            ArenaManager.Instance.enabled = true;
+    //            LoadLevel(GameLevel.Arena);
+    //            break;
+    //        case GameState.Campaign:
+    //            currentState = GameState.Campaign;
+    //            ArenaManager.Instance.enabled = false;
+    //            LoadLevel(GameLevel.Level1);
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
 
     public void LoadLevel(GameLevel level)
     {
@@ -65,10 +69,18 @@ public class Globals : Singleton<Globals> {
                 break;
             case GameLevel.Lobby:
                 levelName = "lobby";
+                if (currentState != GameState.Lobby)
+                {                    
+                    AudioManager.Instance.TransitionToLobby();
+                }
                 currentState = GameState.Lobby;
                 break;
             case GameLevel.Arena:
                 levelName = "waveArena";
+                if (currentState != GameState.Arena)
+                {                    
+                    AudioManager.Instance.TransitionToArena();
+                }
                 currentState = GameState.Arena;
                 break;
             case GameLevel.Level1:
@@ -139,10 +151,11 @@ public class Globals : Singleton<Globals> {
 
         //yield return new WaitForSeconds(0.1f);
 
-        if (level == GameLevel.Arena)
-        {
-            Pause(true);
-        }
+        
+        //if (level == GameLevel.Arena)
+        //{
+        //    Pause(true);
+        //}        
 
         DoFadeScreenIn();
 
@@ -150,6 +163,7 @@ public class Globals : Singleton<Globals> {
 
         if (level == GameLevel.Arena)
         {
+            acceptPlayerGameInput = false;
             ArenaManager.Instance.PrepareNextWave();
         }
 

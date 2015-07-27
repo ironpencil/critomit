@@ -73,7 +73,8 @@ public class StartWaveDialog : MonoBehaviour {
     public void StartWave()
     {
         ArenaManager.Instance.StartWave();
-        Globals.Instance.Pause(false);
+        //Globals.Instance.Pause(false);
+        Globals.Instance.acceptPlayerGameInput = true;
     }
 
 }

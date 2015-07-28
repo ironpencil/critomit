@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &145888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 445888}
+  - 114: {fileID: 11492306}
+  m_Layer: 0
+  m_Name: TileMapBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &445888
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11492306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d8c1e2daff4c5a45bec617e740e524d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialTileset: 0
+  initialVariant: 0
+  currentTileset: 0
+  currentVariant: 0
+  initiallyTainted: 0
+  currentlyTainted: 0
+  taintChance: 50
+  currentPrimaryTexture: {fileID: 0}
+  currentPitTexture: {fileID: 0}
+  currentTaintTexture: {fileID: 0}
+  primaryMaterial: {fileID: 2100000, guid: 368397d7830566f439878bf4b3ab7270, type: 2}
+  pitMaterial: {fileID: 2100000, guid: 218fb98f7a9e7ea498851ab6632a096e, type: 2}
+  taintMaterial: {fileID: 2100000, guid: 3ab435917be355d4eb8a8686d3490761, type: 2}
+  taintMeshes: []
+  accentMeshes: []
+  primaryRockTextures:
+  - {fileID: 2800000, guid: 6640a47ce0c72d64e83c24af02527f83, type: 3}
+  - {fileID: 2800000, guid: 423af7c61e3fa4b4da8c5ed7cae9417d, type: 3}
+  - {fileID: 2800000, guid: d47763a3ac9c8e54f86404f75351653a, type: 3}
+  - {fileID: 2800000, guid: d8a461bd36dd34743a85b6e725e4897e, type: 3}
+  - {fileID: 2800000, guid: c2897792468898b43a910ab77318e8b0, type: 3}
+  primaryMetalTextures:
+  - {fileID: 2800000, guid: 94ddfcabd3939e6449cf25efe396a0c4, type: 3}
+  - {fileID: 2800000, guid: 8f99a268dc936234c98cf4881165dc8b, type: 3}
+  - {fileID: 2800000, guid: a25f4dd19c8897947878fafdfbb0607b, type: 3}
+  - {fileID: 2800000, guid: c51fec4d3d23142429f5e738f51e043b, type: 3}
+  - {fileID: 2800000, guid: 2c163ce01510bab478013a7e2b78adb7, type: 3}
+  pitTextures:
+  - {fileID: 2800000, guid: 7aeaac808b2798847a88f030410de3c7, type: 3}
+  - {fileID: 2800000, guid: f66357eaa5e760644b3ee9723bb3bb2c, type: 3}
+  - {fileID: 2800000, guid: c8513d4f304cf944bb28e5220b22b50b, type: 3}
+  - {fileID: 2800000, guid: ad8a5192031d7f548aed4606efa6028d, type: 3}
+  - {fileID: 2800000, guid: 08f0934f12b74ce40ad5c844a440b75e, type: 3}
+  taintTextures:
+  - {fileID: 2800000, guid: 722ebc4e497612748bcf82f6d07c335d, type: 3}
+  - {fileID: 2800000, guid: 3e46d22df2d96074396115d4c232285e, type: 3}
+  - {fileID: 2800000, guid: eadb3928563985c40a90fbff2b4f8fb2, type: 3}
+  - {fileID: 2800000, guid: 9934347cc08819741904796b2300b707, type: 3}
+  - {fileID: 2800000, guid: afbb2082c76b5bf4fa4c5dd43b44ad86, type: 3}
+  availableMaps:
+  - {fileID: 11494622, guid: 4bf6252307be0384886eb013535e5889, type: 2}
+  enemySpawnerPrefab: {fileID: 11431040, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 145888}
+  m_IsPrefabParent: 1

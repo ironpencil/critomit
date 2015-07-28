@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - PlayerSpawner
+  - BigEnemySpawner
+  - SmallEnemySpawner
   layers:
   - Default
   - TransparentFX
@@ -39,11 +42,29 @@ TagManager:
   - 
   - TheVoid
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Pit
+    uniqueID: 195989959
+    locked: 0
+  - name: Deep
+    uniqueID: 3830357929
+    locked: 0
+  - name: DeepTaint
+    uniqueID: 1523768015
     locked: 0
   - name: Background
     uniqueID: 977211849
+    locked: 0
+  - name: BackgroundTaint
+    uniqueID: 3742110835
+    locked: 0
+  - name: BackgroundWaterFilter
+    uniqueID: 2712376763
+    locked: 0
+  - name: WorldUI
+    uniqueID: 1382039743
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Enemies
     uniqueID: 3999139757
@@ -56,4 +77,13 @@ TagManager:
     locked: 0
   - name: Explosions
     uniqueID: 2015625037
+    locked: 0
+  - name: Foreground
+    uniqueID: 2396758325
+    locked: 0
+  - name: ForegroundTaint
+    uniqueID: 2063425201
+    locked: 0
+  - name: ForegroundWaterFilter
+    uniqueID: 3676159031
     locked: 0

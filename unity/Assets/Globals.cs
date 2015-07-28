@@ -20,6 +20,8 @@ public class Globals : Singleton<Globals> {
     public bool playIntro = true;
     public IntroPanel firstPanel;
 
+    public const int THE_VOID_LAYER = 31;   //void layer has no collisions with anything
+
     public override void Start()
     {
         base.Start();
@@ -194,7 +196,7 @@ public class Globals : Singleton<Globals> {
         if (level == GameLevel.Arena)
         {            
             acceptPlayerGameInput = false;
-            AudioManager.Instance.TransitionToArena();
+            //AudioManager.Instance.TransitionToArena();
             ArenaManager.Instance.PrepareNextWave();
         }
         else

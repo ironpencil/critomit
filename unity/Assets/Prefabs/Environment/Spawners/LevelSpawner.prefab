@@ -44,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -58, y: 58, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429306}
@@ -104,13 +104,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markedForDeath: 0
   maxHitPoints: 100
-  currentHP: 0
+  privCurrentHP: 0
   damagedBy: 1
   invulnerable: 0
   damagedEffects:
   - {fileID: 11493700}
   deathEffects:
   - {fileID: 11486690}
+  pointValue: 100
 --- !u!114 &11431040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,6 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastSpawn: 0
   enemyType: 1
+  spawnerActive: 0
+  forceOff: 0
 --- !u!114 &11486690
 MonoBehaviour:
   m_ObjectHideFlags: 1

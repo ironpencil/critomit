@@ -17,12 +17,38 @@ public class Globals : Singleton<Globals> {
     public bool paused = false;
     public bool acceptPlayerGameInput = true;
 
+    public bool playIntro = true;
+    public IntroPanel firstPanel;
+
     public override void Start()
     {
         base.Start();
 
+        if (this == null) { return; }
+
         targetLevel = currentLevel;
-        StartCoroutine(DoNewLevelSetup(currentLevel));
+
+        if (playIntro && firstPanel != null)
+        {
+            //play intro   
+            acceptPlayerGameInput = false;
+            GUIManager.Instance.FadeScreen(1.0f, 1.0f, 0.0f);
+            firstPanel.DisplayPanel();
+        }
+        else
+        {
+            StartCoroutine(DoNewLevelSetup(currentLevel));
+        }
+    }
+
+    public void IntroFinished()
+    {
+        if (playIntro)
+        {
+            playIntro = false;
+            acceptPlayerGameInput = true;
+            StartCoroutine(DoNewLevelSetup(currentLevel));
+        }
     }
     
     public float screenShakeFactor = 1.0f;

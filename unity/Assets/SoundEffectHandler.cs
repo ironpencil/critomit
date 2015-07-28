@@ -18,13 +18,14 @@ public class SoundEffectHandler : MonoBehaviour {
     public bool variableDelay = true;
     public float playDelayMin = 0.0f;
     public float playDelayMax = 0.01f;
+    public bool ignoreTimeScale = false;
 
     public float pitch = 1.0f;
     public bool variablePitch = true;
     public float pitchMin = 0.75f;
     public float pitchMax = 1.25f;
 
-    public bool playOneShot = true;
+    public bool playOneShot = true;    
 
     public void PlayEffect()
     {
@@ -116,7 +117,19 @@ public class SoundEffectHandler : MonoBehaviour {
 
     private IEnumerator WaitThenPlay(AudioClip clip, float clipVolume, float clipPitch, float clipDelay)
     {
-        yield return new WaitForSeconds(clipDelay);
+        if (ignoreTimeScale)
+        {
+            float playTime = Time.realtimeSinceStartup + clipDelay;
+
+            while (playTime > Time.realtimeSinceStartup)
+            {
+                yield return null;
+            }
+        }
+        else
+        {
+            yield return new WaitForSeconds(clipDelay);
+        }
 
         Play(clip, clipVolume, clipPitch);
     }

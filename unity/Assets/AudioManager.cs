@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class AudioManager : Singleton<AudioManager> {
 
+    public AudioMixer masterMixer;
+
     public AudioSource arenaSource1;
     public AudioSource arenaSource2;
     public AudioSource lobbySource;
@@ -33,6 +35,8 @@ public class AudioManager : Singleton<AudioManager> {
 
     public bool ignoreUnderwater = false;
 
+    public float duckedMusicVolume = -40.0f;
+
 	// Use this for initialization
 	public override void Start () {
         base.Start();
@@ -55,21 +59,53 @@ public class AudioManager : Singleton<AudioManager> {
             ignoreUnderwater = !ignoreUnderwater;
         }
 
-        
-
         //Debug.Log("Audio dspTime=" + AudioSettings.dspTime);
 	}
 
-    public void PlaySFXClip(AudioClip clip, float volume, bool underWater)
+    public void DuckMusic()
     {
-        if (underWater)
-        {
-            sfxUnderwaterSource.PlayOneShot(clip, volume);
-        }
-        else
-        {
-            sfxUnfilteredSource.PlayOneShot(clip, volume);
-        }
+        masterMixer.SetFloat("musicDucking", duckedMusicVolume);
+    }
+
+    public void UnduckMusic()
+    {
+        masterMixer.SetFloat("musicDucking", 0.0f);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        masterMixer.SetFloat("musicVol", volume);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        masterMixer.SetFloat("sfxVol", volume);
+    }
+
+    public void SetMasterVolume(float volume)
+    {
+        masterMixer.SetFloat("masterVol", volume);
+    }
+
+    public float GetMusicVolume()
+    {
+        float volume = 0.0f;
+        masterMixer.GetFloat("musicVol", out volume);
+        return volume;
+    }
+
+    public float GetSFXVolume()
+    {
+        float volume = 0.0f;
+        masterMixer.GetFloat("sfxVol", out volume);
+        return volume;
+    }
+
+    public float GetMasterVolume()
+    {
+        float volume = 0.0f;
+        masterMixer.GetFloat("masterVol", out volume);
+        return volume;
     }
 
     [ContextMenu("Move to Arena")]
@@ -182,7 +218,7 @@ public class AudioManager : Singleton<AudioManager> {
 
         nextArenaSource.PlayScheduled(currentClipStopTime);
         nextClipStopTime = currentClipStopTime + nextArenaSource.clip.length;
-    }
+    }   
 
     private void CheckSwitchArenaSources()
     {

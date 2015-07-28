@@ -60,11 +60,17 @@ public class GUIManager : Singleton<GUIManager> {
             {
                 if (open)
                 {
-                    messageBox.StartOpen();
+                    if (!messageBox.isOpen)
+                    {
+                        messageBox.StartOpen();
+                    }
                 }
                 else
                 {
-                    messageBox.StartClose();
+                    if (messageBox.isOpen)
+                    {
+                        messageBox.StartClose();
+                    }
                 }
             }
 

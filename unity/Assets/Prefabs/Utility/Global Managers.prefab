@@ -971,6 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2fc00658d1a2264ab79c09872a5df37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24100000, guid: 18c41163ee8819341933ac809950f9cf, type: 2}
   arenaSource1: {fileID: 8250912}
   arenaSource2: {fileID: 8242910}
   lobbySource: {fileID: 8259128}
@@ -986,6 +987,7 @@ MonoBehaviour:
   arenaSnapshot: {fileID: 24579328, guid: 18c41163ee8819341933ac809950f9cf, type: 2}
   lobbySnapshot: {fileID: 24500003, guid: 18c41163ee8819341933ac809950f9cf, type: 2}
   ignoreUnderwater: 0
+  duckedMusicVolume: -15
 --- !u!114 &11467788
 MonoBehaviour:
   m_ObjectHideFlags: 1

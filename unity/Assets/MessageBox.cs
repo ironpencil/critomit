@@ -22,6 +22,11 @@ public class MessageBox : MonoBehaviour {
 
     public SoundEffectHandler openSound;
     public SoundEffectHandler closeSound;
+    public SoundEffectHandler openedSound;
+
+    public bool playOpenedSound = false;
+    public bool duckMusicOnOpen = false;
+    public bool unduckMusicOnClose = false;
 
     private bool playSound = false;
 
@@ -101,6 +106,11 @@ public class MessageBox : MonoBehaviour {
             StopCoroutine(currentVerticalResize);
         }
 
+        if (duckMusicOnOpen)
+        {
+            AudioManager.Instance.DuckMusic();
+        }
+
         if (openSound != null && playSound)
         {
             openSound.PlayEffect();
@@ -110,6 +120,11 @@ public class MessageBox : MonoBehaviour {
         yield return StartCoroutine(currentResize);
         isOpen = true;
         EnableChildren(true);
+
+        if (openedSound != null && playOpenedSound && playSound)
+        {
+            openedSound.PlayEffect();
+        }
     }
     
     public IEnumerator CloseAndWait(float duration)
@@ -124,6 +139,11 @@ public class MessageBox : MonoBehaviour {
             StopCoroutine(currentResize);
             StopCoroutine(currentHorizontalResize);
             StopCoroutine(currentVerticalResize);
+        }
+
+        if (unduckMusicOnClose)
+        {
+            AudioManager.Instance.UnduckMusic();
         }
 
         if (closeSound != null && playSound)

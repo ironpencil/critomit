@@ -246,4 +246,10 @@ public class Globals : Singleton<Globals> {
             Time.timeScale = 1.0f;
         }
     }
+
+    [ContextMenu("Toggle Pause")]
+    public void TogglePause()
+    {
+        Pause(!paused);
+    }
 }

@@ -270,6 +270,8 @@ GameObject:
   - 222: {fileID: 22240230}
   - 114: {fileID: 11496020}
   - 114: {fileID: 11416402}
+  - 114: {fileID: 11450356}
+  - 114: {fileID: 11433894}
   m_Layer: 5
   m_Name: Healthbar
   m_TagString: Untagged
@@ -335,6 +337,10 @@ MonoBehaviour:
   invisibleAlpha: 0
   openSound: {fileID: 11459034}
   closeSound: {fileID: 11419990}
+  openedSound: {fileID: 0}
+  playOpenedSound: 0
+  duckMusicOnOpen: 0
+  unduckMusicOnClose: 0
   disableWhileClosed:
   - {fileID: 22486144}
   - {fileID: 22449550}
@@ -414,6 +420,9 @@ MonoBehaviour:
   greenThreshold: 8
   yellowThreshold: 4
   redThreshold: 0
+  lowSound: {fileID: 11433894}
+  criticalSound: {fileID: 11450356}
+  healthStatus: 0
   currentHealth: 0
 --- !u!114 &11416822
 MonoBehaviour:
@@ -472,7 +481,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8b53813dbf6bbec4b99c387b045b99b5, type: 3}
   playRandom: 0
   underwater: 0
-  volume: .5
+  volume: .400000006
   variableVolume: 0
   volumeMin: .899999976
   volumeMax: 1
@@ -480,7 +489,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
-  pitch: .800000012
+  pitch: 1
   variablePitch: 0
   pitchMin: .75
   pitchMax: 1.25
@@ -583,6 +592,34 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11433894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: b72aade20cd23d44fbfbd81bc4ab02d7, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: .5
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11440094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -625,6 +662,34 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11450356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 5d32305f3f9fa204eb8764ce9245a3aa, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: 1
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11455546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -661,7 +726,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b5c3dd1abc37978439425a0678872806, type: 3}
   playRandom: 0
   underwater: 0
-  volume: .5
+  volume: .400000006
   variableVolume: 0
   volumeMin: .899999976
   volumeMax: 1
@@ -669,7 +734,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
-  pitch: .800000012
+  pitch: 1
   variablePitch: 0
   pitchMin: .75
   pitchMax: 1.25

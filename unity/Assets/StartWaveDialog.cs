@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using System.Collections;
 using System.Collections.Generic;
 
 public class StartWaveDialog : MonoBehaviour {
 
+    public MessageBox startWaveMessageBox;
     public CanvasGroup introGroup;
     public CanvasGroup mutatorGroup;
     public Text mutatorDescriptionText;
     public int mutatorSingleLineThreshold = 8;
     public int maxDisplayedMutators = 15;
-
-    public MutatorDisplayHandler mutatorDisplay;
 
 	// Use this for initialization
 	void Start () {
@@ -34,11 +34,16 @@ public class StartWaveDialog : MonoBehaviour {
         }
         else
         {
-            // show mutator dialog    
-            mutatorDisplay.playAlarm = true;
+            // show mutator dialog 
+            //AudioManager.Instance.DuckMusic();
+            startWaveMessageBox.playOpenedSound = true;
+            startWaveMessageBox.duckMusicOnOpen = true;
+            startWaveMessageBox.unduckMusicOnClose = true;
             LoadMutatorDescriptions();
             introGroup.alpha = 0.0f;
             mutatorGroup.alpha = 1.0f;
+            FlashImage mutatorFlash = mutatorGroup.GetComponent<FlashImage>();
+            mutatorFlash.doFlash = true;
         }
     }
 
@@ -75,7 +80,9 @@ public class StartWaveDialog : MonoBehaviour {
     
     public void StartWave()
     {
+        //AudioManager.Instance.UnduckMusic();
         ArenaManager.Instance.StartWave();
+        startWaveMessageBox.StartClose();
         //Globals.Instance.Pause(false);
         Globals.Instance.acceptPlayerGameInput = true;
     }

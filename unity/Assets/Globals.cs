@@ -24,6 +24,10 @@ public class Globals : Singleton<Globals> {
         targetLevel = currentLevel;
         StartCoroutine(DoNewLevelSetup(currentLevel));
     }
+    
+    public float screenShakeFactor = 1.0f;
+    public float screenShakeMax = 5.0f;
+    public bool cameraSpinEnabled = true;
 
 
 
@@ -252,4 +256,6 @@ public class Globals : Singleton<Globals> {
     {
         Pause(!paused);
     }
+
+
 }

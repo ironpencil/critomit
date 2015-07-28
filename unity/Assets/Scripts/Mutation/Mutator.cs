@@ -28,6 +28,11 @@ public class Mutator : MonoBehaviour
 
     public string GetDescription()
     {
+        if (mutatorType == MutatorType.Spin && !Globals.Instance.cameraSpinEnabled)
+        {
+            return "CAMERA SPIN DISABLED IN MENU";
+        }
+
         string description = mutatorDescription.Replace("[intvalue]", ((int)currentValue).ToString());
 
         description = description.Replace("[value]", currentValue.ToString());

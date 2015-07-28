@@ -14,6 +14,7 @@ public class ObjectManager : Singleton<ObjectManager> {
     public CameraFollow followCam;
     public List<MessageBox> autoMessageBoxes;
     public StartWaveDialog startWaveDialog;
+    public EndWaveDialog endWaveDialog;
     public Text pointsText;
     public Text multiplierText;
     public Text waveText;

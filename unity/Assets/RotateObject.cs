@@ -11,6 +11,8 @@ public class RotateObject : MonoBehaviour {
 
     public float rotationPerSecond = 10.0f;
 
+    public bool isCameraSpinner = true;
+
 	// Use this for initialization
 	void Start () {
         
@@ -18,13 +20,33 @@ public class RotateObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        if (doRotate && target != null)
+        if (isCameraSpinner)
         {
-            target.Rotate(new Vector3(0.0f, 0.0f, rotationPerSecond * Time.deltaTime));
+            if (Globals.Instance.cameraSpinEnabled)
+            {
+                DoRotation();
+            }
+            else
+            {
+                if (doRotate)
+                {
+                    doRotate = false;
+                    ResetRotation();
+                }
+            }
         }
-	
+        else
+        {
+            DoRotation();
+        }	
 	}
+
+        public void DoRotation() {
+            if (doRotate && target != null)
+            {
+                target.Rotate(new Vector3(0.0f, 0.0f, rotationPerSecond * Time.deltaTime));
+            }
+        }
 
     public void ResetRotation()
     {

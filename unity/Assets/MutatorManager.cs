@@ -22,10 +22,17 @@ public class MutatorManager : Singleton<MutatorManager> {
     {
         Debug.Log("MutatorManager::GenerateNewLevelMutators()");
         // roll random chance to see if any new mutators need applied
-        // if they do, apply them
+        // save the selected mutators to be applied when the wave starts              
 
-        //TODO: Need to adjust random check so that we apply the weight modification immediately
-        //Also need to check to see        
+        if (!Globals.Instance.cameraSpinEnabled)
+        {
+            Mutator spinMutator = allAvailableMutators.FirstOrDefault(m => m.mutatorType == MutatorType.Spin);
+
+            if (spinMutator != null)
+            {
+                spinMutator.allowedToApply = false;
+            }
+        }
 
         float mutatorChance = chanceToAddNewMutator + (mutatorChanceIncrementPerWave * ArenaManager.Instance.wavesCompleted);
 
@@ -297,6 +304,26 @@ public class MutatorManager : Singleton<MutatorManager> {
         {
             cameraSpinner.doRotate = false;
             cameraSpinner.ResetRotation();
+        }
+    }
+
+    public void MenuEnableCameraRotation()
+    {
+        Mutator spinMutator = activeMutators.FirstOrDefault(m => m.mutatorType == MutatorType.Spin);
+
+        if (spinMutator != null)
+        {
+            EnableCameraSpinner(spinMutator.currentValue);
+        }
+    }
+
+    public void MenuDisableCameraRotation()
+    {
+        Mutator spinMutator = activeMutators.FirstOrDefault(m => m.mutatorType == MutatorType.Spin);
+
+        if (spinMutator != null)
+        {
+            DisableCameraSpinner();
         }
     }
 

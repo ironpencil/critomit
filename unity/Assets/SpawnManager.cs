@@ -74,6 +74,11 @@ public class SpawnManager : Singleton<SpawnManager> {
         spawnEnemies = true;
     }
 
+    public void StopSpawners()
+    {
+        spawnEnemies = false;
+    }
+
     public GameObject GetRandomEnemy(EnemyType enemyType)
     {
         List<GameObject> enemyList;

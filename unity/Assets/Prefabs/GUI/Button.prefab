@@ -47,6 +47,7 @@ GameObject:
   - 114: {fileID: 11410230}
   - 114: {fileID: 11415946}
   - 114: {fileID: 11436726}
+  - 114: {fileID: 11433372}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -65,8 +66,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad6bdc1a6821f544ad14341d5bce068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 11432972}
   onSelectSound: {fileID: 11415946}
   onClickSound: {fileID: 11436726}
+  confirmSound: {fileID: 11436726}
+  cancelSound: {fileID: 11433372}
 --- !u!114 &11415946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,6 +94,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 0
   pitchMin: .949999988
@@ -148,6 +153,35 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11433372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 61b32d0f944ff8844a8a34389d0a5e56, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: 1
+  variableVolume: 0
+  volumeMin: .899999976
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 0
+  pitchMin: .949999988
+  pitchMax: 1.04999995
+  playOneShot: 1
 --- !u!114 &11435956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,6 +226,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 0
   pitchMin: .949999988
@@ -222,7 +257,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: .550000012
-  m_Text: BUTTON
+  m_Text: RETURN TO LOBBY
 --- !u!222 &22206346
 CanvasRenderer:
   m_ObjectHideFlags: 1

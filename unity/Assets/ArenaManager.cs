@@ -46,14 +46,14 @@ public class ArenaManager : Singleton<ArenaManager> {
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
-                CompleteWave();
+                CompleteWave(false);
                 StartWave();
             }
 
             if (Input.GetKeyDown(KeyCode.L))
             {
-                CompleteWave();
-                LoadNextLevel();
+                CompleteWave(true);
+                //LoadNextLevel();
             }
 
         }
@@ -70,8 +70,8 @@ public class ArenaManager : Singleton<ArenaManager> {
             {
                 Debug.Log("Level complete!");
 
-                CompleteWave();
-                LoadNextLevel();
+                CompleteWave(true);
+                //LoadNextLevel();
             }
         }
     }
@@ -120,7 +120,7 @@ public class ArenaManager : Singleton<ArenaManager> {
         SpawnManager.Instance.StartSpawners();
     }
 
-    public void CompleteWave()
+    public void CompleteWave(bool showDialog)
     {
         EndWave();
 
@@ -128,13 +128,23 @@ public class ArenaManager : Singleton<ArenaManager> {
 
         EventTextManager.Instance.AddEvent(@"!! (GOT EM!> \(^.^')/ !!", 5.0f, true);
 
-        if (waveCompleteSound != null)
+        //only play the sound if we're not showing the dialog
+        if (waveCompleteSound != null && !showDialog)
         {
             waveCompleteSound.PlayEffect();
         }
-        
+
+        SpawnManager.Instance.StopSpawners();
         SpawnManager.Instance.ClearEnemies();
         ObjectManager.Instance.player.GetComponent<PlayerDamageManager>().FullHeal();
+
+        if (showDialog)
+        {
+            ObjectManager.Instance.endWaveDialog.PrepareDialog();
+            ObjectManager.Instance.endWaveDialog.ApplyTotalWaveBonus();
+            ObjectManager.Instance.endWaveDialog.endWaveMessageBox.StartOpen();
+            //Globals.Instance.acceptPlayerGameInput = false;
+        }
     }
 
     public void EndWave()
@@ -147,6 +157,6 @@ public class ArenaManager : Singleton<ArenaManager> {
     {
         //Application.LoadLevel("waveArena");
         //TODO: REMOVE THIS WHEN WE PUT IN WAVE CLEAR DIALOG?
-        StartCoroutine(Globals.Instance.WaitAndLoadLevel(3.0f, GameLevel.Arena));
+        StartCoroutine(Globals.Instance.WaitAndLoadLevel(1.0f, GameLevel.Arena));
     }
 }

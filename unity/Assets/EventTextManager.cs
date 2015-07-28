@@ -33,11 +33,14 @@ public class EventTextManager : Singleton<EventTextManager> {
 
     public void AddEvent(string text, float duration, bool doFlash)
     {
-        StartCoroutine(AddEventAndWait(text, duration, doFlash));
+        if (ObjectManager.Instance.eventText != null)
+        {
+            StartCoroutine(AddEventAndWait(text, duration, doFlash));
+        }
     }
 
 
-    public IEnumerator AddEventAndWait(string text, float duration, bool doFlash)
+    private IEnumerator AddEventAndWait(string text, float duration, bool doFlash)
     {
         if (currentEvent != null)
         {
@@ -49,7 +52,7 @@ public class EventTextManager : Singleton<EventTextManager> {
     }
 
     private IEnumerator DisplayEventText(string text, float duration, bool doFlash)
-    {      
+    {             
         ObjectManager.Instance.eventText.text = text;
 
         if (doFlash)

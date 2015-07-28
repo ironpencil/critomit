@@ -41,16 +41,23 @@ public class VolumeAdjuster : MonoBehaviour, IBeginDragHandler, IEndDragHandler 
 
     public void AdjustVolume()
     {
+        float sliderValue = audioSlider.value;
+
+        //if we're close to minimum just set it to -80.0f (silent)
+        if (!(audioSlider.value > audioSlider.minValue + 0.1f)) {
+            sliderValue = -80.0f;
+        }        
+
         switch (audioToAdjust)
         {
             case AudioGroup.Master:
-                AudioManager.Instance.SetMasterVolume(audioSlider.value);
+                AudioManager.Instance.SetMasterVolume(sliderValue);
                 break;
             case AudioGroup.Music:
-                AudioManager.Instance.SetMusicVolume(audioSlider.value);
+                AudioManager.Instance.SetMusicVolume(sliderValue);
                 break;
             case AudioGroup.SFX:
-                AudioManager.Instance.SetSFXVolume(audioSlider.value);
+                AudioManager.Instance.SetSFXVolume(sliderValue);
                 break;
             default:
                 break;

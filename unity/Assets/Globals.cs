@@ -166,9 +166,14 @@ public class Globals : Singleton<Globals> {
         yield return null;
 
         if (level == GameLevel.Arena)
-        {
+        {            
             acceptPlayerGameInput = false;
+            AudioManager.Instance.TransitionToArena();
             ArenaManager.Instance.PrepareNextWave();
+        }
+        else
+        {
+            AudioManager.Instance.UnduckMusic();
         }
 
         while (GUIManager.Instance.isFading)
@@ -213,7 +218,7 @@ public class Globals : Singleton<Globals> {
             case GameLevel.Arena:                
                 ObjectManager.Instance.DestroyPlayer();
                 ArenaManager.Instance.EndWave();
-                ArenaManager.Instance.Reset();
+                //ArenaManager.Instance.Reset();
                 StartCoroutine(WaitAndLoadLevel(5.0f, GameLevel.Lobby));
                 break;
             case GameLevel.Level1:

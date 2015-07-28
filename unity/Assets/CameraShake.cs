@@ -100,7 +100,7 @@ public class CameraShake : MonoBehaviour {
 
     public void ShakeCamera(float magnitude, float sustainTime, float decayTime)
     {
-        StartCoroutine(AddShake(magnitude * Globals.Instance.screenShakeFactor, sustainTime, decayTime));
+        StartCoroutine(AddShake(magnitude * Globals.Instance.screenShakeFactor, sustainTime * Globals.Instance.screenShakeFactor, decayTime * Globals.Instance.screenShakeFactor));
     }
 
     IEnumerator AddShake(float magnitude, float sustainTime, float decayTime)

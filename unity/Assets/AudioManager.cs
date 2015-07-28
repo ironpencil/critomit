@@ -35,7 +35,15 @@ public class AudioManager : Singleton<AudioManager> {
 
     public bool ignoreUnderwater = false;
 
-    public float duckedMusicVolume = -40.0f;
+    public float duckedMusicVolume = -15.0f;
+
+    public enum AudioState
+    {
+        Lobby,
+        Arena
+    }
+
+    public AudioState currentAudioState;
 
 	// Use this for initialization
 	public override void Start () {
@@ -43,7 +51,15 @@ public class AudioManager : Singleton<AudioManager> {
 
         if (this != null)
         {
-            TransitionToLobby();
+            if (Globals.Instance.currentState == GameState.Arena)
+            {
+                TransitionToArena();
+            }
+            else
+            {
+                TransitionToLobby();
+            }
+
         }
 	}
 	
@@ -111,11 +127,14 @@ public class AudioManager : Singleton<AudioManager> {
     [ContextMenu("Move to Arena")]
     public void TransitionToArena()
     {
+        currentAudioState = AudioState.Arena;
+
         arenaSnapshot.TransitionTo(toArenaTransition);
         
         StartArenaMusic();
 
-        StartCoroutine(StopLobbyMusicAfterSeconds(toArenaTransition));
+        StartCoroutine(StopLobbyMusicAfterSeconds(toArenaTransition, false));
+        
         //arenaSource1.PlayScheduled(AudioSettings.dspTime + 10.0f);
         //Debug.Log("Scheduling source to play at " + AudioSettings.dspTime + 10.0f);
         //if (arenaMusic.Count > 0)
@@ -129,17 +148,19 @@ public class AudioManager : Singleton<AudioManager> {
     [ContextMenu("Move to Lobby")]
     public void TransitionToLobby()
     {
+        currentAudioState = AudioState.Lobby;
+
         lobbySnapshot.TransitionTo(toLobbyTransition);        
 
         StartLobbyMusic();
 
-        StartCoroutine(StopArenaMusicAfterSeconds(toLobbyTransition));
+        StartCoroutine(StopArenaMusicAfterSeconds(toLobbyTransition, false));
     }
 
     private void StartLobbyMusic()
     {
-        //int randomClip = Random.Range(0, arenaMusic.Count);
-        int randomClip = 0; //for testing
+        int randomClip = Random.Range(0, arenaMusic.Count);
+        //int randomClip = 0; //for testing
 
         nextClip = randomClip;
 
@@ -186,18 +207,24 @@ public class AudioManager : Singleton<AudioManager> {
         arenaMusicPlaying = false;
     }
 
-    public IEnumerator StopArenaMusicAfterSeconds(float stopAfterSeconds)
+    public IEnumerator StopArenaMusicAfterSeconds(float stopAfterSeconds, bool force)
     {
         yield return new WaitForSeconds(stopAfterSeconds);
 
-        StopArenaMusic();
+        if (force || currentAudioState != AudioState.Arena)
+        {
+            StopArenaMusic();
+        }
     }
 
-    public IEnumerator StopLobbyMusicAfterSeconds(float stopAfterSeconds)
+    public IEnumerator StopLobbyMusicAfterSeconds(float stopAfterSeconds, bool force)
     {
         yield return new WaitForSeconds(stopAfterSeconds);
 
-        lobbySource.Stop();
+        if (force || currentAudioState != AudioState.Lobby)
+        {
+            lobbySource.Stop();
+        }
     }
 
     private void ScheduleNextArenaClip()

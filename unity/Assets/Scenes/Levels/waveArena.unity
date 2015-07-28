@@ -2825,7 +2825,7 @@ MonoBehaviour:
   closeSound: {fileID: 1004631747}
   openedSound: {fileID: 1004631746}
   playOpenedSound: 1
-  duckMusicOnOpen: 0
+  duckMusicOnOpen: 1
   unduckMusicOnClose: 0
   disableWhileClosed:
   - {fileID: 613751501}
@@ -2851,7 +2851,7 @@ MonoBehaviour:
   variableVolume: 0
   volumeMin: .899999976
   volumeMax: 1
-  playDelay: .5
+  playDelay: 0
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978

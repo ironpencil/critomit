@@ -46,7 +46,6 @@ GameObject:
   - 82: {fileID: 8259128}
   - 82: {fileID: 8235810}
   - 82: {fileID: 8201062}
-  - 82: {fileID: 8214212}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -380,76 +379,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!82 &8214212
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 117162}
-  m_Enabled: 0
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24322064, guid: 18c41163ee8819341933ac809950f9cf,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: 80c58c21aa679084aa4d9a1903d33d4e, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .75
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!82 &8235810
 AudioSource:
   m_ObjectHideFlags: 1
@@ -670,7 +599,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24375796, guid: 18c41163ee8819341933ac809950f9cf,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4c212a5e93704c8419d87ded2163904f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e4ab3f544ceb8b7478ac9b1be91e62da, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -753,6 +682,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 0
   pitchMin: .75
@@ -905,6 +835,9 @@ MonoBehaviour:
   currentLevel: 1
   paused: 0
   acceptPlayerGameInput: 1
+  screenShakeFactor: 1
+  screenShakeMax: 5
+  cameraSpinEnabled: 1
 --- !u!114 &11443020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -940,6 +873,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 0
   pitchMin: .75
@@ -980,14 +914,15 @@ MonoBehaviour:
   arenaMusic:
   - {fileID: 8300000, guid: d41386f772cf2a44286a9c2583a2c6c3, type: 3}
   - {fileID: 8300000, guid: 4c212a5e93704c8419d87ded2163904f, type: 3}
-  lobbyMusic: {fileID: 8300000, guid: 4c212a5e93704c8419d87ded2163904f, type: 3}
+  lobbyMusic: {fileID: 8300000, guid: e4ab3f544ceb8b7478ac9b1be91e62da, type: 3}
   currentMusicClip: {fileID: 0}
-  toArenaTransition: 2
-  toLobbyTransition: 2
+  toArenaTransition: 4
+  toLobbyTransition: 5
   arenaSnapshot: {fileID: 24579328, guid: 18c41163ee8819341933ac809950f9cf, type: 2}
   lobbySnapshot: {fileID: 24500003, guid: 18c41163ee8819341933ac809950f9cf, type: 2}
   ignoreUnderwater: 0
   duckedMusicVolume: -15
+  currentAudioState: 0
 --- !u!114 &11467788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1057,6 +992,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 0
   pitchMin: .75

@@ -16,6 +16,12 @@ ModelImporter:
     100016: mesh_[04]_[02]
     100018: mesh_[05]_[00]
     100020: mesh_[06]_[02]
+    100022: mesh_[01]_[00]_MeshPart0
+    100024: mesh_[01]_[00]_MeshPart1
+    100026: mesh_[01]_[00]_MeshPart2
+    100028: mesh_[03]_[00]_MeshPart0
+    100030: mesh_[03]_[00]_MeshPart1
+    100032: mesh_[03]_[00]_MeshPart2
     400000: mesh_[00]_[00]
     400002: mesh_[01]_[00]
     400004: mesh_[02]_[00]
@@ -27,6 +33,12 @@ ModelImporter:
     400016: mesh_[04]_[02]
     400018: mesh_[05]_[00]
     400020: mesh_[06]_[02]
+    400022: mesh_[01]_[00]_MeshPart0
+    400024: mesh_[01]_[00]_MeshPart1
+    400026: mesh_[01]_[00]_MeshPart2
+    400028: mesh_[03]_[00]_MeshPart0
+    400030: mesh_[03]_[00]_MeshPart1
+    400032: mesh_[03]_[00]_MeshPart2
     2300000: mesh_[00]_[00]
     2300002: mesh_[01]_[00]
     2300004: mesh_[02]_[00]
@@ -37,6 +49,12 @@ ModelImporter:
     2300014: mesh_[04]_[02]
     2300016: mesh_[05]_[00]
     2300018: mesh_[06]_[02]
+    2300020: mesh_[01]_[00]_MeshPart0
+    2300022: mesh_[01]_[00]_MeshPart1
+    2300024: mesh_[01]_[00]_MeshPart2
+    2300026: mesh_[03]_[00]_MeshPart0
+    2300028: mesh_[03]_[00]_MeshPart1
+    2300030: mesh_[03]_[00]_MeshPart2
     3300000: mesh_[00]_[00]
     3300002: mesh_[01]_[00]
     3300004: mesh_[02]_[00]
@@ -47,6 +65,12 @@ ModelImporter:
     3300014: mesh_[04]_[02]
     3300016: mesh_[05]_[00]
     3300018: mesh_[06]_[02]
+    3300020: mesh_[01]_[00]_MeshPart0
+    3300022: mesh_[01]_[00]_MeshPart1
+    3300024: mesh_[01]_[00]_MeshPart2
+    3300026: mesh_[03]_[00]_MeshPart0
+    3300028: mesh_[03]_[00]_MeshPart1
+    3300030: mesh_[03]_[00]_MeshPart2
     4300000: mesh_[00]_[00]
     4300002: mesh_[01]_[00]
     4300004: mesh_[02]_[00]
@@ -57,6 +81,13 @@ ModelImporter:
     4300014: mesh_[04]_[02]
     4300016: mesh_[05]_[00]
     4300018: mesh_[06]_[02]
+    4300020: mesh_[01]_[00]_MeshPart0
+    4300022: mesh_[01]_[00]_MeshPart1
+    4300024: mesh_[01]_[00]_MeshPart2
+    4300026: mesh_[03]_[00]_MeshPart0
+    4300028: mesh_[03]_[00]_MeshPart1
+    4300030: mesh_[03]_[00]_MeshPart2
+    4300032: mesh_[05]_[00]_MeshPart0
     11400000: mesh_[00]_[00]
     11400002: mesh_[01]_[00]
     11400004: mesh_[02]_[00]
@@ -67,6 +98,12 @@ ModelImporter:
     11400014: mesh_[04]_[02]
     11400016: mesh_[05]_[00]
     11400018: mesh_[06]_[02]
+    11400020: mesh_[01]_[00]_MeshPart0
+    11400022: mesh_[01]_[00]_MeshPart1
+    11400024: mesh_[01]_[00]_MeshPart2
+    11400026: mesh_[03]_[00]_MeshPart0
+    11400028: mesh_[03]_[00]_MeshPart1
+    11400030: mesh_[03]_[00]_MeshPart2
   materials:
     importMaterials: 0
     materialName: 0

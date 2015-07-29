@@ -4,14 +4,18 @@ using System.Collections.Generic;
 
 public class TileMapBuilder : Singleton<TileMapBuilder> {
 
-    public PrimaryTileset initialTileset;
-    public PrimaryVariant initialVariant;
+    public PrimaryTileset preferredTileset;
+    public PrimaryVariant preferredVariant;
+    public bool preferredTainted = false;
 
     public PrimaryTileset currentTileset;
     public PrimaryVariant currentVariant;
-
-    public bool initiallyTainted = false;
     public bool currentlyTainted = false;
+
+    public bool loadMapOnStart = true;
+    public bool randomizedMap = false;
+    public bool randomizedTiles = false;
+    public bool randomizedTainted = false;
 
     public float taintChance = 25.0f;
     
@@ -29,15 +33,19 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
     public List<Texture> primaryRockTextures;
     public List<Texture> primaryMetalTextures;
     public List<Texture> pitTextures;
-    public List<Texture> taintTextures;
+    public List<Texture> taintTextures;    
 
-    public List<Tiled2Unity.TiledMap> availableMaps = new List<Tiled2Unity.TiledMap>();
+    public Tiled2Unity.TiledMap preferredMap;
+    
+    public List<Tiled2Unity.TiledMap> availableRandomMaps = new List<Tiled2Unity.TiledMap>();
 
     private Tiled2Unity.TiledMap currentMap;
 
     public LevelSpawner enemySpawnerPrefab;
 
     private List<Transform> sceneObjects = new List<Transform>();
+
+    
 
     public enum PrimaryTileset
     {
@@ -56,28 +64,83 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
     
 	// Use this for initialization
 	public override void Start () {
-        destroyOnLoad = true;
-
         base.Start();
 
-        PrepareMap();
-
-        GenerateInitialTileset();
+        if (loadMapOnStart)
+        {
+            LoadMap();
+        }
 
 	}
 
+    public void LoadMap()
+    {
+        PrepareMap();
+
+        if (randomizedTiles)
+        {
+            GenerateRandomTileset();
+        }
+        else
+        {
+            GeneratePreferredTileset();
+        }
+    }
+
+    [ContextMenu("LoadPreferredMap")]
+    public void LoadPreferredMap()
+    {
+        randomizedMap = false;
+        randomizedTiles = false;
+
+        LoadMap();
+    }
+
+    [ContextMenu("LoadRandomMap")]
+    public void LoadRandomMap()
+    {
+        randomizedMap = true;
+        randomizedTiles = true;
+
+        LoadMap();
+    }
+
     private void PrepareMap()
     {
-        if (availableMaps.Count == 0)
+
+        Tiled2Unity.TiledMap selectedMap;
+
+        bool canLoadRandom = availableRandomMaps.Count > 0;
+        bool canLoadPreferred = preferredMap != null;
+
+
+        //if we can't load any maps, return
+        if (!canLoadRandom && !canLoadPreferred)
         {
             return;
         }
+        else if (!canLoadPreferred) //if we can't load preferred map, set to random
+        {
+            randomizedMap = true;
+        }
+        else if (!canLoadRandom) //if we can't load random maps, set not random
+        {
+            randomizedMap = false;
+        }
 
-        //we have a list of maps, so select one at random
 
-        Tiled2Unity.TiledMap selectedMap = availableMaps[Random.Range(0, availableMaps.Count)];
-
-
+        if (randomizedMap)
+        {
+            selectedMap = availableRandomMaps[Random.Range(0, availableRandomMaps.Count)];
+        }
+        else
+        {
+            selectedMap = preferredMap;
+        }
+        
+        
+        //now that we know what map we're loading, load it
+        
         //instantiate the map
         currentMap = (Tiled2Unity.TiledMap) GameObject.Instantiate(selectedMap, transform.position, Quaternion.identity);
 
@@ -165,7 +228,7 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
 
 	}
 
-    [ContextMenu("Generate Random")]
+    [ContextMenu("Apply Random Tileset")]
     public void GenerateRandomTileset()
     {
         switch (currentTileset)
@@ -198,35 +261,48 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
 
         currentVariant = (PrimaryVariant)textureVariant;
 
-        currentlyTainted = Random.Range(0.0f, 100.0f) < taintChance;
+        GenerateTainted();
        
         ApplyTileset();
 
     }
 
-    public void GenerateInitialTileset()
+    [ContextMenu("Apply Preferred Tileset")]
+    public void GeneratePreferredTileset()
     {
 
-        currentTileset = initialTileset;
+        currentTileset = preferredTileset;
 
-        currentVariant = initialVariant;
-
-        currentlyTainted = initiallyTainted;
+        currentVariant = preferredVariant;        
 
         switch (currentTileset)
         {
             case PrimaryTileset.Rock:
-                currentPrimaryTexture = primaryRockTextures[(int)currentVariant];
+                currentPrimaryTexture = primaryRockTextures[Mathf.Min((int)currentVariant, primaryRockTextures.Count - 1)];
                 break;
             case PrimaryTileset.Metal:
-                currentPrimaryTexture = primaryRockTextures[(int)currentVariant];
+                currentPrimaryTexture = primaryMetalTextures[Mathf.Min((int)currentVariant, primaryMetalTextures.Count - 1)];
                 break;
             default:
                 break;
         }
 
+        GenerateTainted();
+
         ApplyTileset();
 
+    }
+
+    public void GenerateTainted()
+    {
+        if (randomizedTainted)
+        {
+            currentlyTainted = Random.Range(0.0f, 100.0f) < taintChance;
+        }
+        else
+        {
+            currentlyTainted = preferredTainted;
+        }
     }
 
     private void ApplyTileset()

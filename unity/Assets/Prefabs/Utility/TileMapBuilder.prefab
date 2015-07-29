@@ -39,12 +39,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8c1e2daff4c5a45bec617e740e524d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTileset: 0
-  initialVariant: 0
+  preferredTileset: 0
+  preferredVariant: 0
+  preferredTainted: 0
   currentTileset: 0
   currentVariant: 0
-  initiallyTainted: 0
   currentlyTainted: 0
+  loadMapOnStart: 1
+  randomizedMap: 0
+  randomizedTiles: 0
+  randomizedTainted: 0
   taintChance: 50
   currentPrimaryTexture: {fileID: 0}
   currentPitTexture: {fileID: 0}
@@ -78,8 +82,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: eadb3928563985c40a90fbff2b4f8fb2, type: 3}
   - {fileID: 2800000, guid: 9934347cc08819741904796b2300b707, type: 3}
   - {fileID: 2800000, guid: afbb2082c76b5bf4fa4c5dd43b44ad86, type: 3}
-  availableMaps:
-  - {fileID: 11494622, guid: 4bf6252307be0384886eb013535e5889, type: 2}
+  preferredMap: {fileID: 11494622, guid: 4bf6252307be0384886eb013535e5889, type: 2}
+  availableRandomMaps: []
   enemySpawnerPrefab: {fileID: 11431040, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
 --- !u!1001 &100100000
 Prefab:

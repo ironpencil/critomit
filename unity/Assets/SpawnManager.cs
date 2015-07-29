@@ -32,6 +32,7 @@ public class SpawnManager : Singleton<SpawnManager> {
 
     public GameObject EnemyObjects;
     public GameObject SpawnerObjects;
+    public IndicatorPanel IndicatorHandler;
 
     public enum EnemyType
     {
@@ -121,6 +122,11 @@ public class SpawnManager : Singleton<SpawnManager> {
         //{
         //    enemyScript.targetRB = ObjectManager.Instance.player.GetComponent<Rigidbody2D>();
         //}
+
+        if (IndicatorHandler != null)
+        {
+            IndicatorHandler.AddIndicator(enemy.transform, IndicatorPanel.IndicatorType.Enemy);
+        }
 
         if (MutatorManager.Instance.activeMutators.Count > 0)
         {

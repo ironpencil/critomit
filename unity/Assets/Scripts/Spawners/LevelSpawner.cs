@@ -11,6 +11,8 @@ public class LevelSpawner : MonoBehaviour {
 
     public bool forceOff = false;
 
+    public bool addIndicator = true;
+
 	// Use this for initialization
     //void Start () {
     //    bool spawnOnStart = SpawnManager.Instance.spawnOnStart;
@@ -22,6 +24,14 @@ public class LevelSpawner : MonoBehaviour {
 
     //    lastSpawn = Time.time;
     //}
+
+    void Start()
+    {
+        if (addIndicator && SpawnManager.Instance.IndicatorHandler != null)
+        {
+            SpawnManager.Instance.IndicatorHandler.AddIndicator(transform, IndicatorPanel.IndicatorType.Spawner);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

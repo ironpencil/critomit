@@ -3294,6 +3294,7 @@ MonoBehaviour:
   - {fileID: 191920, guid: c20abde36e95b1d4eb5d4f0a712963da, type: 2}
   EnemyObjects: {fileID: 1855218117}
   SpawnerObjects: {fileID: 1098994502}
+  IndicatorHandler: {fileID: 0}
 --- !u!4 &1104225500
 Transform:
   m_ObjectHideFlags: 0

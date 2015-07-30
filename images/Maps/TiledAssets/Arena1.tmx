@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="110" height="110" tilewidth="32" tileheight="32" nextobjectid="11">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="110" height="110" tilewidth="32" tileheight="32" nextobjectid="17">
  <tileset firstgid="1" source="Primary.tsx"/>
  <tileset firstgid="235" source="Pit.tsx"/>
  <tileset firstgid="249" source="Taint.tsx"/>
@@ -103,6 +103,36 @@
   <object id="10" name="SmallEnemySpawner" x="1760" y="992" width="32" height="32">
    <properties>
     <property name="unity:tag" value="SmallEnemySpawner"/>
+   </properties>
+  </object>
+  <object id="11" name="Crate" x="1984" y="1472" width="32" height="32">
+   <properties>
+    <property name="unity:tag" value="Crate"/>
+   </properties>
+  </object>
+  <object id="12" name="BigCrate" x="1376" y="1344" width="32" height="32">
+   <properties>
+    <property name="unity:tag" value="BigCrate"/>
+   </properties>
+  </object>
+  <object id="13" name="MedCrate" x="1568" y="1344" width="32" height="32">
+   <properties>
+    <property name="unity:tag" value="MedCrate"/>
+   </properties>
+  </object>
+  <object id="14" name="SmallCrate" x="1760" y="1344" width="32" height="32">
+   <properties>
+    <property name="unity:tag" value="SmallCrate"/>
+   </properties>
+  </object>
+  <object id="15" name="BigBoomCrate" x="1920" y="1344" width="32" height="32">
+   <properties>
+    <property name="unity:tag" value="BigBoomCrate"/>
+   </properties>
+  </object>
+  <object id="16" name="SmallBoomCrate" x="2112" y="1344" width="32" height="32">
+   <properties>
+    <property name="unity:tag" value="SmallBoomCrate"/>
    </properties>
   </object>
  </objectgroup>

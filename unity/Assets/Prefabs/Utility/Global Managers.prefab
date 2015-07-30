@@ -717,6 +717,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11409662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -910,6 +911,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11459832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -983,15 +985,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preferredTileset: 0
   preferredVariant: 0
-  preferredTainted: 0
+  preferredTainted: 1
   currentTileset: 0
   currentVariant: 0
   currentlyTainted: 0
   loadMapOnStart: 1
-  randomizedMap: 0
+  randomizedMap: 1
   randomizedTiles: 0
   randomizedTainted: 0
-  taintChance: 50
+  taintChance: 100
   currentPrimaryTexture: {fileID: 0}
   currentPitTexture: {fileID: 0}
   currentTaintTexture: {fileID: 0}
@@ -1025,8 +1027,15 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 9934347cc08819741904796b2300b707, type: 3}
   - {fileID: 2800000, guid: afbb2082c76b5bf4fa4c5dd43b44ad86, type: 3}
   preferredMap: {fileID: 11499908, guid: 3fde68d8e3da6c84482c34e7f058bd4f, type: 2}
-  availableRandomMaps: []
-  enemySpawnerPrefab: {fileID: 11431040, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
+  availableRandomMaps:
+  - {fileID: 11447020, guid: 05d2dfa93f010784d91ef2d3dbc3b171, type: 2}
+  smallSpawnerPrefab: {fileID: 11431040, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
+  bigSpawnerPrefab: {fileID: 11431040, guid: 65811ddefee63ae41b9bf94084bf2729, type: 2}
+  bigCrate: {fileID: 166968, guid: 282431d6aa35e2144b26a741d37db361, type: 2}
+  smallCrate: {fileID: 166968, guid: 8624f5aa00a0cb24385901d704b2336b, type: 2}
+  medCrate: {fileID: 166968, guid: 58e0b2347bfcae54dbbb7928197b6fe4, type: 2}
+  bigBoomCrate: {fileID: 166968, guid: 11dd188e21a0100499b4ae857641fc51, type: 2}
+  smallBoomCrate: {fileID: 166968, guid: d8e706fca0db7dc43b6fd9dbf67f5df5, type: 2}
 --- !u!114 &11470698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1086,6 +1095,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11496678
 MonoBehaviour:
   m_ObjectHideFlags: 1

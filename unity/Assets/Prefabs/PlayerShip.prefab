@@ -1171,6 +1171,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11412204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1200,6 +1201,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11412206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1229,6 +1231,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11412208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1258,6 +1261,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11412210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1290,6 +1294,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11412594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1378,6 +1383,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11422102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1536,6 +1542,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11435342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1594,6 +1601,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11442214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1741,6 +1749,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11457366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1817,6 +1826,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11462534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1962,6 +1972,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11474504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2085,6 +2096,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11484394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2114,6 +2126,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11485832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2170,6 +2183,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11488158
 MonoBehaviour:
   m_ObjectHideFlags: 1

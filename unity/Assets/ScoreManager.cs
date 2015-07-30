@@ -87,9 +87,9 @@ public class ScoreManager : Singleton<ScoreManager> {
         }
     }
 
-    public void AddKilledEnemyPoints(long points)
+    public void AddKilledEnemyPoints(long points, int kills)
     {
-        CurrentKills++;
+        CurrentKills += kills;
         AddPoints(points, true);
     }
 

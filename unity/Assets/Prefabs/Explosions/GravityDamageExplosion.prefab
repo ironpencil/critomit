@@ -78,6 +78,7 @@ GameObject:
   - 4: {fileID: 411280}
   - 212: {fileID: 21240010}
   - 95: {fileID: 9541404}
+  - 114: {fileID: 11450766}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -106,7 +107,7 @@ Transform:
   m_GameObject: {fileID: 145270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 13, y: 13, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 470504}
   m_RootOrder: 0
@@ -117,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.7745848, y: -1.18297863, z: 0}
+  m_LocalPosition: {x: -17.8160553, y: -.172288656, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470504}
@@ -174,7 +175,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 5
 --- !u!95 &9541404
 Animator:
   serializedVersion: 3
@@ -231,6 +232,22 @@ MonoBehaviour:
   gravityDeadZoneRadius: .00499999989
   soundEffectHandler: {fileID: 0}
   playSoundOnStart: 1
+--- !u!114 &11450766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145270}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187ce5d8d9bca4e488ada798bf1dbd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 411280}
+  doRotate: 0
+  startingRotation: 0
+  rotationPerSecond: -270
+  isCameraSpinner: 0
 --- !u!114 &11465890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -260,6 +277,7 @@ MonoBehaviour:
   pitchMin: .899999976
   pitchMax: 1.39999998
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11477052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,7 +297,7 @@ MonoBehaviour:
   doApplyGravity: 1
   constantGravity: 60
   addlGravityOverTime: 0
-  gravityDeadZoneRadius: 0
+  gravityDeadZoneRadius: .00499999989
   soundEffectHandler: {fileID: 0}
   playSoundOnStart: 1
   delay: 0
@@ -332,7 +350,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 79f37464f8194504ab52f9967740d420, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5e796d079708584e9069631d80a8e25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: .294117659}
 --- !u!212 &21283650
 SpriteRenderer:

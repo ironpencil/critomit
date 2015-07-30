@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.0394669, y: -5.46997261, z: 0}
+  m_LocalPosition: {x: 34.3226585, y: -34.9707184, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 457520}
@@ -137,29 +137,30 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173302}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 5d0c7abf8a30cee4e81d4d5d3deb8fd3, type: 3}
   playRandom: 0
   underwater: 0
-  volume: 1
-  variableVolume: 1
+  volume: 1.5
+  variableVolume: 0
   volumeMin: .899999976
   volumeMax: 1
-  playDelay: 0
-  variableDelay: 1
+  playDelay: .300000012
+  variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
   ignoreTimeScale: 0
   pitch: 1
-  variablePitch: 1
+  variablePitch: 0
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
-  playOnStart: 0
+  playOnStart: 1
 --- !u!212 &21256336
 SpriteRenderer:
   m_ObjectHideFlags: 1

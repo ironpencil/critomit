@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 7/29/2015 9:34:30 PM-->
+<!--Last exported: 7/30/2015 1:42:33 AM-->
 <Tiled2Unity version="0.9.11.2">
   <AssignMaterial mesh="mesh_[00]_[01]" material="Pit" sortingLayerName="Pit" sortingOrder="0" />
   <AssignMaterial mesh="mesh_[01]_[00]" material="Primary" sortingLayerName="Deep" sortingOrder="1" />
@@ -55,6 +55,24 @@
         <BoxCollider2D width="1.5" height="1.5" />
       </GameObject>
       <GameObject name="SmallEnemySpawner" x="82.5" y="-46.5" rotation="0" tag="SmallEnemySpawner">
+        <BoxCollider2D width="1.5" height="1.5" />
+      </GameObject>
+      <GameObject name="Crate" x="93" y="-69" rotation="0" tag="Crate">
+        <BoxCollider2D width="1.5" height="1.5" />
+      </GameObject>
+      <GameObject name="BigCrate" x="64.5" y="-63" rotation="0" tag="BigCrate">
+        <BoxCollider2D width="1.5" height="1.5" />
+      </GameObject>
+      <GameObject name="MedCrate" x="73.5" y="-63" rotation="0" tag="MedCrate">
+        <BoxCollider2D width="1.5" height="1.5" />
+      </GameObject>
+      <GameObject name="SmallCrate" x="82.5" y="-63" rotation="0" tag="SmallCrate">
+        <BoxCollider2D width="1.5" height="1.5" />
+      </GameObject>
+      <GameObject name="BigBoomCrate" x="90" y="-63" rotation="0" tag="BigBoomCrate">
+        <BoxCollider2D width="1.5" height="1.5" />
+      </GameObject>
+      <GameObject name="SmallBoomCrate" x="99" y="-63" rotation="0" tag="SmallBoomCrate">
         <BoxCollider2D width="1.5" height="1.5" />
       </GameObject>
     </GameObject>

@@ -27,8 +27,11 @@ GameObject:
   - 61: {fileID: 6171594}
   - 50: {fileID: 5088230}
   - 114: {fileID: 11407496}
+  - 114: {fileID: 11409936}
+  - 114: {fileID: 11409934}
+  - 114: {fileID: 11405418}
   m_Layer: 12
-  m_Name: Crate
+  m_Name: BigBoomCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 16.4744453, y: -14.7060432, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 493474}
@@ -55,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 156126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 48, y: 48, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 473416}
   m_RootOrder: 0
@@ -66,7 +69,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166968}
-  m_Mass: 10
+  m_Mass: 200
   m_LinearDrag: 1
   m_AngularDrag: .5
   m_GravityScale: 3
@@ -87,7 +90,19 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 3, y: 3}
+--- !u!114 &11405418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9007cb97249c5458be500684f241e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionObject: {fileID: 11498602, guid: ac13f80f66ff2ab4ebd276781283361b, type: 2}
 --- !u!114 &11407496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,6 +115,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityFactor: 1
+--- !u!114 &11409934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50ef7e6eb01651418f5533ca6536b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToFlash: {fileID: 21283192}
+  spritesToFlash:
+  - {fileID: 21283192}
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  duration: .100000001
+  flickerRate: .100000001
+--- !u!114 &11409936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de051eb1c6cc004459f6e39186d725da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  markedForDeath: 0
+  maxHitPoints: 50
+  privCurrentHP: 0
+  damagedBy: 1
+  invulnerable: 0
+  damagedEffects:
+  - {fileID: 11409934}
+  deathEffects:
+  - {fileID: 11405418}
+  pointValue: 0
+  killValue: 0
 --- !u!212 &21283192
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -124,8 +178,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c4fca4d2be37abc429d763ec1c25e633, type: 3}
-  m_Color: {r: 0, g: .647058845, b: .19188641, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7f73c7e2cc3879344b93acb222898a0e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

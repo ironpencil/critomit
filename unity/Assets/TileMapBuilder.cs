@@ -41,9 +41,18 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
 
     private Tiled2Unity.TiledMap currentMap;
 
-    public LevelSpawner enemySpawnerPrefab;
+    public LevelSpawner smallSpawnerPrefab;
+    public LevelSpawner bigSpawnerPrefab;
+
+    public GameObject bigCrate;
+    public GameObject smallCrate;
+    public GameObject medCrate;
+
+    public GameObject bigBoomCrate;
+    public GameObject smallBoomCrate;
 
     private List<Transform> sceneObjects = new List<Transform>();
+    private List<GameObject> allCrates = new List<GameObject>();
 
     
 
@@ -67,6 +76,12 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
         base.Start();
 
         if (this == null) { return; }
+
+        allCrates.Add(bigCrate);
+        allCrates.Add(medCrate);
+        allCrates.Add(smallCrate);
+        allCrates.Add(bigBoomCrate);
+        allCrates.Add(smallBoomCrate);
 
         if (loadMapOnStart)
         {
@@ -218,6 +233,30 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
         {
             PlaceEnemySpawner(sceneObject, SpawnManager.EnemyType.Small);
         }
+        else if (sceneObject.tag.Equals("BigCrate"))
+        {
+            PlaceCrate(sceneObject, bigCrate);
+        }
+        else if (sceneObject.tag.Equals("MedCrate"))
+        {
+            PlaceCrate(sceneObject, medCrate);
+        }
+        else if (sceneObject.tag.Equals("SmallCrate"))
+        {
+            PlaceCrate(sceneObject, smallCrate);
+        }
+        else if (sceneObject.tag.Equals("BigBoomCrate"))
+        {
+            PlaceCrate(sceneObject, bigBoomCrate);
+        }
+        else if (sceneObject.tag.Equals("SmallBoomCrate"))
+        {
+            PlaceCrate(sceneObject, smallBoomCrate);
+        }
+        else if (sceneObject.tag.Equals("Crate"))
+        {
+            PlaceRandomCrate(sceneObject);
+        }
     }
 	
 	// Update is called once per frame
@@ -368,14 +407,47 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
 
     public void PlaceEnemySpawner(Transform placeAt, SpawnManager.EnemyType enemyType)
     {
-        
-        if (enemySpawnerPrefab != null)
-        {
-            LevelSpawner enemySpawner = (LevelSpawner)GameObject.Instantiate(enemySpawnerPrefab, placeAt.position, placeAt.rotation);
+        LevelSpawner spawner;
 
-            enemySpawner.enemyType = enemyType;
+        switch (enemyType)
+        {
+            case SpawnManager.EnemyType.Small:
+                spawner = smallSpawnerPrefab;
+                break;
+            case SpawnManager.EnemyType.Big:
+                spawner = bigSpawnerPrefab;
+                break;
+            default:
+                return; //unknown type
+        }
+
+        if (spawner != null)
+        {
+            LevelSpawner enemySpawner = (LevelSpawner)GameObject.Instantiate(spawner, placeAt.position, placeAt.rotation);
+
+            //enemySpawner.enemyType = enemyType;
 
             enemySpawner.transform.parent = SpawnManager.Instance.SpawnerObjects.transform;
         }
+    }
+
+    public void PlaceCrate(Transform placeAt, GameObject prefab)
+    {
+        if (prefab != null)
+        {
+            GameObject crate = (GameObject)GameObject.Instantiate(prefab, placeAt.position, placeAt.rotation);
+
+            //enemySpawner.enemyType = enemyType;
+
+            crate.transform.parent = ObjectManager.Instance.dynamicObjects.transform;
+        }
+    }
+
+    public void PlaceRandomCrate(Transform placeAt)
+    {
+        int crateToPlace = Random.Range(0, allCrates.Count);
+
+        PlaceCrate(placeAt, allCrates[crateToPlace]);
+
     }
 }

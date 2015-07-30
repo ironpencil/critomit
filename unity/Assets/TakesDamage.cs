@@ -53,6 +53,7 @@ public class TakesDamage : MonoBehaviour {
     public List<GameEffect> deathEffects = new List<GameEffect>();
 
     public int pointValue = 100;
+    public int killValue = 1;
 
 	// Use this for initialization
 	public virtual void Start () {
@@ -67,7 +68,7 @@ public class TakesDamage : MonoBehaviour {
 
         if (markedForDeath)
         {
-            ScoreManager.Instance.AddKilledEnemyPoints(pointValue);
+            ScoreManager.Instance.AddKilledEnemyPoints(pointValue, killValue);
             DestroyImmediate(gameObject);
         }
 	

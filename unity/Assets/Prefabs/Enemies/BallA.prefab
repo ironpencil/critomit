@@ -144,7 +144,7 @@ MonoBehaviour:
   - {fileID: 11477148}
   deathEffects:
   - {fileID: 11444222}
-  pointValue: 100
+  pointValue: 30
 --- !u!114 &11417102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -365,6 +365,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: damage
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pointValue
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

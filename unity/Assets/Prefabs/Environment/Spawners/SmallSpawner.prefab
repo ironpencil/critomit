@@ -17,7 +17,7 @@ GameObject:
   - 114: {fileID: 11464366}
   - 114: {fileID: 11496854}
   m_Layer: 13
-  m_Name: LevelSpawner
+  m_Name: SmallSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,6 +32,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 429306}
   - 212: {fileID: 21200366}
+  - 95: {fileID: 9519918}
   m_Layer: 13
   m_Name: Sprite
   m_TagString: Untagged
@@ -46,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30, y: 0, z: 0}
+  m_LocalPosition: {x: 36.6702538, y: -35.4624062, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429306}
@@ -60,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 148778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 64, y: 64, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 412614}
   m_RootOrder: 0
@@ -93,6 +94,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
+--- !u!95 &9519918
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148778}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfeefd678cc19e24589f0de416fe37a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11430946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,7 +132,7 @@ MonoBehaviour:
   - {fileID: 11464366}
   deathEffects:
   - {fileID: 11486690}
-  pointValue: 100
+  pointValue: 150
 --- !u!114 &11431040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,6 +219,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!212 &21200366
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -225,8 +244,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c4fca4d2be37abc429d763ec1c25e633, type: 3}
-  m_Color: {r: .558823526, g: 0, b: .543407857, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f58ad02d6a89dfa42b655759e18b4c26, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -313,6 +332,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Color.g
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pointValue
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

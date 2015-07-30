@@ -133,6 +133,7 @@ MonoBehaviour:
   deathEffects:
   - {fileID: 11486690}
   pointValue: 150
+  killValue: 3
 --- !u!114 &11431040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,7 +188,7 @@ MonoBehaviour:
   spriteToFlash: {fileID: 0}
   spritesToFlash:
   - {fileID: 21200366}
-  targetColor: {r: .375, g: 0, b: 0, a: 1}
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
   duration: .100000001
   flickerRate: .100000001
 --- !u!114 &11496854
@@ -307,7 +308,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: targetColor.r
-      value: .375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: targetColor.g
@@ -336,6 +337,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: pointValue
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: killValue
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

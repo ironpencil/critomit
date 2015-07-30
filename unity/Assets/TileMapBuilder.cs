@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -32,6 +33,10 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
 
     public List<Texture> primaryRockTextures;
     public List<Texture> primaryMetalTextures;
+    public List<Texture> primaryBrickTextures;
+    public List<Texture> primaryGrassTextures;
+    public List<Texture> primarySandTextures;
+    
     public List<Texture> pitTextures;
     public List<Texture> taintTextures;    
 
@@ -59,7 +64,10 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
     public enum PrimaryTileset
     {
         Rock,
-        Metal
+        Metal,
+        Brick,
+        Grass,
+        Sand
     }
 
     public enum PrimaryVariant
@@ -148,7 +156,7 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
 
         if (randomizedMap)
         {
-            selectedMap = availableRandomMaps[Random.Range(0, availableRandomMaps.Count)];
+            selectedMap = availableRandomMaps[UnityEngine.Random.Range(0, availableRandomMaps.Count)];
         }
         else
         {
@@ -272,33 +280,44 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
     [ContextMenu("Apply Random Tileset")]
     public void GenerateRandomTileset()
     {
-        switch (currentTileset)
+        PrimaryTileset random = preferredTileset;
+
+        try
         {
-            case PrimaryTileset.Rock:
-                currentTileset = PrimaryTileset.Metal;
-                break;
-            case PrimaryTileset.Metal:
-                currentTileset = PrimaryTileset.Rock;
-                break;
-            default:
-                break;
+            random = (PrimaryTileset)UnityEngine.Random.Range(0, Enum.GetNames(typeof(PrimaryTileset)).Length);
         }
+        catch { }
+
+        currentTileset = random;
 
         int textureVariant = 0;
-        
+
         switch (currentTileset)
         {
             case PrimaryTileset.Rock:
-                textureVariant = Random.Range(0, primaryRockTextures.Count);                
-                currentPrimaryTexture = primaryRockTextures[textureVariant];                
+                textureVariant = UnityEngine.Random.Range(0, primaryRockTextures.Count);
+                currentPrimaryTexture = primaryRockTextures[textureVariant];
                 break;
             case PrimaryTileset.Metal:
-                textureVariant = Random.Range(0, primaryMetalTextures.Count);
+                textureVariant = UnityEngine.Random.Range(0, primaryMetalTextures.Count);
                 currentPrimaryTexture = primaryMetalTextures[textureVariant];
                 break;
-            default:
+            case PrimaryTileset.Brick:
+                textureVariant = UnityEngine.Random.Range(0, primaryBrickTextures.Count);
+                currentPrimaryTexture = primaryBrickTextures[textureVariant];
                 break;
-        }        
+            case PrimaryTileset.Grass:
+                textureVariant = UnityEngine.Random.Range(0, primaryGrassTextures.Count);
+                currentPrimaryTexture = primaryGrassTextures[textureVariant];
+                break;
+            case PrimaryTileset.Sand:
+                textureVariant = UnityEngine.Random.Range(0, primarySandTextures.Count);
+                currentPrimaryTexture = primarySandTextures[textureVariant];
+                break;
+            default:
+                //broke?? should never get here??
+                break;
+        }            
 
         currentVariant = (PrimaryVariant)textureVariant;
 
@@ -324,6 +343,15 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
             case PrimaryTileset.Metal:
                 currentPrimaryTexture = primaryMetalTextures[Mathf.Min((int)currentVariant, primaryMetalTextures.Count - 1)];
                 break;
+            case PrimaryTileset.Brick:
+                currentPrimaryTexture = primaryBrickTextures[Mathf.Min((int)currentVariant, primaryBrickTextures.Count - 1)];
+                break;
+            case PrimaryTileset.Grass:
+                currentPrimaryTexture = primaryGrassTextures[Mathf.Min((int)currentVariant, primaryGrassTextures.Count - 1)];
+                break;
+            case PrimaryTileset.Sand:
+                currentPrimaryTexture = primarySandTextures[Mathf.Min((int)currentVariant, primarySandTextures.Count - 1)];
+                break;
             default:
                 break;
         }
@@ -338,7 +366,7 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
     {
         if (randomizedTainted)
         {
-            currentlyTainted = Random.Range(0.0f, 100.0f) < taintChance;
+            currentlyTainted = UnityEngine.Random.Range(0.0f, 100.0f) < taintChance;
         }
         else
         {
@@ -375,7 +403,7 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
         //just use random taint material for right now
         if (taintMaterial != null && taintTextures.Count > 0)
         {
-            currentTaintTexture = taintTextures[Random.Range(0, taintTextures.Count)];
+            currentTaintTexture = taintTextures[UnityEngine.Random.Range(0, taintTextures.Count)];
             taintMaterial.mainTexture = currentTaintTexture;
         }
         foreach (MeshRenderer taintMesh in taintMeshes)
@@ -445,7 +473,7 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
 
     public void PlaceRandomCrate(Transform placeAt)
     {
-        int crateToPlace = Random.Range(0, allCrates.Count);
+        int crateToPlace = UnityEngine.Random.Range(0, allCrates.Count);
 
         PlaceCrate(placeAt, allCrates[crateToPlace]);
 

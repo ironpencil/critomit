@@ -207,6 +207,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!120 &12017250
 LineRenderer:
   m_ObjectHideFlags: 1

@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .191}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -1174,6 +1174,7 @@ MonoBehaviour:
   pitchMin: .949999988
   pitchMax: 1.04999995
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11403002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1229,6 +1230,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11405130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1569,6 +1571,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11427992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1614,6 +1617,7 @@ MonoBehaviour:
   pitchMin: .949999988
   pitchMax: 1.04999995
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11428378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2050,6 +2054,7 @@ MonoBehaviour:
   pitchMin: .949999988
   pitchMax: 1.04999995
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11453702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2246,6 +2251,7 @@ MonoBehaviour:
   pitchMin: .949999988
   pitchMax: 1.04999995
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11467910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2376,6 +2382,7 @@ MonoBehaviour:
   pitchMin: .949999988
   pitchMax: 1.04999995
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11467916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2421,6 +2428,7 @@ MonoBehaviour:
   pitchMin: .949999988
   pitchMax: 1.04999995
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11468822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2732,6 +2740,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11480776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2761,6 +2770,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11483946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3035,6 +3045,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11497436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3064,6 +3075,7 @@ MonoBehaviour:
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!222 &22220570
 CanvasRenderer:
   m_ObjectHideFlags: 1

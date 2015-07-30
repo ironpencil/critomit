@@ -989,11 +989,11 @@ MonoBehaviour:
   currentTileset: 0
   currentVariant: 0
   currentlyTainted: 0
-  loadMapOnStart: 1
+  loadMapOnStart: 0
   randomizedMap: 0
   randomizedTiles: 0
   randomizedTainted: 0
-  taintChance: 100
+  taintChance: 50
   currentPrimaryTexture: {fileID: 0}
   currentPitTexture: {fileID: 0}
   currentTaintTexture: {fileID: 0}
@@ -1011,9 +1011,27 @@ MonoBehaviour:
   primaryMetalTextures:
   - {fileID: 2800000, guid: 94ddfcabd3939e6449cf25efe396a0c4, type: 3}
   - {fileID: 2800000, guid: 8f99a268dc936234c98cf4881165dc8b, type: 3}
-  - {fileID: 2800000, guid: a25f4dd19c8897947878fafdfbb0607b, type: 3}
-  - {fileID: 2800000, guid: c51fec4d3d23142429f5e738f51e043b, type: 3}
   - {fileID: 2800000, guid: 2c163ce01510bab478013a7e2b78adb7, type: 3}
+  - {fileID: 2800000, guid: c51fec4d3d23142429f5e738f51e043b, type: 3}
+  - {fileID: 2800000, guid: a25f4dd19c8897947878fafdfbb0607b, type: 3}
+  primaryBrickTextures:
+  - {fileID: 2800000, guid: 02d706468d79603498c08845f3d5500a, type: 3}
+  - {fileID: 2800000, guid: e67d794f755a0a444b5f26d5ffeaa9ad, type: 3}
+  - {fileID: 2800000, guid: 1cde9a830cf47064d92c24ba196b3981, type: 3}
+  - {fileID: 2800000, guid: d6f0315bb3c038a41b28798c6f832226, type: 3}
+  - {fileID: 2800000, guid: c715027a5dae5c945af76dd7f08fe85e, type: 3}
+  primaryGrassTextures:
+  - {fileID: 2800000, guid: 9c9c0efad60d995479c475a60691b63b, type: 3}
+  - {fileID: 2800000, guid: d4c26ff421526ec449baffd3d4e5cf9e, type: 3}
+  - {fileID: 2800000, guid: 572dc3d92ef200d409a2eac8ef197393, type: 3}
+  - {fileID: 2800000, guid: 5625a0969c134a14cae67830539eb627, type: 3}
+  - {fileID: 2800000, guid: 85adc6c4f1c7651458c9b8c7d3378b47, type: 3}
+  primarySandTextures:
+  - {fileID: 2800000, guid: 193915293d0d8f74195087dbea233c17, type: 3}
+  - {fileID: 2800000, guid: 84cc73e250c7f8247a5b0e4774716464, type: 3}
+  - {fileID: 2800000, guid: a4f29bd70feacd2439ceb886b12e865c, type: 3}
+  - {fileID: 2800000, guid: 14fb0ef94a8056f4387c38d76ad26b9a, type: 3}
+  - {fileID: 2800000, guid: 87d26cd1639471d44b5c42c4f5361629, type: 3}
   pitTextures:
   - {fileID: 2800000, guid: 7aeaac808b2798847a88f030410de3c7, type: 3}
   - {fileID: 2800000, guid: f66357eaa5e760644b3ee9723bb3bb2c, type: 3}

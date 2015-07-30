@@ -20,6 +20,8 @@ public class Globals : Singleton<Globals> {
     public bool playIntro = true;
     public IntroPanel firstPanel;
 
+    private bool firstLevel = true;
+
     public const int THE_VOID_LAYER = 31;   //void layer has no collisions with anything
 
     public override void Start()
@@ -189,20 +191,40 @@ public class Globals : Singleton<Globals> {
         //    Pause(true);
         //}        
 
+        Debug.Log("Globals: New Level Setup");
+        
+
         DoFadeScreenIn();
 
         yield return null;
 
+        float taintChance = Mathf.Min(ArenaManager.Instance.wavesCompleted * 0.1f, 0.5f);        
+
+        TileMapBuilder.Instance.taintChance = taintChance;
+
+        TileMapBuilder.Instance.randomizedTainted = true;
+
         if (level == GameLevel.Arena)
         {            
             acceptPlayerGameInput = false;
+            
+            TileMapBuilder.Instance.LoadRandomMap(); //use a random available map with a random tileset
             //AudioManager.Instance.TransitionToArena();
             ArenaManager.Instance.PrepareNextWave();
         }
         else
         {
+            TileMapBuilder.Instance.LoadPreferredMap(); //use the lobby map
+
+            if (!firstLevel)
+            {
+                TileMapBuilder.Instance.GenerateRandomTileset(); //apply a random tileset
+            }            
+
             AudioManager.Instance.UnduckMusic();
         }
+
+        firstLevel = false;
 
         while (GUIManager.Instance.isFading)
         {

@@ -861,8 +861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee72d4ac4b4e6dc4eb9181b92078ec1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 2
-  currentLevel: 2
+  currentState: 1
+  currentLevel: 1
   paused: 0
   acceptPlayerGameInput: 1
   playIntro: 0
@@ -985,12 +985,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preferredTileset: 0
   preferredVariant: 0
-  preferredTainted: 1
+  preferredTainted: 0
   currentTileset: 0
   currentVariant: 0
   currentlyTainted: 0
   loadMapOnStart: 1
-  randomizedMap: 1
+  randomizedMap: 0
   randomizedTiles: 0
   randomizedTainted: 0
   taintChance: 100

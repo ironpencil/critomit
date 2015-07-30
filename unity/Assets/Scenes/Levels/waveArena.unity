@@ -4650,7 +4650,8 @@ Prefab:
       propertyPath: applyToMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 5cd1db395772ba64aa067c7e34f16afb, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11467788, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1914985502

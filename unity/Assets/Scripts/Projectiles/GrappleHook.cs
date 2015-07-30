@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GrappleHook : RemoteProjectile {
 
@@ -11,7 +12,7 @@ public class GrappleHook : RemoteProjectile {
 
     public SoundEffectHandler soundEffectHandler;
 
-    public LineRenderer cable;
+    public List<LineRenderer> cables;
 
     public float attachTime = 5.0f;
     public float attachDistance = 0.0f;
@@ -259,9 +260,14 @@ public class GrappleHook : RemoteProjectile {
     }
 
     protected void UpdateCable()
-    {        
-        cable.SetPosition(0, gameObject.transform.position);
-        cable.SetPosition(1, shooter.transform.position);
-        cable.sortingOrder = -1;
+    {
+        int cableDraw = -5;
+
+        foreach (LineRenderer cable in cables)
+        {
+            cable.SetPosition(0, gameObject.transform.position);
+            cable.SetPosition(1, shooter.transform.position);
+            cable.sortingOrder = cableDraw++;
+        }        
     }
 }

@@ -25,7 +25,16 @@ public class SoundEffectHandler : MonoBehaviour {
     public float pitchMin = 0.75f;
     public float pitchMax = 1.25f;
 
-    public bool playOneShot = true;    
+    public bool playOneShot = true;
+    public bool playOnStart = false;
+
+    public void Start()
+    {
+        if (playOnStart)
+        {
+            PlayEffect();
+        }
+    }
 
     public void PlayEffect()
     {

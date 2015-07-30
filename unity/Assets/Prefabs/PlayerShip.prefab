@@ -104,6 +104,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 401620}
   - 114: {fileID: 11466998}
+  - 114: {fileID: 11463934}
+  - 114: {fileID: 11478552}
   - 114: {fileID: 11412204}
   m_Layer: 8
   m_Name: GravityMine
@@ -312,6 +314,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 466106}
   - 114: {fileID: 11434296}
+  - 114: {fileID: 11434194}
+  - 114: {fileID: 11465484}
   - 114: {fileID: 11405908}
   m_Layer: 8
   m_Name: Rocket
@@ -1113,7 +1117,7 @@ Animator:
   m_GameObject: {fileID: 158060}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e00a5f66a9dfb8241851f14cab36b2e3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 907772c15c4c05d47b49b1f9b47233d2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -1130,7 +1134,7 @@ Animator:
   m_GameObject: {fileID: 146134}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bb670a96a90493d4cb9d34faff95dd05, type: 2}
+  m_Controller: {fileID: 9100000, guid: ce39217762a2d224f9e423d8cce72fff, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -1161,6 +1165,7 @@ MonoBehaviour:
   variableDelay: 1
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -1189,6 +1194,7 @@ MonoBehaviour:
   variableDelay: 1
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -1217,6 +1223,7 @@ MonoBehaviour:
   variableDelay: 1
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -1245,6 +1252,7 @@ MonoBehaviour:
   variableDelay: 1
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -1276,6 +1284,7 @@ MonoBehaviour:
   variableDelay: 1
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -1302,7 +1311,7 @@ MonoBehaviour:
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: -3, y: 3}
-  bulletMinMaxForce: {x: 1300, y: 1400}
+  bulletMinMaxForce: {x: 1100, y: 1200}
   shooterForce: {x: -80000, y: 0}
   cameraShaker: {fileID: 11488284}
   autoFire: 1
@@ -1363,6 +1372,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: 0
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -1410,7 +1420,7 @@ MonoBehaviour:
   - {fileID: 21292884}
   - {fileID: 21271746}
   - {fileID: 21262136}
-  targetColor: {r: 1, g: 0, b: 0, a: .202999994}
+  targetColor: {r: 1, g: 0, b: 0, a: .490196079}
   duration: 1.79999995
   flickerRate: .0500000007
 --- !u!114 &11431874
@@ -1434,7 +1444,7 @@ MonoBehaviour:
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: -20, y: 20}
-  bulletMinMaxForce: {x: 1200, y: 1300}
+  bulletMinMaxForce: {x: 800, y: 1000}
   shooterForce: {x: -250000, y: 0}
   cameraShaker: {fileID: 0}
   autoFire: 1
@@ -1454,6 +1464,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffectHandler: {fileID: 11484394}
+--- !u!114 &11434194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125bd5097497738468f74a9554c62ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: .75
+  sustainTime: 0
+  decayTime: .25
 --- !u!114 &11434296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1465,8 +1489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa61d40c05094dc4e810a00a659ed972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponAnimator: {fileID: 0}
-  animationController: {fileID: 0}
+  weaponAnimator: {fileID: 9586682}
+  animationController: {fileID: 9100000, guid: ce39217762a2d224f9e423d8cce72fff, type: 2}
   weaponDisplayer: {fileID: 0}
   soundEffectHandler: {fileID: 0}
   bulletPrefab: {fileID: 139346, guid: dea711738a24dce4e91673c9a01f15ba, type: 2}
@@ -1476,8 +1500,8 @@ MonoBehaviour:
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: 0, y: 0}
   bulletMinMaxForce: {x: 12000, y: 12000}
-  shooterForce: {x: -250000, y: 0}
-  cameraShaker: {fileID: 0}
+  shooterForce: {x: -350000, y: 0}
+  cameraShaker: {fileID: 11434194}
   autoFire: 1
   fireDelay: .5
   varyFireDelay: 0
@@ -1506,6 +1530,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -1532,7 +1557,7 @@ MonoBehaviour:
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: -30, y: 30}
-  bulletMinMaxForce: {x: 1200, y: 1500}
+  bulletMinMaxForce: {x: 800, y: 1000}
   shooterForce: {x: -500000, y: 0}
   cameraShaker: {fileID: 0}
   autoFire: 1
@@ -1563,6 +1588,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 0
   pitchMin: .75
@@ -1664,7 +1690,7 @@ MonoBehaviour:
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: -2, y: 2}
-  bulletMinMaxForce: {x: 1200, y: 1400}
+  bulletMinMaxForce: {x: 1100, y: 1200}
   shooterForce: {x: -40000, y: 0}
   cameraShaker: {fileID: 11493750}
   autoFire: 1
@@ -1709,6 +1735,7 @@ MonoBehaviour:
   variableDelay: 1
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -1736,7 +1763,7 @@ MonoBehaviour:
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: 0, y: 0}
   bulletMinMaxForce: {x: 12000, y: 12000}
-  shooterForce: {x: 0, y: 0}
+  shooterForce: {x: -50000, y: 0}
   cameraShaker: {fileID: 0}
   autoFire: 0
   fireDelay: 0
@@ -1784,6 +1811,7 @@ MonoBehaviour:
   variableDelay: 1
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -1801,6 +1829,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffectHandler: {fileID: 11484394}
+--- !u!114 &11463934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125bd5097497738468f74a9554c62ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: .5
+  sustainTime: 0
+  decayTime: .25
+--- !u!114 &11465484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc78447dd6c80d4b9e03b4ece017584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledImage: {fileID: 21300000, guid: b29d0acce9dbb1b4c8530ade2bdae25d, type: 3}
+  disabledImage: {fileID: 21300000, guid: db8f1e3329e5a2947a610764d7275c19, type: 3}
 --- !u!114 &11466998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1812,8 +1867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cbb992db14f054fb7c5e233a7af8ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponAnimator: {fileID: 0}
-  animationController: {fileID: 0}
+  weaponAnimator: {fileID: 9540836}
+  animationController: {fileID: 9100000, guid: 907772c15c4c05d47b49b1f9b47233d2, type: 2}
   weaponDisplayer: {fileID: 0}
   soundEffectHandler: {fileID: 0}
   bulletPrefab: {fileID: 135024, guid: 8aee40a591a55004f807ab97eb24189e, type: 2}
@@ -1822,9 +1877,9 @@ MonoBehaviour:
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: 0, y: 0}
-  bulletMinMaxForce: {x: 12000, y: 12000}
-  shooterForce: {x: -100000, y: 0}
-  cameraShaker: {fileID: 0}
+  bulletMinMaxForce: {x: 6000, y: 6000}
+  shooterForce: {x: -200000, y: 0}
+  cameraShaker: {fileID: 11463934}
   autoFire: 0
   fireDelay: 1
   varyFireDelay: 0
@@ -1858,7 +1913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markedForDeath: 0
-  maxHitPoints: 100
+  maxHitPoints: 200
   privCurrentHP: 0
   damagedBy: 2
   invulnerable: 0
@@ -1901,6 +1956,7 @@ MonoBehaviour:
   variableDelay: 1
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -1987,6 +2043,19 @@ MonoBehaviour:
   deathEffects: []
   pointValue: 100
   parentToDamage: {fileID: 11473810}
+--- !u!114 &11478552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc78447dd6c80d4b9e03b4ece017584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledImage: {fileID: 21300000, guid: 65cbb7c0b0c4ddc479cc9c76ace453e0, type: 3}
+  disabledImage: {fileID: 21300000, guid: 0163b98dc0e3b6b44ae92f92695ce107, type: 3}
 --- !u!114 &11484010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2010,6 +2079,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -2038,6 +2108,7 @@ MonoBehaviour:
   variableDelay: 1
   playDelayMin: 0
   playDelayMax: .100000001
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -2093,6 +2164,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 0
   pitchMin: .75
@@ -2119,7 +2191,7 @@ MonoBehaviour:
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: -2, y: 2}
-  bulletMinMaxForce: {x: 1200, y: 1400}
+  bulletMinMaxForce: {x: 1100, y: 1200}
   shooterForce: {x: -40000, y: 0}
   cameraShaker: {fileID: 0}
   autoFire: 1
@@ -2162,7 +2234,7 @@ MonoBehaviour:
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: -20, y: 20}
-  bulletMinMaxForce: {x: 1200, y: 1300}
+  bulletMinMaxForce: {x: 800, y: 1000}
   shooterForce: {x: -250000, y: 0}
   cameraShaker: {fileID: 0}
   autoFire: 1
@@ -2317,7 +2389,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1383667177
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300010, guid: 0a9f8e8a8813d434f8e5af36515dd63f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f57f1cbef5ecee74ebe8c29dea31ee3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21254798
 SpriteRenderer:

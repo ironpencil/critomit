@@ -9,11 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 430532}
   - 50: {fileID: 5099176}
-  - 58: {fileID: 5870380}
   - 114: {fileID: 11412106}
   - 231: {fileID: 23116668}
   - 232: {fileID: 23292692}
   - 114: {fileID: 11477380}
+  - 61: {fileID: 6105522}
   m_Layer: 9
   m_Name: GrappleHook
   m_TagString: Untagged
@@ -60,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.58168769, y: .454040945, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 439114}
@@ -73,9 +73,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140142}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16, y: 16, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106709}
+  m_LocalPosition: {x: -.180000007, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 430532}
   m_RootOrder: 0
@@ -107,19 +107,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &5870380
-CircleCollider2D:
+--- !u!61 &6105522
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130010}
   m_Enabled: 0
-  m_Material: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: .125
+  m_Size: {x: .150000006, y: .5}
 --- !u!114 &11412106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,13 +133,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   damageType: 1
-  lifespan: .600000024
+  lifespan: .5
   die: 0
   shooter: {fileID: 0}
   shooterScript: {fileID: 0}
   remoteActivated: 0
   activateOnDestroy: 1
-  soundEffectHandler: {fileID: 0}
+  soundEffectHandler: {fileID: 11477380}
   cable: {fileID: 12017250}
   attachTime: 0
   attachDistance: 0
@@ -170,6 +170,7 @@ MonoBehaviour:
   variableDelay: 0
   playDelayMin: 0
   playDelayMax: .00999999978
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
@@ -203,8 +204,8 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   m_Parameters:
-    startWidth: .0625
-    endWidth: .0625
+    startWidth: .125
+    endWidth: .125
     m_StartColor:
       serializedVersion: 2
       rgba: 4281874488
@@ -235,9 +236,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c4fca4d2be37abc429d763ec1c25e633, type: 3}
-  m_Color: {r: .41911763, g: .41911763, b: .41911763, a: 1}
+  m_SortingOrder: -5
+  m_Sprite: {fileID: 21300000, guid: d0f4f1e124f95f342856d9aa3e535968, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!231 &23116668
 SpringJoint2D:
   m_ObjectHideFlags: 1
@@ -330,7 +331,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Offset.x
-      value: -.0350000001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Size.x
@@ -400,6 +401,18 @@ Prefab:
       propertyPath: variableVolume
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: soundEffectHandler
+      value: 
+      objectReference: {fileID: 11477380}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 130010}

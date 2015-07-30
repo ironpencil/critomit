@@ -136,14 +136,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markedForDeath: 0
-  maxHitPoints: 50
-  currentHP: 0
+  maxHitPoints: 30
+  privCurrentHP: 0
   damagedBy: 1
   invulnerable: 0
   damagedEffects:
   - {fileID: 11477148}
   deathEffects:
   - {fileID: 11444222}
+  pointValue: 100
 --- !u!114 &11417102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,6 +159,7 @@ MonoBehaviour:
   accelerationForce: 200
   maxVelocity: 400
   movementDelay: 0
+  forceMultiplier: 1
 --- !u!114 &11443852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903799579d313c04f81fd8b449d69be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 15
   damageType: 2
   targetLayer: 8
   bounceWhenDealingDamage: 1
@@ -276,7 +278,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxHitPoints
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damagedBy
@@ -359,6 +361,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: flickerRate
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

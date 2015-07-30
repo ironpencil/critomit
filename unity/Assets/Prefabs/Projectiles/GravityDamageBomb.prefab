@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 458018}
   - 212: {fileID: 21207548}
+  - 95: {fileID: 9594750}
   m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
@@ -53,9 +54,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116868}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106709}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16, y: 16, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 449348}
   m_RootOrder: 0
@@ -81,13 +82,30 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135024}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .25
+--- !u!95 &9594750
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec976316cffc11d4fa819f7d334da889, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11401174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,9 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adf5fd374c494044a28f01fe077329b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 35
   damageType: 1
-  lifespan: 2
+  lifespan: 4
   die: 0
   shooter: {fileID: 0}
   shooterScript: {fileID: 0}
@@ -130,10 +148,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 2015625037
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c4fca4d2be37abc429d763ec1c25e633, type: 3}
-  m_Color: {r: .68917799, g: .0205450021, b: .698529422, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 01c12e99cce8aa94cb32fe21a6bdd4da, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -143,7 +161,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: lifespan
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: explosionObject
@@ -189,6 +207,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LinearDrag
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

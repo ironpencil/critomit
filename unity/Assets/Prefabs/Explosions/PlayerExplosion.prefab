@@ -59,6 +59,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 407430}
   - 114: {fileID: 11405458}
+  - 114: {fileID: 11432798}
   m_Layer: 0
   m_Name: MultiExplosion (3)
   m_TagString: Untagged
@@ -75,6 +76,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 491536}
   - 114: {fileID: 11434394}
+  - 114: {fileID: 11435040}
   m_Layer: 0
   m_Name: MultiExplosion (4)
   m_TagString: Untagged
@@ -91,6 +93,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 402810}
   - 114: {fileID: 11496160}
+  - 114: {fileID: 11486682}
   m_Layer: 0
   m_Name: MultiExplosion (5)
   m_TagString: Untagged
@@ -107,6 +110,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 447018}
   - 114: {fileID: 11430868}
+  - 114: {fileID: 11469314}
   m_Layer: 0
   m_Name: MultiExplosion (1)
   m_TagString: Untagged
@@ -189,6 +193,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 466212}
   - 114: {fileID: 11427390}
+  - 114: {fileID: 11439482}
   m_Layer: 0
   m_Name: MultiExplosion (2)
   m_TagString: Untagged
@@ -456,6 +461,8 @@ MonoBehaviour:
   constantGravity: 0
   addlGravityOverTime: 0
   gravityDeadZoneRadius: .00499999989
+  soundEffectHandler: {fileID: 11432798}
+  playSoundOnStart: 1
   delay: .5
   detonationObject: {fileID: 183674}
 --- !u!114 &11427390
@@ -478,6 +485,8 @@ MonoBehaviour:
   constantGravity: 0
   addlGravityOverTime: 0
   gravityDeadZoneRadius: .00499999989
+  soundEffectHandler: {fileID: 11439482}
+  playSoundOnStart: 1
   delay: .349999994
   detonationObject: {fileID: 179158}
 --- !u!114 &11430868
@@ -500,8 +509,41 @@ MonoBehaviour:
   constantGravity: 0
   addlGravityOverTime: 0
   gravityDeadZoneRadius: .00499999989
+  soundEffectHandler: {fileID: 11469314}
+  playSoundOnStart: 1
   delay: 0
   detonationObject: {fileID: 188776}
+--- !u!114 &11432798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: a983ad31929f5484b93ffb300ab22e2e, type: 3}
+  - {fileID: 8300000, guid: 58f9f27e08143894d9e09644cd8d3d1f, type: 3}
+  - {fileID: 8300000, guid: f76e8f298f28fac46a38183b8a929f90, type: 3}
+  playRandom: 1
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .800000012
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .0500000007
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11434394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -522,8 +564,72 @@ MonoBehaviour:
   constantGravity: 0
   addlGravityOverTime: 0
   gravityDeadZoneRadius: .00499999989
+  soundEffectHandler: {fileID: 11435040}
+  playSoundOnStart: 1
   delay: .600000024
   detonationObject: {fileID: 116620}
+--- !u!114 &11435040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: a983ad31929f5484b93ffb300ab22e2e, type: 3}
+  - {fileID: 8300000, guid: 58f9f27e08143894d9e09644cd8d3d1f, type: 3}
+  - {fileID: 8300000, guid: f76e8f298f28fac46a38183b8a929f90, type: 3}
+  playRandom: 1
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .800000012
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .0500000007
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &11439482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: a983ad31929f5484b93ffb300ab22e2e, type: 3}
+  - {fileID: 8300000, guid: 58f9f27e08143894d9e09644cd8d3d1f, type: 3}
+  - {fileID: 8300000, guid: f76e8f298f28fac46a38183b8a929f90, type: 3}
+  playRandom: 1
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .800000012
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .0500000007
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11467236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,6 +650,71 @@ MonoBehaviour:
   constantGravity: 0
   addlGravityOverTime: 0
   gravityDeadZoneRadius: .00499999989
+  soundEffectHandler: {fileID: 0}
+  playSoundOnStart: 1
+--- !u!114 &11469314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: a983ad31929f5484b93ffb300ab22e2e, type: 3}
+  - {fileID: 8300000, guid: 58f9f27e08143894d9e09644cd8d3d1f, type: 3}
+  - {fileID: 8300000, guid: f76e8f298f28fac46a38183b8a929f90, type: 3}
+  playRandom: 1
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .800000012
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .0500000007
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
+--- !u!114 &11486682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 228bd4eef7b653a429b25bf8f949ed3f, type: 3}
+  - {fileID: 8300000, guid: a983ad31929f5484b93ffb300ab22e2e, type: 3}
+  - {fileID: 8300000, guid: 58f9f27e08143894d9e09644cd8d3d1f, type: 3}
+  - {fileID: 8300000, guid: f76e8f298f28fac46a38183b8a929f90, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1.10000002
+  variableVolume: 0
+  volumeMin: .699999988
+  volumeMax: .899999976
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .0500000007
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11496160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -564,6 +735,8 @@ MonoBehaviour:
   constantGravity: 0
   addlGravityOverTime: 0
   gravityDeadZoneRadius: .00499999989
+  soundEffectHandler: {fileID: 11486682}
+  playSoundOnStart: 1
   delay: .850000024
   detonationObject: {fileID: 113490}
 --- !u!212 &21202830

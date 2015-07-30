@@ -142,13 +142,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markedForDeath: 0
   maxHitPoints: 50
-  currentHP: 0
+  privCurrentHP: 0
   damagedBy: 1
   invulnerable: 0
   damagedEffects:
   - {fileID: 11413010}
   deathEffects:
   - {fileID: 11431032}
+  pointValue: 100
 --- !u!114 &11425966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,6 +188,7 @@ MonoBehaviour:
   accelerationForce: 1600
   maxVelocity: 3200
   movementDelay: 0
+  forceMultiplier: 1
   magnitude: .600000024
   frequency: 8
   randomSeed: 0
@@ -362,6 +364,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: flickerRate
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

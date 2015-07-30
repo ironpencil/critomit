@@ -26,6 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 472558}
   - 114: {fileID: 11422114}
+  - 114: {fileID: 11448166}
   m_Layer: 0
   m_Name: SpawnerDeathExplosion
   m_TagString: Untagged
@@ -52,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -12.4775667, y: 1.03143883, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 457520}
@@ -95,6 +96,39 @@ MonoBehaviour:
   constantGravity: 0
   addlGravityOverTime: 0
   gravityDeadZoneRadius: 0
+  soundEffectHandler: {fileID: 11448166}
+  playSoundOnStart: 1
+--- !u!114 &11448166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: a983ad31929f5484b93ffb300ab22e2e, type: 3}
+  - {fileID: 8300000, guid: 7c4669692df39804dae819fad6b8caaa, type: 3}
+  - {fileID: 8300000, guid: 58f9f27e08143894d9e09644cd8d3d1f, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: .5
+  variableVolume: 1
+  volumeMin: .800000012
+  volumeMax: 1
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .0500000007
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!212 &21256336
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -66,6 +66,8 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
 	public override void Start () {
         base.Start();
 
+        if (this == null) { return; }
+
         if (loadMapOnStart)
         {
             LoadMap();

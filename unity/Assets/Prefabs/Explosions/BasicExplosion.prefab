@@ -27,6 +27,7 @@ GameObject:
   - 4: {fileID: 422898}
   - 114: {fileID: 11498602}
   - 58: {fileID: 5843988}
+  - 114: {fileID: 11430404}
   m_Layer: 0
   m_Name: BasicExplosion
   m_TagString: Untagged
@@ -41,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.43642616, y: -1.86432338, z: 0}
+  m_LocalPosition: {x: -22.4236927, y: 1.53595221, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 428836}
@@ -89,6 +90,35 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11430404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: a983ad31929f5484b93ffb300ab22e2e, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .699999988
+  volumeMax: .800000012
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!114 &11498602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,12 +133,14 @@ MonoBehaviour:
   duration: .5
   damageType: 1
   doApplyDamage: 1
-  initialDamage: 25
-  damageOverTime: 10
+  initialDamage: 50
+  damageOverTime: 0
   doApplyGravity: 1
   constantGravity: -25
   addlGravityOverTime: 0
   gravityDeadZoneRadius: 0
+  soundEffectHandler: {fileID: 11430404}
+  playSoundOnStart: 1
 --- !u!212 &21282956
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -164,7 +196,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: initialDamage
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: duration
@@ -209,6 +241,26 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingLayerID
       value: 2015625037
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pitchMin
+      value: .75
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pitchMax
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: volumeMin
+      value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playDelayMax
+      value: .00999999978
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: volumeMax
+      value: .800000012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

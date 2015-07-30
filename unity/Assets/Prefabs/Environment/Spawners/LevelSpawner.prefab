@@ -14,6 +14,8 @@ GameObject:
   - 114: {fileID: 11430946}
   - 114: {fileID: 11493700}
   - 114: {fileID: 11486690}
+  - 114: {fileID: 11464366}
+  - 114: {fileID: 11496854}
   m_Layer: 13
   m_Name: LevelSpawner
   m_TagString: Untagged
@@ -44,7 +46,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -30, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429306}
@@ -103,12 +105,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markedForDeath: 0
-  maxHitPoints: 100
+  maxHitPoints: 150
   privCurrentHP: 0
   damagedBy: 1
   invulnerable: 0
   damagedEffects:
   - {fileID: 11493700}
+  - {fileID: 11464366}
   deathEffects:
   - {fileID: 11486690}
   pointValue: 100
@@ -124,9 +127,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastSpawn: 0
-  enemyType: 1
+  enemyType: 0
   spawnerActive: 0
   forceOff: 0
+  addIndicator: 1
+--- !u!114 &11464366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d523c9c32610542a57434da06db748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectHandler: {fileID: 11496854}
 --- !u!114 &11486690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,6 +172,35 @@ MonoBehaviour:
   targetColor: {r: .375, g: 0, b: 0, a: 1}
   duration: .100000001
   flickerRate: .100000001
+--- !u!114 &11496854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 980eadfff8e4d8546a12074c531cbf78, type: 3}
+  playRandom: 0
+  underwater: 0
+  volume: 1
+  variableVolume: 1
+  volumeMin: .600000024
+  volumeMax: .800000012
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .075000003
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .75
+  pitchMax: 1.25
+  playOneShot: 1
 --- !u!212 &21200366
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -235,7 +280,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxHitPoints
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damagedBy

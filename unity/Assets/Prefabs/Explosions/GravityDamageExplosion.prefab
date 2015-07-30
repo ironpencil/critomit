@@ -42,13 +42,14 @@ GameObject:
   m_Component:
   - 4: {fileID: 494732}
   - 212: {fileID: 21283650}
+  - 95: {fileID: 9598674}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &130790
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +60,7 @@ GameObject:
   - 4: {fileID: 401514}
   - 58: {fileID: 5801946}
   - 114: {fileID: 11492992}
+  - 114: {fileID: 11465890}
   m_Layer: 0
   m_Name: Explode
   m_TagString: Untagged
@@ -75,6 +77,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 411280}
   - 212: {fileID: 21240010}
+  - 95: {fileID: 9541404}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -103,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 145270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 320, y: 320, z: 1}
+  m_LocalScale: {x: 13, y: 13, z: 1}
   m_Children: []
   m_Father: {fileID: 470504}
   m_RootOrder: 0
@@ -114,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -11.7745848, y: -1.18297863, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470504}
@@ -142,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 114042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 128, y: 128, z: 1}
+  m_LocalScale: {x: 3.20000005, y: 3.20000005, z: 1}
   m_Children: []
   m_Father: {fileID: 401514}
   m_RootOrder: 0
@@ -171,7 +174,41 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 4
+--- !u!95 &9541404
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145270}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b0acccf2b18333c46b0909dea69a673d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9598674
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11b7fb8d3acc38943ada4e9e1b74c686, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11422812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,6 +229,37 @@ MonoBehaviour:
   constantGravity: 0
   addlGravityOverTime: 0
   gravityDeadZoneRadius: .00499999989
+  soundEffectHandler: {fileID: 0}
+  playSoundOnStart: 1
+--- !u!114 &11465890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: a983ad31929f5484b93ffb300ab22e2e, type: 3}
+  playRandom: 0
+  underwater: 1
+  volume: 1
+  variableVolume: 1
+  volumeMin: .600000024
+  volumeMax: .699999988
+  playDelay: 0
+  variableDelay: 1
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .899999976
+  pitchMax: 1.39999998
+  playOneShot: 1
 --- !u!114 &11477052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,12 +275,15 @@ MonoBehaviour:
   damageType: 1
   doApplyDamage: 0
   initialDamage: 0
-  damageOverTime: 5
+  damageOverTime: 0
   doApplyGravity: 1
-  constantGravity: 40
+  constantGravity: 60
   addlGravityOverTime: 0
   gravityDeadZoneRadius: 0
+  soundEffectHandler: {fileID: 0}
+  playSoundOnStart: 1
   delay: 0
+  detonationObject: {fileID: 145270}
 --- !u!114 &11492992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,16 +295,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f7854904088cf45896990ffee96e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: .200000003
+  duration: .5
   damageType: 1
   doApplyDamage: 1
-  initialDamage: 30
-  damageOverTime: 5
+  initialDamage: 40
+  damageOverTime: 0
   doApplyGravity: 1
   constantGravity: -30
   addlGravityOverTime: 0
   gravityDeadZoneRadius: 0
+  soundEffectHandler: {fileID: 11465890}
+  playSoundOnStart: 0
   delay: 1
+  detonationObject: {fileID: 114042}
 --- !u!212 &21240010
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -258,8 +332,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: c4fca4d2be37abc429d763ec1c25e633, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: .352999985}
+  m_Sprite: {fileID: 21300000, guid: 79f37464f8194504ab52f9967740d420, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: .294117659}
 --- !u!212 &21283650
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -284,8 +358,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: c4fca4d2be37abc429d763ec1c25e633, type: 3}
-  m_Color: {r: .441176474, g: .0129757915, b: .0129757915, a: .397000015}
+  m_Sprite: {fileID: 21300004, guid: b4a7c3cf38886c948b89ac5aceff491d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -295,7 +369,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: initialDamage
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damageOverTime

@@ -1076,12 +1076,12 @@ MonoBehaviour:
   initialValue: 1
   maxValue: 1
   incrementValue: 1
-  initialWeight: 4
+  initialWeight: 1
   decrementedWeight: 0
   currentWeight: 0
   cumulativeWeight: 0
-  mutatorName: Spatial anomalies detected
-  mutatorDescription: 
+  mutatorName: ???
+  mutatorDescription: Spatial anomalies detected
 --- !u!114 &11424564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1196,6 +1196,8 @@ MonoBehaviour:
   screenShakeFactor: 1
   screenShakeMax: 5
   cameraSpinEnabled: 1
+  equippedPrimaryWeapon: 0
+  equippedSecondaryWeapon: 0
 --- !u!114 &11443020
 MonoBehaviour:
   m_ObjectHideFlags: 1

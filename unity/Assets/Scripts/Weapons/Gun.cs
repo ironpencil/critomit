@@ -16,7 +16,10 @@ public class Gun : BaseWeapon
 
     public Vector2 shooterForce = new Vector2(-40000, 0);
 
-    public CameraShaker cameraShaker;    
+    public CameraShaker cameraShaker;
+
+    public ParticleSystem particleSystem;
+    public Vector2 minMaxParticles = new Vector2(6, 12);
 
     public bool autoFire = true;
 
@@ -102,6 +105,11 @@ public class Gun : BaseWeapon
                     {
                         cameraShaker.Shake();
                     }
+
+                    if (particleSystem != null)
+                    {
+                        particleSystem.Emit((int)Random.Range(minMaxParticles.x, minMaxParticles.y));
+                    }                    
 
                     lastShot = Time.fixedTime;
                     if (varyFireDelay && fireDelayVariantRange > 0.0f)

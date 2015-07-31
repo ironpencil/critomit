@@ -101,6 +101,11 @@ public class RemoteLauncher : Gun
 
                 shooter.AddRelativeForce(shooterForce);
 
+                if (particleSystem != null)
+                {
+                    particleSystem.Emit((int)Random.Range(minMaxParticles.x, minMaxParticles.y));
+                }  
+
                 if (cameraShaker != null)
                 {
                     cameraShaker.Shake();

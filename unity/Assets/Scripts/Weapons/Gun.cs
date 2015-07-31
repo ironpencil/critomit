@@ -159,7 +159,7 @@ public class Gun : BaseWeapon
 
         
 
-        //Debug.Log("Fire() pv=" + previousVelocity + " v=" + bulletRB.velocity);
+        //DebugLogger.Log("Fire() pv=" + previousVelocity + " v=" + bulletRB.velocity);
     }
 
     public override void SelectWeapon()

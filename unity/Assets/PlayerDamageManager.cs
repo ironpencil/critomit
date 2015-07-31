@@ -61,7 +61,7 @@ public class PlayerDamageManager : TakesDamage {
         if (markedForDeath)
         {
             //player died
-            Debug.Log("Player is dead!");
+            DebugLogger.Log("Player is dead!");
             EventTextManager.Instance.AddEvent(@"!! (OH NO!> \(*.*')/ !!", 1000.0f, true);
 
             Globals.Instance.PlayerDied();

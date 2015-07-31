@@ -590,7 +590,7 @@ GameObject:
   - 222: {fileID: 22267866}
   - 114: {fileID: 11446778}
   m_Layer: 5
-  m_Name: Options
+  m_Name: WARNING
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1959,17 +1959,25 @@ MonoBehaviour:
   m_Color: {r: .282352954, g: .929411829, b: .737254918, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7efd2aa4089bca34eb0d82494e46ce6c, type: 3}
-    m_FontSize: 32
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: .550000012
-  m_Text: HERE ARE SOME OPTIONS
+  m_Text: 'WARNING WARNING WARNING
+
+    DANGER DANGER DANGER
+
+    WARNING WARNING WARNING
+
+    DANGER DANGER DANGER
+
+    WARNING WARNING WARNING'
 --- !u!114 &11447846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3003,7 +3011,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: .550000012
-  m_Text: MAIN MENU
+  m_Text: MASTER CONTROL PANEL
 --- !u!114 &11497432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3416,8 +3424,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22499128}
-  - {fileID: 22474120}
   - {fileID: 22487956}
+  - {fileID: 22474120}
   m_Father: {fileID: 22460836}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -3845,7 +3853,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22497432}
-  - {fileID: 22466828}
   - {fileID: 22495840}
   - {fileID: 22460836}
   - {fileID: 22467916}
@@ -3972,10 +3979,10 @@ RectTransform:
   - {fileID: 22460062}
   - {fileID: 22408808}
   m_Father: {fileID: 22452580}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 140, y: -180}
+  m_AnchoredPosition: {x: 140, y: 30}
   m_SizeDelta: {x: 220, y: 90}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22466828
@@ -3988,11 +3995,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 22452580}
-  m_RootOrder: 1
+  m_Father: {fileID: 22467916}
+  m_RootOrder: 0
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchoredPosition: {x: 0, y: 65}
   m_SizeDelta: {x: 216, y: 168}
   m_Pivot: {x: .5, y: 1}
 --- !u!224 &22467654
@@ -4022,12 +4029,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 22466828}
   - {fileID: 22467918}
   m_Father: {fileID: 22452580}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -150}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22467918
@@ -4042,7 +4050,7 @@ RectTransform:
   m_Children:
   - {fileID: 22495298}
   m_Father: {fileID: 22467916}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: .5}
   m_AnchorMax: {x: 1, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4116,7 +4124,7 @@ RectTransform:
   - {fileID: 22436706}
   - {fileID: 22485582}
   m_Father: {fileID: 22408808}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4332,7 +4340,7 @@ RectTransform:
   - {fileID: 22424306}
   - {fileID: 22479868}
   m_Father: {fileID: 22408808}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4403,10 +4411,10 @@ RectTransform:
   - {fileID: 22435088}
   - {fileID: 22469506}
   m_Father: {fileID: 22452580}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -140, y: -180}
+  m_AnchoredPosition: {x: -140, y: 30}
   m_SizeDelta: {x: 220, y: 90}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22497432

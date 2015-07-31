@@ -24,7 +24,7 @@ public class ButtonSelectionHandler : MonoBehaviour, ISelectHandler, IPointerEnt
 
     public void OnSelect(BaseEventData eventData)
     {
-        Debug.Log(gameObject.name + " selected!");
+        DebugLogger.Log(gameObject.name + " selected!");
 
         if (playSoundOnSelect)
         {

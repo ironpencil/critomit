@@ -59,6 +59,9 @@ public class Globals : Singleton<Globals> {
     public float screenShakeMax = 5.0f;
     public bool cameraSpinEnabled = true;
 
+    public int equippedPrimaryWeapon = 0;
+    public int equippedSecondaryWeapon = 0;
+
 
 
     //private void LoadGameState(GameState state)
@@ -97,10 +100,10 @@ public class Globals : Singleton<Globals> {
 
         switch (level)
         {
-            case GameLevel.Title:
-                levelName = "title";
-                currentState = GameState.Title;
-                break;
+            //case GameLevel.Title:
+            //    levelName = "title";
+            //    currentState = GameState.Title;
+            //    break;
             case GameLevel.Lobby:
                 levelName = "lobby";
                 if (currentState != GameState.Lobby)
@@ -117,25 +120,39 @@ public class Globals : Singleton<Globals> {
                 }
                 currentState = GameState.Arena;
                 break;
-            case GameLevel.Level1:
-                levelName = "level1";
-                currentState = GameState.Campaign;
-                break;
-            case GameLevel.Level2:
-                levelName = "level2";
-                currentState = GameState.Campaign;
-                break;
-            case GameLevel.Level3:
-                levelName = "level3";
-                currentState = GameState.Campaign;
-                break;
+            //case GameLevel.Level1:
+            //    levelName = "level1";
+            //    currentState = GameState.Campaign;
+            //    break;
+            //case GameLevel.Level2:
+            //    levelName = "level2";
+            //    currentState = GameState.Campaign;
+            //    break;
+            //case GameLevel.Level3:
+            //    levelName = "level3";
+            //    currentState = GameState.Campaign;
+            //    break;
             default:
-                Debug.LogError("Attempting to load invalid level!");
+                DebugLogger.LogError("Attempting to load invalid level!");
                 loadingLevel = false;
                 return;
         }
+
         
         //ArenaManager.Instance.enabled = (currentState == GameState.Arena);
+
+        acceptPlayerGameInput = false;
+
+        try
+        {
+            equippedPrimaryWeapon = ObjectManager.Instance.weaponController.GetEquippedWeaponIndex(WeaponLocation.Primary);
+            equippedSecondaryWeapon = ObjectManager.Instance.weaponController.GetEquippedWeaponIndex(WeaponLocation.Secondary);
+        }
+        catch
+        {
+            equippedPrimaryWeapon = 0;
+            equippedSecondaryWeapon = 0;
+        }
 
         targetLevel = level;
         StartCoroutine(DoLoadLevel(levelName));
@@ -191,12 +208,16 @@ public class Globals : Singleton<Globals> {
         //    Pause(true);
         //}        
 
-        Debug.Log("Globals: New Level Setup");
-        
+        DebugLogger.Log("Globals: New Level Setup");
+
+        ObjectManager.Instance.weaponController.primaryWeaponIndex = equippedPrimaryWeapon;
+        ObjectManager.Instance.weaponController.secondaryWeaponIndex = equippedSecondaryWeapon;
 
         DoFadeScreenIn();
 
         yield return null;
+
+        
 
         EnableWaterFilter(waterFilterEnabled);
 
@@ -256,13 +277,13 @@ public class Globals : Singleton<Globals> {
 
     public void PlayerDied()
     {
-        Debug.Log("Player Died. CurrentLevel = " + Enum.GetName(typeof(GameLevel), currentLevel));
+        DebugLogger.Log("Player Died. CurrentLevel = " + Enum.GetName(typeof(GameLevel), currentLevel));
         switch (currentLevel)
         {
-            case GameLevel.Title:
-                ObjectManager.Instance.DestroyPlayer();
-                StartCoroutine(WaitAndLoadLevel(5.0f, GameLevel.Lobby));
-                break;
+            //case GameLevel.Title:
+            //    ObjectManager.Instance.DestroyPlayer();
+            //    StartCoroutine(WaitAndLoadLevel(5.0f, GameLevel.Lobby));
+            //    break;
             case GameLevel.Lobby:
                 ObjectManager.Instance.DestroyPlayer();
                 StartCoroutine(WaitAndLoadLevel(5.0f, GameLevel.Lobby));
@@ -273,15 +294,15 @@ public class Globals : Singleton<Globals> {
                 //ArenaManager.Instance.Reset();
                 StartCoroutine(WaitAndLoadLevel(5.0f, GameLevel.Lobby));
                 break;
-            case GameLevel.Level1:
-                ObjectManager.Instance.DestroyAndRespawnPlayer();
-                break;
-            case GameLevel.Level2:
-                ObjectManager.Instance.DestroyAndRespawnPlayer();
-                break;
-            case GameLevel.Level3:
-                ObjectManager.Instance.DestroyAndRespawnPlayer();
-                break;
+            //case GameLevel.Level1:
+            //    ObjectManager.Instance.DestroyAndRespawnPlayer();
+            //    break;
+            //case GameLevel.Level2:
+            //    ObjectManager.Instance.DestroyAndRespawnPlayer();
+            //    break;
+            //case GameLevel.Level3:
+            //    ObjectManager.Instance.DestroyAndRespawnPlayer();
+            //    break;
             default:
                 break;
         }

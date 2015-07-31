@@ -86,6 +86,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8d6ac110d26c88941b9ef4d654236e26, type: 3}
   playRandom: 0
   underwater: 0
+  is3d: 0
   volume: 1
   variableVolume: 0
   volumeMin: .899999976
@@ -100,6 +101,7 @@ MonoBehaviour:
   pitchMin: .949999988
   pitchMax: 1.04999995
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11432972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,6 +153,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: StartWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11433372
@@ -168,6 +181,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 61b32d0f944ff8844a8a34389d0a5e56, type: 3}
   playRandom: 0
   underwater: 0
+  is3d: 0
   volume: 1
   variableVolume: 0
   volumeMin: .899999976
@@ -182,6 +196,7 @@ MonoBehaviour:
   pitchMin: .949999988
   pitchMax: 1.04999995
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11435956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,6 +233,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0d264c58c78bd6a45a5b4328b48a1e0d, type: 3}
   playRandom: 0
   underwater: 0
+  is3d: 0
   volume: 1
   variableVolume: 0
   volumeMin: .899999976
@@ -232,6 +248,7 @@ MonoBehaviour:
   pitchMin: .949999988
   pitchMax: 1.04999995
   playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11498902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,7 +274,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: .550000012
-  m_Text: RETURN TO LOBBY
+  m_Text: START WAVE
 --- !u!222 &22206346
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -324,9 +341,9 @@ RectTransform:
   - {fileID: 22435956}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: .5, y: 0}
+  m_AnchorMax: {x: .5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000

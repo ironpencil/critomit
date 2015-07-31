@@ -23,6 +23,7 @@ public class ScoreManager : Singleton<ScoreManager> {
 
     [SerializeField]
     private long currentWaveMultiplier = 1;
+    public long highestWaveMultiplier = 1;
 
     public long CurrentWaveMultiplier
     {
@@ -31,6 +32,10 @@ public class ScoreManager : Singleton<ScoreManager> {
         {
             currentWaveMultiplier = value;
             UpdateMultiplierDisplay();
+            if (currentWaveMultiplier > highestWaveMultiplier)
+            {
+                highestWaveMultiplier = currentWaveMultiplier;
+            }
         }
     }
 
@@ -57,6 +62,8 @@ public class ScoreManager : Singleton<ScoreManager> {
             }
         }
     }
+
+    public int totalWaveKills = 0;
 
     public SoundEffectHandler multiplierGainedSound;
     public SoundEffectHandler multiplierLostSound;
@@ -91,6 +98,10 @@ public class ScoreManager : Singleton<ScoreManager> {
     {
         CurrentKills += kills;
         AddPoints(points, true);
+        if (kills > 0)
+        {
+            totalWaveKills++; //only add 1 for each enemy killed regardless of kill value
+        }
     }
 
     public void ResetMultiplier()
@@ -121,6 +132,12 @@ public class ScoreManager : Singleton<ScoreManager> {
     public void ResetKillCounter()
     {
         CurrentKills = 0;
+        totalWaveKills = 0;
+    }
+
+    public void ResetHighestMultiplier()
+    {
+        highestWaveMultiplier = 1;
     }
 
     public void RefreshPointsDisplay()

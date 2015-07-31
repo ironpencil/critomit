@@ -13,7 +13,14 @@ public class EndWaveDialog : MonoBehaviour {
     public int maxDisplayedBonuses = 15;
 
     public bool earnedEndWaveBonus = true;
-    public long endWaveBonus = 10000;
+    public long endWaveBonus = 5000;
+
+    public long healthLeftBonus = 10000;
+    public long highestMultiplierBonus = 1000;
+
+    public long enemiesKilledBonus = 100;
+
+
 
     public long totalBonusPoints = 0;
 
@@ -58,23 +65,62 @@ public class EndWaveDialog : MonoBehaviour {
 
         if (earnedEndWaveBonus)
         {
-            bonusDescriptions.Add("WAVE COMPLETE BONUS: " + endWaveBonus);
+            bonusDescriptions.Add("WAVE COMPLETE: " + endWaveBonus);
             totalBonusPoints += endWaveBonus;
         }
 
+        long remainingHPBonus = 0;
 
+        PlayerDamageManager pdm = null;
+        if (ObjectManager.Instance.player != null)
+        {
+            pdm = ObjectManager.Instance.player.GetComponent<PlayerDamageManager>();
+        }
+
+        if (pdm != null)
+        {
+            remainingHPBonus = (long) ((pdm.CurrentHP / pdm.MaxHitPoints) * healthLeftBonus);
+        }
+
+        if (remainingHPBonus > 0)
+        {
+            bonusDescriptions.Add("HEALTH REMAINING: " + remainingHPBonus);
+            totalBonusPoints += remainingHPBonus;
+        }
+
+        long enemiesKilled = ScoreManager.Instance.totalWaveKills;
+
+        long killedBonus = enemiesKilled * enemiesKilledBonus;
+
+        bonusDescriptions.Add("ENEMIES KILLED: X" + enemiesKilled + " = " + killedBonus);
+        totalBonusPoints += killedBonus;
+
+        long highestMultiplier = ScoreManager.Instance.highestWaveMultiplier;
+
+        long highestMultBonus = highestMultiplierBonus * highestMultiplier;
+
+        bonusDescriptions.Add("HIGHEST MULTIPLIER: X" + highestMultiplier + " = " + highestMultBonus);
+        totalBonusPoints += highestMultBonus;
+
+        bonusDescriptions.Add("TOTAL WAVE BONUS: " + totalBonusPoints + "\r\nWAVE MULTIPLIER: X" + ArenaManager.Instance.wavesCompleted);
+
+        totalBonusPoints = totalBonusPoints * ArenaManager.Instance.wavesCompleted;
+        bonusDescriptions.Add("TOTAL: " + totalBonusPoints);
 
         bool doubleSpace = MutatorManager.Instance.pendingMutators.Count < bonusSingleLineThreshold;
 
         List<string> bonusText = new List<string>();
 
+        bool addSpace = false;
         foreach (string bonusDescription in bonusDescriptions)
         {
-            bonusText.Add(bonusDescription);
-            if (doubleSpace)
+            if (addSpace && doubleSpace)
             {
-                bonusText.Add("");
+                bonusText.Add("");                
             }
+            bonusText.Add(bonusDescription);
+
+            addSpace = true;
         }
 
         int blankLines = maxDisplayedBonuses - bonusText.Count;

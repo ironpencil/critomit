@@ -123,18 +123,18 @@ public class PlayerInput : MonoBehaviour {
 
         }
 
-        if (Input.GetButtonDown("Switch Special"))
-        {
-            ObjectManager.Instance.weaponController.CycleWeapon(WeaponLocation.Utility);
+        //if (Input.GetButtonDown("Switch Special"))
+        //{
+        //    ObjectManager.Instance.weaponController.CycleWeapon(WeaponLocation.Utility);
 
-            //utilityWeaponIndex++;
-            //if (utilityWeaponIndex >= utilityWeapons.Count)
-            //{
-            //    utilityWeaponIndex = 0;
-            //}
-            //utilityWeapons[utilityWeaponIndex].SelectWeapon();
+        //    //utilityWeaponIndex++;
+        //    //if (utilityWeaponIndex >= utilityWeapons.Count)
+        //    //{
+        //    //    utilityWeaponIndex = 0;
+        //    //}
+        //    //utilityWeapons[utilityWeaponIndex].SelectWeapon();
 
-        }
+        //}
 
         if (Input.GetKeyDown(KeyCode.K))
         {

@@ -25,7 +25,7 @@ public class MenuVolumeControl : MonoBehaviour {
 
     public void UpdateVolumeSliders()
     {
-        Debug.Log("Volume Control: Updating Sliders");
+        DebugLogger.Log("Volume Control: Updating Sliders");
         masterVolume.audioSlider.value = AudioManager.Instance.GetMasterVolume();
         musicVolume.audioSlider.value = AudioManager.Instance.GetMusicVolume();
         sfxVolume.audioSlider.value = AudioManager.Instance.GetSFXVolume();

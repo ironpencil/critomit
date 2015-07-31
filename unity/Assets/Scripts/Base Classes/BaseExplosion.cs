@@ -165,7 +165,7 @@ public class BaseExplosion : MonoBehaviour
             
         }
 
-        //Debug.Log("FixedUpdate(): initialDamageDone=" + preDamageDone + ". nextDamage=" + nextDamage + ". t=" + Time.fixedTime);
+        //DebugLogger.Log("FixedUpdate(): initialDamageDone=" + preDamageDone + ". nextDamage=" + nextDamage + ". t=" + Time.fixedTime);
     }
 
     public virtual void OnTriggerStay2D(Collider2D other)
@@ -173,7 +173,7 @@ public class BaseExplosion : MonoBehaviour
         //don't affect other trigger colliders
         if (!other.isTrigger)
         {
-            //Debug.Log("!!!!!!!!!!OnTriggerStay2D() t=" + Time.fixedTime);
+            //DebugLogger.Log("!!!!!!!!!!OnTriggerStay2D() t=" + Time.fixedTime);
             CollideWithObject(other);            
         }
     }
@@ -183,7 +183,7 @@ public class BaseExplosion : MonoBehaviour
         //don't affect other trigger colliders
         if (!other.isTrigger)
         {
-            //Debug.Log("!!!!!!!!!!OnTriggerEnter2D() t=" + Time.fixedTime);
+            //DebugLogger.Log("!!!!!!!!!!OnTriggerEnter2D() t=" + Time.fixedTime);
             CollideWithObject(other);
         }
     }
@@ -199,10 +199,10 @@ public class BaseExplosion : MonoBehaviour
             if (enemy != null)
             {
                 enemy.ApplyDamage(nextDamage, damageType, null);
-                //Debug.Log("Applying " + nextDamage + " to " + enemy.name + ":" + enemy.GetInstanceID());
+                //DebugLogger.Log("Applying " + nextDamage + " to " + enemy.name + ":" + enemy.GetInstanceID());
                 //if (destroyed)
                 //{
-                //    Debug.Log("Destroyed!");
+                //    DebugLogger.Log("Destroyed!");
                 //}
             }
         }

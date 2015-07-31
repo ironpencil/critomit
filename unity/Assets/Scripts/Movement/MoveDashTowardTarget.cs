@@ -6,12 +6,19 @@ public class MoveDashTowardTarget : BaseMovement {
     public bool isDashing = false;
     public bool canDash = true;
 
+    public Animator dashAnimator;
+    
     public void FixedUpdate()
     {
         if (Time.fixedTime > nextMovementTime)
         {
             isDashing = false;
             canDash = true;
+
+            if (dashAnimator != null)
+            {
+                dashAnimator.SetBool(AnimationParams.IS_CHOMPING, false);
+            }
         }
     }
 
@@ -30,6 +37,11 @@ public class MoveDashTowardTarget : BaseMovement {
                 nextMovementTime = Time.fixedTime + movementDelay;
                 isDashing = true;
                 canDash = false;
+
+                if (dashAnimator != null)
+                {
+                    dashAnimator.SetBool(AnimationParams.IS_CHOMPING, true);
+                }        
             }
         }
     }

@@ -90,7 +90,7 @@ public class GUIManager : Singleton<GUIManager> {
                 yield return null;
             }
 
-            Debug.Log("All message boxes open.");
+            DebugLogger.Log("All message boxes open.");
         }
         
     }

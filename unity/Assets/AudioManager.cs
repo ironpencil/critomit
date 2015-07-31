@@ -80,7 +80,7 @@ public class AudioManager : Singleton<AudioManager> {
             ignoreUnderwater = !ignoreUnderwater;
         }
 
-        //Debug.Log("Audio dspTime=" + AudioSettings.dspTime);
+        //DebugLogger.Log("Audio dspTime=" + AudioSettings.dspTime);
 	}
 
     public void DuckMusic()
@@ -141,7 +141,7 @@ public class AudioManager : Singleton<AudioManager> {
         StartCoroutine(StopLobbyMusicAfterSeconds(toArenaTransition, false));
         
         //arenaSource1.PlayScheduled(AudioSettings.dspTime + 10.0f);
-        //Debug.Log("Scheduling source to play at " + AudioSettings.dspTime + 10.0f);
+        //DebugLogger.Log("Scheduling source to play at " + AudioSettings.dspTime + 10.0f);
         //if (arenaMusic.Count > 0)
         //{
         //    currentMusic = arenaMusic[Random.Range(0, arenaMusic.Count)];
@@ -246,7 +246,7 @@ public class AudioManager : Singleton<AudioManager> {
         
         nextArenaSource.clip = arenaMusic[nextClip];
 
-        Debug.Log("Scheduling clip. Length = " + length + " Delay = " + scheduleDelay);
+        DebugLogger.Log("Scheduling clip. Length = " + length + " Delay = " + scheduleDelay);
 
         nextArenaSource.PlayScheduled(currentClipStopTime);
         nextClipStopTime = currentClipStopTime + nextArenaSource.clip.length;
@@ -258,7 +258,7 @@ public class AudioManager : Singleton<AudioManager> {
         //and schedule the next clip on this one
         if (!currentArenaSource.isPlaying)
         {
-            Debug.Log("Current AudioSource stopped playing. Switching sources.");
+            DebugLogger.Log("Current AudioSource stopped playing. Switching sources.");
             AudioSource currentlyPlaying = nextArenaSource;
             nextArenaSource = currentArenaSource;
             currentArenaSource = currentlyPlaying;

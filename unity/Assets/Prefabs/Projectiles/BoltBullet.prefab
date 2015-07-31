@@ -12,7 +12,7 @@ GameObject:
   - 58: {fileID: 5813486}
   - 114: {fileID: 11478896}
   m_Layer: 9
-  m_Name: BasicRocket
+  m_Name: BoltBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 440592}
   - 212: {fileID: 21276734}
-  - 95: {fileID: 9575742}
+  - 95: {fileID: 9587044}
   m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.8532619, y: .499437898, z: 0}
+  m_LocalPosition: {x: -17.1771927, y: .448955268, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440592}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195416}
   m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106709}
-  m_LocalPosition: {x: -.400000006, y: 0, z: 0}
+  m_LocalPosition: {x: -.150000006, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 410052}
@@ -67,8 +67,8 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139346}
-  m_Mass: 10
-  m_LinearDrag: 0
+  m_Mass: 1
+  m_LinearDrag: .25
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_IsKinematic: 0
@@ -88,8 +88,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: .275000006
---- !u!95 &9575742
+  m_Radius: .200000003
+--- !u!95 &9587044
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 195416}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f557298638065b94792618063e422a39, type: 2}
+  m_Controller: {fileID: 9100000, guid: 12f0964c31657714f8777eb3e1cb2dc0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -117,15 +117,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adf5fd374c494044a28f01fe077329b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 10
   damageType: 1
-  lifespan: .800000012
+  lifespan: 1
   die: 0
   shooter: {fileID: 0}
   shooterScript: {fileID: 0}
   remoteActivated: 0
-  activateOnDestroy: 1
-  explosionObject: {fileID: 11498602, guid: 945f8b300ad30ea4b98595d68a182057, type: 2}
+  activateOnDestroy: 0
+  explosionObject: {fileID: 11422114, guid: 8f8fabf5b17b6514badf27be9873de70, type: 2}
 --- !u!212 &21276734
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -150,7 +150,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 612d4ff260ce2af40ae96fa8e78f8a06, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e14e4dfc03c62f6439817452ecabd287, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -169,19 +169,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Mass
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lifespan
-      value: .800000012
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -225,12 +225,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: explosionObject
       value: 
-      objectReference: {fileID: 11498602, guid: 945f8b300ad30ea4b98595d68a182057,
+      objectReference: {fileID: 11422114, guid: cfac4fa4f22b10c478a9a1bbb40a60c3,
         type: 2}
     - target: {fileID: 0}
       propertyPath: m_Sprite
@@ -238,9 +238,21 @@ Prefab:
       objectReference: {fileID: 21300000, guid: e14e4dfc03c62f6439817452ecabd287,
         type: 3}
     - target: {fileID: 0}
+      propertyPath: activateOnDestroy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: damageType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 12f0964c31657714f8777eb3e1cb2dc0, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 139346}

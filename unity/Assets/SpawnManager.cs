@@ -61,7 +61,7 @@ public class SpawnManager : Singleton<SpawnManager> {
     // Use this for initialization
     public override void Start()
     {
-        Debug.Log("SpawnManager::Start()");
+        DebugLogger.Log("SpawnManager::Start()");
         destroyOnLoad = true;
 
         base.Start();
@@ -129,7 +129,7 @@ public class SpawnManager : Singleton<SpawnManager> {
     public GameObject SpawnEnemy(GameObject enemyPrefab, Transform spawnLocation)
     {
         if (enemyPrefab == null) {
-            Debug.Log("Tried to spawn null enemy.");
+            DebugLogger.Log("Tried to spawn null enemy.");
             return null;
         }
 

@@ -20,7 +20,7 @@ public class MutatorManager : Singleton<MutatorManager> {
 
     public void GenerateNewLevelMutators()
     {
-        Debug.Log("MutatorManager::GenerateNewLevelMutators()");
+        DebugLogger.Log("MutatorManager::GenerateNewLevelMutators()");
         // roll random chance to see if any new mutators need applied
         // save the selected mutators to be applied when the wave starts              
 

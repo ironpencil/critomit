@@ -55,7 +55,7 @@ public class TimedExplosion : BaseExplosion
         {
             base.FixedUpdate();
         }
-        //Debug.Log("FixedUpdate(): initialDamageDone=" + preDamageDone + ". nextDamage=" + nextDamage + ". t=" + Time.fixedTime);
+        //DebugLogger.Log("FixedUpdate(): initialDamageDone=" + preDamageDone + ". nextDamage=" + nextDamage + ". t=" + Time.fixedTime);
     }
 
     public override void CollideWithObject(Collider2D other)

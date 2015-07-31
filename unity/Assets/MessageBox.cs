@@ -77,7 +77,7 @@ public class MessageBox : MonoBehaviour {
 
     public IEnumerator ToggleAndWait()
     {
-        Debug.Log("Toggling - currently " + isOpen);
+        DebugLogger.Log("Toggling - currently " + isOpen);
 
         if (isOpen)
         {
@@ -97,10 +97,10 @@ public class MessageBox : MonoBehaviour {
     public IEnumerator OpenAndWait(float duration)
     {
         SetVisible(true);
-        //Debug.Log("Opening");
+        //DebugLogger.Log("Opening");
         if (isResizing)
         {
-            Debug.Log("OpenAndWait::StopCoroutine:" + gameObject.name);
+            DebugLogger.Log("OpenAndWait::StopCoroutine:" + gameObject.name);
             StopCoroutine(currentResize);
             StopCoroutine(currentHorizontalResize);
             StopCoroutine(currentVerticalResize);
@@ -129,13 +129,13 @@ public class MessageBox : MonoBehaviour {
     
     public IEnumerator CloseAndWait(float duration)
     {
-        //Debug.Log("Closing");
+        //DebugLogger.Log("Closing");
         isOpen = false; 
         EnableChildren(false);
 
         if (isResizing)
         {
-            Debug.Log("CloseAndWait::StopCoroutine:" + gameObject.name);
+            DebugLogger.Log("CloseAndWait::StopCoroutine:" + gameObject.name);
             StopCoroutine(currentResize);
             StopCoroutine(currentHorizontalResize);
             StopCoroutine(currentVerticalResize);
@@ -206,7 +206,7 @@ public class MessageBox : MonoBehaviour {
     {
         isResizing = true;
 
-        //Debug.Log("Resize " + gameObject.name + " start: t=" + Time.realtimeSinceStartup);
+        //DebugLogger.Log("Resize " + gameObject.name + " start: t=" + Time.realtimeSinceStartup);
         switch (resizeStyle)
         {
             case ResizeStyle.Simultaneous:
@@ -230,7 +230,7 @@ public class MessageBox : MonoBehaviour {
             default:
                 break;
         }
-        //Debug.Log("Resize " + gameObject.name + " complete: t=" + Time.realtimeSinceStartup);
+        //DebugLogger.Log("Resize " + gameObject.name + " complete: t=" + Time.realtimeSinceStartup);
 
         isResizing = false;
         //float elapsedTime = 0.0f;

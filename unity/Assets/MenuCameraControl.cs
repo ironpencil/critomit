@@ -26,7 +26,7 @@ public class MenuCameraControl : MonoBehaviour {
 
     public void UpdateCameraValues()
     {
-        Debug.Log("Camera Control: Updating Values");
+        DebugLogger.Log("Camera Control: Updating Values");
         shakeAdjuster.shakeSlider.value = Globals.Instance.screenShakeFactor;
         shakeAdjuster.AdjustShakeText();
         rotationAdjuster.camToggle.isOn = Globals.Instance.cameraSpinEnabled;

@@ -35,7 +35,7 @@ public class BaseBullet : MonoBehaviour {
 
     public virtual void Initialize(Vector2 velocity)
     {
-        //Debug.Log("Initializing v=" + velocity);
+        //DebugLogger.Log("Initializing v=" + velocity);
         currentVelocity = velocity;
         previousVelocity = velocity;
         initialized = true;
@@ -57,7 +57,7 @@ public class BaseBullet : MonoBehaviour {
 	// Update is called once per frame
     public virtual void Update()
     {
-        //Debug.Log("Update(): " + gameObject.GetInstanceID() + " v=" + thisRB.velocity);
+        //DebugLogger.Log("Update(): " + gameObject.GetInstanceID() + " v=" + thisRB.velocity);
         //lifeStory.AppendLine("Update()::v=" + thisRB.velocity);
 
         if (die > 0 && Time.time > die)
@@ -68,7 +68,7 @@ public class BaseBullet : MonoBehaviour {
 
     public virtual void FixedUpdate()
     {
-        //Debug.Log("FixedUpdate(): " + gameObject.GetInstanceID() + " v=" + thisRB.velocity);
+        //DebugLogger.Log("FixedUpdate(): " + gameObject.GetInstanceID() + " v=" + thisRB.velocity);
         //lifeStory.AppendLine("FixedUpdate()::v=" + thisRB.velocity);
 
         if (!initialized)
@@ -90,7 +90,7 @@ public class BaseBullet : MonoBehaviour {
     //use physics collision if this collider is a physics collider
     public virtual void OnCollisionEnter2D(Collision2D coll)
     {
-        //Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\nOnCollisionEnter2D: " + gameObject.GetInstanceID() + " v=" + thisRB.velocity);
+        //DebugLogger.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\nOnCollisionEnter2D: " + gameObject.GetInstanceID() + " v=" + thisRB.velocity);
 
         //lifeStory.AppendLine("OnCollisionEnter2D()::v=" + thisRB.velocity);
 

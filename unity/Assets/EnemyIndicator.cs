@@ -19,6 +19,6 @@ public class EnemyIndicator : MonoBehaviour {
 	void Update () {
 
         //Vector2 worldPos = RectTransformUtility.WorldToScreenPoint(null, indicatorRect.position);
-        //Debug.Log("Pos=" + indicatorRect.position + "|APos=" + indicatorRect.anchoredPosition + "|WPos=" + worldPos);      
+        //DebugLogger.Log("Pos=" + indicatorRect.position + "|APos=" + indicatorRect.anchoredPosition + "|WPos=" + worldPos);      
 	}
 }

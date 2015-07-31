@@ -38,7 +38,7 @@ public class WeaponController : MonoBehaviour {
             displayManager = ObjectManager.Instance.weaponDisplayManager;
         }
 
-        Debug.Log("WeaponController::Start()");
+        DebugLogger.Log("WeaponController::Start()");
 
         weaponSlots = new Dictionary<WeaponLocation, WeaponSlot>();
 
@@ -119,6 +119,25 @@ public class WeaponController : MonoBehaviour {
         
 	}
 
+    public int GetEquippedWeaponIndex(WeaponLocation weaponLocation)
+    {
+        int index = 0;
+
+        WeaponSlot slot;
+
+        if (weaponSlots.TryGetValue(weaponLocation, out slot))
+        {
+            index = slot.equippedWeaponIndex;
+        }
+        else
+        {
+            DebugLogger.LogError("ShootWeapon(): Invalid WeaponLocation!");
+        }
+
+        return index;
+
+    }
+
     public void ShootWeapon(WeaponLocation weaponLocation)
     {
         WeaponSlot slot;
@@ -129,7 +148,7 @@ public class WeaponController : MonoBehaviour {
         }
         else
         {
-            Debug.LogError("ShootWeapon(): Invalid WeaponLocation!");
+            DebugLogger.LogError("ShootWeapon(): Invalid WeaponLocation!");
         }
 
     }
@@ -147,7 +166,7 @@ public class WeaponController : MonoBehaviour {
         }
         else
         {
-            Debug.LogError("CycleWeapon(): Invalid WeaponLocation!");
+            DebugLogger.LogError("CycleWeapon(): Invalid WeaponLocation!");
         }
     }
 
@@ -176,7 +195,7 @@ public class WeaponController : MonoBehaviour {
         }
         else
         {
-            Debug.LogError("WeaponEquipped(): Invalid WeaponLocation!");
+            DebugLogger.LogError("WeaponEquipped(): Invalid WeaponLocation!");
         }
 
     }
@@ -195,7 +214,7 @@ public class WeaponController : MonoBehaviour {
         }
         else
         {
-            Debug.LogError("EquipCurrentWeapon(): Invalid WeaponLocation!");
+            DebugLogger.LogError("EquipCurrentWeapon(): Invalid WeaponLocation!");
         }
     }
 
@@ -213,7 +232,7 @@ public class WeaponController : MonoBehaviour {
     //    }
     //    else
     //    {
-    //        Debug.LogError("UnequipCurrentWeapon(): Invalid WeaponLocation!");
+    //        DebugLogger.LogError("UnequipCurrentWeapon(): Invalid WeaponLocation!");
     //    }
     //}
 

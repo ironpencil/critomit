@@ -1157,6 +1157,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 00fd73371844e1940b70681569a04c14, type: 3}
   playRandom: 0
   underwater: 1
+  is3d: 0
   volume: 1
   variableVolume: 1
   volumeMin: .899999976
@@ -1187,6 +1188,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7d826b3e3f3a5dc4f9af92c5043b1d12, type: 3}
   playRandom: 0
   underwater: 1
+  is3d: 0
   volume: 1
   variableVolume: 1
   volumeMin: .899999976
@@ -1217,6 +1219,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bc59b6b88a4af394498c4967df9b1a84, type: 3}
   playRandom: 0
   underwater: 1
+  is3d: 0
   volume: 1
   variableVolume: 1
   volumeMin: .899999976
@@ -1247,6 +1250,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 15cb409910e3695458bf09b0d421a09c, type: 3}
   playRandom: 0
   underwater: 1
+  is3d: 0
   volume: 1
   variableVolume: 1
   volumeMin: .899999976
@@ -1280,6 +1284,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: df1e45cd10068eb44be5583f1010dd28, type: 3}
   playRandom: 1
   underwater: 1
+  is3d: 0
   volume: .75
   variableVolume: 1
   volumeMin: .600000024
@@ -1310,7 +1315,7 @@ MonoBehaviour:
   animationController: {fileID: 9100000, guid: bb670a96a90493d4cb9d34faff95dd05, type: 2}
   weaponDisplayer: {fileID: 0}
   soundEffectHandler: {fileID: 0}
-  bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
+  bulletPrefab: {fileID: 139346, guid: 333d5069214d56444bcfa398d281bb3a, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
@@ -1369,6 +1374,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 087faaefae39efe4297bb7f29e718b5f, type: 3}
   playRandom: 0
   underwater: 1
+  is3d: 0
   volume: 1
   variableVolume: 0
   volumeMin: 1
@@ -1509,7 +1515,7 @@ MonoBehaviour:
   shooterForce: {x: -350000, y: 0}
   cameraShaker: {fileID: 11434194}
   autoFire: 1
-  fireDelay: .5
+  fireDelay: .600000024
   varyFireDelay: 0
   fireDelayVariantRange: 0
   continuousFire: 0
@@ -1528,6 +1534,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3ac0d75f69d1a4a49a6d4465b5494c7d, type: 3}
   playRandom: 0
   underwater: 1
+  is3d: 0
   volume: 1
   variableVolume: 1
   volumeMin: .899999976
@@ -1587,6 +1594,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dd54e75f90fd9c648863673fa1e695ce, type: 3}
   playRandom: 0
   underwater: 0
+  is3d: 0
   volume: 1
   variableVolume: 0
   volumeMin: .899999976
@@ -1692,7 +1700,7 @@ MonoBehaviour:
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
   soundEffectHandler: {fileID: 0}
-  bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
+  bulletPrefab: {fileID: 139346, guid: 333d5069214d56444bcfa398d281bb3a, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
@@ -1735,6 +1743,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6e4a11a5292228d478d39bce477c7db5, type: 3}
   playRandom: 0
   underwater: 1
+  is3d: 0
   volume: 1
   variableVolume: 1
   volumeMin: .899999976
@@ -1812,6 +1821,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: df1e45cd10068eb44be5583f1010dd28, type: 3}
   playRandom: 1
   underwater: 1
+  is3d: 0
   volume: .75
   variableVolume: 1
   volumeMin: .600000024
@@ -1934,6 +1944,8 @@ MonoBehaviour:
   - {fileID: 11444180}
   pointValue: 100
   killValue: 1
+  HPRegenAmount: 0
+  HPRegenDelay: 1
   playerSprites:
   - {fileID: 21246134}
   - {fileID: 21292884}
@@ -1959,6 +1971,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: df1e45cd10068eb44be5583f1010dd28, type: 3}
   playRandom: 1
   underwater: 1
+  is3d: 0
   volume: .75
   variableVolume: 1
   volumeMin: .600000024
@@ -2055,6 +2068,8 @@ MonoBehaviour:
   deathEffects: []
   pointValue: 100
   killValue: 1
+  HPRegenAmount: 0
+  HPRegenDelay: 1
   parentToDamage: {fileID: 11473810}
 --- !u!114 &11478552
 MonoBehaviour:
@@ -2084,6 +2099,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 549f7f3ec89ccb2448db3ef531b75aa8, type: 3}
   playRandom: 0
   underwater: 1
+  is3d: 0
   volume: 1
   variableVolume: 1
   volumeMin: .899999976
@@ -2114,6 +2130,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a0d853fb6815e444da48dfe9aa0df510, type: 3}
   playRandom: 0
   underwater: 1
+  is3d: 0
   volume: 1
   variableVolume: 1
   volumeMin: .100000001
@@ -2171,6 +2188,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0d785edf845604d45a1b71af1bc3e828, type: 3}
   playRandom: 0
   underwater: 0
+  is3d: 0
   volume: 1
   variableVolume: 0
   volumeMin: .899999976
@@ -2201,7 +2219,7 @@ MonoBehaviour:
   animationController: {fileID: 0}
   weaponDisplayer: {fileID: 0}
   soundEffectHandler: {fileID: 0}
-  bulletPrefab: {fileID: 139346, guid: c5036a1866eb2894fa4731e4044684d7, type: 2}
+  bulletPrefab: {fileID: 139346, guid: 333d5069214d56444bcfa398d281bb3a, type: 2}
   shooter: {fileID: 5008222}
   bulletsPerShot: 1
   bulletMinDirection: {x: 1, y: 0}
@@ -2209,7 +2227,7 @@ MonoBehaviour:
   bulletRotationRange: {x: -2, y: 2}
   bulletMinMaxForce: {x: 1100, y: 1200}
   shooterForce: {x: -40000, y: 0}
-  cameraShaker: {fileID: 0}
+  cameraShaker: {fileID: 11472512}
   autoFire: 1
   fireDelay: .100000001
   varyFireDelay: 1
@@ -2290,6 +2308,8 @@ MonoBehaviour:
   deathEffects: []
   pointValue: 100
   killValue: 1
+  HPRegenAmount: 0
+  HPRegenDelay: 1
   parentToDamage: {fileID: 11473810}
 --- !u!114 &11491454
 MonoBehaviour:

@@ -1006,7 +1006,9 @@ MonoBehaviour:
   addMultiplierKills: 10
   currentWavePoints: 0
   currentWaveMultiplier: 1
+  highestWaveMultiplier: 1
   currentKills: 0
+  totalWaveKills: 0
   multiplierGainedSound: {fileID: 11488212}
   multiplierLostSound: {fileID: 11458118}
 --- !u!114 &11409778
@@ -1189,7 +1191,7 @@ MonoBehaviour:
   currentLevel: 1
   paused: 0
   acceptPlayerGameInput: 1
-  playIntro: 0
+  playIntro: 1
   firstPanel: {fileID: 0}
   screenShakeFactor: 1
   screenShakeMax: 5
@@ -1286,7 +1288,7 @@ MonoBehaviour:
   currentWeight: 0
   cumulativeWeight: 0
   mutatorName: Alien
-  mutatorDescription: Enemies may split ([intvalue]%)
+  mutatorDescription: Enemies may split on death ([intvalue]%)
 --- !u!114 &11459832
 MonoBehaviour:
   m_ObjectHideFlags: 1

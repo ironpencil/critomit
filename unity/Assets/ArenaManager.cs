@@ -68,7 +68,7 @@ public class ArenaManager : Singleton<ArenaManager> {
             if (SpawnManager.Instance.EnemiesRemaining == 0 &&
                 SpawnManager.Instance.SpawnersRemaining == 0)
             {
-                Debug.Log("Level complete!");
+                DebugLogger.Log("Level complete!");
 
                 CompleteWave(true);
                 //LoadNextLevel();
@@ -82,7 +82,7 @@ public class ArenaManager : Singleton<ArenaManager> {
 
     //    //if (this == null) { return; }
 
-    //    //Debug.Log("ArenaManager[" + gameObject.GetInstanceID() + "]::OnLevelWasLoaded(" + level + ")"); 
+    //    //DebugLogger.Log("ArenaManager[" + gameObject.GetInstanceID() + "]::OnLevelWasLoaded(" + level + ")"); 
 
     //    //if (Globals.Instance.currentState == GameState.Arena)
     //    //{
@@ -92,7 +92,7 @@ public class ArenaManager : Singleton<ArenaManager> {
 
     public void Reset()
     {
-        Debug.Log("Resetting Arena");
+        DebugLogger.Log("Resetting Arena");
         wavesCompleted = 0;
         MutatorManager.Instance.Reset();
         //also clear all mutators
@@ -102,6 +102,7 @@ public class ArenaManager : Singleton<ArenaManager> {
     {
         ScoreManager.Instance.VerifyMinimumMultiplier();
         ScoreManager.Instance.ResetKillCounter();
+        ScoreManager.Instance.ResetHighestMultiplier();
         ScoreManager.Instance.RefreshPointsDisplay();        
         ObjectManager.Instance.waveText.text = (wavesCompleted + 1).ToString();
         MutatorManager.Instance.GenerateNewLevelMutators();
@@ -113,7 +114,7 @@ public class ArenaManager : Singleton<ArenaManager> {
 
     public void StartWave()
     {        
-        Debug.Log("StartWave()");
+        DebugLogger.Log("StartWave()");
         waveActive = true;
         MutatorManager.Instance.ApplyPendingMutators();
         //ScoreManager.Instance.RefreshPointsDisplay();
@@ -164,7 +165,7 @@ public class ArenaManager : Singleton<ArenaManager> {
 
     public void EndWave()
     {
-        Debug.Log("EndWave()");
+        DebugLogger.Log("EndWave()");
         waveActive = false;
     }
 

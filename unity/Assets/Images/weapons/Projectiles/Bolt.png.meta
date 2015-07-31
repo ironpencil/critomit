@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e14e4dfc03c62f6439817452ecabd287
-timeCreated: 1437447072
+timeCreated: 1438323568
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -38,7 +38,7 @@ TextureImporter:
   textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -76,7 +76,7 @@ TextureImporter:
         width: 20
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Bolt_2
       rect:

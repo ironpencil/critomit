@@ -52,7 +52,7 @@ public class SyncedExplosions : TimedExplosion
 
             }
         }
-        //Debug.Log("FixedUpdate(): initialDamageDone=" + preDamageDone + ". nextDamage=" + nextDamage + ". t=" + Time.fixedTime);
+        //DebugLogger.Log("FixedUpdate(): initialDamageDone=" + preDamageDone + ". nextDamage=" + nextDamage + ". t=" + Time.fixedTime);
     }
 
     public virtual void Detonate()

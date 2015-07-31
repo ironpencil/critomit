@@ -7,7 +7,9 @@ public class MoveDashTowardTarget : BaseMovement {
     public bool canDash = true;
 
     public Animator dashAnimator;
-    
+
+    private bool emitParticles;
+
     public void FixedUpdate()
     {
         if (Time.fixedTime > nextMovementTime)
@@ -19,6 +21,15 @@ public class MoveDashTowardTarget : BaseMovement {
             {
                 dashAnimator.SetBool(AnimationParams.IS_CHOMPING, false);
             }
+        }
+
+        if (emitParticles)
+        {
+            if (particleSystem != null)
+            {
+                particleSystem.Emit(Random.Range((int)minMaxParticles.x, (int)minMaxParticles.y + 1));
+            }
+            emitParticles = false;
         }
     }
 
@@ -37,6 +48,8 @@ public class MoveDashTowardTarget : BaseMovement {
                 nextMovementTime = Time.fixedTime + movementDelay;
                 isDashing = true;
                 canDash = false;
+
+                emitParticles = true;
 
                 if (dashAnimator != null)
                 {

@@ -13,6 +13,9 @@ public class LevelSpawner : MonoBehaviour {
 
     public bool addIndicator = true;
 
+    public ParticleSystem particleSystem;
+    public Vector2 minMaxParticles = Vector2.zero;
+
 	// Use this for initialization
     //void Start () {
     //    bool spawnOnStart = SpawnManager.Instance.spawnOnStart;
@@ -47,6 +50,14 @@ public class LevelSpawner : MonoBehaviour {
                 lastSpawn = Time.time;
             }
         }
+
+        if (DebugLogger.DEBUG_MODE.Equals("DEBUG"))
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                DoSpawnEnemy();
+            }
+        }
 	}
 
     private bool CanSpawn()
@@ -77,5 +88,6 @@ public class LevelSpawner : MonoBehaviour {
     public void DoSpawnEnemy()
     {
         SpawnManager.Instance.SpawnEnemy(enemyType, gameObject.transform);
+        particleSystem.Emit(Random.Range((int)minMaxParticles.x, (int)minMaxParticles.y + 1));
     }
 }

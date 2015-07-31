@@ -103,7 +103,7 @@ public class RemoteLauncher : Gun
 
                 if (particleSystem != null)
                 {
-                    particleSystem.Emit((int)Random.Range(minMaxParticles.x, minMaxParticles.y));
+                    particleSystem.Emit(Random.Range((int)minMaxParticles.x, (int)minMaxParticles.y + 1));
                 }  
 
                 if (cameraShaker != null)

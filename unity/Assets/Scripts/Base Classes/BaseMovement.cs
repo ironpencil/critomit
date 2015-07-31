@@ -14,5 +14,8 @@ public abstract class BaseMovement : MonoBehaviour
 
     public float forceMultiplier = 1.0f;
 
+    public ParticleSystem particleSystem;
+    public Vector2 minMaxParticles = Vector2.zero;
+
     public abstract void Move(Rigidbody2D movingRB, Rigidbody2D targetRB);
 }

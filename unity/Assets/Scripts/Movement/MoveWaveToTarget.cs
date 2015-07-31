@@ -32,6 +32,12 @@ public class MoveWaveToTarget : BaseMovement
         if (movingRB.velocity.sqrMagnitude < (maxVelocity * maxVelocity * forceMultiplier))
         {
             movingRB.AddRelativeForce(Vector2.right * accelerationForce * forceMultiplier);
+
+            int numParticles = UnityEngine.Random.Range((int)minMaxParticles.x, (int)minMaxParticles.y + 1);
+            if (numParticles > 0)
+            {
+                particleSystem.Emit(numParticles);
+            }
         }
     }
 

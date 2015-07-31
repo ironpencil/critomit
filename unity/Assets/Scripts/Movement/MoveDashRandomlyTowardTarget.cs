@@ -7,12 +7,23 @@ public class MoveDashRandomlyTowardTarget : BaseMovement {
     public bool isDashing = false;
     public bool canDash = true;
 
+    private bool emitParticles = false;
+
     public void FixedUpdate()
     {
         if (Time.fixedTime > nextMovementTime)
         {
             isDashing = false;
             canDash = true;
+        }
+
+        if (emitParticles)
+        {
+            if (particleSystem != null)
+            {
+                particleSystem.Emit(Random.Range((int)minMaxParticles.x, (int)minMaxParticles.y + 1));
+            }
+            emitParticles = false;
         }
     }
 
@@ -31,6 +42,8 @@ public class MoveDashRandomlyTowardTarget : BaseMovement {
                 nextMovementTime = Time.fixedTime + movementDelay;
                 isDashing = true;
                 canDash = false;
+
+                emitParticles = true;
             }
         }
     }

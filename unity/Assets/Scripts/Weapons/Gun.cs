@@ -108,7 +108,7 @@ public class Gun : BaseWeapon
 
                     if (particleSystem != null)
                     {
-                        particleSystem.Emit((int)Random.Range(minMaxParticles.x, minMaxParticles.y));
+                        particleSystem.Emit(Random.Range((int)minMaxParticles.x, (int)minMaxParticles.y + 1));
                     }                    
 
                     lastShot = Time.fixedTime;

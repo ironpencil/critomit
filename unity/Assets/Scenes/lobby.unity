@@ -146,7 +146,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'L CLICK: FIRE FRONT WEAPON'
+  m_Text: 'L MOUSE: FIRE FRONT WEAPON'
 --- !u!222 &43930583
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!224 &93788093 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22452224, guid: 0fa4d1ff32b367242919f879a6371136,
@@ -823,7 +823,14 @@ MonoBehaviour:
   m_Text: 'ART
 
 
-    DOGKISSER'
+
+    NICK
+
+
+    "DOGKISSER"
+
+
+    SABO'
 --- !u!222 &444429593
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -889,7 +896,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '1/2: CHANGE FRONT/REAR WEAPONS'
+  m_Text: '1 / 2: CHANGE FRONT / REAR WEAPONS'
 --- !u!222 &491925682
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -924,7 +931,7 @@ Transform:
   m_Children:
   - {fileID: 1233842397}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!114 &543160068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,7 +1191,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'R CLICK: FIRE REAR WEAPON'
+  m_Text: 'R MOUSE: FIRE REAR WEAPON'
 --- !u!222 &616020166
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1253,7 +1260,14 @@ MonoBehaviour:
   m_Text: 'AUDIO
 
 
-    ULTIGONIO'
+
+    WILL
+
+
+    "ULTIGONIO"
+
+
+    BOWERMAN'
 --- !u!222 &619840327
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1297,12 +1311,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 479282, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11440766, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
       propertyPath: firstPanel
       value: 
       objectReference: {fileID: 1713558387}
+    - target: {fileID: 11440766, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
+      propertyPath: currentState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440766, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
+      propertyPath: currentLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440766, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
+      propertyPath: playIntro
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cce09066fc460844b96f6d0a117799d4, type: 2}
   m_IsPrefabParent: 0
@@ -1524,6 +1550,10 @@ Prefab:
     - target: {fileID: 22452224, guid: 0fa4d1ff32b367242919f879a6371136, type: 2}
       propertyPath: m_Pivot.y
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 166762, guid: 0fa4d1ff32b367242919f879a6371136, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fa4d1ff32b367242919f879a6371136, type: 2}
@@ -2255,8 +2285,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnEnemies: 1
-  initialSpawnTimer: 10
-  spawnTimer: 10
+  initialSpawnTimer: 15
+  spawnTimer: 15
   spawnOnStart: 1
   smallEnemies:
   - {fileID: 104968, guid: 763811075b9445049a8bf2adee0c4dea, type: 2}
@@ -2266,6 +2296,12 @@ MonoBehaviour:
   - {fileID: 153252, guid: 0900eaa1ca449a043aa8920016cf8696, type: 2}
   - {fileID: 187572, guid: 4edb71a3ae229ca4fbe46f4cbde152b1, type: 2}
   - {fileID: 191920, guid: c20abde36e95b1d4eb5d4f0a712963da, type: 2}
+  ballPrefab: {fileID: 104968, guid: 763811075b9445049a8bf2adee0c4dea, type: 2}
+  lilBugPrefab: {fileID: 112206, guid: 2ea95b6af07e94d4695eecb18b9dcb9a, type: 2}
+  lilFishPrefab: {fileID: 193732, guid: 54c395c41ff39f84ba434b43cf95ef31, type: 2}
+  jellyPrefab: {fileID: 153252, guid: 0900eaa1ca449a043aa8920016cf8696, type: 2}
+  mantaPrefab: {fileID: 187572, guid: 4edb71a3ae229ca4fbe46f4cbde152b1, type: 2}
+  medFishPrefab: {fileID: 191920, guid: c20abde36e95b1d4eb5d4f0a712963da, type: 2}
   EnemyObjects: {fileID: 1855218117}
   SpawnerObjects: {fileID: 1098994502}
   IndicatorHandler: {fileID: 0}
@@ -2280,7 +2316,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!114 &1104225501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2304,6 +2340,8 @@ MonoBehaviour:
   - {fileID: 1353738429}
   startWaveDialog: {fileID: 0}
   endWaveDialog: {fileID: 0}
+  waterFilter: {fileID: 1598741151}
+  tileSetSwitcher: {fileID: 0}
   pointsText: {fileID: 0}
   multiplierText: {fileID: 0}
   waveText: {fileID: 0}
@@ -2878,26 +2916,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
-    - target: {fileID: 22482792, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22482792, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22467654, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22467654, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22467654, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 22416034, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2918,26 +2936,6 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 22451700, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22451700, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400060, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400060, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400060, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 22453604, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2955,6 +2953,46 @@ Prefab:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22479272, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482792, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22482792, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22467654, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22467654, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22467654, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22451700, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22451700, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400060, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400060, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400060, guid: db2394bb85de9724d8271e7a3c8eb667, type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -3302,6 +3340,10 @@ Transform:
   - {fileID: 991824490}
   m_Father: {fileID: 1023015207}
   m_RootOrder: 8
+--- !u!1 &1598741151 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 166762, guid: 0fa4d1ff32b367242919f879a6371136, type: 2}
+  m_PrefabInternal: {fileID: 778103135}
 --- !u!1001 &1627004012
 Prefab:
   m_ObjectHideFlags: 0
@@ -3485,13 +3527,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a010bac37ca83674f93058867a87a78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeInTime: 1
-  displayTime: 2
-  fadeOutTime: 1
+  fadeInTime: 2
+  displayTime: 1
+  fadeOutTime: 2
   fader: {fileID: 1713558391}
   nextPanel: {fileID: 94353704}
   introParent: {fileID: 373548606}
-  lastPanel: 0
+  lastPanel: 1
 --- !u!114 &1713558388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3699,7 +3741,8 @@ MonoBehaviour:
   m_Text: 'PROGRAMMING
 
 
-    SIGHNOCEROS'
+
+    JIM "SIGHNOCEROS" SOUTH'
 --- !u!222 &1908247159
 CanvasRenderer:
   m_ObjectHideFlags: 0

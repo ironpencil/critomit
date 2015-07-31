@@ -198,6 +198,8 @@ public class Globals : Singleton<Globals> {
 
         yield return null;
 
+        EnableWaterFilter(waterFilterEnabled);
+
         float taintChance = Mathf.Min(ArenaManager.Instance.wavesCompleted * 0.1f, 0.5f);        
 
         TileMapBuilder.Instance.taintChance = taintChance;
@@ -310,6 +312,25 @@ public class Globals : Singleton<Globals> {
     public void TogglePause()
     {
         Pause(!paused);
+    }
+
+    private bool waterFilterEnabled = true;
+
+    public void EnableWaterFilter(bool enabled)
+    {
+        GameObject waterFilter = ObjectManager.Instance.waterFilter;
+
+        if (waterFilter != null)
+        {
+            waterFilter.SetActive(enabled);
+        }
+
+        waterFilterEnabled = enabled;
+    }
+
+    public bool IsWaterFilterOn()
+    {
+        return waterFilterEnabled;
     }
 
 

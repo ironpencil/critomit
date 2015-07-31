@@ -1887,7 +1887,7 @@ MonoBehaviour:
   bulletMinDirection: {x: 1, y: 0}
   bulletMaxDirection: {x: 1, y: 0}
   bulletRotationRange: {x: 0, y: 0}
-  bulletMinMaxForce: {x: 6000, y: 6000}
+  bulletMinMaxForce: {x: 8000, y: 8000}
   shooterForce: {x: -200000, y: 0}
   cameraShaker: {fileID: 11463934}
   autoFire: 0
@@ -1923,7 +1923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markedForDeath: 0
-  maxHitPoints: 200
+  maxHitPoints: 500
   privCurrentHP: 0
   damagedBy: 2
   invulnerable: 0
@@ -1933,6 +1933,7 @@ MonoBehaviour:
   deathEffects:
   - {fileID: 11444180}
   pointValue: 100
+  killValue: 1
   playerSprites:
   - {fileID: 21246134}
   - {fileID: 21292884}
@@ -2053,6 +2054,7 @@ MonoBehaviour:
   damagedEffects: []
   deathEffects: []
   pointValue: 100
+  killValue: 1
   parentToDamage: {fileID: 11473810}
 --- !u!114 &11478552
 MonoBehaviour:
@@ -2287,6 +2289,7 @@ MonoBehaviour:
   damagedEffects: []
   deathEffects: []
   pointValue: 100
+  killValue: 1
   parentToDamage: {fileID: 11473810}
 --- !u!114 &11491454
 MonoBehaviour:

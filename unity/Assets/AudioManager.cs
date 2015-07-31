@@ -12,6 +12,7 @@ public class AudioManager : Singleton<AudioManager> {
     public AudioSource lobbySource;
     public AudioSource sfxUnderwaterSource;
     public AudioSource sfxUnfilteredSource;
+    public AudioSource sfx3DSource;
 
     private AudioSource currentArenaSource;
     private AudioSource nextArenaSource;
@@ -51,6 +52,9 @@ public class AudioManager : Singleton<AudioManager> {
 
         if (this != null)
         {
+
+            SetMasterVolume(-5.0f);
+
             if (Globals.Instance.currentState == GameState.Arena)
             {
                 TransitionToArena();
@@ -58,13 +62,14 @@ public class AudioManager : Singleton<AudioManager> {
             else
             {
                 TransitionToLobby();
-            }
+            }            
 
         }
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
         if (arenaMusicPlaying)
         {
             CheckSwitchArenaSources();
@@ -264,5 +269,24 @@ public class AudioManager : Singleton<AudioManager> {
 
             ScheduleNextArenaClip();
         }
+    }
+
+    public void Play3DClipAtPoint(AudioClip clip, float vol, float pitch, Vector3 pos)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create the temp object
+        tempGO.transform.position = pos; // set its position
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add an audio source
+        aSource.spatialBlend = 1.0f;
+        aSource.clip = clip; // define the clip
+        aSource.volume = vol;
+        aSource.pitch = pitch;
+        aSource.outputAudioMixerGroup = sfx3DSource.outputAudioMixerGroup;
+        aSource.rolloffMode = sfx3DSource.rolloffMode;
+        aSource.minDistance = sfx3DSource.minDistance;
+        aSource.maxDistance = sfx3DSource.maxDistance;
+        aSource.priority = 256;
+        // set other aSource properties here, if desired
+        aSource.Play(); // start the sound
+        Destroy(tempGO, clip.length); // destroy object after clip duration        
     }
 }

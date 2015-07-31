@@ -36,6 +36,10 @@ GameObject:
   - 114: {fileID: 11461538}
   - 114: {fileID: 11460210}
   - 114: {fileID: 11424582}
+  - 114: {fileID: 11447118}
+  - 114: {fileID: 11430106}
+  - 114: {fileID: 11464578}
+  - 114: {fileID: 11483586}
   m_Layer: 14
   m_Name: MedFishA
   m_TagString: Untagged
@@ -152,6 +156,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionObject: {fileID: 11422114, guid: 47b4e8bb896d2e240a76edbcfb0713c0, type: 2}
+--- !u!114 &11430106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 66bb988610becb24ea1f0dfebf638e9a, type: 3}
+  playRandom: 1
+  underwater: 1
+  is3d: 1
+  volume: 1
+  variableVolume: 0
+  volumeMin: .300000012
+  volumeMax: .5
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: .850000024
+  pitchMax: .899999976
+  playOneShot: 1
+  playOnStart: 0
+--- !u!114 &11447118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4fb51bbc76c08488f928ec7787af51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectHandler: {fileID: 11430106}
+  loopDelayMin: 2
+  loopDelayMax: 6
+  doLoopSound: 1
 --- !u!114 &11447126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,7 +222,11 @@ MonoBehaviour:
   - {fileID: 11457336}
   deathEffects:
   - {fileID: 11424582}
+  - {fileID: 11483586}
   pointValue: 100
+  killValue: 1
+  HPRegenAmount: 0
+  HPRegenDelay: 1
 --- !u!114 &11452750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,6 +295,39 @@ MonoBehaviour:
   forceMultiplier: 1
   isDashing: 0
   canDash: 1
+--- !u!114 &11464578
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99472dd782a3e97428ea536551945c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  takesDamage: {fileID: 11447126}
+  damageOnTouch: {fileID: 11452750}
+  mutatedMovements:
+  - {fileID: 11460210}
+  deathExplosion: {fileID: 11424582}
+  loopedSoundNormal: {fileID: 11447118}
+  splitEnemyEffect: {fileID: 11483586}
+  enemyDeathDamageExplosion: {fileID: 11498602, guid: a6cd504370b47b540b37b4ed9df14a78,
+    type: 2}
+--- !u!114 &11483586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2285b0bbfd6147f4f960c95af4acf20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numEnemies: 0
+  enemyName: 5
 --- !u!114 &11487144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,6 +382,10 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: deathEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: baseMovements.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
@@ -303,6 +394,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: spritesToFlash.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mutatedMovements.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
@@ -381,6 +476,75 @@ Prefab:
       propertyPath: damage
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loopDelayMin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loopDelayMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pitchMin
+      value: .850000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pitchMax
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: soundEffectHandler
+      value: 
+      objectReference: {fileID: 11430106}
+    - target: {fileID: 0}
+      propertyPath: variableVolume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: takesDamage
+      value: 
+      objectReference: {fileID: 11447126}
+    - target: {fileID: 0}
+      propertyPath: loopedSoundNormal
+      value: 
+      objectReference: {fileID: 11447118}
+    - target: {fileID: 0}
+      propertyPath: deathExplosion
+      value: 
+      objectReference: {fileID: 11424582}
+    - target: {fileID: 0}
+      propertyPath: damageOnTouch
+      value: 
+      objectReference: {fileID: 11452750}
+    - target: {fileID: 0}
+      propertyPath: baseMovements.Array.data[1]
+      value: 
+      objectReference: {fileID: 11460210}
+    - target: {fileID: 0}
+      propertyPath: baseMovements.Array.data[0]
+      value: 
+      objectReference: {fileID: 11460210}
+    - target: {fileID: 0}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 191920}
+    - target: {fileID: 0}
+      propertyPath: splitEnemyEffect
+      value: 
+      objectReference: {fileID: 11483586}
+    - target: {fileID: 0}
+      propertyPath: enemyName
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: enemyDeathDamageExplosion
+      value: 
+      objectReference: {fileID: 11498602, guid: a6cd504370b47b540b37b4ed9df14a78,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 191920}

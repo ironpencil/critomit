@@ -118,6 +118,11 @@ public class ScoreManager : Singleton<ScoreManager> {
         //or do we want to let them keep their multiplier between waves?
     }
 
+    public void ResetKillCounter()
+    {
+        CurrentKills = 0;
+    }
+
     public void RefreshPointsDisplay()
     {
         UpdatePointsDisplay();

@@ -203,6 +203,16 @@ public class MutatorManager : Singleton<MutatorManager> {
             case MutatorType.Spin:
                 EnableCameraSpinner(mutator.currentValue);
                 break;
+            case MutatorType.SpawnTime:
+                float newSpawnTime = SpawnManager.Instance.initialSpawnTimer - mutator.currentValue;
+                SpawnManager.Instance.spawnTimer = newSpawnTime;
+                break;
+            case MutatorType.TilesetSwap:
+                if (ObjectManager.Instance.tileSetSwitcher != null)
+                {
+                    ObjectManager.Instance.tileSetSwitcher.doSwitch = true;
+                }
+                break;
             default:
                 break;
         }
@@ -217,6 +227,15 @@ public class MutatorManager : Singleton<MutatorManager> {
         {
             case MutatorType.Spin:
                 DisableCameraSpinner();
+                break;
+            case MutatorType.SpawnTime:
+                SpawnManager.Instance.spawnTimer = SpawnManager.Instance.initialSpawnTimer;
+                break;
+            case MutatorType.TilesetSwap:
+                if (ObjectManager.Instance.tileSetSwitcher != null)
+                {
+                    ObjectManager.Instance.tileSetSwitcher.doSwitch = false;
+                }
                 break;
             default:
                 break;
@@ -329,18 +348,78 @@ public class MutatorManager : Singleton<MutatorManager> {
 
     public void MutateEnemy(GameObject enemy)
     {
+        EnemyMutatorHelper mutHelper = enemy.GetComponent<EnemyMutatorHelper>();
+        if (mutHelper == null) { return; }
+
         foreach (Mutator mutator in activeMutators)
         {
             switch (mutator.mutatorType)
             {
+                case MutatorType.None:
+                    break;
                 case MutatorType.Spin:
                     break;
                 case MutatorType.EnemySpeed:
-                    foreach (BaseMovement movement in enemy.GetComponents<BaseMovement>())
+                    if (mutHelper.mutatedMovements != null)
                     {
-
-                        movement.forceMultiplier = 1 + (mutator.currentValue * .01f);
+                        foreach (BaseMovement movement in mutHelper.mutatedMovements)
+                        {
+                            movement.forceMultiplier = 1 + (mutator.currentValue * .01f);
+                        }
                     }
+                    break;
+                case MutatorType.EnemyDamage:
+                    if (mutHelper.damageOnTouch != null)
+                    {
+                        mutHelper.damageOnTouch.damage *= (1 + mutator.currentValue * 0.01f);
+                    }
+                    break;
+                case MutatorType.EnemyExplode:
+                    if (mutHelper.deathExplosion != null && mutHelper.enemyDeathDamageExplosion != null)
+                    {
+                        float explodeChance = mutator.currentValue;
+                        if (Random.Range(0, 100.0f) < explodeChance)
+                        {
+                            mutHelper.deathExplosion.explosionObject = mutHelper.enemyDeathDamageExplosion;
+                        }
+                    }
+                    break;
+                case MutatorType.EnemyHP:
+                    if (mutHelper.takesDamage != null)
+                    {
+                        mutHelper.takesDamage.MaxHitPoints = (int)(mutHelper.takesDamage.MaxHitPoints * (1 + mutator.currentValue * 0.01f));
+                        mutHelper.takesDamage.CurrentHP = mutHelper.takesDamage.MaxHitPoints;
+                    }
+                    break;
+                case MutatorType.EnemyRegen:
+                    if (mutHelper.takesDamage != null)
+                    {
+                        mutHelper.takesDamage.HPRegenAmount = mutator.currentValue;                        
+                    }
+                    break;
+                case MutatorType.EnemyInvulnerable:
+                    break;
+                case MutatorType.EnemySplit:
+                    if (mutHelper.splitEnemyEffect != null)
+                    {
+                        float splitChance = mutator.currentValue;
+                        if (Random.Range(0, 100.0f) < splitChance)
+                        {
+                            mutHelper.splitEnemyEffect.numEnemies = 2;
+                        }
+                    }
+                    break;
+                case MutatorType.SpawnTime:
+                    break;
+                case MutatorType.WildBullets:
+                    break;
+                case MutatorType.TilesetSwap:
+                    break;
+                case MutatorType.EnemyMumble:
+                    break;
+                case MutatorType.HeavyBullets:
+                    break;
+                case MutatorType.RandomPlayerForce:
                     break;
                 default:
                     break;

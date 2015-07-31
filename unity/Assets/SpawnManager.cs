@@ -12,6 +12,24 @@ public class SpawnManager : Singleton<SpawnManager> {
     public List<GameObject> smallEnemies = new List<GameObject>();
     public List<GameObject> bigEnemies = new List<GameObject>();
 
+    public enum EnemyName
+    {
+        Ball,
+        LilBug,
+        LilFish,
+        Jelly,
+        Manta,
+        MedFish
+    }
+
+    public GameObject ballPrefab;
+    public GameObject lilBugPrefab;
+    public GameObject lilFishPrefab;
+    public GameObject jellyPrefab;
+    public GameObject mantaPrefab;
+    public GameObject medFishPrefab;
+    
+
     [SerializeField]
     public int EnemiesRemaining
     {
@@ -110,7 +128,10 @@ public class SpawnManager : Singleton<SpawnManager> {
 
     public GameObject SpawnEnemy(GameObject enemyPrefab, Transform spawnLocation)
     {
-        if (enemyPrefab == null) { return null; }
+        if (enemyPrefab == null) {
+            Debug.Log("Tried to spawn null enemy.");
+            return null;
+        }
 
         GameObject enemy = (GameObject)Instantiate(enemyPrefab, spawnLocation.position, enemyPrefab.transform.rotation);
 
@@ -141,6 +162,37 @@ public class SpawnManager : Singleton<SpawnManager> {
         GameObject prefab = SpawnManager.Instance.GetRandomEnemy(enemyType);
 
         return SpawnEnemy(prefab, spawner);
+    }
+
+    public GameObject SpawnEnemy(EnemyName enemyName, Transform spawnAt)
+    {
+        GameObject prefab = null;
+
+        switch (enemyName)
+        {
+            case EnemyName.Ball:
+                prefab = ballPrefab;
+                break;
+            case EnemyName.LilBug:
+                prefab = lilBugPrefab;
+                break;
+            case EnemyName.LilFish:
+                prefab = lilFishPrefab;
+                break;
+            case EnemyName.Jelly:
+                prefab = jellyPrefab;
+                break;
+            case EnemyName.Manta:
+                prefab = mantaPrefab;
+                break;
+            case EnemyName.MedFish:
+                prefab = medFishPrefab;
+                break;
+            default:
+                break;
+        }
+
+        return SpawnEnemy(prefab, spawnAt);
     }
 
     public void ClearEnemies()

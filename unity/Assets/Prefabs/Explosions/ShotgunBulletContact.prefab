@@ -115,19 +115,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57ad67c1b33fe134096b369820a69501, type: 3}
   playRandom: 1
   underwater: 1
+  is3d: 1
   volume: .5
   variableVolume: 1
-  volumeMin: .200000003
-  volumeMax: .300000012
+  volumeMin: .5
+  volumeMax: .600000024
   playDelay: 0
   variableDelay: 1
   playDelayMin: 0
   playDelayMax: .100000001
+  ignoreTimeScale: 0
   pitch: 1
   variablePitch: 1
   pitchMin: .75
   pitchMax: 1.25
   playOneShot: 1
+  playOnStart: 0
 --- !u!212 &21256336
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -228,15 +231,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: volumeMin
-      value: .200000003
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: volumeMax
-      value: .300000012
+      value: .600000024
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: playDelayMax
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: is3d
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

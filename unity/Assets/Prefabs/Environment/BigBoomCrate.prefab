@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markedForDeath: 0
-  maxHitPoints: 50
+  maxHitPoints: 40
   privCurrentHP: 0
   damagedBy: 1
   invulnerable: 0
@@ -230,6 +230,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Mass
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxHitPoints
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

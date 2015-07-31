@@ -35,5 +35,17 @@ public enum MutatorType
 {
     None,
     Spin,
-    EnemySpeed
+    EnemySpeed,
+    EnemyDamage,
+    EnemyExplode,
+    EnemyHP,
+    EnemyRegen,
+    EnemyInvulnerable,
+    EnemySplit,
+    SpawnTime,
+    WildBullets,
+    TilesetSwap,
+    EnemyMumble,
+    HeavyBullets,
+    RandomPlayerForce
 }

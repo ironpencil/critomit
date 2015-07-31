@@ -126,6 +126,8 @@ public class PlayerDamageManager : TakesDamage {
     {
         invulnerable = true;
 
+        healthBar.FlashWhite();
+
         yield return new WaitForSeconds(damageInvDuration);                
 
         //float endTime = Time.time + damageInvDuration;

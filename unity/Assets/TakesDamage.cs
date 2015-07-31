@@ -28,7 +28,7 @@ public class TakesDamage : MonoBehaviour {
     public virtual float CurrentHP
     {
         get { return privCurrentHP; }
-        set { privCurrentHP = value; }
+        set { privCurrentHP = Mathf.Min(value, maxHitPoints); }
     }
 
     [SerializeField]
@@ -55,6 +55,10 @@ public class TakesDamage : MonoBehaviour {
     public int pointValue = 100;
     public int killValue = 1;
 
+    public float HPRegenAmount = 0.0f;
+    public float HPRegenDelay = 1.0f;
+    private float lastRegenTime = 0.0f;   
+
 	// Use this for initialization
 	public virtual void Start () {
 
@@ -70,6 +74,18 @@ public class TakesDamage : MonoBehaviour {
         {
             ScoreManager.Instance.AddKilledEnemyPoints(pointValue, killValue);
             DestroyImmediate(gameObject);
+        }
+        else
+        {
+            if (HPRegenAmount > 0.0f)
+            {
+                if (Time.time > lastRegenTime + HPRegenDelay)
+                {
+                    CurrentHP += HPRegenAmount;
+                    lastRegenTime = Time.time;
+                }
+            }
+
         }
 	
 	}

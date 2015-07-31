@@ -45,11 +45,18 @@ public class ScreenShakeAdjuster : MonoBehaviour, IBeginDragHandler, IEndDragHan
     {
         if (shakeSlider.value > 0)
         {
-            shakeText.text = "SHAKE: X" + shakeSlider.value;
+            if (shakeSlider.value == shakeSlider.maxValue)
+            {
+                shakeText.text = "VLAMBEER IT";
+            }
+            else
+            {
+                shakeText.text = "SHAKE IT " + shakeSlider.value + "X";
+            }
         }
         else
         {
-            shakeText.text = "SHAKE: OFF";
+            shakeText.text = "SHAKE IT OFF";
         }
     }
 

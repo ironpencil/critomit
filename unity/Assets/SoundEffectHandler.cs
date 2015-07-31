@@ -8,6 +8,7 @@ public class SoundEffectHandler : MonoBehaviour {
 
     public bool playRandom;
     public bool underwater;
+    public bool is3d = false;
 
     public float volume = 1.0f;
     public bool variableVolume = true;    
@@ -111,7 +112,11 @@ public class SoundEffectHandler : MonoBehaviour {
 
         source.pitch = clipPitch;
 
-        if (playOneShot)
+        if (is3d)
+        {
+            AudioManager.Instance.Play3DClipAtPoint(clip, clipVolume, clipPitch, gameObject.transform.position);
+        }
+        else if (playOneShot)
         {
             source.PlayOneShot(clip, clipVolume);
         }
@@ -123,6 +128,8 @@ public class SoundEffectHandler : MonoBehaviour {
         }
 
     }
+
+    
 
     private IEnumerator WaitThenPlay(AudioClip clip, float clipVolume, float clipPitch, float clipDelay)
     {

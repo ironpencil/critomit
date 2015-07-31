@@ -6,6 +6,7 @@ public class MenuCameraControl : MonoBehaviour {
 
     public ScreenShakeAdjuster shakeAdjuster;
     public CameraToggle rotationAdjuster;
+    public CameraToggle waterFilterAdjuster;
     
 
 	// Use this for initialization
@@ -30,6 +31,8 @@ public class MenuCameraControl : MonoBehaviour {
         shakeAdjuster.AdjustShakeText();
         rotationAdjuster.camToggle.isOn = Globals.Instance.cameraSpinEnabled;
         rotationAdjuster.AdjustOptionText();
+        waterFilterAdjuster.camToggle.isOn = Globals.Instance.IsWaterFilterOn();
+        waterFilterAdjuster.AdjustOptionText();
         //masterVolume.audioSlider.value = AudioManager.Instance.GetMasterVolume();
         //musicVolume.audioSlider.value = AudioManager.Instance.GetMusicVolume();
         //sfxVolume.audioSlider.value = AudioManager.Instance.GetSFXVolume();

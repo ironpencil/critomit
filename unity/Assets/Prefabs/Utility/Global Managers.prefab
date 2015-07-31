@@ -46,8 +46,25 @@ GameObject:
   - 82: {fileID: 8259128}
   - 82: {fileID: 8235810}
   - 82: {fileID: 8201062}
+  - 82: {fileID: 8207272}
   m_Layer: 0
   m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &117418
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 417418}
+  - 114: {fileID: 11417418}
+  m_Layer: 0
+  m_Name: Spawn Time Reduction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +96,7 @@ GameObject:
   - 4: {fileID: 441914}
   - 114: {fileID: 11437452}
   m_Layer: 0
-  m_Name: Enemy Speed
+  m_Name: Enemy Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,6 +152,70 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &156964
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 475182}
+  - 114: {fileID: 11424576}
+  m_Layer: 0
+  m_Name: Enemy HP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &158686
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 458686}
+  - 114: {fileID: 11458686}
+  m_Layer: 0
+  m_Name: Enemy Split
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &166812
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 466812}
+  - 114: {fileID: 11483202}
+  m_Layer: 0
+  m_Name: Enemy Speed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &166814
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 466814}
+  - 114: {fileID: 11456650}
+  m_Layer: 0
+  m_Name: Enemy Regen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &169184
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +231,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &182358
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 484486}
+  - 114: {fileID: 11484486}
+  m_Layer: 0
+  m_Name: Enemy Explode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &182948
 GameObject:
   m_ObjectHideFlags: 1
@@ -160,7 +257,7 @@ GameObject:
   - 4: {fileID: 433204}
   - 114: {fileID: 11418610}
   m_Layer: 0
-  m_Name: Spin Camera
+  m_Name: Unstable Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +277,6 @@ GameObject:
   - 114: {fileID: 11480600}
   - 114: {fileID: 11409662}
   - 114: {fileID: 11424564}
-  - 114: {fileID: 11467788}
   m_Layer: 0
   m_Name: Global Managers
   m_TagString: Untagged
@@ -208,6 +304,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &199606
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 461928}
+  - 114: {fileID: 11480420}
+  m_Layer: 0
+  m_Name: Spin Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400754
 Transform:
   m_ObjectHideFlags: 1
@@ -218,10 +330,29 @@ Transform:
   m_LocalPosition: {x: 12.8717785, y: -7.55772829, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 433204}
+  - {fileID: 461928}
+  - {fileID: 466812}
+  - {fileID: 417418}
+  - {fileID: 475182}
   - {fileID: 441914}
+  - {fileID: 466814}
+  - {fileID: 458686}
+  - {fileID: 484486}
+  - {fileID: 433204}
   m_Father: {fileID: 479282}
   m_RootOrder: 3
+--- !u!4 &417418
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400754}
+  m_RootOrder: 2
 --- !u!4 &420260
 Transform:
   m_ObjectHideFlags: 1
@@ -257,7 +388,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400754}
-  m_RootOrder: 0
+  m_RootOrder: 8
 --- !u!4 &441914
 Transform:
   m_ObjectHideFlags: 1
@@ -269,7 +400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400754}
-  m_RootOrder: 1
+  m_RootOrder: 4
 --- !u!4 &456972
 Transform:
   m_ObjectHideFlags: 1
@@ -294,6 +425,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 479282}
   m_RootOrder: 0
+--- !u!4 &458686
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158686}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400754}
+  m_RootOrder: 6
+--- !u!4 &461928
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400754}
+  m_RootOrder: 0
+--- !u!4 &466812
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400754}
+  m_RootOrder: 1
+--- !u!4 &466814
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400754}
+  m_RootOrder: 5
+--- !u!4 &475182
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400754}
+  m_RootOrder: 3
 --- !u!4 &477160
 Transform:
   m_ObjectHideFlags: 1
@@ -338,6 +529,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 479282}
   m_RootOrder: 2
+--- !u!4 &484486
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400754}
+  m_RootOrder: 7
 --- !u!82 &8201062
 AudioSource:
   m_ObjectHideFlags: 1
@@ -383,6 +586,76 @@ AudioSource:
     m_Curve:
     - time: 0
       value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8207272
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117162}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24322064, guid: 18c41163ee8819341933ac809950f9cf,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 10
+  MaxDistance: 80
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -494,7 +767,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -564,7 +837,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -634,7 +907,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -703,6 +976,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1d47c307f98ab0d42bb76b79e18fe6bc, type: 3}
   playRandom: 0
   underwater: 0
+  is3d: 0
   volume: 1
   variableVolume: 0
   volumeMin: .899999976
@@ -756,6 +1030,31 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11417418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea28ffa7951ec246b99ae63ba5fb97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutatorType: 9
+  currentValue: 0
+  isCurrentlyActive: 0
+  limitedApplication: 1
+  allowedToApply: 1
+  initialValue: 0
+  maxValue: 10
+  incrementValue: 2
+  initialWeight: 10
+  decrementedWeight: 4
+  currentWeight: 0
+  cumulativeWeight: 0
+  mutatorName: Relentless
+  mutatorDescription: Spawn time -[intvalue] sec
 --- !u!114 &11418610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -767,20 +1066,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea28ffa7951ec246b99ae63ba5fb97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mutatorType: 1
+  mutatorType: 11
   currentValue: 0
   isCurrentlyActive: 0
   limitedApplication: 1
   allowedToApply: 1
-  initialValue: 5
-  maxValue: 45
-  incrementValue: 5
-  initialWeight: 5
-  decrementedWeight: 1
+  initialValue: 1
+  maxValue: 1
+  incrementValue: 1
+  initialWeight: 4
+  decrementedWeight: 0
   currentWeight: 0
   cumulativeWeight: 0
-  mutatorName: Dizzy
-  mutatorDescription: Camera spins [intvalue] deg/sec
+  mutatorName: Spatial anomalies detected
+  mutatorDescription: 
 --- !u!114 &11424564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -797,6 +1096,31 @@ MonoBehaviour:
   flashCount: 2
   onColor: {r: .282352954, g: .929411829, b: .737254918, a: 1}
   offColor: {r: .0509803966, g: .549019635, b: .403921604, a: 0}
+--- !u!114 &11424576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea28ffa7951ec246b99ae63ba5fb97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutatorType: 5
+  currentValue: 0
+  isCurrentlyActive: 0
+  limitedApplication: 1
+  allowedToApply: 1
+  initialValue: 0
+  maxValue: 100
+  incrementValue: 25
+  initialWeight: 10
+  decrementedWeight: 5
+  currentWeight: 0
+  cumulativeWeight: 0
+  mutatorName: Resilient
+  mutatorDescription: Enemy health +[intvalue]%
 --- !u!114 &11428230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -836,20 +1160,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea28ffa7951ec246b99ae63ba5fb97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mutatorType: 2
+  mutatorType: 3
   currentValue: 0
   isCurrentlyActive: 0
   limitedApplication: 1
   allowedToApply: 1
   initialValue: 0
   maxValue: 100
-  incrementValue: 10
+  incrementValue: 25
   initialWeight: 10
   decrementedWeight: 5
   currentWeight: 0
   cumulativeWeight: 0
-  mutatorName: Speedy
-  mutatorDescription: Enemy speed +[value]%
+  mutatorName: Barbed
+  mutatorDescription: Enemy damage +[intvalue]%
 --- !u!114 &11440766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -882,6 +1206,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doPersist: 1
+--- !u!114 &11456650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea28ffa7951ec246b99ae63ba5fb97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutatorType: 6
+  currentValue: 0
+  isCurrentlyActive: 0
+  limitedApplication: 1
+  allowedToApply: 1
+  initialValue: 0
+  maxValue: 10
+  incrementValue: 2.5
+  initialWeight: 10
+  decrementedWeight: 5
+  currentWeight: 0
+  cumulativeWeight: 0
+  mutatorName: Adaptive
+  mutatorDescription: Enemies regen [value] HP/sec
 --- !u!114 &11458118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -897,6 +1246,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2cc532da27d498648a304c59b508f717, type: 3}
   playRandom: 0
   underwater: 0
+  is3d: 0
   volume: 1
   variableVolume: 0
   volumeMin: .899999976
@@ -912,6 +1262,31 @@ MonoBehaviour:
   pitchMax: 1.25
   playOneShot: 1
   playOnStart: 0
+--- !u!114 &11458686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea28ffa7951ec246b99ae63ba5fb97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutatorType: 8
+  currentValue: 0
+  isCurrentlyActive: 0
+  limitedApplication: 1
+  allowedToApply: 1
+  initialValue: 0
+  maxValue: 30
+  incrementValue: 15
+  initialWeight: 10
+  decrementedWeight: 5
+  currentWeight: 0
+  cumulativeWeight: 0
+  mutatorName: Alien
+  mutatorDescription: Enemies may split ([intvalue]%)
 --- !u!114 &11459832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -944,6 +1319,7 @@ MonoBehaviour:
   lobbySource: {fileID: 8259128}
   sfxUnderwaterSource: {fileID: 8235810}
   sfxUnfilteredSource: {fileID: 8201062}
+  sfx3DSource: {fileID: 8207272}
   arenaMusic:
   - {fileID: 8300000, guid: d41386f772cf2a44286a9c2583a2c6c3, type: 3}
   - {fileID: 8300000, guid: 4c212a5e93704c8419d87ded2163904f, type: 3}
@@ -956,22 +1332,6 @@ MonoBehaviour:
   ignoreUnderwater: 0
   duckedMusicVolume: -15
   currentAudioState: 0
---- !u!114 &11467788
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dd2bd958820a244cb23d4c93bf4d846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  applyToMaterial: {fileID: 0}
-  newMaterial: {fileID: 0}
-  textureID: _MainText
-  textureToApply: {fileID: 2800000, guid: 820265ed2a2002a47a2d024017094fe2, type: 3}
-  meshRenderer: {fileID: 0}
 --- !u!114 &11468332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1066,6 +1426,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doPersist: 1
+--- !u!114 &11480420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea28ffa7951ec246b99ae63ba5fb97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutatorType: 1
+  currentValue: 0
+  isCurrentlyActive: 0
+  limitedApplication: 1
+  allowedToApply: 1
+  initialValue: 0
+  maxValue: 45
+  incrementValue: 15
+  initialWeight: 4
+  decrementedWeight: 2
+  currentWeight: 0
+  cumulativeWeight: 0
+  mutatorName: Dizzy
+  mutatorDescription: Camera spins [intvalue] deg/sec
 --- !u!114 &11480600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1084,6 +1469,56 @@ MonoBehaviour:
   chanceToAddNewMutator: 0
   mutatorChanceIncrementPerWave: 1
   allowMultipleMutatorsPerWave: 1
+--- !u!114 &11483202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea28ffa7951ec246b99ae63ba5fb97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutatorType: 2
+  currentValue: 0
+  isCurrentlyActive: 0
+  limitedApplication: 1
+  allowedToApply: 1
+  initialValue: 0
+  maxValue: 50
+  incrementValue: 25
+  initialWeight: 8
+  decrementedWeight: 3
+  currentWeight: 0
+  cumulativeWeight: 0
+  mutatorName: Accelerated
+  mutatorDescription: Enemy speed +[intvalue]%
+--- !u!114 &11484486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea28ffa7951ec246b99ae63ba5fb97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutatorType: 4
+  currentValue: 0
+  isCurrentlyActive: 0
+  limitedApplication: 1
+  allowedToApply: 1
+  initialValue: 0
+  maxValue: 50
+  incrementValue: 25
+  initialWeight: 5
+  decrementedWeight: 4
+  currentWeight: 0
+  cumulativeWeight: 0
+  mutatorName: Volatile
+  mutatorDescription: Enemies may explode ([intvalue]%)
 --- !u!114 &11488212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1099,6 +1534,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 22f3adf2789a24549b917029267c954f, type: 3}
   playRandom: 0
   underwater: 0
+  is3d: 0
   volume: 1
   variableVolume: 0
   volumeMin: .899999976

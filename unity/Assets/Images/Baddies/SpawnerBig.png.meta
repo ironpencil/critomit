@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a4d2faeb0f11e934faffd597f43b0930
-timeCreated: 1438227778
+timeCreated: 1438275495
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -39,7 +39,7 @@ TextureImporter:
   textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 0
+    filterMode: 1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -62,7 +62,7 @@ TextureImporter:
     - name: SpawnerBig_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
         width: 48
         height: 48
@@ -72,7 +72,7 @@ TextureImporter:
     - name: SpawnerBig_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 51
         y: 0
         width: 48
         height: 48
@@ -82,7 +82,7 @@ TextureImporter:
     - name: SpawnerBig_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 101
         y: 0
         width: 48
         height: 48
@@ -92,7 +92,7 @@ TextureImporter:
     - name: SpawnerBig_3
       rect:
         serializedVersion: 2
-        x: 144
+        x: 151
         y: 0
         width: 48
         height: 48
@@ -102,7 +102,7 @@ TextureImporter:
     - name: SpawnerBig_4
       rect:
         serializedVersion: 2
-        x: 192
+        x: 201
         y: 0
         width: 48
         height: 48
@@ -112,7 +112,7 @@ TextureImporter:
     - name: SpawnerBig_5
       rect:
         serializedVersion: 2
-        x: 240
+        x: 251
         y: 0
         width: 48
         height: 48
@@ -122,7 +122,7 @@ TextureImporter:
     - name: SpawnerBig_6
       rect:
         serializedVersion: 2
-        x: 288
+        x: 301
         y: 0
         width: 48
         height: 48
@@ -132,7 +132,7 @@ TextureImporter:
     - name: SpawnerBig_7
       rect:
         serializedVersion: 2
-        x: 336
+        x: 351
         y: 0
         width: 48
         height: 48
@@ -142,7 +142,7 @@ TextureImporter:
     - name: SpawnerBig_8
       rect:
         serializedVersion: 2
-        x: 384
+        x: 401
         y: 0
         width: 48
         height: 48
@@ -152,7 +152,7 @@ TextureImporter:
     - name: SpawnerBig_9
       rect:
         serializedVersion: 2
-        x: 432
+        x: 451
         y: 0
         width: 48
         height: 48

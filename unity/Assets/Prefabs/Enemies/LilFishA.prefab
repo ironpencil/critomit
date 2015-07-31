@@ -34,6 +34,10 @@ GameObject:
   - 114: {fileID: 11483952}
   - 114: {fileID: 11469530}
   - 114: {fileID: 11431032}
+  - 114: {fileID: 11453528}
+  - 114: {fileID: 11479608}
+  - 114: {fileID: 11452722}
+  - 114: {fileID: 11426984}
   m_Layer: 10
   m_Name: LilFishA
   m_TagString: Untagged
@@ -149,7 +153,11 @@ MonoBehaviour:
   - {fileID: 11413010}
   deathEffects:
   - {fileID: 11431032}
+  - {fileID: 11426984}
   pointValue: 50
+  killValue: 1
+  HPRegenAmount: 0
+  HPRegenDelay: 1
 --- !u!114 &11425966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,6 +170,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityFactor: 1
+--- !u!114 &11426984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2285b0bbfd6147f4f960c95af4acf20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numEnemies: 0
+  enemyName: 2
 --- !u!114 &11431032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,6 +195,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionObject: {fileID: 11422114, guid: e0f3a1d68ade28a41b5b418afa07b317, type: 2}
+--- !u!114 &11452722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99472dd782a3e97428ea536551945c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  takesDamage: {fileID: 11418296}
+  damageOnTouch: {fileID: 11485814}
+  mutatedMovements:
+  - {fileID: 11469530}
+  deathExplosion: {fileID: 11431032}
+  loopedSoundNormal: {fileID: 11453528}
+  splitEnemyEffect: {fileID: 11426984}
+  enemyDeathDamageExplosion: {fileID: 11498602, guid: a6cd504370b47b540b37b4ed9df14a78,
+    type: 2}
+--- !u!114 &11453528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4fb51bbc76c08488f928ec7787af51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectHandler: {fileID: 11479608}
+  loopDelayMin: 2
+  loopDelayMax: 6
+  doLoopSound: 1
 --- !u!114 &11469530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,6 +248,37 @@ MonoBehaviour:
   magnitude: .600000024
   frequency: 8
   randomSeed: 0
+--- !u!114 &11479608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cab98cc2be240648a16a856abd608fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 66bb988610becb24ea1f0dfebf638e9a, type: 3}
+  playRandom: 1
+  underwater: 1
+  is3d: 1
+  volume: 1
+  variableVolume: 0
+  volumeMin: .300000012
+  volumeMax: .5
+  playDelay: 0
+  variableDelay: 0
+  playDelayMin: 0
+  playDelayMax: .00999999978
+  ignoreTimeScale: 0
+  pitch: 1
+  variablePitch: 1
+  pitchMin: 1
+  pitchMax: 1.04999995
+  playOneShot: 1
+  playOnStart: 0
 --- !u!114 &11483952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,7 +344,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: deathEffects.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damagedEffects.Array.size
@@ -265,6 +352,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: spritesToFlash.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mutatedMovements.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
@@ -373,6 +464,67 @@ Prefab:
       propertyPath: pointValue
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loopDelayMin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loopDelayMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pitchMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pitchMax
+      value: 1.04999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: soundEffectHandler
+      value: 
+      objectReference: {fileID: 11479608}
+    - target: {fileID: 0}
+      propertyPath: variableVolume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loopedSoundNormal
+      value: 
+      objectReference: {fileID: 11453528}
+    - target: {fileID: 0}
+      propertyPath: deathExplosion
+      value: 
+      objectReference: {fileID: 11431032}
+    - target: {fileID: 0}
+      propertyPath: damageOnTouch
+      value: 
+      objectReference: {fileID: 11485814}
+    - target: {fileID: 0}
+      propertyPath: takesDamage
+      value: 
+      objectReference: {fileID: 11418296}
+    - target: {fileID: 0}
+      propertyPath: splitEnemyEffect
+      value: 
+      objectReference: {fileID: 11426984}
+    - target: {fileID: 0}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 193732}
+    - target: {fileID: 0}
+      propertyPath: enemyName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: enemyDeathDamageExplosion
+      value: 
+      objectReference: {fileID: 11498602, guid: a6cd504370b47b540b37b4ed9df14a78,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 193732}

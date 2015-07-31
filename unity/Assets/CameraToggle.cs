@@ -8,7 +8,8 @@ public class CameraToggle : MonoBehaviour {
     public enum CamOption
     {
         Rotation,
-        Bounce
+        Bounce,
+        WaterFilter
     }
 
     public CamOption camOption;
@@ -46,6 +47,9 @@ public class CameraToggle : MonoBehaviour {
 
                 break;
             case CamOption.Bounce:
+                break;
+            case CamOption.WaterFilter:
+                Globals.Instance.EnableWaterFilter(camToggle.isOn);
                 break;
             default:
                 break;

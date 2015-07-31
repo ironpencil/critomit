@@ -101,6 +101,7 @@ public class ArenaManager : Singleton<ArenaManager> {
     public void PrepareNextWave()
     {
         ScoreManager.Instance.VerifyMinimumMultiplier();
+        ScoreManager.Instance.ResetKillCounter();
         ScoreManager.Instance.RefreshPointsDisplay();        
         ObjectManager.Instance.waveText.text = (wavesCompleted + 1).ToString();
         MutatorManager.Instance.GenerateNewLevelMutators();
@@ -121,10 +122,24 @@ public class ArenaManager : Singleton<ArenaManager> {
     }
 
     public void CompleteWave(bool showDialog)
-    {
+    {        
+
         EndWave();
 
         wavesCompleted++;
+
+        //make sure player doesn't die
+        PlayerDamageManager pdm = ObjectManager.Instance.player.GetComponent<PlayerDamageManager>();
+
+        if (pdm != null)
+        {
+            if (pdm.MarkedForDeath)
+            {
+                return; // they're already dead, can't do anything
+            }
+
+            pdm.Invulnerable = true;
+        }
 
         EventTextManager.Instance.AddEvent(@"!! (GOT EM!> \(^.^')/ !!", 5.0f, true);
 
@@ -136,7 +151,7 @@ public class ArenaManager : Singleton<ArenaManager> {
 
         SpawnManager.Instance.StopSpawners();
         SpawnManager.Instance.ClearEnemies();
-        ObjectManager.Instance.player.GetComponent<PlayerDamageManager>().FullHeal();
+        //ObjectManager.Instance.player.GetComponent<PlayerDamageManager>().FullHeal();
 
         if (showDialog)
         {
@@ -156,7 +171,7 @@ public class ArenaManager : Singleton<ArenaManager> {
     public void LoadNextLevel()
     {
         //Application.LoadLevel("waveArena");
-        //TODO: REMOVE THIS WHEN WE PUT IN WAVE CLEAR DIALOG?
+        //this is called from the End Wave dialog
         StartCoroutine(Globals.Instance.WaitAndLoadLevel(1.0f, GameLevel.Arena));
     }
 }

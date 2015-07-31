@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f58ad02d6a89dfa42b655759e18b4c26
-timeCreated: 1438227801
+timeCreated: 1438275516
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -41,7 +41,7 @@ TextureImporter:
   textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 0
+    filterMode: 1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -64,7 +64,7 @@ TextureImporter:
     - name: SpawnerSmall_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
         width: 32
         height: 32
@@ -74,7 +74,7 @@ TextureImporter:
     - name: SpawnerSmall_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 35
         y: 0
         width: 32
         height: 32
@@ -84,7 +84,7 @@ TextureImporter:
     - name: SpawnerSmall_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 69
         y: 0
         width: 32
         height: 32
@@ -94,7 +94,7 @@ TextureImporter:
     - name: SpawnerSmall_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 103
         y: 0
         width: 32
         height: 32
@@ -104,7 +104,7 @@ TextureImporter:
     - name: SpawnerSmall_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 137
         y: 0
         width: 32
         height: 32
@@ -114,7 +114,7 @@ TextureImporter:
     - name: SpawnerSmall_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 171
         y: 0
         width: 32
         height: 32
@@ -124,7 +124,7 @@ TextureImporter:
     - name: SpawnerSmall_6
       rect:
         serializedVersion: 2
-        x: 192
+        x: 205
         y: 0
         width: 32
         height: 32
@@ -134,7 +134,7 @@ TextureImporter:
     - name: SpawnerSmall_7
       rect:
         serializedVersion: 2
-        x: 224
+        x: 239
         y: 0
         width: 32
         height: 32
@@ -144,7 +144,7 @@ TextureImporter:
     - name: SpawnerSmall_8
       rect:
         serializedVersion: 2
-        x: 256
+        x: 273
         y: 0
         width: 32
         height: 32
@@ -154,7 +154,7 @@ TextureImporter:
     - name: SpawnerSmall_9
       rect:
         serializedVersion: 2
-        x: 288
+        x: 307
         y: 0
         width: 32
         height: 32
@@ -164,7 +164,7 @@ TextureImporter:
     - name: SpawnerSmall_10
       rect:
         serializedVersion: 2
-        x: 320
+        x: 341
         y: 0
         width: 32
         height: 32
@@ -174,7 +174,7 @@ TextureImporter:
     - name: SpawnerSmall_11
       rect:
         serializedVersion: 2
-        x: 352
+        x: 375
         y: 0
         width: 32
         height: 32

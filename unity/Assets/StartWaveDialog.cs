@@ -51,13 +51,27 @@ public class StartWaveDialog : MonoBehaviour {
     {
         bool doubleSpace = MutatorManager.Instance.pendingMutators.Count < mutatorSingleLineThreshold;
         List<string> mutatorDescriptions = new List<string>();
+
+        bool addSpace = false;
         foreach (Mutator mutator in MutatorManager.Instance.pendingMutators)
         {
-            mutatorDescriptions.Add(mutator.mutatorName + ": " + mutator.GetDescription());
-            if (doubleSpace)
+            //add double spacing, but do it before each new mutator and not for the first one
+            if (doubleSpace && addSpace)
             {
                 mutatorDescriptions.Add("");
             }
+
+            string mutatorDesc = mutator.GetDescription();
+            string fullDesc = mutator.mutatorName;
+            
+            if (mutatorDesc.Length > 0)
+            {
+                fullDesc += ":  " + mutatorDesc;
+            }
+
+            mutatorDescriptions.Add(fullDesc);
+
+            addSpace = true;
         }
 
         int blankLines = maxDisplayedMutators - mutatorDescriptions.Count;

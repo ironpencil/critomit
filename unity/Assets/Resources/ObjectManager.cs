@@ -15,6 +15,8 @@ public class ObjectManager : Singleton<ObjectManager> {
     public List<MessageBox> autoMessageBoxes;
     public StartWaveDialog startWaveDialog;
     public EndWaveDialog endWaveDialog;
+    public GameObject waterFilter;
+    public TilesetSwitcher tileSetSwitcher;
     public Text pointsText;
     public Text multiplierText;
     public Text waveText;

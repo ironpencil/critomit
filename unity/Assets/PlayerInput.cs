@@ -136,29 +136,32 @@ public class PlayerInput : MonoBehaviour {
 
         //}
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (DebugLogger.DEBUG_MODE.Equals("DEBUG"))
         {
-            rb.isKinematic = !rb.isKinematic;
-        }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                rb.isKinematic = !rb.isKinematic;
+            }
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            //if (shield != null)
-            //{
-            //    shield.GravityActive = !shield.GravityActive;
-            //}
-            CameraShake shaker = Camera.main.GetComponent<CameraShake>();
-            //shaker.AddShake(0.25f, 10.0f, 0.1f);
-        }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                //if (shield != null)
+                //{
+                //    shield.GravityActive = !shield.GravityActive;
+                //}
+                CameraShake shaker = Camera.main.GetComponent<CameraShake>();
+                //shaker.AddShake(0.25f, 10.0f, 0.1f);
+            }
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            gameObject.GetComponent<PlayerDamageManager>().healthBar.TestHealthBar();
-        }
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                gameObject.GetComponent<PlayerDamageManager>().healthBar.TestHealthBar();
+            }
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            gameObject.GetComponent<PlayerDamageManager>().healthBar.FlashWhite();
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                gameObject.GetComponent<PlayerDamageManager>().healthBar.FlashWhite();
+            }
         }
     }
 

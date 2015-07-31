@@ -44,16 +44,19 @@ public class ArenaManager : Singleton<ArenaManager> {
     {
         if (waveActive && Globals.Instance.currentState == GameState.Arena)
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            if (DebugLogger.DEBUG_MODE.Equals("DEBUG"))
             {
-                CompleteWave(false);
-                StartWave();
-            }
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    CompleteWave(false);
+                    StartWave();
+                }
 
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                CompleteWave(true);
-                //LoadNextLevel();
+                if (Input.GetKeyDown(KeyCode.L))
+                {
+                    CompleteWave(true);
+                    //LoadNextLevel();
+                }
             }
 
         }

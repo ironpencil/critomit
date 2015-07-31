@@ -143,15 +143,23 @@ public class Globals : Singleton<Globals> {
 
         acceptPlayerGameInput = false;
 
-        try
-        {
-            equippedPrimaryWeapon = ObjectManager.Instance.weaponController.GetEquippedWeaponIndex(WeaponLocation.Primary);
-            equippedSecondaryWeapon = ObjectManager.Instance.weaponController.GetEquippedWeaponIndex(WeaponLocation.Secondary);
-        }
-        catch
+        if (playerDied)
         {
             equippedPrimaryWeapon = 0;
             equippedSecondaryWeapon = 0;
+        }
+        else
+        {
+            try
+            {
+                equippedPrimaryWeapon = ObjectManager.Instance.weaponController.GetEquippedWeaponIndex(WeaponLocation.Primary);
+                equippedSecondaryWeapon = ObjectManager.Instance.weaponController.GetEquippedWeaponIndex(WeaponLocation.Secondary);
+            }
+            catch
+            {
+                equippedPrimaryWeapon = 0;
+                equippedSecondaryWeapon = 0;
+            }
         }
 
         targetLevel = level;
@@ -198,7 +206,8 @@ public class Globals : Singleton<Globals> {
 
     private IEnumerator DoNewLevelSetup(GameLevel level)
     {
-        loadingLevel = false;        
+        loadingLevel = false;
+        playerDied = false;
 
         //yield return new WaitForSeconds(0.1f);
 
@@ -210,8 +219,12 @@ public class Globals : Singleton<Globals> {
 
         DebugLogger.Log("Globals: New Level Setup");
 
-        ObjectManager.Instance.weaponController.primaryWeaponIndex = equippedPrimaryWeapon;
-        ObjectManager.Instance.weaponController.secondaryWeaponIndex = equippedSecondaryWeapon;
+        //try
+        //{
+        //    ObjectManager.Instance.weaponController.primaryWeaponIndex = equippedPrimaryWeapon;
+        //    ObjectManager.Instance.weaponController.secondaryWeaponIndex = equippedSecondaryWeapon;
+        //}
+        //catch { }
 
         DoFadeScreenIn();
 
@@ -226,6 +239,8 @@ public class Globals : Singleton<Globals> {
         TileMapBuilder.Instance.taintChance = taintChance;
 
         TileMapBuilder.Instance.randomizedTainted = true;
+
+        acceptPlayerGameInput = true;
 
         if (level == GameLevel.Arena)
         {            
@@ -275,9 +290,14 @@ public class Globals : Singleton<Globals> {
         return levelsBeaten.Add(level);
     }
 
+    private bool playerDied = false;
+
     public void PlayerDied()
     {
         DebugLogger.Log("Player Died. CurrentLevel = " + Enum.GetName(typeof(GameLevel), currentLevel));
+
+        playerDied = true;        
+
         switch (currentLevel)
         {
             //case GameLevel.Title:

@@ -82,9 +82,12 @@ public class SpawnManager : Singleton<SpawnManager> {
             SpawnerObjects = GameObject.Find("Spawners");
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (DebugLogger.DEBUG_MODE.Equals("DEBUG"))
         {
-            spawnEnemies = !spawnEnemies;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                spawnEnemies = !spawnEnemies;
+            }
         }
     }
 

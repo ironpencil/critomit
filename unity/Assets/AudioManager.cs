@@ -75,9 +75,12 @@ public class AudioManager : Singleton<AudioManager> {
             CheckSwitchArenaSources();
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (DebugLogger.DEBUG_MODE.Equals("DEBUG"))
         {
-            ignoreUnderwater = !ignoreUnderwater;
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                ignoreUnderwater = !ignoreUnderwater;
+            }
         }
 
         //DebugLogger.Log("Audio dspTime=" + AudioSettings.dspTime);

@@ -157,9 +157,12 @@ public class MutatorManager : Singleton<MutatorManager> {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (DebugLogger.DEBUG_MODE.Equals("DEBUG"))
         {
-            SpinCamera();
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                SpinCamera();
+            }
         }
 
 

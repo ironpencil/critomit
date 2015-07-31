@@ -270,9 +270,12 @@ public class TileMapBuilder : Singleton<TileMapBuilder> {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (DebugLogger.DEBUG_MODE.Equals("DEBUG"))
         {
-            GenerateRandomTileset();
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                GenerateRandomTileset();
+            }
         }
 
 	}

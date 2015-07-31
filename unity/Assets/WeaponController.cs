@@ -38,6 +38,9 @@ public class WeaponController : MonoBehaviour {
             displayManager = ObjectManager.Instance.weaponDisplayManager;
         }
 
+        primaryWeaponIndex = Globals.Instance.equippedPrimaryWeapon;
+        secondaryWeaponIndex = Globals.Instance.equippedSecondaryWeapon;
+
         DebugLogger.Log("WeaponController::Start()");
 
         weaponSlots = new Dictionary<WeaponLocation, WeaponSlot>();

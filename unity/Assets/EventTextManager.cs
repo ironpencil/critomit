@@ -23,9 +23,12 @@ public class EventTextManager : Singleton<EventTextManager> {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (DebugLogger.DEBUG_MODE.Equals("DEBUG"))
         {
-            AddEvent("Test Message", 1.0f, true);
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                AddEvent("Test Message", 1.0f, true);
+            }
         }
 	
 	}

@@ -6,9 +6,9 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: TaintMaterial
-  m_Shader: {fileID: 4800000, guid: e281d827184474748a30cd4bef785e45, type: 3}
-  m_ShaderKeywords: PIXELSNAP_ON
+  m_Name: BubbleParticles
+  m_Shader: {fileID: 10753, guid: 0000000000000000e000000000000000, type: 0}
+  m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -19,20 +19,16 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: eadb3928563985c40a90fbff2b4f8fb2, type: 3}
+          m_Texture: {fileID: 2800000, guid: 92f22582482412c4ea4d248fe21a593b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: PixelSnap
-        second: 1
+        second: 0
     m_Colors:
       data:
         first:
           name: _Color
         second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _AlphaColorKey
-        second: {r: 0, g: 0, b: 0, a: 0}

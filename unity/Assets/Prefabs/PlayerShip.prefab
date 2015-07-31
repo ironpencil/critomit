@@ -383,7 +383,8 @@ GameObject:
   - 4: {fileID: 461386}
   - 198: {fileID: 19861386}
   - 199: {fileID: 19954530}
-  m_Layer: 0
+  - 114: {fileID: 11418344}
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -819,7 +820,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121250}
-  m_LocalRotation: {x: 0, y: 0, z: -.130526215, w: .991444886}
+  m_LocalRotation: {x: 0, y: 0, z: -.258819073, w: .965925813}
   m_LocalPosition: {x: .25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -949,7 +950,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195016}
   m_LocalRotation: {x: 0, y: 0, z: -.130526215, w: .991444886}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .200000003, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 466108}
@@ -974,7 +975,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161386}
-  m_LocalRotation: {x: 0, y: 0, z: -.130526215, w: .991444886}
+  m_LocalRotation: {x: 0, y: 0, z: -.382683456, w: .923879504}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1595,7 +1596,7 @@ MonoBehaviour:
   shooterForce: {x: -80000, y: 0}
   cameraShaker: {fileID: 11488284}
   particleSystem: {fileID: 19830292}
-  minMaxParticles: {x: 3, y: 6}
+  minMaxParticles: {x: 6, y: 12}
   autoFire: 1
   fireDelay: .100000001
   varyFireDelay: 1
@@ -1618,6 +1619,19 @@ MonoBehaviour:
   guiBlockedButtons: []
   doLimitVelocity: 1
   lookAtMouse: {fileID: 11491454}
+--- !u!114 &11418344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c855732628085046862630c3836655f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingLayerName: Explosions
+  psr: {fileID: 19954530}
 --- !u!114 &11420652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1789,7 +1803,7 @@ MonoBehaviour:
   shooterForce: {x: -350000, y: 0}
   cameraShaker: {fileID: 11434194}
   particleSystem: {fileID: 19843162}
-  minMaxParticles: {x: 5, y: 10}
+  minMaxParticles: {x: 20, y: 40}
   autoFire: 1
   fireDelay: .600000024
   varyFireDelay: 0
@@ -1851,7 +1865,7 @@ MonoBehaviour:
   shooterForce: {x: -500000, y: 0}
   cameraShaker: {fileID: 0}
   particleSystem: {fileID: 19865422}
-  minMaxParticles: {x: 10, y: 20}
+  minMaxParticles: {x: 20, y: 40}
   autoFire: 1
   fireDelay: .75
   varyFireDelay: 0
@@ -1988,7 +2002,7 @@ MonoBehaviour:
   shooterForce: {x: -40000, y: 0}
   cameraShaker: {fileID: 11493750}
   particleSystem: {fileID: 19817444}
-  minMaxParticles: {x: 3, y: 6}
+  minMaxParticles: {x: 6, y: 12}
   autoFire: 1
   fireDelay: .100000001
   varyFireDelay: 1
@@ -2183,7 +2197,7 @@ MonoBehaviour:
   shooterForce: {x: -200000, y: 0}
   cameraShaker: {fileID: 11463934}
   particleSystem: {fileID: 19861386}
-  minMaxParticles: {x: 5, y: 10}
+  minMaxParticles: {x: 20, y: 40}
   autoFire: 0
   fireDelay: 1
   varyFireDelay: 0
@@ -2513,7 +2527,7 @@ MonoBehaviour:
   shooterForce: {x: -40000, y: 0}
   cameraShaker: {fileID: 11472512}
   particleSystem: {fileID: 19862206}
-  minMaxParticles: {x: 3, y: 6}
+  minMaxParticles: {x: 6, y: 12}
   autoFire: 1
   fireDelay: .100000001
   varyFireDelay: 1
@@ -2812,7 +2826,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 1694498815
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: .5
@@ -3144,8 +3158,8 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
     tilesX: 8
-    tilesY: 1
-    animationType: 0
+    tilesY: 12
+    animationType: 1
     rowIndex: 0
     cycles: 1
     randomRow: 1
@@ -3865,7 +3879,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 1694498815
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: .5
@@ -4197,8 +4211,8 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
     tilesX: 8
-    tilesY: 1
-    animationType: 0
+    tilesY: 12
+    animationType: 1
     rowIndex: 0
     cycles: 1
     randomRow: 1
@@ -4918,7 +4932,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 1694498815
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: .5
@@ -4999,7 +5013,7 @@ ParticleSystem:
     boxX: 1
     boxY: 1
     boxZ: 1
-    arc: 30
+    arc: 60
     placementMode: 0
     m_Mesh: {fileID: 0}
     randomDirection: 0
@@ -5250,8 +5264,8 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
     tilesX: 8
-    tilesY: 1
-    animationType: 0
+    tilesY: 12
+    animationType: 1
     rowIndex: 0
     cycles: 1
     randomRow: 1
@@ -5971,7 +5985,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 1694498815
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: .5
@@ -6052,7 +6066,7 @@ ParticleSystem:
     boxX: 1
     boxY: 1
     boxZ: 1
-    arc: 30
+    arc: 90
     placementMode: 0
     m_Mesh: {fileID: 0}
     randomDirection: 0
@@ -6303,8 +6317,8 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
     tilesX: 8
-    tilesY: 1
-    animationType: 0
+    tilesY: 12
+    animationType: 1
     rowIndex: 0
     cycles: 1
     randomRow: 1
@@ -7024,7 +7038,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 1694498815
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: .5
@@ -7356,8 +7370,8 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
     tilesX: 8
-    tilesY: 1
-    animationType: 0
+    tilesY: 12
+    animationType: 1
     rowIndex: 0
     cycles: 1
     randomRow: 1
@@ -8077,7 +8091,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 1694498815
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: .5
@@ -8409,8 +8423,8 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
     tilesX: 8
-    tilesY: 1
-    animationType: 0
+    tilesY: 12
+    animationType: 1
     rowIndex: 0
     cycles: 1
     randomRow: 1
@@ -9130,7 +9144,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 1694498815
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: .5
@@ -9462,8 +9476,8 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
     tilesX: 8
-    tilesY: 1
-    animationType: 0
+    tilesY: 12
+    animationType: 1
     rowIndex: 0
     cycles: 1
     randomRow: 1
@@ -10515,8 +10529,8 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
     tilesX: 8
-    tilesY: 1
-    animationType: 0
+    tilesY: 4
+    animationType: 1
     rowIndex: 0
     cycles: 1
     randomRow: 1
@@ -11236,7 +11250,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 1694498815
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: .5
@@ -11568,8 +11582,8 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
     tilesX: 8
-    tilesY: 1
-    animationType: 0
+    tilesY: 12
+    animationType: 1
     rowIndex: 0
     cycles: 1
     randomRow: 1
@@ -12125,7 +12139,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71bc436cbb543d846b627c4dbdd4dcc2, type: 2}
+  - {fileID: 2100000, guid: faf60795ea716424e920aff77b674810, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -12161,7 +12175,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71bc436cbb543d846b627c4dbdd4dcc2, type: 2}
+  - {fileID: 2100000, guid: faf60795ea716424e920aff77b674810, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -12197,7 +12211,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71bc436cbb543d846b627c4dbdd4dcc2, type: 2}
+  - {fileID: 2100000, guid: faf60795ea716424e920aff77b674810, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -12233,7 +12247,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71bc436cbb543d846b627c4dbdd4dcc2, type: 2}
+  - {fileID: 2100000, guid: faf60795ea716424e920aff77b674810, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -12269,7 +12283,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71bc436cbb543d846b627c4dbdd4dcc2, type: 2}
+  - {fileID: 2100000, guid: faf60795ea716424e920aff77b674810, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -12305,7 +12319,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71bc436cbb543d846b627c4dbdd4dcc2, type: 2}
+  - {fileID: 2100000, guid: 05276b6a59a9d3545900d507ddd921d0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -12341,7 +12355,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71bc436cbb543d846b627c4dbdd4dcc2, type: 2}
+  - {fileID: 2100000, guid: faf60795ea716424e920aff77b674810, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -12377,7 +12391,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71bc436cbb543d846b627c4dbdd4dcc2, type: 2}
+  - {fileID: 2100000, guid: faf60795ea716424e920aff77b674810, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -12413,7 +12427,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71bc436cbb543d846b627c4dbdd4dcc2, type: 2}
+  - {fileID: 2100000, guid: faf60795ea716424e920aff77b674810, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

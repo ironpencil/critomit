@@ -10,6 +10,8 @@ public class MenuDialog : MonoBehaviour {
     public ButtonSelectionHandler menuButton;
     public Text menuButtonText;
 
+    public Button quitButton;
+
 	// Use this for initialization
 	void Start () {
         if (menuMessageBox == null)
@@ -46,6 +48,8 @@ public class MenuDialog : MonoBehaviour {
     {
         Globals.Instance.Pause(true);
         menuButton.button.interactable = false;
+
+        quitButton.gameObject.SetActive(!Application.isWebPlayer);
 
         menuMessageBox.StartOpen();
 

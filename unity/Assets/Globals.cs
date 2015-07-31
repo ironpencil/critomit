@@ -337,6 +337,8 @@ public class Globals : Singleton<Globals> {
 
     public void Pause(bool pause)
     {
+        if (isQuitting) { return; }
+
         paused = pause;
 
         if (paused)
@@ -374,5 +376,19 @@ public class Globals : Singleton<Globals> {
         return waterFilterEnabled;
     }
 
+    public bool isQuitting = false;
 
+    public void DoQuit()
+    {
+        Pause(false);
+        isQuitting = true;        
+        StartCoroutine(WaitAndQuit(1.0f));
+    }
+
+    private IEnumerator WaitAndQuit(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        Application.Quit();
+    }
 }

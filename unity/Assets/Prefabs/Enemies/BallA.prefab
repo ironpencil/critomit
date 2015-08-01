@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.1623955, y: -4.35260391, z: 0}
+  m_LocalPosition: {x: -20.9596806, y: -.734556556, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 465850}
@@ -305,10 +305,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 66bb988610becb24ea1f0dfebf638e9a, type: 3}
+  - {fileID: 8300000, guid: e94a02a8aba15cc43a75de71e31af338, type: 3}
+  - {fileID: 8300000, guid: 7cc2fc4025f0c1341bfad3ec9fcd5b26, type: 3}
   playRandom: 1
   underwater: 1
   is3d: 1
-  volume: 1
+  volume: .899999976
   variableVolume: 0
   volumeMin: .300000012
   volumeMax: .5
@@ -1608,7 +1610,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: volume
-      value: 1
+      value: .899999976
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: loopedSoundNormal

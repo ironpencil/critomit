@@ -39,6 +39,11 @@ public class PlayerInput : MonoBehaviour {
 
         HandlePlayerInput();
 
+        if (Input.GetButtonDown("Menu"))
+        {
+            Globals.Instance.ToggleMenu();
+        }
+
         currentVelocity = rb.velocity;
 	}
 
@@ -121,6 +126,11 @@ public class PlayerInput : MonoBehaviour {
             //}
             //secondaryWeapons[secondaryWeaponIndex].SelectWeapon();
 
+        }
+
+        if (Input.GetButtonDown("Pause"))
+        {
+            Globals.Instance.TogglePause();
         }
 
         //if (Input.GetButtonDown("Switch Special"))

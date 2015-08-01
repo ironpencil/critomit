@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -355,6 +356,26 @@ public class Globals : Singleton<Globals> {
     public void TogglePause()
     {
         Pause(!paused);
+    }
+
+
+    public void ToggleMenu()
+    {
+        try
+        {
+            MenuDialog menu = ObjectManager.Instance.menuDialog;
+
+            if (menu != null)
+            {
+                ButtonSelectionHandler menuButton = menu.menuButton;
+
+                if (menuButton.button.IsInteractable() && !loadingLevel)
+                {
+                    menu.ToggleDisplayed();
+                }
+            }
+        }
+        catch { }
     }
 
     private bool waterFilterEnabled = true;

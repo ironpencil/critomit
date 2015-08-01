@@ -293,10 +293,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 66bb988610becb24ea1f0dfebf638e9a, type: 3}
+  - {fileID: 8300000, guid: e94a02a8aba15cc43a75de71e31af338, type: 3}
+  - {fileID: 8300000, guid: 7cc2fc4025f0c1341bfad3ec9fcd5b26, type: 3}
   playRandom: 1
   underwater: 1
   is3d: 1
-  volume: 1
+  volume: .899999976
   variableVolume: 0
   volumeMin: .300000012
   volumeMax: .5
@@ -1464,6 +1466,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: clips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: deathEffects.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1611,7 +1617,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: volume
-      value: 1
+      value: .899999976
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: loopedSoundNormal

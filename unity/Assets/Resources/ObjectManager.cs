@@ -21,6 +21,7 @@ public class ObjectManager : Singleton<ObjectManager> {
     public Text multiplierText;
     public Text waveText;
     public Text eventText;
+    public MenuDialog menuDialog;
 
 	// Use this for initialization
     public override void Start()

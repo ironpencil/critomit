@@ -47,6 +47,7 @@ public class MenuDialog : MonoBehaviour {
     private IEnumerator DoOpen()
     {
         Globals.Instance.Pause(true);
+        Globals.Instance.acceptPlayerGameInput = false;
         menuButton.button.interactable = false;
 
         quitButton.gameObject.SetActive(!Application.isWebPlayer);
@@ -78,5 +79,18 @@ public class MenuDialog : MonoBehaviour {
         menuButton.button.interactable = true;
         menuButtonText.text = "MENU";
         Globals.Instance.Pause(false);
+
+        if (Globals.Instance.currentLevel == GameLevel.Arena)
+        {
+            if (ArenaManager.Instance.IsWaveActive())
+            {
+
+                Globals.Instance.acceptPlayerGameInput = true;
+            }
+        }
+        else
+        {
+            Globals.Instance.acceptPlayerGameInput = true;
+        }
     }
 }

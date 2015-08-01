@@ -901,7 +901,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24375796, guid: 18c41163ee8819341933ac809950f9cf,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: e4ab3f544ceb8b7478ac9b1be91e62da, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 59effc42087f72c48bec307bea177fd7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   decrementedWeight: 0
   currentWeight: 0
   cumulativeWeight: 0
-  mutatorName: ???
+  mutatorName: ?????
   mutatorDescription: Spatial anomalies detected
 --- !u!114 &11424564
 MonoBehaviour:
@@ -1198,6 +1198,7 @@ MonoBehaviour:
   cameraSpinEnabled: 1
   equippedPrimaryWeapon: 0
   equippedSecondaryWeapon: 0
+  isQuitting: 0
 --- !u!114 &11443020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1327,7 +1328,7 @@ MonoBehaviour:
   arenaMusic:
   - {fileID: 8300000, guid: d41386f772cf2a44286a9c2583a2c6c3, type: 3}
   - {fileID: 8300000, guid: 4c212a5e93704c8419d87ded2163904f, type: 3}
-  lobbyMusic: {fileID: 8300000, guid: e4ab3f544ceb8b7478ac9b1be91e62da, type: 3}
+  lobbyMusic: {fileID: 8300000, guid: 59effc42087f72c48bec307bea177fd7, type: 3}
   currentMusicClip: {fileID: 0}
   toArenaTransition: 3
   toLobbyTransition: 3

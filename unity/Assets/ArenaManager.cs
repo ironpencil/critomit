@@ -11,6 +11,11 @@ public class ArenaManager : Singleton<ArenaManager> {
     [SerializeField]
     private bool waveActive = false;
 
+    public bool IsWaveActive()
+    {
+        return waveActive;
+    }
+
     public SoundEffectHandler waveCompleteSound;
 
     void OnEnable()

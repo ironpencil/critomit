@@ -7,7 +7,7 @@ using System.Text;
 
 public static class DebugLogger
 {
-    public const string DEBUG_MODE = "DEBUG";
+    public const string DEBUG_MODE = "RELEASE";
 
     public static void Log(string message)
     {

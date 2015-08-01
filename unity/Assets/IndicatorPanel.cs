@@ -89,6 +89,8 @@ public class IndicatorPanel : MonoBehaviour {
         newIndicator.enemy = enemy;
 
         enemyIndicators.Add(newIndicator);
+
+        newIndicator.isVisible = true;
     }
 
     private bool UpdateIndicator(EnemyIndicator indicator)

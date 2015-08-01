@@ -51,7 +51,7 @@ public class Globals : Singleton<Globals> {
         if (playIntro)
         {
             playIntro = false;
-            acceptPlayerGameInput = true;
+            //acceptPlayerGameInput = true;
             StartCoroutine(DoNewLevelSetup(currentLevel));
         }
     }

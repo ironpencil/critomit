@@ -260,7 +260,7 @@ MonoBehaviour:
   playRandom: 1
   underwater: 1
   is3d: 1
-  volume: .899999976
+  volume: .75
   variableVolume: 0
   volumeMin: .300000012
   volumeMax: .5
@@ -1575,7 +1575,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: volume
-      value: .899999976
+      value: .75
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: loopedSoundNormal

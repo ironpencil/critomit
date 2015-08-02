@@ -1415,6 +1415,8 @@ MonoBehaviour:
   - {fileID: 11401478, guid: fbef05d894b354747b84c7f83be3e12f, type: 2}
   - {fileID: 11430778, guid: 3c5afec823011d84e9d4afc76ba5b07c, type: 2}
   - {fileID: 11447020, guid: 05d2dfa93f010784d91ef2d3dbc3b171, type: 2}
+  - {fileID: 11447020, guid: 05d2dfa93f010784d91ef2d3dbc3b171, type: 2}
+  - {fileID: 11401478, guid: fbef05d894b354747b84c7f83be3e12f, type: 2}
   smallSpawnerPrefab: {fileID: 11431040, guid: 8e81f5fca69ef3a4fad73c1a9403fad3, type: 2}
   bigSpawnerPrefab: {fileID: 11431040, guid: 65811ddefee63ae41b9bf94084bf2729, type: 2}
   bigCrate: {fileID: 166968, guid: 282431d6aa35e2144b26a741d37db361, type: 2}

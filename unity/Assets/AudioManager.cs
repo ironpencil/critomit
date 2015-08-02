@@ -185,8 +185,8 @@ public class AudioManager : Singleton<AudioManager> {
     [ContextMenu("Start Arena Music")]
     private void StartArenaMusic()
     {
-        //int randomClip = Random.Range(0, arenaMusic.Count);
-        int randomClip = 0; //for testing
+        int randomClip = Random.Range(0, arenaMusic.Count);
+        //int randomClip = 0; //for testing
 
         nextClip = randomClip;
 
